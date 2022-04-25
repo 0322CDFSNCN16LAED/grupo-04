@@ -3,7 +3,6 @@
 ## Tematica del Marketplace
 - El Objetivo del proyecto es crear un Marketplace que brinde servicios para el hogar, donde el usuario pueda ofrecer o contratar un servicio, o ambas cosas. 
 
-
 ## Servicios Ofrecidos
 - Los servicios ofrecidos seran acotados en principio, dejando lugar a la escalabilidad del proyecto. 
 - Servicios que se ofrecen: Plomeria, Electricidad, Pintura, Carpinteria, Jardinero. (POR EJEMPLO, ESTO LO PODEMOS CHARLAR) 
