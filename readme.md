@@ -24,4 +24,4 @@
 
 ## Integrantes del equipo
 - Piero Jacinto: 33 años de edad, vive en Buenos Aires, Argentina. Trabaja como docente de ingles en la educacion publica y como profesor particular de guitarra con años de experiencia. Actualmente estudiando desarrollo web fullstack en Digital House.   (esto no se como se arma, supongo que esto es lo que piden)
-
+- Julieta Asis: Ingeniera Industrial, cordobesa viviendo en CABA. 30 años. Trabajo como Project Manager en Globant. Me apasiona la tecnología y me gusta ir incorporando nuevos conocimientos para seguir creciendo profesionalmente.
