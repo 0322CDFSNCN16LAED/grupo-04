@@ -27,3 +27,6 @@
 - Ramirez Eduardo: 42 años de edad, vive en San Nicolas, Argentina. Trabaja como Tecnico Adminitrativo en una Fundicion de Bronce.
 - Julieta Asis: Ingeniera Industrial, cordobesa viviendo en CABA. 30 años. Trabajo como Project Manager en Globant. Me apasiona la tecnología y me gusta ir incorporando nuevos conocimientos para seguir creciendo profesionalmente.
 - Julieta Metral: Abogada, 32 años, mendocina viviendo en Buenos Aires. Trabajo como abogada corporativa, asesorando empresas en el área Civil y Comercial. Siempre me interesó la Tecnología, por lo que me decidí por estudiar Programación en Digital House :).
+
+## Link al tablero de trabajo:
+- https://trello.com/invite/b/hFF5U1um/2ba8cf7acafd6025f833ab3946cf0173/web-de-servicios
