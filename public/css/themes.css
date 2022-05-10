@@ -51,18 +51,29 @@ body {
 .footer {
     display: flex;
 }
+.nav-bar {
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 16px;
+    margin-left: 10px;
+    margin-right:10px;
+    margin-bottom: 10px;
+}
 .nav-bar ul li {
     list-style: none;
 }
 .nav-bar ul li a {
     text-decoration: none;
     color: black;
+    font-size: 25px;
 }
-.left-footer-navbar  {
-    border: dotted red 1px;
+.footer-navbar  {
     display: inline-block;
     text-align: center;
-    font-size: 25px;
-    margin-top: 10px;
-    margin-left: 10px;
+    font-size: 16px;
+}
+.border {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
