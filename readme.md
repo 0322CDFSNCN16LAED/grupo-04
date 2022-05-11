@@ -22,6 +22,23 @@
 - https://www.soyfreelancer.com/ (servicios profesionales freelance)
 - https://homesolution.net/ (Hogar)
 
+## Manual de Marca
+
+- Nombre del sitio: http://www.reparaya.com
+- Logo: ![repara ya logo](public\images\logo-repara-ya.svg)
+- Tipografías: 
+    - Amaranth (Regular 400, Regular 400 italic)
+    - Roboto (Regular 400 – opción secundaria)
+
+- Paleta de colores:
+    - #C4C4C4
+    - #FF9900
+    - #FFFFFF
+    - #000000
+    - #061FFF
+    - #A6A6A6
+
+
 ## Integrantes del equipo
 - Piero Jacinto: 33 años de edad, vive en Buenos Aires, Argentina. Trabaja como docente de ingles en la educacion publica y como profesor particular de guitarra con años de experiencia. Actualmente estudiando desarrollo web fullstack en Digital House.   (esto no se como se arma, supongo que esto es lo que piden)
 - Ramirez Eduardo: 42 años de edad, vive en San Nicolas, Argentina. Trabaja como Tecnico Adminitrativo en una Fundicion de Bronce.
