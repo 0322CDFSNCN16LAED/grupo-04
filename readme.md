@@ -31,12 +31,12 @@
     - Roboto (Regular 400 – opción secundaria)
 
 - Paleta de colores:
-    - #C4C4C4
-    - #FF9900
-    - #FFFFFF
-    - #000000
-    - #061FFF
-    - #A6A6A6
+    - `#C4C4C4`
+    - `#FF9900`
+    - `#FFFFFF`
+    - `#000000`
+    - `#061FFF`
+    - `#A6A6A6`
 
 
 ## Integrantes del equipo
