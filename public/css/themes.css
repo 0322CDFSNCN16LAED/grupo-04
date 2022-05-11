@@ -52,50 +52,30 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.footer {
+.nav-bar {
     display: flex;
+    justify-content: center;
 }
 
-.nav-bar {
-    display: inline-flex;
-    justify-content: center;
-    margin-top: 16px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+.nav-bar ul {
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .nav-bar ul li {
     list-style: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
 }
 
 .nav-bar ul li a {
     text-decoration: none;
     color: black;
     font-size: 25px;
+    margin-top: 7%;
+}
+.logo-footer {
+    width: 28%;
 }
 
-.footer-navbar {
-    display: inline-block;
-    text-align: center;
-    font-size: 16px;
-}
-
-.border li a i {
-
-    margin-top: 7px;
-}
-
-.border2 li a i {
-
-    margin-top: 7px;
-}
-
-.left-footer {
-    margin-left: 15px;
-    margin-right: 20px;
-}
-
-.right-footer {
-    margin-right: 15px;
-}
