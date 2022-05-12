@@ -5,3 +5,34 @@
 .w-60 {
     width: 60%;
 }
+
+.text-center { text-align: center; }
+.font-xlarge { font-size: 30px; font-weight: bold;}
+.font-large { font-size: 24px; font-weight: bold;}
+.font-medium { font-size: 16px;}
+.font-small { font-size: 12px;}
+.font-xsmall { font-size: 10px }
+
+.stars {
+    color: gold;
+    margin-top: 2%;
+    display: flex;
+    font-size: 10px;
+}
+
+.marco {
+    border: solid 1px black;
+    width: 100px;
+    height: 100px;
+    margin-right: 5%;
+}
+
+.main-header-flex {
+    display: flex;
+    justify-content: center;
+    margin: 8% 3%;
+}
+
+.main-body {
+    margin: 8%;
+}
