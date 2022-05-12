@@ -31,12 +31,12 @@
     - Roboto (Regular 400 – opción secundaria)
 
 - Paleta de colores:
-    - `#C4C4C4` <span style="color:#C4C4C4">#C4C4C4</span>  
-    - `#FF9900` <span style="color:#FF9900">#FF9900</span>
-    - `#FFFFFF` <span style="color: #FFFFFF">#FFFFFF</span>
-    - `#000000` <span style="color: #000000">#000000</span>
-    - `#061FFF` <span style="color: #061FFF">#061FFF</span>
-    - `#A6A6A6` <span style="color: #A6A6A6">#FFFFFF</span>
+    -  <span style="color:#C4C4C4">#C4C4C4</span>  
+    -  <span style="color:#FF9900">#FF9900</span>
+    -  <span style="color: #FFFFFF">#FFFFFF</span>
+    -  <span style="color: #000000">#000000</span>
+    -  <span style="color: #061FFF">#061FFF</span>
+    -  <span style="color: #A6A6A6">#FFFFFF</span>
    
     
 
