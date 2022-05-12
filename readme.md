@@ -25,7 +25,7 @@
 ## Manual de Marca
 
 - Nombre del sitio: http://www.reparaya.com
-- Logo: ![repara ya logo](public\images\logo-repara-ya.svg)
+- Logo: ![](public%5Cimages%5CLogoReparaYa.png)
 - Tipografías: 
     - Amaranth (Regular 400, Regular 400 italic)
     - Roboto (Regular 400 – opción secundaria)
