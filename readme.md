@@ -31,17 +31,19 @@
     - Roboto (Regular 400 – opción secundaria)
 
 - Paleta de colores:
-    -  <span style="color:#C4C4C4">#C4C4C4</span>  
-    -  <span style="color:#FF9900">#FF9900</span>
-    -  <span style="color: #FFFFFF">#FFFFFF</span>
-    -  <span style="color: #000000">#000000</span>
-    -  <span style="color: #061FFF">#061FFF</span>
-    -  <span style="color: #A6A6A6">#FFFFFF</span>
-   
+  
+    
+    -  ![#C4C4C4](https://via.placeholder.com/15/C4C4C4/000000?text=+) #C4C4C4
+    -  ![#FF9900](https://via.placeholder.com/15/FF9900/000000?text=+) #FF9900
+    -  ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/000000?text=+) #FFFFFF
+    -  ![#000000](https://via.placeholder.com/15/000000/000000?text=+) #000000
+    -  ![#061FFF](https://via.placeholder.com/15/061FFF/000000?text=+) #061FFF
+    
+
     
 
 ## Integrantes del equipo
-- Piero Jacinto: 33 años de edad, vive en Buenos Aires, Argentina. Trabaja como docente de ingles en la educacion publica y como profesor particular de guitarra con años de experiencia. Actualmente estudiando desarrollo web fullstack en Digital House.   (esto no se como se arma, supongo que esto es lo que piden)
+- Piero Jacinto: 33 años de edad, vive en Buenos Aires, Argentina. Trabaja como docente de ingles en la educacion publica y como profesor particular de guitarra con años de experiencia. Actualmente estudiando desarrollo web fullstack en Digital House. 
 - Ramirez Eduardo: 42 años de edad, vive en San Nicolas, Argentina. Trabaja como Tecnico Adminitrativo en una Fundicion de Bronce.
 - Julieta Asis: Ingeniera Industrial, cordobesa viviendo en CABA. 30 años. Trabajo como Project Manager en Globant. Me apasiona la tecnología y me gusta ir incorporando nuevos conocimientos para seguir creciendo profesionalmente.
 - Julieta Metral: Abogada, 32 años, mendocina viviendo en Buenos Aires. Trabajo como abogada corporativa, asesorando empresas en el área Civil y Comercial. Siempre me interesó la Tecnología, por lo que me decidí por estudiar Programación en Digital House :).
