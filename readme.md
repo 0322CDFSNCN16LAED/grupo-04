@@ -33,11 +33,11 @@
 - Paleta de colores:
   
     
-    -  ![#c4c4c4](https://via.placeholder.com/15/c4c4c4/000000?text=+) #C4C4C4
-    -  Header and footer background: ![#ff9900](https://via.placeholder.com/15/FF9900/000000?text=+) #FF9900
-    -  ![#ffffff](https://via.placeholder.com/15/ffffff/000000?text=+) #FFFFFF
-    -  ![#000000](https://via.placeholder.com/15/000000/000000?text=+) #000000
-    -  ![#061fff](https://via.placeholder.com/15/061fff/000000?text=+) #061FFF
+    -  ![#c4c4c4](https://via.placeholder.com/15/c4c4c4/000000?text=+) 
+    -  ![#ff9900](https://via.placeholder.com/15/FF9900/000000?text=+)
+    -  ![#ffffff](https://via.placeholder.com/15/ffffff/000000?text=+)
+    -  ![#000000](https://via.placeholder.com/15/000000/000000?text=+) 
+    -  ![#061fff](https://via.placeholder.com/15/061fff/000000?text=+) 
     
     -  ![#cbc2c2](https://via.placeholder.com/15/cbc2c2/000000?text=+)
 
