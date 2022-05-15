@@ -41,3 +41,20 @@
     margin: 8%;
 }
 
+/*-----------FLEX----------*/
+
+.fx {
+    display: flex;
+}
+
+.fx.wrap {
+    flex-wrap: wrap;
+}
+
+.justify-sp-b {
+    justify-content: space-between;
+}
+.align-center {
+    align-items: center;
+}
+

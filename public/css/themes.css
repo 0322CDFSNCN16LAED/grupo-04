@@ -29,6 +29,10 @@ body {
     font-size: 200%;
 }
 
+.lapt-desk-header {
+    display: none;
+}
+
 /*-------------------MAIN-----------------*/
 
 .main {
