@@ -8,6 +8,8 @@ body {
     font-family: 'Amaranth', sans-serif;
 }
 
+/*-----------HEADER----------------*/
+
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -26,6 +28,8 @@ body {
     margin-right: 5%;
     font-size: 200%;
 }
+
+/*-------------------MAIN-----------------*/
 
 .main {
     background-color: #F1F3F7;
@@ -52,6 +56,25 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.budg-button {
+    position: relative;
+    bottom: 100px;
+    padding: 10px;  
+    border-radius: 20px;
+    background-color: #FF9900;
+    border: none;
+    font-size: 100%;    
+}
+
+.budg-button a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+/*-------------FOOTER------------------*/
+
+
 .nav-bar {
     display: flex;
     justify-content: center;
@@ -77,20 +100,4 @@ body {
 }
 .logo-footer {
     width: 28%;
-}
-
-.budg-button {
-    position: relative;
-    bottom: 100px;
-    padding: 10px;  
-    border-radius: 20px;
-    background-color: #FF9900;
-    border: none;
-    font-size: 100%;    
-}
-
-.budg-button a {
-    list-style: none;
-    text-decoration: none;
-    color: black;
 }
