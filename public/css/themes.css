@@ -40,7 +40,6 @@ body {
 
 .contenedor {
     position: relative;
-    display: inline-block;
     text-align: center;
 }
 
@@ -48,7 +47,7 @@ body {
     font-size: 200%;
     font-weight: bold;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -80,3 +79,18 @@ body {
     width: 28%;
 }
 
+.budg-button {
+    position: relative;
+    bottom: 100px;
+    padding: 10px;  
+    border-radius: 20px;
+    background-color: #FF9900;
+    border: none;
+    font-size: 100%;    
+}
+
+.budg-button a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
