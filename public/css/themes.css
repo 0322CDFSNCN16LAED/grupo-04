@@ -18,8 +18,7 @@ body {
 }
 
 .logo {
-    width: 20%;
-    margin-bottom: 4%;
+    width: 20%;    
 }
 
 .main-header i {
@@ -32,6 +31,28 @@ body {
 .lapt-desk-header {
     display: none;
 }
+.header-bar {
+    margin:auto;
+    
+}
+.header-bar ul {  
+    justify-content: center; 
+    
+}
+.header-bar ul li {
+    margin-right: 4%;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+.header-bar ul li a {   
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+
 
 /*-------------------MAIN-----------------*/
 

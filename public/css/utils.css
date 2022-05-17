@@ -8,6 +8,10 @@
     width: 60%;
 }
 
+.mb-80 {
+        margin-bottom: 80px;
+}
+
 /*-----------FONTS---------*/
 
 .text-center { text-align: center; }
