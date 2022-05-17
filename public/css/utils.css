@@ -17,6 +17,12 @@
 .font-small { font-size: 12px;}
 .font-xsmall { font-size: 10px }
 
+/*-----------POSITIONS---------*/
+
+.relative{ position: relative;}
+
+.absolut{ position: absolute;}
+
 .stars {
     color: gold;
     margin-top: 2%;
