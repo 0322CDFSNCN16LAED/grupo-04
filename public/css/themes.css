@@ -91,6 +91,15 @@ body {
     font-size: 100%;    
 }
 
+.budg-button-no-position {
+    margin: 5%;
+    padding: 10px;  
+    border-radius: 20px;
+    background-color: #FF9900;
+    border: none;
+    font-size: 100%;    
+}
+
 .budg-button a {
     list-style: none;
     text-decoration: none;
