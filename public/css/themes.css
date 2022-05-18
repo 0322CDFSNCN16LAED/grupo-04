@@ -31,9 +31,8 @@ body {
 .lapt-desk-header {
     display: none;
 }
-.header-bar {
-    margin:auto;
-    
+.header-bar {    
+    display: none;    
 }
 .header-bar ul {  
     justify-content: center; 
@@ -70,6 +69,7 @@ body {
 .contenedor {
     position: relative;
     text-align: center;
+    
 }
 
 .centrado {
