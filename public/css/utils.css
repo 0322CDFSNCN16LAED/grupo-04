@@ -65,6 +65,8 @@
     flex-wrap: wrap;
 }
 
+.fx-column {flex-direction: column;}
+
 .justify-sp-b {
     justify-content: space-between;
 }

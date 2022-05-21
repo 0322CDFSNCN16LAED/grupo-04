@@ -55,44 +55,52 @@ body {
 
 /*-------------------MAIN-----------------*/
 
-.main {
-    background-color: #F1F3F7;
-}
-
 .imagen-fondo-mobile {
-    background-size: 100%;
+    position: relative;    
+    height: 70vh;
+}
+.imagen-fondo-mobile::after {
+    background-image: url("/images/mobile-bg.svg");
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+    background-color: #F1F3F7
+}
+.txt-mobile {
+    font-size: 220%;
+    font-weight: bold;
     text-align: center;
-    opacity: 30%;
-    width: 100%;
+    margin: auto;
+    margin-bottom: 6%; 
+    padding-left: 10%;
+    padding-right: 10%   
 }
 
-.contenedor {
-    position: relative;
-    text-align: center;
+.txt-desk {
+    display: none;
+}
+
+.txt-button-container {
+    display: flex;
+    align-items: center;
     
 }
-
-.centrado {
-    font-size: 200%;
-    font-weight: bold;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.txt-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .budg-button {
-    position: relative;
     bottom: 100px;
-    padding: 10px;  
-    border-radius: 20px;
-    background-color: #FF9900;
-    border: none;
-    font-size: 100%;    
-}
-
-.budg-button-no-position {
-    margin: 5%;
     padding: 10px;  
     border-radius: 20px;
     background-color: #FF9900;
@@ -106,16 +114,6 @@ body {
     color: black;
 }
 
-.imagen-fondo-lap-desk {
-    display: none;
-}
-
-.budg-desk {
-    display: none;
-}
-.button-desk {
-    display: none;
-}
 
 /*-------------FOOTER------------------*/
 

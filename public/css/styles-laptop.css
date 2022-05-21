@@ -1,5 +1,5 @@
 @media(min-width:769px) {
-    /*------------------MAIN--------------*/
+    /*------------------HEADER-----------------*/
     
     .main-header {
         display: none;
@@ -57,55 +57,56 @@
 
      /*----------MAIN---------------*/
     
-    .imagen-fondo-mobile {
-        display: none;
-    }
     .txt-mobile {
         display: none;
     }
-    .imagen-fondo-lap-desk {
-        display: inline-block;
-        margin-top: 5%;
-        margin-bottom: 10%;
-        background-size: 100%;
-        text-align: center;
-        opacity: 50%;
-        width: 70%;        
+
+    .txt-desk {
+        display: flex;        
+        font-size: 16px;
+        margin-right: 3%;
     }
-    .budg-button {
-        display: none;
+
+    .imagen-fondo-mobile::after {
+        background-image: url("/images/bg-home-desktop.svg");
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.4;
+        background-color: #F1F3F7;
+                
     }
-    .button-desk {
+
+    .txt-button-container {
+        display: flex;
         align-items: flex-start;
-        margin-top: 20px;
+        justify-content: center;
+        padding-top: 2%;
+        min-width: 100%;
+    }
+
+    .txt-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        min-width: inherit;
+        justify-content: center;       
+    }
+
+    .budg-button {
+        padding: 10px;  
         border-radius: 20px;
         background-color: #FF9900;
         border: none;
-        font-size: 120%; 
-        padding: 5px;
-        width: 30%;
-        margin-right: 10%;
-        
-    }
-    .button-desk a {
-        list-style: none;
-        text-decoration: none;
-        color: black;
-    }
-    .txt-desk {
-        padding-top: 20px;
-        margin-left: 10%;
-        margin-right: 2%;
-        width: 70%;
-        font-size: 20px;
-    }
-
-    .budg-desk {
-        display: flex;
-    }
-
-    .button-desk {
-        display: block;
-}
+        font-size: 12px; 
+           
+    } 
 
 }
