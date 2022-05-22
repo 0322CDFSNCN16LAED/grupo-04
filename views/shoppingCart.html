@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="/css/themes.css">
     <link rel="stylesheet" href="/css/utils.css">
     <link rel="stylesheet" href="/css/colors.css">
-
 </head>
 <body>
     <header>
@@ -28,23 +27,16 @@
             <i class="fa-regular fa-circle-user"></i>
         </div>
     </header>
-    <main class="main">
-        <div class="relative">
-                <img src="/images/mobile-bg.svg"
-                alt="Aca va una imagen de fondo"
-                class= "imagen-fondo-mobile"
-                >      
-    <div class="centrado">
-                <div>
-                <i class="fas fa-question-circle"></i>
+    <main class="main-body fx direction-column">      
+             <div class="text-right font-xlarge">
+                <i class="far fa-question-circle"></i>
             </div>
-            <section>
-            <div>
+                <div>
                 <h2 class="font-xlarge">Pago</h2>
             </div> 
-        </section>   
+            <section class="bg-light-grey marco-detail text-center">
             <div>
-                <h3 class="font-large">Domicilio y teléfono</h3>
+                <h3 class="font-large m-detail">Domicilio y teléfono</h3>
                 <form>
                     <input 
                     type="text" 
@@ -54,7 +46,7 @@
                 </form> 
             </div>
             <div>    
-                <h3 class="font-large">Agendá tu turno!</h3>
+                <h3 class="font-large m-detail">Agendá tu turno!</h3>
                 <form>
                     <input 
                     type="date" 
@@ -64,39 +56,32 @@
                 </form>
             </div>
             <div> 
-                <h3 class="font-large">Horarios</h3>
+                <h3 class="font-large m-detail">Horarios</h3>
                 <form>
                     <input 
                     type="hour" 
                     class="" 
                     placeholder="">
-                    <button><i></i></button>
+                    <button></button>
                 </form>
             </div>
             <div>
-                <h3 class="font-large">Métodos de pago</h3>                
+                <h3 class="font-large m-detail">Métodos de pago</h3>                
+                <form>
                 <input 
                 type="text" 
                 class="" 
                 placeholder="">
-                <button><i></i></button>
+                <button class="budg-button-white"></button>
             </form>
         </div>
-        </section>
-        <section class="text-center">
-            <h2 class="font-xlarge"> Pagás $ 5000</p>
-        </section>
-        <section class="text-center">
-        </div>
         <div>
-                <button class="budg-button">
-                    <a> Contratá tu servicio</a>
-                </button>
-            </div>
-        </section>
-            </section> 
+        <h2 class="font-large text-center m-detail budg-button-white" type="submit"> Pagás $ 5000</h2>
         </div>
-
+        </section>
+        <section class="text-center">
+            <button type=“submit” class="budg-button-no-position font-large">Contratá tu servicio</button>
+        </section> 
     </main>
 
     <footer class="bg-orange">
@@ -125,8 +110,6 @@
                 </li>
             </ul>
         </nav>
-    
-    </footer>
-    
+    </footer>    
 </body>
 </html>
