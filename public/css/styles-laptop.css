@@ -108,5 +108,51 @@
         font-size: 12px; 
            
     } 
+    /*---------------FOOTER----------------*/
+
+    .logo-footer {
+        display: none;        
+    }
+
+    .redes {
+        order: 1;
+    }
+    .redes   {
+        width: 25%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .contacto{
+        width: 20%;        
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .funcionamiento{
+        width: 35%;
+        
+    }
+    .descarga {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 20%;
+        justify-content: center;        
+    }
+    .footer-title{
+        width:100%;
+        font-size: 20px;
+    }
+    .mr-11{
+    margin-right: 11%;
+}
+    .mr-15{
+        margin-right: 15%;
+    }
+
 
 }

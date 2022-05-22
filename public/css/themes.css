@@ -97,6 +97,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 4%;
 }
 
 .budg-button {
@@ -124,8 +125,8 @@ body {
 }
 
 .nav-bar ul {
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
 
 .nav-bar ul li {
@@ -143,4 +144,29 @@ body {
 }
 .logo-footer {
     width: 28%;
+}
+
+.redes {
+    width: 20%;
+}
+.funcionamiento {
+    width: 60%;
+}
+.contacto {
+    width: 20%;
+}
+.descarga {
+    display: none;
+}
+.google-descarga {
+    font-size: 1.5em;
+}
+.apple-descarga{
+    font-size: 2.5em;
+}
+.mr-11{
+    margin-right: 0%;
+}
+.mr-15{
+    margin-right: 0%;
 }
