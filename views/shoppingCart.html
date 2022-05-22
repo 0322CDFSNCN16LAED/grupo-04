@@ -17,9 +17,11 @@
     <link rel="stylesheet" href="/css/utils.css">
     <link rel="stylesheet" href="/css/colors.css">
     <link rel="stylesheet" href="/css/styles-shoppingCart.css">
+    <link rel="stylesheet" href="/css/styles-laptop.css">
+    <link rel="stylesheet" href="/css/styles-desktop.css">
 </head>
 <body>
-<header>
+  <header>
         <div class="main-header">
             <i class="fas fa-bars hamburguer"></i>
             <img src="/images/logo-repara-ya.svg" 
@@ -27,7 +29,31 @@
             class= "logo">
             <i class="fa-regular fa-circle-user"></i>
         </div>
-</header>
+    </header>
+
+    <header class= "bg-orange">
+        <div class="lapt-desk-header">
+          <img src="/images/logoReparaYaDesktop.png" alt="Logo Repara Ya" class= "logo fx">
+          <form class="search-bar fx">
+              <input type="text" class="" placeholder="Buscá el servicio que necesitás">
+              <button><i class="fas fa-search"></i></button>
+              
+          </form>
+          <p class=""><a href="" class="right-bar">Ingresá</a></p>
+          <p class=""><a href=""class="right-bar">Registrate</a></p>
+
+      </div>
+
+        <div class="header-bar">
+            <ul class="fx">
+                <li><a href="">Mi perfil</a></li>
+                <li><a href="">Notificaciones</a></li>
+                <li><a href="">Historial</a></li>
+                <li><a href="">Categorias</a></li>
+                <li><a href="">Mi carrito</a></li>
+            </ul>
+        </div>
+    </header>
 <main class="imagen-fondo-mobile dp-contents">    
     
         <div class="fx justify-sp-b text-right font-xlarge">
@@ -35,36 +61,40 @@
             <i class="m-3 far fa-question-circle"></i>
         </div> 
         <section class="bg-light-grey marco-detail text-center">
-            <form class="form-box-padding">
-                <div class="form-box">
-                    <h3 class="font-large m-detail">Domicilio y teléfono</h3>
-                    <input 
-                    type="text" 
-                    class="" 
-                    placeholder="">
-                </div>
-                <div class="form-box">    
-                    <h3 class="font-large m-detail">Agendá tu turno!</h3>
-                    <input 
-                    type="date" 
-                    class="" 
-                    placeholder="">
-                </div>
-                <div class="form-box">
-                    <h3 class="font-large m-detail">Horarios</h3>
-                    <input 
-                    type="hour" 
-                    class="" 
-                    placeholder="">
-                </div>
-                <div class="form-box">
-                    <h3 class="font-large m-detail">Métodos de pago</h3>                
-                    <input 
-                    type="text" 
-                    class="" 
-                    placeholder="">
-                </div>
-            </form>
+            
+            <div>
+                <form class="form-box-padding">
+                    <div class="form-box">
+                        <h3 class="font-large m-detail">Domicilio y teléfono</h3>
+                        <input 
+                        type="text" 
+                        class="" 
+                        placeholder="">
+                    </div>
+                    <div class="form-box">    
+                        <h3 class="font-large m-detail">Agendá tu turno!</h3>
+                        <input 
+                        type="date" 
+                        class="" 
+                        placeholder="">
+                    </div>
+                    <div class="form-box">
+                        <h3 class="font-large m-detail">Horarios</h3>
+                        <input 
+                        type="hour" 
+                        class="" 
+                        placeholder="">
+                    </div>
+                    <div class="form-box">
+                        <h3 class="font-large m-detail">Métodos de pago</h3>                
+                        <input 
+                        type="text" 
+                        class="" 
+                        placeholder="">
+                    </div>
+                </form>
+
+            </div>
             <div>
                 <h2 class="mt-20 font-large text-center budg-button-white" type="submit"> Pagás $ 5000</h2>
             </div>
@@ -107,6 +137,6 @@
         </ul>
     </nav>
 
-</footer>    
+</footer>   
 </body>
 </html>
