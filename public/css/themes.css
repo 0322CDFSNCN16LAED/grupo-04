@@ -125,6 +125,8 @@ body {
     background-color: #FFFF;
     border: none;
     font-size: 50%;
+    width: fit-content;
+    margin: auto;
 }
 
 .budg-button a {

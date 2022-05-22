@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/themes.css">
     <link rel="stylesheet" href="/css/utils.css">
     <link rel="stylesheet" href="/css/colors.css">
+    <link rel="stylesheet" href="/css/styles-shoppingCart.css">
 </head>
 <body>
 <header>
@@ -27,55 +28,49 @@
             <i class="fa-regular fa-circle-user"></i>
         </div>
 </header>
-<main class="main-body fx direction-column">      
-    <div class="text-right font-xlarge">
-        <i class="far fa-question-circle"></i>
-    </div>
-    <div>
-        <h2 class="font-xlarge">Pago</h2>
+<main class="imagen-fondo-mobile">      
+    <div class="fx justify-sp-b text-right font-xlarge">
+        <h2 class="m-3 font-xlarge">Pago</h2>
+        <i class="m-3 far fa-question-circle"></i>
     </div> 
     <section class="bg-light-grey marco-detail text-center">
-    <form>
+        <form class="form-box-padding">
+            <div class="form-box">
+                <h3 class="font-large m-detail">Domicilio y teléfono</h3>
+                <input 
+                type="text" 
+                class="" 
+                placeholder="">
+            </div>
+            <div class="form-box">    
+                <h3 class="font-large m-detail">Agendá tu turno!</h3>
+                <input 
+                type="date" 
+                class="" 
+                placeholder="">
+            </div>
+            <div class="form-box">
+                <h3 class="font-large m-detail">Horarios</h3>
+                <input 
+                type="hour" 
+                class="" 
+                placeholder="">
+            </div>
+            <div class="form-box">
+                <h3 class="font-large m-detail">Métodos de pago</h3>                
+                <input 
+                type="text" 
+                class="" 
+                placeholder="">
+            </div>
+        </form>
         <div>
-            <h3 class="font-large m-detail">Domicilio y teléfono</h3>
-            <input 
-            type="text" 
-            class="" 
-            placeholder="">
-            <button></button>
-        </div>
-        <div>    
-            <h3 class="font-large m-detail">Agendá tu turno!</h3>
-            <input 
-            type="date" 
-            class="" 
-            placeholder="">
-            <button></button>
-        </div>
-        <div>
-            <h3 class="font-large m-detail">Horarios</h3>
-            <input 
-            type="hour" 
-            class="" 
-            placeholder="">
-            <button></button>
-        </div>
-        <div>
-            <h3 class="font-large m-detail">Métodos de pago</h3>                
-            <input 
-            type="text" 
-            class="" 
-            placeholder="">
-            <button></button>
-        </div>
-    </form>
-        <div>
-            <h2 class="font-large text-center m-detail budg-button-white" type="submit"> Pagás $ 5000</h2>
+            <h2 class="mt-20 font-large text-center budg-button-white" type="submit"> Pagás $ 5000</h2>
         </div>
         </section>
-    <section class="text-center">
-            <button type=“submit” class="budg-button-no-position font-large">Contratá tu servicio</button>
-    </section> 
+        <div class="text-center pad-5">
+            <button type=“submit” class="button-orange font-large text-center">Contratá tu servicio</button>
+        </div>
 </main>
 <footer class="bg-orange">
     <nav class="nav-bar">

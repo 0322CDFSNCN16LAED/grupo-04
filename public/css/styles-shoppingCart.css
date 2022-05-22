@@ -1,0 +1,25 @@
+.form-box input {
+    border-radius: 20px;
+    background-color: #FFFF;
+    border: none;
+    width:100%;
+    padding: 2%;
+    padding-left: 4%;
+}
+
+.mt-20{
+margin-top: 20px;    
+}
+
+.form-box-padding {
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.button-orange{
+    background-color: #FF9900;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    border: none;
+}

@@ -1,4 +1,11 @@
 /*------------------SPACING------------------*/
+.m-3{
+    margin: 3%;
+}
+
+.m-auto{
+    margin: auto;
+}
 
 .w-20 {
     width: 20%;
@@ -8,9 +15,14 @@
     width: 60%;
 }
 
-.mb-80 {
-        margin-bottom: 80px;
+.pad-5 {
+    padding-bottom: 5%;
 }
+
+.mb-80 {
+    margin-bottom: 80px;
+}
+
 .w-50 {
     width: 50%;
 }
@@ -70,6 +82,9 @@
 
 .justify-sp-b {
     justify-content: space-between;
+}
+.justify-sp-a {
+    justify-content: space-around;
 }
 .align-center {
     align-items: center;
