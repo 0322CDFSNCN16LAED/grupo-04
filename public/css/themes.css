@@ -31,9 +31,8 @@ body {
 .lapt-desk-header {
     display: none;
 }
-.header-bar {
-    margin:auto;
-    
+.header-bar {    
+    display: none;    
 }
 .header-bar ul {  
     justify-content: center; 
@@ -56,33 +55,52 @@ body {
 
 /*-------------------MAIN-----------------*/
 
-.main {
-    background-color: #F1F3F7;
-}
-
 .imagen-fondo-mobile {
-    background-size: 100%;
-    text-align: center;
-    opacity: 30%;
-    width: 100%;
+    position: relative;    
+    height: 70vh;
 }
-
-.contenedor {
-    position: relative;
-    text-align: center;
-}
-
-.centrado {
-    font-size: 200%;
-    font-weight: bold;
+.imagen-fondo-mobile::after {
+    background-image: url("/images/mobile-bg.svg");
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+    background-color: #F1F3F7
+}
+.txt-mobile {
+    font-size: 220%;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 6%; 
+    padding-left: 10%;
+    padding-right: 10%   
+}
+
+.txt-desk {
+    display: none;
+}
+
+.txt-button-container {
+    display: flex;
+    align-items: center;
+    
+}
+.txt-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4%;
 }
 
 .budg-button {
-    position: relative;
     bottom: 100px;
     padding: 10px;  
     border-radius: 20px;
@@ -115,16 +133,6 @@ body {
     color: black;
 }
 
-.imagen-fondo-lap-desk {
-    display: none;
-}
-
-.budg-desk {
-    display: none;
-}
-.button-desk {
-    display: none;
-}
 
 /*-------------FOOTER------------------*/
 
@@ -135,8 +143,8 @@ body {
 }
 
 .nav-bar ul {
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
 
 .nav-bar ul li {
@@ -154,4 +162,29 @@ body {
 }
 .logo-footer {
     width: 28%;
+}
+
+.redes {
+    width: 20%;
+}
+.funcionamiento {
+    width: 60%;
+}
+.contacto {
+    width: 20%;
+}
+.descarga {
+    display: none;
+}
+.google-descarga {
+    font-size: 1.5em;
+}
+.apple-descarga{
+    font-size: 2.5em;
+}
+.mr-11{
+    margin-right: 0%;
+}
+.mr-15{
+    margin-right: 0%;
 }

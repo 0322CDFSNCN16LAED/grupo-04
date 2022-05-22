@@ -1,16 +1,7 @@
 @media(min-width:481px) {
     /*----------MAIN-----------*/
     
-    .budg-button {
-        bottom: 150px;
-        
-    }
     .budg-button a {
-        font-size: 200%;
-    }
-
-    .centrado {
-        font-size: 320%;
-    }
-
+        font-size: 120%;
+    } 
 }

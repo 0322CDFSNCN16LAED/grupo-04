@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="/css/styles-tablet.css">
     <link rel="stylesheet" href="/css/styles-laptop.css">
+    <link rel="stylesheet" href="/css/styles-desktop.css">
 
 </head>
 <body>
@@ -30,24 +31,18 @@
             class= "logo">
             <i class="fa-regular fa-circle-user"></i>
         </div>
-
     </header>
 
     <header class= "bg-orange">
-      <div class="lapt-desk-header">
-          <img src="/images/logo-repara-ya.svg" 
-              alt="esto es un logo de repara ya" 
-              class= "logo fx" >
+        <div class="lapt-desk-header">
+          <img src="/images/logoReparaYaDesktop.png" alt="Logo Repara Ya" class= "logo fx">
           <form class="search-bar fx">
-              <input 
-              type="text" 
-              class="" 
-              placeholder="Buscá el servicio que necesitás">
+              <input type="text" class="" placeholder="Buscá el servicio que necesitás">
               <button><i class="fas fa-search"></i></button>
               
           </form>
-          <p class="mb-80"><a href="" class="right-bar">Ingresá</a></p>
-          <p class="mb-80"><a href=""class="right-bar">Registrate</a></p>
+          <p class=""><a href="" class="right-bar">Ingresá</a></p>
+          <p class=""><a href=""class="right-bar">Registrate</a></p>
 
       </div>
 
@@ -60,39 +55,23 @@
                 <li><a href="">Mi carrito</a></li>
             </ul>
         </div>
-        
-   
     </header>
-
-  <main class="main">
-        <div class="contenedor">
-            <img src="/images/mobile-bg.svg"
-            alt="Aca va una imagen de fondo"
-            class= "imagen-fondo-mobile"
-            >
-            <div class="centrado txt-mobile">
-                Encontrá a los mejores profesionales
-                para hacer reparaciones en tu hogar
-            </div>
-            <div>
+    
+   <main>
+        <div class="imagen-fondo-mobile txt-button-container">
+           
+            <div class="txt-button">
+                <p class="txt-mobile ">
+                    Encontrá a los mejores profesionales
+                    para hacer reparaciones en tu hogar
+                </p>
+                <p class="txt-desk">
+                    ¿Necesitas reparar algo? ¿Tuviste un desperfecto y no sabés con quien resolverlo?
+                </p>
+                
                 <button class="budg-button">
                     <a href="/presupuesto"> Solicitar presupuesto ahora</a>
-                    
-                </button>
-            </div>
-            
-            <div class="fx budg-desk">
-                <p class="txt-desk budg-desk">¿Necesitas reparar algo? ¿Tuviste un desperfecto y no sabés con quien resolverlo?</p>
-                <button class="button-desk">
-                    <a href="/presupuesto"> Solicitar presupuesto ahora</a>                    
-                </button>
-
-            </div>
-            
-            <div>
-                <img src="/images/bg-home-desktop.svg" 
-                alt="imagen fondo desk"
-                class="imagen-fondo-lap-desk">
+                </button>              
             </div>
 
         </div>       
@@ -100,33 +79,36 @@
 
 <footer class="bg-orange">
     <nav class="nav-bar">
-        <ul class="w-20">
-            <li class="font-white"> Redes </li>
-            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-facebook"> </i></a></li>
-            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+        <ul class="descarga">
+             <li class="font-white footer-title"> Descargá la app </li>
+            <li class="mr-15"><a href=""><i class="fa-brands fa-google-play google-descarga"></i></a></li>
+            <li><a href=""></a><i class="fa-brands fa-apple apple-descarga"></i></li>
+        </ul>
+        <ul class=" redes">
+            <li class="font-white footer-title"> Redes </li>
+            <li class="mr-11"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+            <li class="mr-11"><a href="#"><i class="fa-brands fa-facebook"> </i></a></li>
+            <li class="mr-11"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+            <li ><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
         </ul>
 
-        <ul class="w-60">
+        <ul class="funcionamiento">
             <li><img src="/images/logo-repara-ya.svg" alt="esto es un logo de repara ya" class="logo-footer"></li>
-            <li class="font-white"> Funcionamiento </li>
+            <li class="font-white footer-title"> Funcionamiento </li>
             <li class="font-white"> Nosotros </li>
             <li class="font-white"> FAQ </li>
             <li class="font-white"> Terminos y condiciones </li>
         </ul>
 
-        <ul class="w-20">
-            <li class="font-white">Contacto</li>
-            <li> <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-            <li> <a href="#"><i class="fa-solid fa-envelope"></i></a></li>
+        <ul class="contacto">
+            <li class="font-white footer-title">Contacto</li>
+            <li class="mr-15"> <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <li class="mr-15"> <a href="#"><i class="fa-solid fa-envelope"></i></a></li>
             <li> <a href="#"><i class="fa-solid fa-phone"></i></a></li>
             </li>
         </ul>
     </nav>
 
 </footer>
-
-    
 </body>
 </html>
