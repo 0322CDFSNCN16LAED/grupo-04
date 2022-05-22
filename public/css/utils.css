@@ -43,6 +43,10 @@
 
 .absolut{ position: absolute;}
 
+.dp-contents{
+    display: contents;
+}
+
 .stars {
     color: gold;
     margin-top: 2%;
