@@ -174,5 +174,22 @@
         font-size: 23px;
     }
 
+    /*-----------LOGIN----------------*/
+
+    .cajaformulario {
+       max-width: 30%;
+       padding: 2%;
+    }
+    .mb-5-login {
+        margin-bottom: 1%;
+    }
+    .mb-3-login {
+        margin-bottom: 1%;
+    }
+    .login-form-box input {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
 
 }
