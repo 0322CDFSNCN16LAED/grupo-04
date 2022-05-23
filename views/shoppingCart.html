@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/utils.css">
     <link rel="stylesheet" href="/css/colors.css">
     <link rel="stylesheet" href="/css/styles-shoppingCart.css">
+    <link rel="stylesheet" href="/css/styles-tablet.css">
     <link rel="stylesheet" href="/css/styles-laptop.css">
     <link rel="stylesheet" href="/css/styles-desktop.css">
 </head>
@@ -50,61 +51,107 @@
             </ul>
         </div>
     </header>
-<main class="imagen-fondo-mobile dp-contents justify-center align-center">    
-        <div class="fx justify-sp-b text-right font-xlarge">
-            <h2 class="m-3 font-xlarge">Pago</h2>
-            <i class="m-3 far fa-question-circle"></i>
-        </div> 
-        <section class="bg-light-grey marco-detail maxWit-500 text-center">
-            <div>
-                <form class="form-box-padding">
-                    <div class="form-box">
-                        <h3 class="font-large m-detail">Domicilio y teléfono</h3>
-                        <input 
-                        type="text" 
-                        class="maxWit-400" 
-                        placeholder="">
+<main class="imagen-fondo-mobile dp-contents">    
+    
+    <section>
+            <div class="fx justify-sp-b text-right font-xlarge">
+                <h2 class="m-3 font-xlarge">Pago</h2>
+                <i class="m-3 far fa-question-circle"></i>
+            </div> 
+            <div class="fx justify-center">
+                <div class="bg-light-grey fx marco-detail direction-column shopc-marco-tablet">
+                    <div class="marco-prof-shop marco-detail fx justify-center ">                   
+                        <div class="marco"></div>
+                        <div>
+                            <h2 class="font-large">Profesional 1</h2>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                                <p class="mt-3">Pintura interior departamento x 300 mtrs²</p>
+                            </div>                          
+                
+                        </div>
+    
+                        <div class="marco-prof-shop marco-detail fx justify-center direction-column">
+                            <div class="fx justify-sp-b mb-3">
+                                <p class="font-large">Costo de servicio</p>
+                                <p class="font-large">$5000</p>
+                            </div>
+                            <div class="fx justify-sp-b">
+                                <p class="font-large">Pagas</p>
+                                <p class="font-large">$5000</p>
+                            </div>
+                            
+                        </div>
                     </div>
-                </form>    
-                <form action= "/días" method="GET">
-                    <div class="form-box">    
-                        <h3 class="font-large m-detail">Agendá tu turno!</h3>
-                        <input 
-                        type="date" 
-                        class="maxWit-200" 
-                        placeholder="">                                           
-                    </div>
-                </form>
-                <form action= "/horarios" method="GET">
-                    <div>
-                        <h3 class="font-large m-detail">Horarios</h3>
-                            <label >Seleccioná un horario</label>
-                              <select name="día">
-                                <option> de 8 a 12 </option>
-                                <option> de 12 a 16 </option>
-                                <option> de 16 a 20 </option>
-                              </select>                   
-                    </div>
-                </form>
-                <form>
-                    <div>
-                        <h3 class="font-large m-detail">Métodos de pago</h3>                
-                        <label>Seleccioná un método de pago</label>
-                        <select name="día">
-                          <option> débito </option>
-                          <option> crédito </option>
-                          <option> Mercado Pago </option>
-                        </select>                   
-                    </div>
-                </form>
+
+                </div>
+            </div> 
+
+            <div class="fx justify-center">
+                <div class="bg-light-grey marco-detail text-center shopc-marco-tablet">
+                    <form class="form-box-padding">
+                        <div class="form-box">
+                            <h3 class="font-large m-detail">Confirmá tu domicilio</h3>
+                            <input 
+                            type="text" 
+                            class="" 
+                            placeholder="">
+                        </div>
+                    </form> 
+                    <form class="form-box-padding">
+                        <div class="form-box">
+                            <h3 class="font-large m-detail">Teléfono de contacto</h3>
+                            <input 
+                            type="text" 
+                            placeholder="">
+                        </div>
+                    </form>       
+                    <form action= "/días" method="GET">
+                        <div class="form-box">    
+                            <h3 class="font-large m-detail">Agendá tu turno!</h3>
+                            <input 
+                            type="date" 
+                            class="maxWit-200" 
+                            placeholder="">                                           
+                        </div>
+                    </form>
+                    <form action= "/horarios" method="GET">
+                        <div>
+                            <h3 class="font-large m-detail">Horarios</h3>
+                                <label >Seleccioná un horario</label>
+                                  <select name="día">
+                                    <option> de 8 a 12 </option>
+                                    <option> de 12 a 16 </option>
+                                    <option> de 16 a 20 </option>
+                                  </select>                   
+                        </div>
+                    </form>
+                    <form>
+                        <div>
+                            <h3 class="font-large m-detail">Métodos de pago</h3>                
+                            <label>Seleccioná un método de pago</label>
+                            <select name="día">
+                              <option> débito </option>
+                              <option> crédito </option>
+                              <option> Mercado Pago </option>
+                            </select>                   
+                        </div>
+                    </form>
+
             </div>
-            <div>
-                <h2 class="mt-20 font-large text-center budg-button-white" type="submit"> Pagás $ 5000</h2>
+
+                
+    </section>
             </div>
-            </section>
             <div class="text-center pad-5">
                 <button type=“submit” class="button-orange font-large text-center">Contratá tu servicio</button>
-            </div>   
+            </div>  
+         
 </main>
 <footer class="bg-orange">
     <nav class="nav-bar">

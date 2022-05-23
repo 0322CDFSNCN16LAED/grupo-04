@@ -4,4 +4,10 @@
     .budg-button a {
         font-size: 120%;
     } 
+    /*----------SHOPPING CART---------*/
+
+    .shopc-marco-tablet {
+        max-width: 80%;
+        justify-content: center;
+    }
 }

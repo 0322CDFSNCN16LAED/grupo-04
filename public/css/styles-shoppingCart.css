@@ -11,11 +11,11 @@
     max-width: 200px;    
 }
 
-.maxWit-400{
+.maxWid-400{
     max-width: 400px;    
 }
 
-.maxWit-500{
+.maxWid-500{
     max-width: 500px;    
 }
 
@@ -34,4 +34,9 @@ margin-top: 20px;
     border-radius: 20px;
     text-align: center;
     border: none;
+}
+.marco-prof-shop {
+    border-radius: 20px;
+    background-color: white;
+    padding: 5%;
 }

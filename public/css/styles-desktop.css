@@ -3,4 +3,10 @@
     .imagen-fondo-mobile::after {
         background-size: auto;                
     }
+    /*--------SHOPPING CART------------*/
+
+    .shopc-desk{
+        display: flex;
+        justify-content: space-around;
+    }
 }

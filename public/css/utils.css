@@ -26,7 +26,15 @@
 .w-50 {
     width: 50%;
 }
-
+.mb-5 {
+    margin-bottom: 5%;
+}
+.mb-3 {
+    margin-bottom: 3%;
+}
+.mt-3 {
+    margin-top: 3%;
+}
 /*-----------FONTS---------*/
 
 .text-right { text-align: right; }
@@ -92,6 +100,7 @@
 .justify-sp-b {
     justify-content: space-between;
 }
+
 .justify-sp-a {
     justify-content: space-around;
 }
@@ -111,7 +120,7 @@
 .marco-detail {
     padding: 3%;
     margin: 4%;
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 .m-detail {
