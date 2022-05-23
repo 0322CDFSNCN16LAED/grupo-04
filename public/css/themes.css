@@ -62,6 +62,8 @@ body {
 .imagen-fondo-mobile::after {
     background-image: url("/images/mobile-bg.svg");
     position: absolute;
+    background-attachment: fixed;
+    background-position-y: center;
     z-index: -1;
     top: 0;
     left: 0;
@@ -73,6 +75,8 @@ body {
     background-position: center;
     opacity: 0.4;
     background-color: #F1F3F7
+
+    
 }
 .txt-mobile {
     font-size: 220%;
