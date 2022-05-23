@@ -153,6 +153,25 @@
     .mr-15{
         margin-right: 15%;
     }
+    /*-----------SHOPPING CART-----------*/
+
+    .shopc-lap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .marco-lap {
+        padding: 5%;
+
+    }
+    .lapt-shop-pago {
+        display: none;
+    }
+    .lapt-shop-title {
+        display: flex;
+    }
 
 
 }

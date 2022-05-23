@@ -14,7 +14,6 @@
 .w-60 {
     width: 60%;
 }
-
 .pad-5 {
     padding-bottom: 5%;
 }
@@ -126,4 +125,9 @@
 .m-detail {
     margin-top: 10px;
     margin-bottom: 5px;
+}
+.marco-detail-2 {
+    padding: 7%;
+    margin: 4%;
+    border-radius: 20px;
 }

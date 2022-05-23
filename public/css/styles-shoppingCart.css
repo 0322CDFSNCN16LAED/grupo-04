@@ -40,3 +40,11 @@ margin-top: 20px;
     background-color: white;
     padding: 5%;
 }
+
+.lapt-shop-title {
+        display: none;
+}
+.shopc-marco-tablet {
+        
+        min-width: fit-content;
+    }
