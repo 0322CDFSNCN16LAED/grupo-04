@@ -42,8 +42,8 @@
                 <button><i class="fas fa-search"></i></button>
 
             </form>
-            <p class=""><a href="" class="right-bar">Ingresá</a></p>
-            <p class=""><a href="" class="right-bar">Registrate</a></p>
+            <p class=""><a href="/login" class="right-bar">Ingresá</a></p>
+            <p class=""><a href="/register" class="right-bar">Registrate</a></p>
 
         </div>
 
@@ -53,18 +53,18 @@
                 <li><a href="">Notificaciones</a></li>
                 <li><a href="">Historial</a></li>
                 <li><a href="">Categorias</a></li>
-                <li><a href="">Mi carrito</a></li>
+                <li><a href="/shoppingCart">Mi carrito</a></li>
             </ul>
         </div>
     </header>
 
-    <main>
-        <div class="imagen-fondo-mobile fx align-center justify-center">
+    <main class="imagen-fondo-mobile dp-unset">
+        <div class="fx align-center justify-center">
 
             <div class=" bg-light-grey cajaformulario">
                 <div>
-                    <p class="font-mediun text-center">¿Aún no eres usuario?</p>
-                    <p class="font-mediun text-center mb-3">Ingresá los datos para registrarte</p>
+                    <h3 class="text-center">¿Aún no eres usuario?</h3>
+                    <p class="font-mediun text-center mb-3-login">Ingresá los datos para registrarte</p>
                 </div>
                 <div>
                     <form action="" method="">
@@ -87,22 +87,24 @@
                         </div>
                     </form>
                     <form action="/" method="GET">
-                        <div class="login-form-box mb-5">
+                        <div class="login-form-box mb-5-login">
                             <label for="fullname">Ubicación</label>
                             <input type="text" name="fullname" placeholder="Ubicación" />
                         </div>
                     </form>
 
                     <form>
-                        <div class="mb-5">
-                            <label for="terminos-condiciones">Soy mayor de edad y acepto los terminos y condiciones</label>
+                        <div class="fx align-center mb-5-login">
+                            <div class=" mr-5">
+                                <label for="terminos-condiciones">Soy mayor de edad y acepto los terminos y condiciones</label>
+                            </div>
                             <input type="checkbox" name="terminos" id="terminos-condiciones" value="electro" />
                         </div>
                        
                     </form>
 
                     <form action="" method="" class="">
-                        <div class="text-center mb-5">
+                        <div class="text-center mb-5-login">
                             <button class="budg-button-login font-large">Registrar</button>
                         </div>
                     </form>
