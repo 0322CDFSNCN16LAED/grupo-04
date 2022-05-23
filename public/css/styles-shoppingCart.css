@@ -11,14 +11,6 @@
     max-width: 200px;    
 }
 
-.maxWid-400{
-    max-width: 400px;    
-}
-
-.maxWid-500{
-    max-width: 500px;    
-}
-
 .mt-20{
 margin-top: 20px;    
 }
@@ -42,9 +34,19 @@ margin-top: 20px;
 }
 
 .lapt-shop-title {
-        display: none;
+    display: none;
 }
 .shopc-marco-tablet {
         
         min-width: fit-content;
-    }
+}
+.marco-detail-img {
+    padding: 3% 1%;
+    margin-left: 4%;
+    margin-right: 4%;
+    
+}
+.m-t-pro {
+    margin-top: 6%;
+
+}

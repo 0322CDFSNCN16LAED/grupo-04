@@ -1,12 +1,25 @@
 @media(min-width:1280px) {
     /*----------MAIN-----------*/
-    .imagen-fondo-mobile::after {
+       .imagen-fondo-mobile::after {
         background-size: auto;                
     }
     /*--------SHOPPING CART------------*/
 
-    .shopc-desk{
+    .shopc-lap{
         display: flex;
-        justify-content: space-around;
+        justify-content:center;
     }
+      .lapt-shop-title {
+        display: flex;
+        font-size: 30px;
+    }
+    .box-size-1{
+        width: 600px;
+        height: 440px;
+    }
+    .box-size-2 {
+        width: 500px;
+        height: 350px;
+    }
+   
 }
