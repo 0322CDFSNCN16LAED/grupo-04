@@ -1,0 +1,38 @@
+
+  .bg-grisoscuro{
+    background-color: #A6A6A6;
+}
+.centradologin {
+    background-color: #A6A6A6;
+    padding: 10%;
+    margin: 10%;
+    position: absolute;
+    align-items: center;
+   
+}
+.font-azul{
+  color:blue;
+}
+
+.caja-main {
+  display: flex;
+  background-color: #edf5f0
+  
+}
+
+.budg-button-login {
+  
+  bottom: 100px;
+  padding: 10px;  
+  border-radius: 20px;
+  background-color: #FF9900;
+  border: none;
+  font-size: 100%; 
+}
+.cajaformulario {
+  margin: 2%;
+  padding: 2%;
+  width: 50%;
+
+
+}
