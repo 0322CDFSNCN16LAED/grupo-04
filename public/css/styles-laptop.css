@@ -108,6 +108,14 @@
         font-size: 12px; 
            
     } 
+    .cajaformulario {
+        width: 30%;
+    }
+
+    ul {
+        font-size: 18px;
+    }
+
     /*---------------FOOTER----------------*/
 
     .logo-footer {
