@@ -142,6 +142,15 @@ a { text-decoration: none; color: black; }
     color: black;
 }
 
+.cancel-button {
+    background-color: #c4c4c4;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    border: none;
+    margin-left: 5% ;
+    
+}
 
 /*-------------FOOTER------------------*/
 
