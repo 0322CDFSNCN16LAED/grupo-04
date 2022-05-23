@@ -7,6 +7,18 @@
     padding-left: 4%;
 }
 
+.maxWit-200{
+    max-width: 200px;    
+}
+
+.maxWit-400{
+    max-width: 400px;    
+}
+
+.maxWit-500{
+    max-width: 500px;    
+}
+
 .mt-20{
 margin-top: 20px;    
 }

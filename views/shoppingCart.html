@@ -30,20 +30,16 @@
             <i class="fa-regular fa-circle-user"></i>
         </div>
     </header>
-
     <header class= "bg-orange">
         <div class="lapt-desk-header">
           <img src="/images/logoReparaYaDesktop.png" alt="Logo Repara Ya" class= "logo fx">
           <form class="search-bar fx">
               <input type="text" class="" placeholder="Buscá el servicio que necesitás">
               <button><i class="fas fa-search"></i></button>
-              
           </form>
           <p class=""><a href="" class="right-bar">Ingresá</a></p>
           <p class=""><a href=""class="right-bar">Registrate</a></p>
-
       </div>
-
         <div class="header-bar">
             <ul class="fx">
                 <li><a href="">Mi perfil</a></li>
@@ -54,46 +50,53 @@
             </ul>
         </div>
     </header>
-<main class="imagen-fondo-mobile dp-contents">    
-    
+<main class="imagen-fondo-mobile dp-contents justify-center align-center">    
         <div class="fx justify-sp-b text-right font-xlarge">
             <h2 class="m-3 font-xlarge">Pago</h2>
             <i class="m-3 far fa-question-circle"></i>
         </div> 
-        <section class="bg-light-grey marco-detail text-center">
-            
+        <section class="bg-light-grey marco-detail maxWit-500 text-center">
             <div>
                 <form class="form-box-padding">
                     <div class="form-box">
                         <h3 class="font-large m-detail">Domicilio y teléfono</h3>
                         <input 
                         type="text" 
-                        class="" 
+                        class="maxWit-400" 
                         placeholder="">
                     </div>
+                </form>    
+                <form action= "/días" method="GET">
                     <div class="form-box">    
                         <h3 class="font-large m-detail">Agendá tu turno!</h3>
                         <input 
                         type="date" 
-                        class="" 
-                        placeholder="">
-                    </div>
-                    <div class="form-box">
-                        <h3 class="font-large m-detail">Horarios</h3>
-                        <input 
-                        type="hour" 
-                        class="" 
-                        placeholder="">
-                    </div>
-                    <div class="form-box">
-                        <h3 class="font-large m-detail">Métodos de pago</h3>                
-                        <input 
-                        type="text" 
-                        class="" 
-                        placeholder="">
+                        class="maxWit-200" 
+                        placeholder="">                                           
                     </div>
                 </form>
-
+                <form action= "/horarios" method="GET">
+                    <div>
+                        <h3 class="font-large m-detail">Horarios</h3>
+                            <label >Seleccioná un horario</label>
+                              <select name="día">
+                                <option> de 8 a 12 </option>
+                                <option> de 12 a 16 </option>
+                                <option> de 16 a 20 </option>
+                              </select>                   
+                    </div>
+                </form>
+                <form>
+                    <div>
+                        <h3 class="font-large m-detail">Métodos de pago</h3>                
+                        <label>Seleccioná un método de pago</label>
+                        <select name="día">
+                          <option> débito </option>
+                          <option> crédito </option>
+                          <option> Mercado Pago </option>
+                        </select>                   
+                    </div>
+                </form>
             </div>
             <div>
                 <h2 class="mt-20 font-large text-center budg-button-white" type="submit"> Pagás $ 5000</h2>
@@ -101,9 +104,7 @@
             </section>
             <div class="text-center pad-5">
                 <button type=“submit” class="button-orange font-large text-center">Contratá tu servicio</button>
-            </div>
-
-    
+            </div>   
 </main>
 <footer class="bg-orange">
     <nav class="nav-bar">
