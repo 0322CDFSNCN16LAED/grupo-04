@@ -44,8 +44,8 @@
               <button><i class="fas fa-search"></i></button>
               
           </form>
-          <p class=""><a href="" class="right-bar">Ingresá</a></p>
-          <p class=""><a href=""class="right-bar">Registrate</a></p>
+          <p class=""><a href="/login" class="right-bar">Ingresá</a></p>
+          <p class=""><a href="/register"class="right-bar">Registrate</a></p>
 
       </div>
 
@@ -55,59 +55,61 @@
                 <li><a href="">Notificaciones</a></li>
                 <li><a href="">Historial</a></li>
                 <li><a href="">Categorias</a></li>
-                <li><a href="">Mi carrito</a></li>
+                <li><a href="/shoppingCart">Mi carrito</a></li>
             </ul>
         </div>
     </header>
 
-    <main>
-        <div class="imagen-fondo-mobile fx align-center justify-center" >
-            
-            <div class="bg-grisoscuro cajaformulario">
-                <div>
-                    <p class="font-xlarge text-center mb-3">Inicia sesión<p>
+    <main class="dp-unset imagen-fondo-mobile ">
+        <section>
+            <div class="fx align-center justify-center" >
+                
+                <div class="bg-grisoscuro cajaformulario">
+                    <div>
+                        <p class="font-xlarge text-center mb-3">Inicia sesión<p>
+                    </div>    
+                    <div>
+                        <form action="" method="">
+                            <div class="login-form-box ">
+                                <label class="font-mediun ">E-mail</label>
+                                <input type="email" name="email">
+                            </div>
+                        </form>
+                        <form action="" method="">
+                            <div class="login-form-box">
+                                <label class="font-mediun">Contraseña</label>
+                                <input type="password" name="password">
+                            </div>
+                        </form>
+                        <form action="" method="">
+                            <div class="text-right mb-5">
+                                <a href="#" class="font-azul font-small">olvidaste tu contraseña</a>
+                            </div>
+                        </form>
+                        <form action="" method="">
+                            <div class="text-center">
+                                <button class="budg-button-login font-large"> Iniciar Sesión</button>    
+                            </div>
+                        </form> 
+                        <div class="fx justify-center text-center">
+                            <div class="fx direction-column">
+                                <i class="font-small fa-brands fa-google login-icons"></i>
+                                <a href="https:/www.google.com" class="ancor-login">Iniciar con Google</a>
+                            </div>
+                            <div class="fx direction-column text-center">
+                                <i class=" font-small fa-brands fa-facebook login-icons"></i>
+                                <a href="https:/www.facebook.com" class="ancor-login">Iniciar con Facebook</a>
+                            </div>   
+    
+                        </div>                   
+                        
+    
+                    </div>
+    
                 </div>
-
-                <div>
-                    <form action="" method="">
-                        <div class="login-form-box ">
-                            <label class="font-mediun ">E-mail</label>
-                            <input type="email" name="email">
-                        </div>
-                    </form>
-                    <form action="" method="">
-                        <div class="login-form-box">
-                            <label class="font-mediun">Contraseña</label>
-                            <input type="password" name="password">
-                        </div>
-                    </form>
-                    <form action="" method="">
-                        <div class="text-right mb-5">
-                            <a href="#" class="font-azul font-small">olvidaste tu contraseña</a>
-                        </div>
-                    </form>
-                    <form action="" method="">
-                        <div class="text-center">
-                            <button class="budg-button-login font-large"> Iniciar Sesión</button>    
-                        </div>
-                    </form> 
-                    <div class="fx justify-center text-center">
-                        <div class="fx direction-column">
-                            <i class="font-small fa-brands fa-google login-icons"></i>
-                            <a href="https:/www.google.com" class="ancor-login">Iniciar con Google</a>
-                        </div>
-                        <div class="fx direction-column text-center">
-                            <i class=" font-small fa-brands fa-facebook login-icons"></i>
-                            <a href="https:/www.facebook.com" class="ancor-login">Iniciar con Facebook</a>
-                        </div>   
-
-                    </div>                   
-                    
-
-                </div>
-
             </div>
-        </div>
+
+        </section>
     </main>
 
     <footer class="bg-orange">

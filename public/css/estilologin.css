@@ -53,4 +53,6 @@
   list-style: none;
   text-decoration: none;
   color: white;
+  max-width: 50%;
+  margin-left: 25%;
 }
