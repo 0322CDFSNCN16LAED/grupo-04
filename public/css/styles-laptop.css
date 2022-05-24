@@ -68,6 +68,17 @@
         margin-right: 3%;
     }
 
+    .txt-home-desk {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: flex-start;
+        align-items: center;
+        max-width: 60%;
+        margin-left: 20%;
+    }
+    .dp-grid {display: grid;}
+
     .imagen-fondo-mobile::after {
         background-image: url("/images/bg-home-desktop.svg");
         position: absolute;
