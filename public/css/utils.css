@@ -79,7 +79,8 @@
 .main-header-flex {
     display: flex;
     justify-content: center;
-    margin: 8% 3%;
+    align-items: center;
+    padding: 8% 3%;
 }
 
 .main-body {
