@@ -41,7 +41,12 @@
   border: none;
   margin-top: 4%;
   margin-bottom: 3%;
-
+}
+.login-error input{
+  padding: 4px;
+  border-radius: 15px;
+  width: 100%;
+  margin-top: 2%;
 }
 .login-icons{
   font-size: 2em;
