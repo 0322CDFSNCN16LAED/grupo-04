@@ -6,6 +6,12 @@
 
 body {
     font-family: 'Amaranth', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex-grow: 1;
 }
 
 /*-----------HEADER----------------*/
@@ -58,9 +64,15 @@ a { text-decoration: none; color: black; }
 
 /*-------------------MAIN-----------------*/
 
+.main-fx-size {
+      flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .imagen-fondo-mobile {
     position: relative;    
-    height: 70vh;
+    min-height: 70vh;
 }
 .imagen-fondo-mobile::after {
     background-image: url("/images/mobile-bg.svg");
@@ -100,8 +112,7 @@ a { text-decoration: none; color: black; }
 
 .txt-button-container {
     display: flex;
-    align-items: center;
-    height: 100%;
+    align-items: center;   
     
 }
 .txt-button {
