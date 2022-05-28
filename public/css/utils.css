@@ -34,9 +34,12 @@
 .mt-3 {
     margin-top: 3%;
 }
+.ml-10{margin-left: 10%;}
 .mr-5 {
     margin-right: 10px;
 }
+.mr-3 {margin-right: 3%;}
+.mr-10 {margin-right: 10%;}
 /*-----------FONTS---------*/
 
 .text-right { text-align: right; }
@@ -46,6 +49,7 @@
 .font-medium { font-size: 16px;}
 .font-small { font-size: 12px;}
 .font-xsmall { font-size: 10px }
+.bolder {font-weight: bolder;}
 
 /*-----------POSITIONS---------*/
 

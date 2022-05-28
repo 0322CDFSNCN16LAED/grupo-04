@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Repara Ya </title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital@1&family=Roboto&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
 
 </head>
 <body>
-  <header>
+    <header>
         <div class="main-header">
             <i class="fas fa-bars hamburguer"></i>
             <img src="/images/logo-repara-ya.svg" alt="esto es un logo de repara ya" class="logo">
@@ -33,21 +33,6 @@
 
     <header class="bg-orange">
         <div class="lapt-desk-header">
-            <div class="dropdown">
-                <h2 class="label"><i class="fas fa-bars hamburguer"></i></h2>
-                <ul class="items">
-                    <li><a href="#">Mi perfil</a></li>
-                    <li><a href="#">Notificaciones</a></li>
-                    <li><a href="#">Bandeja de entrada</a></li>
-                    <li><a href="#">Historial</a></li>
-                    <li><a href="#">Categorias</a></li>
-                    <li><a href="/product/cart">Mi carrito</a></li>
-                    <li><a href="#">Funcionamiento</a></li>
-                    <li><a href="#">Sobre Nosotros</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-            
             <img src="/images/logoReparaYaDesktop.svg" alt="Logo Repara Ya" class="logo fx">
             <form class="search-bar fx">
                 <input type="text" class="" placeholder="Buscá el servicio que necesitás">
@@ -59,39 +44,71 @@
 
         </div>
 
-        <!--<div class="header-bar">
+        <div class="header-bar">
             <ul class="fx">
                 <li><a href="">Mi perfil</a></li>
                 <li><a href="">Notificaciones</a></li>
-                <li><a href="">Bandeja de entrada</a></li>
                 <li><a href="">Historial</a></li>
                 <li><a href="">Categorias</a></li>
-                <li><a href="/productCart">Mi carrito</a></li>
+                <li><a href="/product/cart">Mi carrito</a></li>
             </ul>
-        </div>-->
-    </header>
-    
-   <main class="imagen-fondo-mobile dp-grid main-fx-size">
-        <div class="txt-button-container">
-           
-            <div class="txt-button">
-                <p class="txt-mobile ">
-                    Encontrá a los mejores profesionales
-                    para hacer reparaciones en tu hogar
-                </p>
-                <p class="txt-desk">
-                    ¿Necesitas reparar algo? ¿Tuviste un desperfecto y no sabés con quien resolverlo?
-                </p>
-                
-                <button class="budg-button">
-                    <a href="/budget/request"> Solicitar presupuesto ahora</a>
-                </button>              
-            </div>
         </div>
-        <div class="txt-home-desk">
-            <h2 class="font-xlarge">¿Qué necesitas? </h2>
-            <h2 class="font-xlarge">Habla rápidamente con profesionales de servicios para tu casa</h2>
-        </div>       
+    </header>
+  
+    <main class="imagen-fondo-mobile fx justify-center">
+        <div class="bg-light-grey budget-req budg-req-desk ">
+            <h2 class="text-center bolder">Solicitá tu presupuesto</h2>
+            <form action="" method="" class="">
+                <div class="mb-3 fx align-center">                    
+                    <label class="mr-3"><h4>Estoy buscando</h4></label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected>Elegí el servicio que buscás</option>
+                        <option value="Electricista"> Electricista </option>
+                        <option value="Pintor">Pintor</option>
+                        <option value="Gasista">Gasista</option>
+                        <option value="Plomero">Plomero</option>
+                    </select>
+                </div>
+                <div class="mb-3 fx">
+                    <label for="descripción" class="mr-3 form-label"><h4>Descripción</h4></label>
+                    <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
+                </div>
+                  
+                <div class="mb-3">                   
+                    <label for="imagenesDeReferencia" class="form-label"><h4 >Imagenes de referencia</h4></label>
+                    <input class="form-control" type="file" id="imagenesDeReferencia" multiple>
+                </div> 
+                <div class="mb-3">
+                    <label for="date"><h4>A realizar entre:</h4></label>
+                    <div class="fx justify-center">
+                        <input type="date" class="date-form mr-10">
+                        <input type="date" class="date-form">
+                    </div>
+                </div>
+                <div class="mb-3 fx align-center">                    
+                    <label class="mr-3"><h4>Seleccioná un horario</h4></label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected>Elegí tu horario disponible</option>
+                        <option value="Electricista"> Electricista </option>
+                        <option value="mañana">de 8 a 12</option>
+                        <option value="tarde">de 12 a 16</option>
+                        <option value="tarde-noche">de 16 a 20</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ubicacion"><h4 >Ubicación</h4></label>
+                    <button type="button" class="ml-10 btn btn-secondary">Confirma tu ubicación</button>
+                </div>
+                                        
+                <div class="fx justify-center mt-3">
+                    <button class="budg-button">
+                        <a href="/budget/request"> Solicitar presupuesto</a>
+                    </button>  
+                </div>
+
+            </form>
+        </div>
+
     </main>
 
     <footer class="bg-orange">
@@ -123,5 +140,7 @@
             </ul>
         </nav>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
 </body>
 </html>

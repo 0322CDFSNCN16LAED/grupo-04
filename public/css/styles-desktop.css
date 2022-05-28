@@ -90,5 +90,13 @@
     .dropdown:hover > .label {
         background: #ff9900a1;
     }
+     /*--------------BUDGET REQUEST----------*/
+
+    .budg-req-desk {
+        max-width: 40%;
+    }
+    .budget-req {
+        padding: 2%;
+    }
    
 }
