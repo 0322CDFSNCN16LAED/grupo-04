@@ -21,7 +21,6 @@ app.use("/", mainRouter);
 
 app.use("/product", productsRouter);
 
-<<<<<<< HEAD
 app.use("/budget", budgetRouter);
 
 
@@ -29,6 +28,4 @@ app.use("/budget", budgetRouter);
 
 
 
-=======
 //app.set("view engine", "ejs");
->>>>>>> f28f9bf6ecdc02d73109e6306588df9d79efd79b
