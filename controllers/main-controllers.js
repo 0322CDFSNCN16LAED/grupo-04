@@ -2,13 +2,13 @@ const path = require("path");
 
 module.exports = {
     home: (req,res) => {
-        res.render(path.join(__dirname, "../views/index.ejs"));
+        res.render("index");
     },
     login: (req, res)=> {
-        res.render(path.join(__dirname, "../views/login.ejs"));
+        res.render("login");
     },
     register: (req, res) => {
-        res.render(path.join(__dirname, "../views/register.ejs"));
+        res.render("register");
     },
 
 };

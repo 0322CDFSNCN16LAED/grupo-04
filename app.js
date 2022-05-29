@@ -28,4 +28,4 @@ app.use("/budget", budgetRouter);
 
 
 
-//app.set("view engine", "ejs");
+app.set("view engine", "ejs");
