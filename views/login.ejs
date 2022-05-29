@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repara Ya</title>
+    <title> Repara Ya </title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,13 +17,16 @@
     <link rel="stylesheet" href="/css/themes.css">
     <link rel="stylesheet" href="/css/utils.css">
     <link rel="stylesheet" href="/css/colors.css">
-    <link rel="stylesheet" href="/css/styles-shoppingCart.css">
+    <link rel="stylesheet" href="/css/estilologin.css">
+
     <link rel="stylesheet" href="/css/styles-tablet.css">
     <link rel="stylesheet" href="/css/styles-laptop.css">
     <link rel="stylesheet" href="/css/styles-desktop.css">
+
 </head>
+
 <body>
-    <header>
+ <header>
         <div class="main-header">
             <i class="fas fa-bars hamburguer"></i>
             <img src="/images/logo-repara-ya.svg" alt="esto es un logo de repara ya" class="logo">
@@ -56,54 +60,55 @@
 
     <main class="imagen-fondo-mobile main-fx-size">
         <section>
-            <div class="fx justify-center">
-                <div class="bg-light-grey fx marco-detail direction-column shopc-marco-tablet lap-w-2">
-                    <div class="marco-prof-shop marco-detail-img fx justify-center ">                   
-                        <div class=><img src="/images/profilePic.svg" alt=""></div>
-                        <div>   
-                            <h2 class="font-large m-t-pro">Profesional 1</h2>
-                            <p>Publicado por [userName]</p>
-                            <p>Belgrano 1435, Avellaneda (Buenos Aires)</p>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>  
-                        </div>
-                    </div>
-    
-                    <div class="marco-prof-shop marco-detail fx justify-center direction-column">
-                        <div class="fx justify-sp-b mb-3">
-                            <p class="font-large">Materiales</p>
-                            <p class="font-large">$2500</p>
-                        </div>
-                        <div class="fx justify-sp-b mb-3">
-                            <p class="font-large">Mano de Obra</p>
-                            <p class="font-large">$2500</p>
-                        </div>
-                        <div class="fx justify-sp-b mb-3">
-                            <p class="font-mediun">Duración aproximada</p>
-                            <p class="font-mediun">3 horas</p>
-                        </div>
-                        <div class="fx justify-sp-b">
-                            <p class="font-large">Pagas</p>
-                            <p class="font-large">$5000</p>
-                        </div> 
+            <div class="fx align-center justify-center" >
+                
+                <div class="cajaformulario">
+                    <div>
+                        <p class="font-large text-center mb-3">Iniciar sesión<p>
+                    </div>    
+                    <div>
+                        <form action="" method="">
+                            <div class="login-form-box ">
+                                <label class="font-mediun ">E-mail</label>
+                                <input type="email" name="email">
+                            </div>
+                            <div class="login-form-box">
+                                <label class="font-mediun">Contraseña</label>
+                                <input type="password" name="password">
+                            </div>
+                            <div class="text-right">
+                                <a href="#" class="font-azul font-small">Olvidé mi contraseña</a>
+                            </div>
+                            <div class="text-left mb-5 font-xsmall">
+                                <input 
+                                    type="checkbox" 
+                                    name="recordarDatos" 
+                                    value="recordarDatos" 
+                                    id="recordarDatos" 
+                                />
+                                <label for="recordarDatos">Recordar mis datos</label>
+                            </div>
+                            <div class="text-center">
+                                <button class="budg-button-login font-large">Ingresar</button>    
+                            </div>
+                        </form> 
+                        <div class="fx justify-center text-center">
+                            <ul class="m-3">
+                                <li class="mb-3 font-small"><a href="#"><i class="fab fa-google"></i> Ingresar con Google</a></li>
+                                <li class="mb-3 font-small"><a href="#"><i class="fab fa-facebook-square"></i></a> Ingresar con Facebook</li>
+                            </ul>
+                        </div>                   
                     </div>
                 </div>
             </div>
+
         </section>
-        <div class="text-center pad-5">
-            <button type=“submit” class="button-orange font-large text-center">Contratar</button>
-            <button type= "cancel" class="cancel-button font-large"> Cancelar </button>            
-        </div>
-    </main>  
+    </main>
+
     <footer class="bg-orange">
         <nav class="nav-bar">
             <ul class="descarga">
-                <li class="font-white footer-title"> Descargá la app </li>
+                 <li class="font-white footer-title"> Descargá la app </li>
                 <li class="mr-15"><a href=""><i class="fa-brands fa-google-play google-descarga"></i></a></li>
                 <li><a href=""></a><i class="fa-brands fa-apple apple-descarga"></i></li>
             </ul>
@@ -112,9 +117,9 @@
                 <li class="mr-11"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                 <li class="mr-11"><a href="#"><i class="fa-brands fa-facebook"> </i></a></li>
                 <li class="mr-11"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                <li ><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
             </ul>
-
+    
             <ul class="funcionamiento">
                 <li><img src="/images/logo-repara-ya.svg" alt="esto es un logo de repara ya" class="logo-footer"></li>
                 <li class="font-white footer-title"> Funcionamiento </li>
@@ -122,7 +127,7 @@
                 <li class="font-white"> FAQ </li>
                 <li class="font-white"> Terminos y condiciones </li>
             </ul>
-
+    
             <ul class="contacto">
                 <li class="font-white footer-title">Contacto</li>
                 <li class="mr-15"> <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
@@ -131,8 +136,9 @@
                 </li>
             </ul>
         </nav>
-
-    </footer>
     
+    </footer>
+
 </body>
+
 </html>

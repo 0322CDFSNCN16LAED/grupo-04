@@ -19,8 +19,4 @@ app.use("/", mainRouter);
 
 app.use("/product", productsRouter);
 
-
-
-
-
-
+//app.set("view engine", "ejs");
