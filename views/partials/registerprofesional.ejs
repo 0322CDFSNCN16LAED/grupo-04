@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head') %>
+
+<body>
+    <%- include('./partials/header-dropdown') %>
+
+    <main class="imagen-fondo-mobile main-fx-size">
+        <div class="fx align-center justify-center">
+
+            <div class=" bg-light-grey cajaformulario">
+                <div>
+                    <h3 class="">Registrate</h3>
+                    <p class="font-mediun  mb-5 -login">Ofrece tus servivios sin costo</p>
+                </div>
+
+                <div>
+                    <form action="" method="">
+
+                        <div class="login-form-box">
+                            <label for="fullname">Nombre y apellido</label>
+                            <input type="text" name="fullname" placeholder="Nombre y Apellido" />
+                        </div>
+                    
+                        <div class="login-form-box">
+                            <label class="font-mediun">Eliga una Contraseña</label>
+                            <input type="password" name="password" placeholder="Contraseña">
+                        </div>
+
+                        <div class="login-form-box">
+                            <label for="cobertura">Radio de cobertura</label>
+                            <input type="text" name="cobertura" placeholder="Radio cobertura" />
+                        </div>
+
+                        <div class="login-form-box">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" name="telefono" placeholder="Numero telefono" />
+                        </div>
+
+                        <div class="login-form-box">
+                            <label for="rubro">Rubro principal</label>
+                            <input type="text" name="rubro" placeholder="rubro principal" />
+                        </div>
+
+                        <div class="login-form-box">
+                            <label for="rubrosec">Rubro Secundario(puede seleccionar hasta 3) </label>
+                            <input type="text" name="rubrosec" placeholder="Seleccionar" />
+                        </div>
+
+                        <div class="login-form-box">
+                            <label for="cuitrazon">Cuit/Razón Social</label>
+                            <input type="text" name="cuitrazon" placeholder="Seleccionar" />
+                        </div>
+
+                        <div class="login-form-box">
+                            <label for="DNI">DNI</label>
+                            <input type="number" name="DNI" placeholder="DNI" />
+                        </div>
+
+                        <div class="login-form-box">
+                            <label for="condicioneslegales">Condición frente al IVA</label>
+                            <input type="text" name="condicioneslegales" placeholder="Seleccionar" />
+                        </div>
+
+                        <div class="login-form-box">
+                            <label for="horario">Horario disponible</label>
+                            <input type="text" name="horario" placeholder="Seleccionar" />
+                        </div>
+
+                        <div class="font-mediun mb-5-login">
+                            <p >Trabajos realizados</p>
+                            <div class="mb-5-login">
+                                <button class="subirfoto-button-login font-small">Subir foto</button>
+                            </div>
+                            
+                        </div>
+                       
+                        <div class="fx align-center mb-5-login">
+                            <div class=" mr-5">
+                                <label for="terminos-condiciones">Soy mayor de edad y acepto los terminos y condiciones</label>
+                            </div>
+                            <input type="checkbox" name="terminos" id="terminos-condiciones" value="electro" />
+                        </div>
+                       
+                        <div class="text-center mb-5-login">
+                            <button class="budg-button-login font-large">Registrarse</button>
+                        </div>
+                   
+                        <div class="text-center">
+                            <a href="#" class="font-azul font-small">cancelar</a>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+            
+        </div>
+    </main>
+    <%- include('./partials/footer') %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+
+</body>
+
+</html>
