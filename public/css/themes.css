@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Amaranth', sans-serif;
+    font-family: 'Roboto', "sans serif";
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@ main {
 }
 
 .logo {
-    width: 20%;    
+    width: 40%;    
 }
 
 .main-header i {
@@ -125,7 +125,7 @@ a { text-decoration: none; color: black; }
 .budg-button {
     bottom: 100px;
     padding: 10px;  
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: #FF9900;
     border: none;
     font-size: 100%;    
@@ -190,6 +190,15 @@ a { text-decoration: none; color: black; }
     padding: 5%;
     border-radius: 5px;
     margin: 4%;
+}
+
+.location-btn {
+    border: none;
+    background-color: #6c757d;
+    padding: 2%;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
 }
 
 /*----------------BUDGET RESPONSE-------------*/
@@ -262,4 +271,30 @@ a { text-decoration: none; color: black; }
 .mr-15{
     margin-right: 0%;
 }
+
+/*--------------dropdown----*/
+
+.dropdown-toggle::after {
+    content: none !important;
+}
+.btn {
+    font-size: 1rem !important;
+}
+.btn-secondary {
+    --bs-btn-color: black !important;
+    --bs-btn-bg: none !important;
+    --bs-btn-border-color: none !important;
+    --bs-btn-active-color: black !important;
+    --bs-btn-active-bg: none !important;
+    --bs-btn-active-border-color: none !important;
+    --bs-btn-active-shadow: none !important;
+    --bs-btn-hover-color: black !important; 
+    --bs-btn-hover-bg: none !important;
+    --bs-btn-hover-border-color: none !important;
+    --bs-btn-focus-shadow-rgb:none !important;
+}
+.dropdown-menu {
+    background-color:#FFFF !important;
+
+}   
 
