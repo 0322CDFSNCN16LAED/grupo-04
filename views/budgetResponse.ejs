@@ -5,38 +5,8 @@
     <%- include('./partials/header') %>
 
     <main class="imagen-fondo-mobile justify-center">
-        <div class="fx justify-center align-center budget-direction">
-            <div class="grey-opacity budget-req">
-                <h2 class="text-center bolder mb-3">Formulario presupuesto</h2>
-                <form action="" method="" class="">
-                    <div class="mb-3">
-                        <label for="descripción" class="mr-3 form-label"><h4>Materiales</h4></label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
-                    </div>
-    
-                    <div class="mb-3 ">
-                        <label for="descripción" class="mr-3 form-label"><h4>Mano de Obra</h4></label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="descripción" class="mr-3 form-label"><h4>Duración estimada</h4></label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
-                    </div>
-    
-                     <div class="mb-3">
-                        <label for="descripción" class="mr-3 form-label"><h4>Comentarios</h4></label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
-                    </div>
-    
-                    <div class="fx justify-end align-center">
-                        <label for="" class="mr-3 form-label total-title">Total</label>
-                        <textarea class="form-control total-price" id="descripcion-presupuesto" rows="1"></textarea>
-                        
-                    </div>               
-                </form>
-            </div>
-
+        <div class="fx justify-center align-center budget-direction ">
+            
             <div class="grey-opacity budget-req budg-req-desk ">
                 <h2 class="text-center bolder mb-3">Pedido del cliente</h2>
                 <form action="" method="" class="">
@@ -66,20 +36,47 @@
                     <div>
                         <label class="mr-3 budg-txt">Ubicación</label>
                         <textarea class="form-control" id="descripcion-presupuesto" rows="1" placeholder="Av Corrientes 2000"></textarea>                        
-                    </div>
-                                            
-                    
-
+                    </div>                                           
                 </form>
             </div>
 
+            <div class="grey-opacity budget-req desk-size">
+                <h2 class="text-center bolder mb-3">Formulario presupuesto</h2>
+                <form action="" method="" class="">
+                    <div class="mb-3">
+                        <label for="descripción" class="mr-3 form-label"><h4>Materiales</h4></label>
+                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
+                    </div>
+    
+                    <div class="mb-3 ">
+                        <label for="descripción" class="mr-3 form-label"><h4>Mano de Obra</h4></label>
+                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="descripción" class="mr-3 form-label"><h4>Duración estimada</h4></label>
+                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
+                    </div>
+    
+                     <div class="mb-3">
+                        <label for="descripción" class="mr-3 form-label"><h4>Comentarios</h4></label>
+                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
+                    </div>
+    
+                    <div class="fx justify-end align-center">
+                        <label for="" class="mr-3 form-label total-title">Total</label>
+                        <textarea class="form-control total-price" id="descripcion-presupuesto" rows="1"></textarea>
+                        
+                    </div>               
+                </form>
+            </div>
         </div>
             
-            <div class="fx justify-center mt-3">
-                <button class="budg-res-btn">    
-                    <a href="/budget/request"> Enviar presupuesto</a>
-                </button>  
-            </div>
+        <div class="fx justify-center mt-3">
+            <button class="budg-res-btn">    
+                <a href="#"> Enviar presupuesto</a>
+            </button>  
+        </div>
 
     </main>
 
