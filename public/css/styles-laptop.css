@@ -288,5 +288,10 @@
         padding: 3%;
     }
 
+     /*----------BUDGET RESPONSE--------*/
+    .budget-direction {
+    flex-direction: row;
+    }
+
 
 }

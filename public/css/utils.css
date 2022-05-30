@@ -108,6 +108,7 @@
     justify-content: space-between;
 }
 
+.justify-end {justify-content: flex-end;}
 .justify-sp-a {
     justify-content: space-around;
 }

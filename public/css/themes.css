@@ -157,6 +157,15 @@ a { text-decoration: none; color: black; }
     color: black;
 }
 
+.budg-res-btn {
+    border: none;
+    border-radius: 5px;
+    background-color: #FF9900;
+    color: black;
+    padding: 10px;
+    margin-bottom: 4%;
+    font-size: larger;
+}
 .cancel-button {
     background-color: #c4c4c4;
     padding: 10px;
@@ -183,6 +192,21 @@ a { text-decoration: none; color: black; }
     margin: 4%;
 }
 
+/*----------------BUDGET RESPONSE-------------*/
+
+.total-price {
+    width:35%!important;    
+}
+.total-title {
+    margin-bottom: 0%!important;
+    font-size: calc(1.325rem + .9vw)!important;
+}
+.budget-direction {
+    flex-direction: column;
+}
+.budg-txt {
+    font-size: calc(1.275rem + .3vw)
+}
 
 /*-------------FOOTER------------------*/
 
