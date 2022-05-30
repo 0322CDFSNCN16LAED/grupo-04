@@ -1,194 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repara Ya</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital@1&family=Roboto&display=swap" rel="stylesheet">
+<%- include('./partials/head') %>
 
-    <script src="https://kit.fontawesome.com/2cffc479ad.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/themes.css">
-    <link rel="stylesheet" href="/css/utils.css">
-    <link rel="stylesheet" href="/css/colors.css">
-    <link rel="stylesheet" href="/css/styles-shoppingCart.css">
-    <link rel="stylesheet" href="/css/styles-tablet.css">
-    <link rel="stylesheet" href="/css/styles-laptop.css">
-    <link rel="stylesheet" href="/css/styles-desktop.css">
-</head>
 <body>
-  <header>
-        <div class="main-header">
-            <i class="fas fa-bars hamburguer"></i>
-            <img src="/images/logo-repara-ya.svg" 
-            alt="esto es un logo de repara ya" 
-            class= "logo">
-            <i class="fa-regular fa-circle-user"></i>
-        </div>
-    </header>
-    <header class= "bg-orange">
-        <div class="lapt-desk-header">
-          <img src="/images/logoReparaYaDesktop.svg" alt="Logo Repara Ya" class= "logo fx">
-          <form class="search-bar fx">
-              <input type="text" class="" placeholder="Buscá el servicio que necesitás">
-              <button><i class="fas fa-search"></i></button>
-          </form>
-          <p class=""><a href="/login" class="right-bar">Ingresá</a></p>
-          <p class=""><a href="/register"class="right-bar">Registrate</a></p>
-      </div>
-        <div class="header-bar">
-            <ul class="fx">
-                <li><a href="">Mi perfil</a></li>
-                <li><a href="">Notificaciones</a></li>
-                <li><a href="">Historial</a></li>
-                <li><a href="">Categorias</a></li>
-                <li><a href="/product/cart">Mi carrito</a></li>
-            </ul>
-        </div>
-    </header>
-<main class="imagen-fondo-mobile main-fx-size">    
-    
-    <section>   
-        <div class="fx justify-sp-b text-right font-xlarge">
-            <h2 class="m-3 font-xlarge lapt-shop-pago">Pago</h2>
-            <h2 class="m-3 font-xlarge lapt-shop-title">Realizá tus pagos de manera rápida y segura a traves de la página</h2>
-            <i class="m-3 far fa-question-circle"></i>
-        </div>        
-       
-        <div class="shopc-lap" >
-            <form class="fx justify-center lap-w-1" action="" method="" >
-                <div class="marco-detail-2 box-size-1 text-center shopc-marco-tablet marco-lap">
-                    <div class="form-box-padding">
-                        <div class="form-box">
-                            <h3 class="font-large m-detail">Confirmá tu domicilio</h3>
-                            <input 
-                            type="text" 
-                            class="" 
-                            placeholder="">
-                        </div>
-                    </div> 
-                    <div class="form-box-padding">
-                        <div class="form-box">
-                            <h3 class="font-large m-detail">Teléfono de contacto</h3>
-                            <input 
-                            type="text" 
-                            placeholder="">
-                        </div>
-                    </div>       
-                    
-                    <div class="form-box">    
-                        <h3 class="font-large m-detail">Agendá tu turno!</h3>
-                        <input 
-                        type="date" 
-                        class="maxWit-200" 
-                        placeholder="">                                           
-                    </div>
-                    
-                    <div>                       
-                        <h3 class="font-large m-detail">Horarios</h3>
-                        <label >Seleccioná una franja horaria</label>
-                        <select name="día">
-                            <option> de 8 a 12 </option>
-                            <option> de 12 a 16 </option>
-                            <option> de 16 a 20 </option>
-                        </select>                   
+ <%- include('./partials/header') %>
+    <main class="imagen-fondo-mobile main-fx-size">    
+        
+        <section>   
+            <div class="fx justify-sp-b text-right font-xlarge">
+                <h2 class="m-3 font-xlarge lapt-shop-pago">Pago</h2>
+                <h2 class="m-3 font-xlarge lapt-shop-title">Realizá tus pagos de manera rápida y segura a traves de la página</h2>
+                <i class="m-3 far fa-question-circle"></i>
+            </div>        
+        
+            <div class="shopc-lap" >
+                <form class="fx justify-center lap-w-1" action="" method="" >
+                    <div class="marco-detail-2 box-size-1 text-center shopc-marco-tablet marco-lap">
+                        <div class="form-box-padding">
+                            <div class="form-box">
+                                <h3 class="font-large m-detail">Confirmá tu domicilio</h3>
+                                <input 
+                                type="text" 
+                                class="" 
+                                placeholder="">
+                            </div>
+                        </div> 
+                        <div class="form-box-padding">
+                            <div class="form-box">
+                                <h3 class="font-large m-detail">Teléfono de contacto</h3>
+                                <input 
+                                type="text" 
+                                placeholder="">
+                            </div>
+                        </div>       
                         
-                    </div>
-                    <div>                        
-                        <h3 class="font-large m-detail">Método de pago</h3>                
-                        <label>Seleccioná un método de pago</label>
-                        <select name="día">
-                            <option> Efectivo </option>
-                            <option> Débito </option>
-                            <option> Tarjeta de crédito </option>
-                            <option> Mercado Pago </option>
-                        </select>                
-                    </div>
-
-                </div>
-
-            </form>
-           
-            <div class="fx justify-center">
-                <div class="fx marco-detail box-size-2 direction-column shopc-marco-tablet lap-w-2">
-                    <div class="marco-prof-shop marco-detail-img fx justify-center ">                   
-                        <div class=><img src="/images/profilePic.svg" alt=""></div>
-                        <div>
-                            <h2 class="font-large m-t-pro">Profesional 1</h2>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                                <p class="mt-3">Pintura interior departamento x 300 mtrs²</p>
-                            </div>                          
-                
+                        <div class="form-box">    
+                            <h3 class="font-large m-detail">Agendá tu turno!</h3>
+                            <input 
+                            type="date" 
+                            class="maxWit-200" 
+                            placeholder="">                                           
                         </div>
-    
-                        <div class="marco-prof-shop marco-detail fx justify-center direction-column">
-                            <div class="fx justify-sp-b mb-3">
-                                <p class="font-large">Costo de servicio</p>
-                                <p class="font-large">$5000</p>
-                            </div>
-                            <div class="fx justify-sp-b">
-                                <p class="font-large">Pagas</p>
-                                <p class="font-large">$5000</p>
-                            </div>
+                        
+                        <div>                       
+                            <h3 class="font-large m-detail">Horarios</h3>
+                            <label >Seleccioná una franja horaria</label>
+                            <select name="día">
+                                <option> de 8 a 12 </option>
+                                <option> de 12 a 16 </option>
+                                <option> de 16 a 20 </option>
+                            </select>                   
                             
                         </div>
+                        <div>                        
+                            <h3 class="font-large m-detail">Método de pago</h3>                
+                            <label>Seleccioná un método de pago</label>
+                            <select name="día">
+                                <option> Efectivo </option>
+                                <option> Débito </option>
+                                <option> Tarjeta de crédito </option>
+                                <option> Mercado Pago </option>
+                            </select>                
+                        </div>
+
                     </div>
 
-                </div>
-            </div> 
-        </div>
-                
-    </section>
+                </form>
+            
+                <div class="fx justify-center">
+                    <div class="fx marco-detail box-size-2 direction-column shopc-marco-tablet lap-w-2">
+                        <div class="marco-prof-shop marco-detail-img fx justify-center ">                   
+                            <div class=><img src="/images/profilePic.svg" alt=""></div>
+                            <div>
+                                <h2 class="font-large m-t-pro">Profesional 1</h2>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                    <p class="mt-3">Pintura interior departamento x 300 mtrs²</p>
+                                </div>                          
+                    
+                            </div>
+        
+                            <div class="marco-prof-shop marco-detail fx justify-center direction-column">
+                                <div class="fx justify-sp-b mb-3">
+                                    <p class="font-large">Costo de servicio</p>
+                                    <p class="font-large">$5000</p>
+                                </div>
+                                <div class="fx justify-sp-b">
+                                    <p class="font-large">Pagas</p>
+                                    <p class="font-large">$5000</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div> 
             </div>
-            <div class="text-center pad-5">
-                <button type=“submit” class="button-orange font-large text-center">Contratá tu servicio</button>
-                <button type= "cancel" class="cancel-button font-large"> Cancelar </button>            
-            </div>  
-         
-</main>
-<footer class="bg-orange">
-    <nav class="nav-bar">
-        <ul class="descarga">
-             <li class="font-white footer-title"> Descargá la app </li>
-            <li class="mr-15"><a href=""><i class="fa-brands fa-google-play google-descarga"></i></a></li>
-            <li><a href=""></a><i class="fa-brands fa-apple apple-descarga"></i></li>
-        </ul>
-        <ul class=" redes">
-            <li class="font-white footer-title"> Redes </li>
-            <li class="mr-11"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-            <li class="mr-11"><a href="#"><i class="fa-brands fa-facebook"> </i></a></li>
-            <li class="mr-11"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-            <li ><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-        </ul>
+                    
+        </section>
+                </div>
+                <div class="text-center pad-5">
+                    <button type=“submit” class="button-orange font-large text-center">Contratá tu servicio</button>
+                    <button type= "cancel" class="cancel-button font-large"> Cancelar </button>            
+                </div>  
+            
+    </main>
 
-        <ul class="funcionamiento">
-            <li><img src="/images/logo-repara-ya.svg" alt="esto es un logo de repara ya" class="logo-footer"></li>
-            <li class="font-white footer-title"> Funcionamiento </li>
-            <li class="font-white"> Nosotros </li>
-            <li class="font-white"> FAQ </li>
-            <li class="font-white"> Terminos y condiciones </li>
-        </ul>
-
-        <ul class="contacto">
-            <li class="font-white footer-title">Contacto</li>
-            <li class="mr-15"> <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-            <li class="mr-15"> <a href="#"><i class="fa-solid fa-envelope"></i></a></li>
-            <li> <a href="#"><i class="fa-solid fa-phone"></i></a></li>
-            </li>
-        </ul>
-    </nav>
-
-</footer>   
+    <%- include('./partials/footer') %>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
