@@ -1,48 +1,23 @@
 /*------------------SPACING------------------*/
-.m-3{
-    margin: 3%;
-}
+.m-3 { margin: 3%; }
+.m-auto { margin: auto; }
 
-.m-auto{
-    margin: auto;
-}
+.w-20 { width: 20%; }
+.w-50 { width: 50%; }
+.w-60 { width: 60%; }
 
-.w-20 {
-    width: 20%;
-}
+.pad-5 { padding-bottom: 5%; }
 
-.w-60 {
-    width: 60%;
-}
-.pad-5 {
-    padding-bottom: 5%;
-}
+.mb-80 { margin-bottom: 80px; }
+.mb-5 { margin-bottom: 5%; }
+.mb-3 { margin-bottom: 3%; }
+.mt-3 { margin-top: 3%; }
+.ml-1 { margin-left: 1%; }
+.ml-10 { margin-left: 10%;}
+.mr-5 { margin-right: 10px; }
+.mr-3 { margin-right: 3%; }
+.mr-10 { margin-right: 10%; }
 
-.mb-80 {
-    margin-bottom: 80px;
-}
-
-.w-50 {
-    width: 50%;
-}
-.mb-5 {
-    margin-bottom: 5%;
-}
-.mb-3 {
-    margin-bottom: 3%;
-}
-.mt-3 {
-    margin-top: 3%;
-}
-.ml-1 {
-    margin-left: 1%;
-}
-.ml-10{margin-left: 10%;}
-.mr-5 {
-    margin-right: 10px;
-}
-.mr-3 {margin-right: 3%;}
-.mr-10 {margin-right: 10%;}
 /*-----------FONTS---------*/
 
 .text-right { text-align: right; }
@@ -152,7 +127,3 @@
 
 .err { background: #ffe6ee; border: 1px solid #b1395f; }
 .emsg { color: #c12020; font-weight: bold; }
-
-form div label {
-    font-size: 16px;
-}
