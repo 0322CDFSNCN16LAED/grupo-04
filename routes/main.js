@@ -9,6 +9,6 @@ router.get("/login", mainControllers.login);
 
 router.get("/register", mainControllers.register);
 
-
+router.get("/registerProfesional", mainControllers.registerProfesional);
 
 module.exports = router;

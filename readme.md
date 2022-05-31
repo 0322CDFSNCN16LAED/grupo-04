@@ -31,8 +31,8 @@
 - Nombre del sitio: http://www.reparaya.com
 - Logo:  <img src= "./public/images/LogoReparaYa.png" alt="logo" width= 100/> 
 - Tipografía:
-    - Amaranth (Regular 400, Regular 400 italic)
-    - Roboto (Regular 400 – opción secundaria)
+    - Roboto (Regular 400)
+    - Sans serif (Regular 400 – opción secundaria)
 - Paleta de colores:    
     -  ![#c4c4c4](https://via.placeholder.com/15/c4c4c4/000000?text=+) 
     -  ![#ff9900](https://via.placeholder.com/15/FF9900/000000?text=+)

@@ -4,12 +4,12 @@
     <%- include('./partials/head') %>
 
 <body>
-    <%- include('./partials/header-dropdown') %>
+    <%- include('./partials/header') %>
 
     <main class="imagen-fondo-mobile main-fx-size">
         <div class="fx align-center justify-center">
 
-            <div class=" bg-light-grey cajaformulario">
+            <div class="cajaformulario">
                 <div>
                     <h3 class="">Registrate</h3>
                     <p class="font-mediun  mb-5 -login">Ofrece tus servivios sin costo</p>
@@ -69,9 +69,9 @@
                         </div>
 
                         <div class="font-mediun mb-5-login">
-                            <p >Trabajos realizados</p>
-                            <div class="mb-5-login">
-                                <button class="subirfoto-button-login font-small">Subir foto</button>
+                            <div class="mb-3">                   
+                                <label for="imagenesDeReferencia" class="form-label "><h4 class="font-medium" >Trabajos realizados</h4></label>
+                                <input class="form-control" type="file" id="imagenesDeReferencia" multiple>
                             </div>
                             
                         </div>

@@ -10,5 +10,7 @@ module.exports = {
     register: (req, res) => {
         res.render("register");
     },
-
+    registerProfesional: (req, res) => {
+        res.render("registerProfesional");
+    }
 };
