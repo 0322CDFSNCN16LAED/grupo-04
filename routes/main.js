@@ -7,6 +7,8 @@ router.get("/", mainControllers.home);
 
 router.get("/login", mainControllers.login);
 
+
+
 router.get("/register", mainControllers.register);
 
 router.get("/registerProfesional", mainControllers.registerProfesional);

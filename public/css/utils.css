@@ -17,13 +17,14 @@
 .mr-5 { margin-right: 10px; }
 .mr-3 { margin-right: 3%; }
 .mr-10 { margin-right: 10%; }
-
+.m-2 {margin: 2%;}
 /*-----------FONTS---------*/
 
 .text-right { text-align: right; }
 .text-center { text-align: center; }
 .font-xlarge { font-size: 30px; font-weight: bold;}
 .font-large { font-size: 24px; font-weight: bold;}
+.font-18 { font-size: 18px;}
 .font-medium { font-size: 16px;}
 .font-small { font-size: 12px;}
 .font-xsmall { font-size: 10px }
@@ -106,7 +107,7 @@
 .marco-detail {
     padding: 2%;
     margin: 4%;
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: rgba(196,196,196,0.8);
 }
 
@@ -117,7 +118,7 @@
 .marco-detail-2 {
     padding: 7%;
     margin: 4%;
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: rgba(196,196,196,0.8);
 }
 

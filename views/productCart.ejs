@@ -16,7 +16,7 @@
         
             <div class="shopc-lap" >
                 <form class="fx justify-center lap-w-1" action="" method="" >
-                    <div class="marco-detail-2 box-size-1 text-center shopc-marco-tablet marco-lap">
+                    <div class="marco-detail-2 box-size-1 shopc-marco-tablet marco-lap">
                         <div class="form-box-padding">
                             <div class="form-box">
                                 <h3 class="font-medium m-detail">Confirmá tu domicilio</h3>
@@ -35,35 +35,34 @@
                             </div>
                         </div>       
                         
-                        <div class="form-box">    
+                        <div class="form-box mb-3">    
                             <h3 class="font-medium m-detail">Agendá tu turno!</h3>
                             <input 
                             type="date" 
                             class="maxWit-200" 
                             placeholder="">                                           
                         </div>
-                        
-                        <div>                       
-                            <h3 class="font-medium m-detail">Horarios</h3>
-                            <label >Seleccioná una franja horaria</label>
-                            <select name="día">
-                                <option> de 8 a 12 </option>
-                                <option> de 12 a 16 </option>
-                                <option> de 16 a 20 </option>
-                            </select>                   
-                            
-                        </div>
-                        <div>                        
-                            <h3 class="font-medium m-detail">Método de pago</h3>                
-                            <label>Seleccioná un método de pago</label>
-                            <select name="día">
-                                <option> Efectivo </option>
-                                <option> Débito </option>
-                                <option> Tarjeta de crédito </option>
-                                <option> Mercado Pago </option>
-                            </select>                
+                                                   
+                        <div class="mb-3 fx align-center">                    
+                            <label class="font-medium">Horario</label>
+                            <select class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected>Elegí tu horario disponible</option>
+                              <option value="mañana">de 8 a 12</option>
+                              <option value="tarde">de 12 a 16</option>
+                              <option value="tarde-noche">de 16 a 20</option>
+                            </select>
                         </div>
 
+                        <div class="mb-3 fx align-center">                    
+                            <label class="font-medium">Método de pago</label>
+                            <select class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
+                              <option selected>Seleccioná tu método de pago</option>
+                              <option value="">Efectivo</option>
+                              <option value="">Débito</option>
+                              <option value="">Tarjeta de crédito</option>
+                              <option value="">Mercado Pago</option>
+                            </select>
+                        </div>
                     </div>
 
                 </form>
@@ -75,7 +74,7 @@
                                 <img src="/images/profilePic.svg" alt="">
                             </div>
                             <div>
-                                <h2 class="font-large m-t-pro">Profesional 1</h2>
+                                <h2 class="font-18 m-t-pro">Profesional 1</h2>
                                 <div class="stars">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -90,12 +89,12 @@
         
                         <div class="marco-prof-shop marco-detail fx justify-center direction-column">
                             <div class="fx justify-sp-b mb-3">
-                                <p class="font-large">Costo de servicio</p>
-                                <p class="font-large">$5000</p>
+                                <p class="font-18">Costo de servicio</p>
+                                <p class="font-18">$5000</p>
                             </div>
                             <div class="fx justify-sp-b">
-                                <p class="font-large">Pagas</p>
-                                <p class="font-large">$5000</p>
+                                <p class="font-18">Pagas</p>
+                                <p class="font-18">$5000</p>
                             </div>
                                 
                         </div>
@@ -104,9 +103,9 @@
                 </div>
             </div>  
         </section>
-        <div class="text-center pad-5">
-            <button type=“submit” class="button-orange font-medium text-center">Contratá tu servicio</button>
-            <button type= "cancel" class="cancel-button font-medium"> Cancelar </button>            
+        <div class="text-center align-center txt-button-container pad-5"> 
+            <button type=“submit” class="button-orange font-18 text-center">Contratá tu servicio</button>
+            <button type= "cancel" class="cancel-button font-18 txt-button-container"> Cancelar </button>            
         </div>  
             
     </main>
