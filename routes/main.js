@@ -11,4 +11,6 @@ router.get("/register", mainControllers.register);
 
 router.get("/registerProfesional", mainControllers.registerProfesional);
 
+router.get("/inbox", mainControllers.inbox);
+
 module.exports = router;

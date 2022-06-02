@@ -12,5 +12,8 @@ module.exports = {
     },
     registerProfesional: (req, res) => {
         res.render("registerProfesional");
-    }
+    },
+    inbox: (req, res) => {
+        res.render("inbox");
+    },
 };
