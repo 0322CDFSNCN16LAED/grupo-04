@@ -5,6 +5,7 @@ const app = express();
 const mainRouter = require("./routes/main.js");
 const productsRouter = require ("./routes/products.js");
 const budgetRouter = require("./routes/budget.js");
+const registerRouter = require("./routes/register.js");
 
 const PORT = 3000;
 app.listen(PORT, () => {
@@ -18,3 +19,4 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", mainRouter);
 app.use("/product", productsRouter);
 app.use("/budget", budgetRouter);
+app.use("/register", registerRouter);

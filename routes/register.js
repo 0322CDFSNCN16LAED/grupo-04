@@ -3,12 +3,10 @@ const router = express.Router();
 
 const registerControllers = require("../controllers/register-controllers");
 
-router.get("/register", registerControllers.register);
+router.get("/", registerControllers.register);
 
-router.get("/login", mainControllers.login);
+router.get("/user", registerControllers.registerUser);
 
-router.get("/registerUser", mainControllers.registerUser);
-
-router.get("/registerProfesional", mainControllers.registerProfesional);
+router.get("/profesional", registerControllers.registerProfesional);
 
 module.exports = router;

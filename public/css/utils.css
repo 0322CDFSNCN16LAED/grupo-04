@@ -5,6 +5,9 @@
 .w-20 { width: 20%; }
 .w-50 { width: 50%; }
 .w-60 { width: 60%; }
+.w-80 { width: 80%; }
+.w-90 { width: 90%; }
+.w-100 { width: 100%; }
 
 .pad-5 { padding-bottom: 5%; }
 
@@ -33,12 +36,8 @@
 /*-----------POSITIONS---------*/
 
 .relative{ position: relative;}
-
 .absolut{ position: absolute;}
-
-.dp-unset{
-    display: unset;
-}
+.dp-unset { display: unset; }
 
 .stars {
     color: gold;
@@ -66,38 +65,19 @@
     padding: 8% 3%;
 }
 
-.main-body {
-    margin: 5%;
-}
+.main-body { margin: 5%; }
 
 
 /*-----------FLEX----------*/
 
-.fx {
-    display: flex;
-}
-
-.fx.wrap {
-    flex-wrap: wrap;
-}
-
+.fx { display: flex; }
+.fx.wrap { flex-wrap: wrap; }
 .fx-column {flex-direction: column;}
-
-.justify-sp-b {
-    justify-content: space-between;
-}
-
-.justify-end {justify-content: flex-end;}
-.justify-sp-a {
-    justify-content: space-around;
-}
-.align-center {
-    align-items: center;
-}
-
-.justify-center {
-    justify-content: center;
-}
+.justify-sp-b { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+.justify-sp-a { justify-content: space-around; }
+.align-center { align-items: center; }
+.justify-center { justify-content: center; }
 
 .direction-column {
     flex-direction: column;
@@ -128,3 +108,6 @@
 
 .err { background: #ffe6ee; border: 1px solid #b1395f; }
 .emsg { color: #c12020; font-weight: bold; }
+
+.br-5 { border-radius: 5px; }
+.br-10 { border-radius: 10px; }
