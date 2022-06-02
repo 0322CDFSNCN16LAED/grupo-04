@@ -107,3 +107,6 @@
 
 .err { background: #ffe6ee; border: 1px solid #b1395f; }
 .emsg { color: #c12020; font-weight: bold; }
+
+.br-5 { border-radius: 5px; }
+.br-10 { border-radius: 10px; }
