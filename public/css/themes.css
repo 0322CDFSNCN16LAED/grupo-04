@@ -238,16 +238,17 @@ a { text-decoration: none; color: black; }
     display: flex;
     justify-content: space-around;
     text-align: center;
+    font-size: 14px;
 }
 
 .nav-bar ul li a {
     text-decoration: none;
-    color: black;
-    font-size: 25px;
+    color: white;
+    font-size: 1.2em;
     margin-top: 7%;
 }
 .logo-footer {
-    width: 28%;
+    width: 17%;
 }
 
 .redes {
@@ -263,10 +264,10 @@ a { text-decoration: none; color: black; }
     display: none;
 }
 .google-descarga {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 .apple-descarga{
-    font-size: 2.5em;
+    font-size: 1.3em;
 }
 .mr-11{
     margin-right: 0%;

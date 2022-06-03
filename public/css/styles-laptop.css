@@ -1,6 +1,11 @@
 @media(min-width:769px) {
     /*------------------HEADER-----------------*/
     
+    .nav-bar ul li a {
+        text-decoration: none;
+        font-size: 1.5em;
+        margin-top: 7%;
+    }
     .main-header {
         display: none;
     }
@@ -208,7 +213,7 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
     }
     
     .contacto{
@@ -216,7 +221,7 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
     }
     .funcionamiento{
         width: 35%;
@@ -234,8 +239,8 @@
         font-size: 20px;
     }
     .mr-11{
-    margin-right: 11%;
-}
+        margin-right: 11%;
+    }
     .mr-15{
         margin-right: 15%;
     }
