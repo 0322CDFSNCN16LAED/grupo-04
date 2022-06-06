@@ -185,7 +185,7 @@
 
     .budg-button {
         padding: 10px;  
-        border-radius: 5px;
+        border-radius: 10px;
         background-color: #FF9900;
         border: none;
         font-size: 12px; 
@@ -266,10 +266,9 @@
     }
 
     /*-----------LOGIN----------------*/
-
-    .cajaformulario {
-       max-width: 30%;
-       padding: 2%;
+    .login-desk {
+        margin-right: 20%;
+        margin-left: 20%;
     }
     .mb-5-login {
         margin-bottom: 1%;
@@ -299,6 +298,21 @@
     font-size: 1.5rem !important;
     }
     
+    /*---------PROFILE---------*/
+    .profile-box {
+        padding: 2%;
+        border-radius: 5px;
+        margin: 4%;
+    }
+    .map-column {
+        flex-direction: row;
+        align-items: center;
+    }
+    .map-desk {
+        margin-left: 4%;        
+    }
+  
+
 
 
 }

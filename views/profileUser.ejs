@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<%- include('./partials/head') %>
-
+    <%- include('./partials/head') %>
 <body>
-    
     <%- include('./partials/header') %>
 
     <main class="imagen-fondo-mobile fx justify-center">
         <div class="fx justify-center"></div>
-        <div class="grey-opacity profile-box desk-size">
-                <div>
-                    <h3 class="text-center">¿Aún no eres usuario?</h3>
-                    <p class="font-mediun text-center mb-3-login">Ingresá los datos para registrarte</p>
-                </div>
+            <div class="grey-opacity profile-box desk-size">
                 <form action="">
-                    
+                    <div class="fx justify-center">
+                        <div class="user-pic" style="background-image:url('../images/ProfilePic.svg')"></div>
+                    </div>
                     <div class="fx map-column">
                         <div>
                             <div class="row mt-3">
@@ -39,6 +34,12 @@
                              <div class="col mb-3">
                                 <input type="password" class="form-control" placeholder="Cambiar contraseña" aria-label="Contraseña">
                             </div>
+                            <div class="font-mediun mt-3 mb-5-login">
+                                <div class="mb-3">                   
+                                    <label for="fotoPerfil" class="form-label "><h4 class="font-medium" >Foto de Perfil</h4></label>
+                                    <input class="form-control" type="file" id="FotoPerfil" multiple>
+                                </div>
+                            </div>
                             <div class="col mt-3">
                                 <input type="text" class="form-control" placeholder="Teléfono" aria-label="Teléfono">
                             </div>
@@ -57,11 +58,9 @@
                                 <div class="col-sm">
                                     <input type="text" class="form-control" placeholder="Código postal" aria-label="Código postal">
                                 </div>
-                            </div>
-                          
+                            </div>                          
     
-                        </div>
-                
+                        </div>                
                         
                         <div class="fx justify-center mt-3  map-desk">
                             <div class="map" style="background-image:url('../images/profile-map.png')"></div>
@@ -70,7 +69,7 @@
                     </div>
                     <div class="fx justify-center mt-3">
                         <button class="budg-button" type="submit">
-                            <a href="#"> Registrarse</a>
+                            <a href="#"> Actualizar mis datos</a>
                         </button>  
                     </div>
         
@@ -80,9 +79,8 @@
         </div>    
     </main>
 
-   <%- include('./partials/footer') %>
+    <%- include('./partials/footer') %>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
-
 </html>

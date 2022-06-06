@@ -13,4 +13,10 @@ module.exports = {
   history: (req, res) => {
     res.render("history");
   },
+  profileUser: (req, res) => {
+    res.render("profileUser");
+  },
+  profileProfesional: (req, res) => {
+    res.render("profileProfesional");
+  },
 };
