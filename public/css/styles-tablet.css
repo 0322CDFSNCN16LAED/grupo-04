@@ -12,6 +12,13 @@
         justify-content: center;
     }
 
+    /*----------HISTORY---------*/
+
+    .lapt-history {
+    display: flex;
+    justify-content: space-between;
+    }
+
     /*----------FOOTER---------*/
 
     .nav-bar ul li a {
