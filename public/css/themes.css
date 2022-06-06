@@ -165,14 +165,14 @@ a { text-decoration: none; color: black; }
     border-radius: 5px;
     background-color: #FF9900;
     color: black;
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 4%;
     font-size: larger;
 }
 .cancel-button {
     background-color: #c4c4c4;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
     border: none;
     margin-left: 5% ;
