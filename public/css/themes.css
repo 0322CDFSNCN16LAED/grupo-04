@@ -128,7 +128,7 @@ a { text-decoration: none; color: black; }
 .budg-button {
     bottom: 100px;
     padding: 10px;  
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #FF9900;
     border: none;
     font-size: 100%;    
@@ -137,7 +137,7 @@ a { text-decoration: none; color: black; }
 .budg-button-no-position {
     margin: 5%;
     padding: 10px;  
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #FF9900;
     border: none;
     font-size: 100%;    
@@ -146,7 +146,7 @@ a { text-decoration: none; color: black; }
 .budg-button-white {
     margin: 5%;
     padding: 10px;  
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #FFFF;
     border: none;
     font-size: 50%;
@@ -162,7 +162,7 @@ a { text-decoration: none; color: black; }
 
 .budg-res-btn {
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #FF9900;
     color: black;
     padding: 8px;
@@ -170,7 +170,7 @@ a { text-decoration: none; color: black; }
     font-size: larger;
 }
 .cancel-button {
-    background-color: #c4c4c4;
+    background-color: #6c757d;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -200,7 +200,7 @@ a { text-decoration: none; color: black; }
     background-color: #6c757d;
     padding: 2%;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
     color: white;
 }
 
@@ -211,7 +211,7 @@ a { text-decoration: none; color: black; }
 }
 .total-title {
     margin-bottom: 0%!important;
-    font-size: calc(1.325rem + .9vw)!important;
+    font-size: calc(1rem + .9vw)!important;
 }
 .budget-direction {
     flex-direction: column;
@@ -238,16 +238,17 @@ a { text-decoration: none; color: black; }
     display: flex;
     justify-content: space-around;
     text-align: center;
+    font-size: 14px;
 }
 
 .nav-bar ul li a {
     text-decoration: none;
-    color: black;
-    font-size: 25px;
+    color: white;
+    font-size: 1.2em;
     margin-top: 7%;
 }
 .logo-footer {
-    width: 28%;
+    width: 17%;
 }
 
 .redes {
@@ -263,10 +264,10 @@ a { text-decoration: none; color: black; }
     display: none;
 }
 .google-descarga {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 .apple-descarga{
-    font-size: 2.5em;
+    font-size: 1.3em;
 }
 .mr-11{
     margin-right: 0%;
@@ -301,3 +302,35 @@ a { text-decoration: none; color: black; }
 
 }   
 
+/*--------------PROFILE---------------*/
+
+.user-pic {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #EFEFEF;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.map-column {
+    flex-direction: column;
+}
+.profile-box {
+    padding: 5%;
+    border-radius: 5px;
+    margin: 4%;
+}
+.map {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    
+    background-color: #EFEFEF;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}

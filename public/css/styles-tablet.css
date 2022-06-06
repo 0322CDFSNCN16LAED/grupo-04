@@ -11,6 +11,21 @@
         max-width: 80%;
         justify-content: center;
     }
+
+    /*----------HISTORY---------*/
+
+    .lapt-history {
+    display: flex;
+    justify-content: space-between;
+    }
+
+    /*----------FOOTER---------*/
+
+    .nav-bar ul li a {
+        text-decoration: none;
+        font-size: 1.2em;
+        margin-top: 7%;
+    }
    
 
 }
