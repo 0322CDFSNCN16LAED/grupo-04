@@ -79,6 +79,9 @@
 .justify-sp-a { justify-content: space-around; }
 .align-center { align-items: center; }
 .justify-center { justify-content: center; }
+.fx-grow-100 { display: flex; flex-grow: 1; }
+.fx-grow-90 { display: flex; flex-grow: 0.9; }
+.fx-grow-10 { display: flex; flex-grow: 0.1; }
 
 .direction-column {
     flex-direction: column;
@@ -113,3 +116,5 @@
 
 .br-5 { border-radius: 5px; }
 .br-10 { border-radius: 10px; }
+
+.foto-prof { width: 100%; }
