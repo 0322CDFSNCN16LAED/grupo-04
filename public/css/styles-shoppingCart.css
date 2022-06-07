@@ -16,7 +16,7 @@
 }
 
 .mt-20{
-margin-top: 20px;    
+    margin-top: 20px;    
 }
 
 .form-box-padding {
@@ -45,6 +45,7 @@ margin-top: 20px;
 .shopc-marco-tablet {
     min-width: fit-content;
 }
+
 .marco-detail-img {
     padding: 3% 1%;
     margin-left: 4%;
@@ -52,6 +53,7 @@ margin-top: 20px;
     margin-top: 4%;
     align-items: center;
 }
+
 .m-t-pro {
     margin-top: 6%;
 }

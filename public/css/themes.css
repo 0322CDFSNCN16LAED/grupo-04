@@ -181,9 +181,10 @@ a { text-decoration: none; color: black; }
     border-radius: 5px;
     text-align: center;
     border: none;
-    margin-left: 5% ;
-    
+    margin-left: 5%;
+    color: white;
 }
+
 /*----------------BUDGET REQUEST-------------*/
 
 .date-form {
