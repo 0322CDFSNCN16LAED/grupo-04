@@ -16,6 +16,12 @@ body {
 main {
     flex-grow: 1;
 }
+/*table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: gray;
+}*/
 
 /*-----------HEADER----------------*/
 
@@ -333,4 +339,20 @@ a { text-decoration: none; color: black; }
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+}
+/*-----------HISTORY---------------*/
+
+.table{
+    width: 95% !important;
+}
+table {
+    
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.table-bg{
+    background-color: #EFEFEF;
+    border-radius: 5px;
+    ;
 }
