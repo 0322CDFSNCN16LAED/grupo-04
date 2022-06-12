@@ -1,22 +1,37 @@
 const path = require("path");
 const express = require("express");
+const methodOverride = require("method-override");
+
 const app = express();
 
-const mainRouter = require("./routes/main.js");
-const productsRouter = require ("./routes/products.js");
-const budgetRouter = require("./routes/budget.js");
-const registerRouter = require("./routes/register.js");
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(express.urlencoded({ extended: false }));
+
+app.use(methodOverride("_method"));
+
+const mainRouter = require("./src/routes/main.js");
+app.use("/", mainRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log("Estamos corriendo en el puerto " + PORT);
 });
 
-app.set("view engine", "ejs");
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.render("error", {
+    message: err.message,
+    path: req.path,
+    error: err,
+  });
+});
 
-app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", mainRouter);
-app.use("/product", productsRouter);
-app.use("/budget", budgetRouter);
-app.use("/register", registerRouter);
+
+
+
+

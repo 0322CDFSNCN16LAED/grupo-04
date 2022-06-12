@@ -14,48 +14,48 @@
                     <h3 class="text-center">¿Aún no eres usuario?</h3>
                     <p class="font-mediun text-center mb-3-login">Ingresá los datos para registrarte</p>
                 </div>
-                <form action="">
+                <form action="/register/user"  method="POST">
                     
                     <div class="fx map-column">
                         <div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre">
+                                    <input type="text" name= "name" class="form-control" placeholder="Nombre" aria-label="Nombre">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido">
+                                    <input type="text" name= "lastName" class="form-control" placeholder="Apellido" aria-label="Apellido">
                                 </div>
                             </div>
                             <div class="col-auto mt-3">
                                 <label class="visually-hidden" for="">Nombre de usuario</label>
                                 <div class="input-group">
                                     <div class="input-group-text">@</div>
-                                    <input type="text" class="form-control" id="" placeholder="Nombre de usuario">
+                                    <input type="text" name= "userName" class="form-control" id="" placeholder="Nombre de usuario">
                                 </div>
                             </div>
                             <div class="col mt-3 mb-3">
-                                <input type="email" class="form-control" placeholder="E-mail" aria-label="E-mail">
+                                <input type="email" name= "email" class="form-control" placeholder="E-mail" aria-label="E-mail">
                             </div>
                              <div class="col mb-3">
-                                <input type="password" class="form-control" placeholder="Cambiar contraseña" aria-label="Contraseña">
+                                <input type="password" name= "password" class="form-control" placeholder="Cambiar contraseña" aria-label="Contraseña">
                             </div>
                             <div class="col mt-3">
-                                <input type="text" class="form-control" placeholder="Teléfono" aria-label="Teléfono">
+                                <input type="text" name= "phone" class="form-control" placeholder="Teléfono" aria-label="Teléfono">
                             </div>
         
                             <div class="col-12 mt-3 mb-3">
                                 <label for="Dirección" class="form-label visually-hidden">Dirección</label>
-                                <input type="text" class="form-control" id="Dirección" placeholder="Dirección">
+                                <input type="text" name= "address" class="form-control" id="Dirección" placeholder="Dirección">
                             </div>
                             <div class="row g-3">
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" placeholder="Ciudad" aria-label="Ciudad">
+                                    <input type="text" name= "city" class="form-control" placeholder="Ciudad" aria-label="Ciudad">
                                 </div>
                                 <div class="col-sm">
-                                    <input type="text" class="form-control" placeholder="Provincia" aria-label="Provincia">
+                                    <input type="text" name= "state" class="form-control" placeholder="Provincia" aria-label="Provincia">
                                 </div>
                                 <div class="col-sm">
-                                    <input type="text" class="form-control" placeholder="Código postal" aria-label="Código postal">
+                                    <input type="text" name= "zipCode" class="form-control" placeholder="Código postal" aria-label="Código postal">
                                 </div>
                             </div>
                           
@@ -70,7 +70,7 @@
                     </div>
                     <div class="fx justify-center mt-3">
                         <button class="budg-button" type="submit">
-                            <a href="#"> Registrarse</a>
+                            Registrarse
                         </button>  
                     </div>
         
