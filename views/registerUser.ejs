@@ -14,7 +14,7 @@
                     <h3 class="text-center">¿Aún no eres usuario?</h3>
                     <p class="font-mediun text-center mb-3-login">Ingresá los datos para registrarte</p>
                 </div>
-                <form action="/register/user"  method="POST">
+                <form action="/register/user"  method="POST" enctype="multipart/form-data">
                     
                     <div class="fx map-column">
                         <div>
@@ -57,6 +57,12 @@
                                 <div class="col-sm">
                                     <input type="text" name= "zipCode" class="form-control" placeholder="Código postal" aria-label="Código postal">
                                 </div>
+                            </div>
+                            <div class="font-mediun mb-5-login mt-3">
+                                <div class="mb-3 fx align-center">                   
+                                    <label for="profile-img" class="form-label"><h4 class="font-medium mb-0" >Foto de perfil</h4></label>
+                                    <input class="form-control" type="file" name= "profile-img" id="profile-img">
+                                </div>                            
                             </div>
                           
     
