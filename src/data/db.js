@@ -4,7 +4,7 @@ const path = require("path");
 
 const usersFilePath = path.join(__dirname, "./users-db.json");
 
-const profFilePath = path.join(__dirname,"./profesionals.json")
+const profFilePath = path.join(__dirname,"./professionals-db.json")
 
 module.exports = {
   getAllUsers: function () {
@@ -13,10 +13,15 @@ module.exports = {
   getAllProf: function () {
     return JSON.parse(fs.readFileSync(profFilePath, "utf-8"));
   },
-  saveAll: function (products) {
-    const fileTxt = JSON.stringify(products, null, 4);
+  saveAllUsers: function (products) {
+    const usersTxt = JSON.stringify(products, null, 4);
 
-    fs.writeFileSync(usersFilePath, fileTxt);
+    fs.writeFileSync(usersFilePath, usersTxt);
+  },
+  saveAllProf: function (products) {
+    const profTxt = JSON.stringify(products, null, 4);
+
+    fs.writeFileSync(profFilePath, profTxt);
   },
   getOne: function (id) {
     return this.getAll().find((p) => p.id == id);
@@ -29,5 +34,5 @@ module.exports = {
   },
   deleteProf: function (id) {
     return this.getAllProf().filter((p) => p.id != id);
-  }
+  },
 };

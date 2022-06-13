@@ -7,12 +7,12 @@ module.exports= {
     res.render("register");
   },
   //* create user*//
-  registerUser: (req, res) => {
+  createUser: (req, res) => {
     
     res.render("registerUser");
   },
   //*store user*//
-  store: (req,res) => {
+  storeUser: (req,res) => {
     const users= db.getAllUsers();
     const newUser = req.body;
     if (users.length) {
@@ -24,14 +24,31 @@ module.exports= {
 
       users.push(newUser);
 
-      db.saveAll(users);
+      db.saveAllUsers(users);
 
       res.redirect("/login");
   },
   
 
-  registerProfesional: (req, res) => {
+  createProf: (req, res) => {
     res.render("registerProfesional");
   },
+
+  storeProf: (req,res) => {
+    const prof= db.getAllProf();
+      const newProf = req.body;
+      if (prof.length) {
+            newProf.id = prof[prof.length - 1].id + 1;
+        } else {
+            newProf.id = 1;
+        }
+        newProf.image = "profile-user-pic.svg";
+
+        prof.push(newProf);
+
+        db.saveAllProf(prof);
+
+        res.redirect("/login");
+    },
 };
 

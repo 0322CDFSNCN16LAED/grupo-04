@@ -5,10 +5,12 @@ const registerControllers = require("../controllers/register-controllers");
 
 router.get("/", registerControllers.register);
 
-router.get("/user", registerControllers.registerUser);
-router.post("/user", registerControllers.store);
+//*create and store user*//
+router.get("/user", registerControllers.createUser);
+router.post("/user", registerControllers.storeUser);
 
-router.get("/profesional", registerControllers.registerProfesional);
-router.post("/profesional", registerControllers.registerProfesional);
+//* create and store prof *//
+router.get("/prof", registerControllers.createProf);
+router.post("/prof", registerControllers.storeProf);
 
 module.exports = router;
