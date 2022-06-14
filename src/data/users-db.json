@@ -1,16 +1,3 @@
 [
-    {
-        "name": "edu",
-        "lastName": "ramirez",
-        "userName": "edu",
-        "email": "edur@gmail.com",
-        "password": "1111",
-        "phone": "212121",
-        "address": "cabildo abierto",
-        "city": "san nicolas",
-        "state": "Buenos Aires",
-        "zipCode": "2900",
-        "id": 1,
-        "image": "profile-user-pic.svg"
-    }
+   
 ]
