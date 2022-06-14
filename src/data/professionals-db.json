@@ -1,3 +1,21 @@
 [
-    
+    {
+        "name": "Piero",
+        "lastName": "Jacinto",
+        "userName": "piero",
+        "email": "pierojacinto@gmail.com",
+        "password": "111",
+        "phone": "2121",
+        "DNI": "2112",
+        "IVA": "121",
+        "CUIT": "1212",
+        "rubro": [
+            "Electricista",
+            "Plomero"
+        ],
+        "time": "mañana",
+        "radio": "",
+        "id": 1,
+        "image": "profile-user-pic.svg"
+    }
 ]

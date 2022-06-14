@@ -8,9 +8,9 @@ const registerControllers = require("../controllers/register-controllers");
 const storage= multer.diskStorage({
     destination: (req,file,cb) =>{
         if (file.fieldname == "profile-img"){
-        cb(null,path.join(__dirname,"../public/images/profile-images"));
+        cb(null,path.join(__dirname,"../../public/images/profile-images"));
     }else {
-         cb(null, path.join(__dirname, "../public/images/finished-jobs-images"));
+         cb(null, path.join(__dirname, "../../public/images/finished-jobs-images"));
 
     }
     },
