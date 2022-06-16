@@ -8,78 +8,67 @@
         <div class="fx justify-center align-center budget-direction ">
             
             <div class="grey-opacity budget-req budg-req-desk ">
-                <h2 class="text-center bolder mb-3">Pedido del cliente</h2>
-                <form action="" method="" class="">
-                    <div class="mb-3 fx align-center">                    
-                        <label class="mr-3 font-medium">Estoy buscando</label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="1" placeholder="Electricista"></textarea>
+                <h2 class="text-center bolder mb-3">Solicitud del cliente</h2>
+                <section>
+                    <div class="mb-3 align-center">                    
+                        <p class="mr-3 font-medium">Categoría</p>
+                        <p><%= budgetToShow.rubro  %></p>
                     </div>
-                    <div class="mb-3 fx">
-                        <label for="descripción" class="mr-3 form-label font-medium">Descripción</label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="3" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi"></textarea>
+                    <div class="mb-3">
+                        <p class="mr-3 form-label font-medium">Descripción del trabajo</p>
+                        <p class="form-control"><%= budgetToShow.detalleSolicitud  %></p>
                     </div>
                     
                     <div class="mb-3">                   
-                        <label for="imagenesDeReferencia" class="form-label font-medium">Imagenes de referencia</label>
+                        <p class="form-label font-medium">Imágenes de referencia</p>
                     </div> 
                     <div class="mb-3">
-                        <label for="date font-medium">A realizar entre:</label>
-                        <div class="fx justify-center m-3">
-                            <input type="date" class="date-form mr-1">
-                            <input type="date" class="date-form">
-                        </div>
-                    </div>
-                    <div class="mb-3 fx align-center">                    
-                        <label class="mr-3 budg-txt font-medium">Horario</label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="1" placeholder="de 8 a 12 hrs"></textarea>
+                        <p class="font-medium">Cuándo necesitas realizarlo:</p>
+                        <p><%= budgetToShow.urgenciaTrabajo  %></p>
                     </div>
                     <div>
-                        <label class="mr-3 budg-txt font-medium">Ubicación</label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="1" placeholder="Av Corrientes 2000"></textarea>                        
+                        <p class="mr-3 budg-txt font-medium">Ubicación</p>
+                        <p class="form-control"><%= budgetToShow.ubicacion  %></p>                        
                     </div>                                           
-                </form>
+                </section>
             </div>
 
             <div class="grey-opacity budget-req desk-size">
-                <h2 class="text-center bolder mb-3">Formulario presupuesto</h2>
-                <form action="" method="" class="">
+                <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
+                <form action="/budget/response" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="descripción" class="mr-3 form-label font-medium">Materiales</label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
+                        <label for="materiales" class="mr-3 form-label font-medium">Materiales</label>
+                        <textarea name="materiales" class="form-control" id="materiales" rows="3"></textarea>
                     </div>
     
                     <div class="mb-3 ">
-                        <label for="descripción" class="mr-3 form-label font-medium">Mano de Obra</label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
+                        <label for="manoDeObra" class="mr-3 form-label font-medium">Mano de Obra</label>
+                        <textarea class="form-control" name="manoDeObra" id="manoDeObra" rows="3"></textarea>
                     </div>
                     
                     <div class="mb-3">
-                        <label for="descripción" class="mr-3 form-label font-medium">Duración estimada</label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
+                        <label for="duracionTrabajo" class="mr-3 form-label font-medium">Duración estimada</label>
+                        <textarea class="form-control" name="duracionTrabajo" id="duracionTrabajo" rows="3"></textarea>
                     </div>
     
                      <div class="mb-3">
-                        <label for="descripción" class="mr-3 form-label font-medium">Comentarios</label>
-                        <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
+                        <label for="comentariosTrabajo" class="mr-3 form-label font-medium">Comentarios adicionales</label>
+                        <textarea class="form-control" name="comentariosTrabajo" id="comentariosTrabajo" rows="3"></textarea>
                     </div>
     
                     <div class="fx justify-end align-center">
-                        <label for="" class="mr-3 form-label total-title">Total</label>
-                        <textarea class="form-control total-price" id="descripcion-presupuesto" rows="1"></textarea>
-                        
+                        <label for="precioTrabajo" class="mr-3 form-label total-title">Total</label>
+                        <textarea class="form-control total-price" name="precioTrabajo" id="precioTrabajo" rows="1"></textarea>
                     </div>               
                 </form>
             </div>
         </div>
             
         <div class="fx justify-center mt-3">
-            <button class="budg-res-btn">    
-                <a href="#"> Enviar presupuesto</a>
-            </button>  
+            <button class="budg-res-btn bolder">Enviar presupuesto</button>  
         </div>
 
     </main>
-
     
     <%- include('./partials/footer') %>
 
