@@ -6,18 +6,17 @@ const multer = require("multer");
 const registerControllers = require("../controllers/register-controllers");
 
 const storage= multer.diskStorage({
-    destination: (req,file,cb) =>{
-        if (file.fieldname == "profile-img"){
-        cb(null,path.join(__dirname,"../../public/images/profile-images"));
-    }else {
-         cb(null, path.join(__dirname, "../../public/images/finished-jobs-images"));
-
+  destination: (req,file,cb) =>{
+    if (file.fieldname == "profile-img"){
+      cb(null,path.join(__dirname,"../../public/images/profile-images"));
+    } else {
+      cb(null, path.join(__dirname, "../../public/images/finished-jobs-images"));
     }
-    },
-    filename: (req,file,cb) => {
-        const newFileName= "user-" + Date.now() + path.extname(file.originalname);
-        cb(null,newFileName);
-    }
+  },
+  filename: (req,file,cb) => {
+    const newFileName= "user-" + Date.now() + path.extname(file.originalname);
+    cb(null,newFileName);
+  }
 });
 
 const upload = multer({storage})

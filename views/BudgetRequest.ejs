@@ -9,22 +9,22 @@
     <main class="imagen-fondo-mobile fx justify-center">
         <div class="grey-opacity budget-req budg-req-desk ">
             <h2 class="text-center  bolder mb-3">Solicitud de presupuesto</h2>
-            <form action="/budget/" method="POST" enctype="multipart/form-data">
+            <form action="/budget/request" method="POST" enctype="multipart/form-data">
                 <div class="mb-3 align-center">                    
-                    <label class="mr-3"><h4 class="font-medium">Categoría</h4></label>
-                    <select class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <label for="rubro" class="mr-3"><h4 class="font-medium">Categoría</h4></label>
+                    <select name="rubro" class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
                         <option selected>Elegí el profesional que necesitás</option>
-                        <option name="rubro" value="albanil">Albañil</option>
-                        <option name="rubro" value="electricista">Electricista</option>
-                        <option name="rubro" value="gasista">Gasista</option>
-                        <option name="rubro" value="pintor">Pintor</option>
-                        <option name="rubro" value="plomero">Plomero</option>
-                        <option name="rubro" value="otro">Otro</option>
+                        <option value="albanil">Albañil</option>
+                        <option value="electricista">Electricista</option>
+                        <option value="gasista">Gasista</option>
+                        <option value="pintor">Pintor</option>
+                        <option value="plomero">Plomero</option>
+                        <option value="otro">Otro</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="descripción" class="mr-3 form-label"><h4 class="font-medium">Descripción del trabajo</h4></label>
-                    <textarea class="form-control" id="detalle-solicitud" name="detalle-solicitud" rows="3" placeholder="Detallá el trabajo a realizar"></textarea>
+                    <label for="detalleSolicitud" class="mr-3 form-label"><h4 class="font-medium">Descripción del trabajo</h4></label>
+                    <textarea class="form-control" id="detalleSolicitud" name="detalleSolicitud" rows="3" placeholder="Detallá el trabajo a realizar"></textarea>
                 </div>
                   
                 <div class="mb-3">                   
@@ -32,7 +32,7 @@
                     <input class="form-control" type="file" name="imagenesDeReferencia" id="imagenesDeReferencia" multiple>
                 </div> 
                 <div class="mb-3 align-center">                    
-                    <label class="mr-3"><h4 class="font-medium">Cuándo lo necesitas realizar:</h4></label>
+                    <label for="urgenciaTrabajo" class="mr-3"><h4 class="font-medium">Cuándo necesitas realizarlo:</h4></label>
                     <select class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
                         <option selected>Elegí cuándo necesitas realizar el trabajo</option>
                         <option name="urgenciaTrabajo" value="asap">Lo antes posible</option>
