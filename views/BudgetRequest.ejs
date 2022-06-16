@@ -8,62 +8,52 @@
   
     <main class="imagen-fondo-mobile fx justify-center">
         <div class="grey-opacity budget-req budg-req-desk ">
-            <h2 class="text-center  bolder mb-3">Solicitá tu presupuesto</h2>
-            <form action="" method="" class="">
-                <div class="mb-3 fx align-center">                    
-                    <label class="mr-3"><h4 class="font-medium">Servicio</h4></label>
-                    <select class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option selected>Elegí el servicio que buscás</option>
-                        <option value="Electricista"> Electricista </option>
-                        <option value="Pintor">Pintor</option>
-                        <option value="Gasista">Gasista</option>
-                        <option value="Plomero">Plomero</option>
+            <h2 class="text-center  bolder mb-3">Solicitud de presupuesto</h2>
+            <form action="/budget/request" method="POST" enctype="multipart/form-data">
+                <div class="mb-3 align-center">                    
+                    <label for="rubro" class="mr-3"><h4 class="font-medium">Categoría</h4></label>
+                    <select name="rubro" class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected>Elegí el profesional que necesitás</option>
+                        <option value="albanil">Albañil</option>
+                        <option value="electricista">Electricista</option>
+                        <option value="gasista">Gasista</option>
+                        <option value="pintor">Pintor</option>
+                        <option value="plomero">Plomero</option>
+                        <option value="otro">Otro</option>
                     </select>
                 </div>
-                <div class="mb-3 fx">
-                    <label for="descripción" class="mr-3 form-label"><h4 class="font-medium">Descripción</h4></label>
-                    <textarea class="form-control" id="descripcion-presupuesto" rows="3"></textarea>
+                <div class="mb-3">
+                    <label for="detalleSolicitud" class="mr-3 form-label"><h4 class="font-medium">Descripción del trabajo</h4></label>
+                    <textarea class="form-control" id="detalleSolicitud" name="detalleSolicitud" rows="3" placeholder="Detallá el trabajo a realizar"></textarea>
                 </div>
                   
                 <div class="mb-3">                   
-                    <label for="imagenesDeReferencia" class="form-label "><h4 class="font-medium" >Imagenes de referencia</h4></label>
-                    <input class="form-control" type="file" id="imagenesDeReferencia" multiple>
+                    <label for="imagenesDeReferencia" class="form-label "><h4 class="font-medium">Imágenes de referencia</h4></label>
+                    <input class="form-control" type="file" name="imagenesDeReferencia" id="imagenesDeReferencia" multiple>
                 </div> 
-                <div class="mb-3">
-                    <label for="date"><h4 class="font-medium">A realizar entre:</h4></label>
-                    <div class="fx justify-center m-3">
-                        <input type="date" class="date-form mr-1">
-                        <input type="date" class="date-form">
-                    </div>
-                </div>
-                <div class="mb-3 fx align-center">                    
-                    <label class="mr-3"><h4 class="font-medium">Seleccioná un horario</h4></label>
+                <div class="mb-3 align-center">                    
+                    <label for="urgenciaTrabajo" class="mr-3"><h4 class="font-medium">Cuándo necesitas realizarlo:</h4></label>
                     <select class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option selected>Elegí tu horario disponible</option>
-                        <option value="mañana">de 8 a 12</option>
-                        <option value="tarde">de 12 a 16</option>
-                        <option value="tarde-noche">de 16 a 20</option>
+                        <option selected>Elegí cuándo necesitas realizar el trabajo</option>
+                        <option name="urgenciaTrabajo" value="asap">Lo antes posible</option>
+                        <option name="urgenciaTrabajo" value="thisWeek">Esta semana</option>
+                        <option name="urgenciaTrabajo" value="thisMonth">Este mes</option>
                     </select>
                 </div>
                 <div>
                     <label for="ubicacion"><h4 class="font-medium">Ubicación</h4></label>
-                    <button type="button" class="ml-10  font-medium location-btn">Confirma tu ubicación</button>
+                    <button type="button" name="ubicacion" class="ml-10  font-medium location-btn">Confirma tu ubicación</button>
                 </div>
                                         
                 <div class="fx justify-center mt-3">
-                    <button class="budg-button">
-                        <a href="/budget/request"> Solicitar presupuesto</a>
-                    </button>  
+                    <button type="submit" class="budg-button bolder">Enviar solicitud</button>
                 </div>
-
             </form>
         </div>
-
     </main>
 
     <%- include('./partials/footer') %>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
+
 </body>
 </html>
