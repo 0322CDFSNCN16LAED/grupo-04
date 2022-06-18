@@ -357,3 +357,13 @@ table {
     border-radius: 5px;
     ;
 }
+
+/*---------ERROR MSG-----------*/
+
+.error-msg{
+    
+    color: #B00020;
+}
+.is-invalid{
+    border: solid #B00020 1px;
+}

@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
+
 const path = require("path");
 const multer = require("multer");
 
-const registerControllers = require("../controllers/register-controllers");
+const { body } = require("express-validator");
 
 const storage= multer.diskStorage({
   destination: (req,file,cb) =>{
-    if (file.fieldname == "profile-img"){
-      cb(null,path.join(__dirname,"../../public/images/profile-images"));
+    if (file.fieldname == "avatar"){
+      cb(null,path.join(__dirname,"../../public/images/avatar"));
     } else {
       cb(null, path.join(__dirname, "../../public/images/finished-jobs-images"));
     }
@@ -21,17 +22,48 @@ const storage= multer.diskStorage({
 
 const upload = multer({storage})
 
+const registerControllers = require("../controllers/register-controllers");
+
+const userValidations = [
+    body("name").notEmpty().withMessage("Debes introducir un nombre"),
+    body("lastName").notEmpty().withMessage("Debes introducir un apellido"),
+    body("userName").notEmpty().withMessage("Debes introducir un nombre de usuario"),
+    body("email")
+      .notEmpty().withMessage("Debes introducir un email").bail()
+      .isEmail().withMessage("Debes escribir un formato de correo válido"),
+    body("password").notEmpty().withMessage("Debes introducir una contraseña"),
+    body("phone").notEmpty().withMessage("Debes introducir un teléfono"),
+    body("address").notEmpty().withMessage("Debes introducir una dirección"),
+    body("city").notEmpty().withMessage("Debes introducir una ciudad"),
+    body("state").notEmpty().withMessage("Debes introducir una provincia"),
+    body("zipCode").notEmpty().withMessage("Debes introducir un código postal"),
+    body("avatar").custom((value, { req }) => {
+      const file = req.file;
+      const acceptedExtensions = [".gif",".png",".tif",".jpg"];
+      
+      if(!file) {
+        throw new Error("Debes subir una imagen de perfil")
+      }else {
+        const fileExtension = path.extname(file.originalname);
+        if(!acceptedExtensions.includes(fileExtension)){
+          throw new Error(`Las extensiones de archivo permitidas son: ${acceptedExtensions.join(", ")}`);
+        }
+      }
+      return true
+    })
+];
+
 router.get("/", registerControllers.register);
 
 //*create and store user*//
 router.get("/user", registerControllers.createUser);
-router.post("/user", upload.single("profile-img"),registerControllers.storeUser);
+router.post("/user", upload.single("avatar"), userValidations, registerControllers.storeUser);
 
 //* create and store prof *//
 router.get("/prof", registerControllers.createProf);
 router.post("/prof",
   upload.fields([
-    { name: "profile-img", maxCount: 1 },
+    { name: "avatar", maxCount: 1 },
     { name: "finished-jobs", maxCount: 5 }
   ]),
   registerControllers.storeProf);

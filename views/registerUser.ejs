@@ -20,49 +20,208 @@
                         <div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <input type="text" name= "name" class="form-control" placeholder="Nombre" aria-label="Nombre">
+                                    <input 
+                                    type="text" 
+                                    name= "name" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.name 
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>"
+                                    placeholder="Nombre"
+                                    value="<%= locals.oldData ? oldData.name : null %>" 
+                                    >
+                                    <% if (locals.errors && errors.name) { %>
+                                        <div class= "error-msg">
+                                            <%= errors.name.msg %>               
+                                        </div>
+                                    <% } %>                                    
                                 </div>
                                 <div class="col">
-                                    <input type="text" name= "lastName" class="form-control" placeholder="Apellido" aria-label="Apellido">
+                                    <input 
+                                    type="text" 
+                                    name="lastName" 
+                                    placeholder="apellido"
+                                    class="form-control <%= 
+                                        locals.errors && errors.lastName 
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>" 
+                                    value="<%= locals.oldData ? oldData.lastName : null %>">
+                                    <% if (locals.errors && errors.lastName) { %>
+                                        <div class= "error-msg">
+                                            <%= errors.lastName.msg %>               
+                                        </div>
+                                    <% } %>
                                 </div>
                             </div>
                             <div class="col-auto mt-3">
-                                <label class="visually-hidden" for="">Nombre de usuario</label>
+                                
                                 <div class="input-group">
                                     <div class="input-group-text">@</div>
-                                    <input type="text" name= "userName" class="form-control" id="" placeholder="Nombre de usuario">
+                                    <input 
+                                    type="text" 
+                                    name= "userName" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.userName 
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>" 
+                                    placeholder="Nombre de usuario"
+                                    value="<%= locals.oldData ? oldData.userName : null %>"
+                                    >                                 
                                 </div>
+                                <% if (locals.errors && errors.userName) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.userName.msg %>               
+                                    </div>
+                                <% } %>
                             </div>
                             <div class="col mt-3 mb-3">
-                                <input type="email" name= "email" class="form-control" placeholder="E-mail" aria-label="E-mail">
+                                <input 
+                                type="email" 
+                                name= "email" 
+                                class="form-control <%= 
+                                    locals.errors && errors.email 
+                                    ? 'is-invalid' 
+                                    : null 
+                                %>"
+                                placeholder="E-mail"
+                                value="<%= locals.oldData ? oldData.email : null %>"
+                                >
+                                <% if (locals.errors && errors.email) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.email.msg %>               
+                                    </div>
+                                <% } %>
                             </div>
                              <div class="col mb-3">
-                                <input type="password" name= "password" class="form-control" placeholder="Cambiar contraseña" aria-label="Contraseña">
+                                <input 
+                                type="password" 
+                                name= "password" 
+                                class="form-control <%= 
+                                    locals.errors && errors.password 
+                                    ? 'is-invalid' 
+                                    : null 
+                                %>" 
+                                placeholder="Contraseña"
+                                >
+                                <% if (locals.errors && errors.password) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.password.msg %>               
+                                    </div>
+                                <% } %>
                             </div>
                             <div class="col mt-3">
-                                <input type="text" name= "phone" class="form-control" placeholder="Teléfono" aria-label="Teléfono">
+                                <input 
+                                type="text" 
+                                name= "phone" 
+                                class="form-control <%= 
+                                    locals.errors && errors.phone 
+                                    ? 'is-invalid' 
+                                    : null 
+                                %>" 
+                                placeholder="Teléfono"
+                                value="<%= locals.oldData ? oldData.phone : null %>"
+                                >
+                                <% if (locals.errors && errors.phone) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.phone.msg %>               
+                                    </div>
+                                <% } %>
                             </div>
         
                             <div class="col-12 mt-3 mb-3">
                                 <label for="Dirección" class="form-label visually-hidden">Dirección</label>
-                                <input type="text" name= "address" class="form-control" id="Dirección" placeholder="Dirección">
+                                <input 
+                                type="text" 
+                                name= "address" 
+                                class="form-control <%= 
+                                    locals.errors && errors.address 
+                                    ? 'is-invalid' 
+                                    : null 
+                                %>" 
+                                placeholder="Dirección"
+                                value="<%= locals.oldData ? oldData.address : null %>"
+                                >
+                                <% if (locals.errors && errors.address) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.address.msg %>               
+                                    </div>
+                                <% } %>
                             </div>
                             <div class="row g-3">
                                 <div class="col-sm-7">
-                                    <input type="text" name= "city" class="form-control" placeholder="Ciudad" aria-label="Ciudad">
+                                    <input 
+                                    type="text" 
+                                    name= "city" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.city 
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>" 
+                                    placeholder="Ciudad"
+                                    value="<%= locals.oldData ? oldData.city : null %>"
+                                    >
+                                    <% if (locals.errors && errors.city) { %>
+                                        <div class= "error-msg">
+                                            <%= errors.city.msg %>               
+                                        </div>
+                                    <% } %>
+                                </div>
+                                
+                                <div class="col-sm">
+                                    <input 
+                                    type="text" 
+                                    name= "state" 
+                                    class="form-control <%=
+                                        locals.errors && errors.state
+                                        ? 'is-invalid'
+                                        : null 
+                                    %>"
+                                    placeholder="Provincia"
+                                    value="<%= locals.oldData ? oldData.state : null %>"
+                                    >
+                                    <% if (locals.errors && errors.state) { %>
+                                        <div class= "error-msg">
+                                            <%= errors.state.msg %>               
+                                        </div>
+                                    <% } %>
                                 </div>
                                 <div class="col-sm">
-                                    <input type="text" name= "state" class="form-control" placeholder="Provincia" aria-label="Provincia">
-                                </div>
-                                <div class="col-sm">
-                                    <input type="text" name= "zipCode" class="form-control" placeholder="Código postal" aria-label="Código postal">
+                                    <input 
+                                    type="text" 
+                                    name= "zipCode" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.zipCode 
+                                        ? "is-invalid form-control" 
+                                        : null 
+                                    %>"
+                                    placeholder="Código postal" 
+                                    aria-label="Código postal"
+                                    value="<%= locals.oldData ? oldData.zipCode : null %>"
+                                    >
+                                    <% if (locals.errors && errors.zipCode) { %>
+                                        <div class= "error-msg">
+                                            <%= errors.zipCode.msg %>               
+                                        </div>
+                                    <% } %>
                                 </div>
                             </div>
                             <div class="font-mediun mb-5-login mt-3">
                                 <div class="mb-3 fx align-center">                   
-                                    <label for="profile-img" class="form-label"><h4 class="font-medium mb-0" >Foto de perfil</h4></label>
-                                    <input class="form-control" type="file" name= "profile-img" id="profile-img">
-                                </div>                            
+                                    <label for="avatar" class="form-label"><h4 class="font-medium mb-0" >Foto de perfil</h4></label>
+                                    <input 
+                                    class="form-control" 
+                                    type="file" 
+                                    name= "avatar"
+                                    >                                    
+                                </div>  
+                                <% if (locals.errors && errors.avatar) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.avatar.msg %>               
+                                    </div>
+                                <% } %>                          
                             </div>
                           
     

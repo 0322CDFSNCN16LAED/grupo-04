@@ -1,5 +1,6 @@
 const path = require("path");
 const db = require("../data/db.js");
+const { validationResult } = require("express-validator")
 
 
 module.exports= {
@@ -13,6 +14,14 @@ module.exports= {
   },
   //*store user*//
   storeUser: (req,res) => {
+    const resultValidation= validationResult(req);    
+
+    if (resultValidation.errors.length > 0) {
+      res.render("registerUser", { 
+        errors: resultValidation.mapped(),
+        oldData: req.body,                
+      })      
+    };    
     const users= db.getAllUsers();
     const newUser = req.body;
 
@@ -42,7 +51,7 @@ module.exports= {
     const prof= db.getAllProf();
     const newProf = req.body;
     const jobsImgArray= req.files['finished-jobs']
-    const profileImg = req.files["profile-img"];
+    const profileImg = req.files["avatar"];
 
     if(profileImg){      
       newProf.image = profileImg[0].filename;;
