@@ -47,12 +47,14 @@ module.exports = {
       body("time").notEmpty().withMessage("Debes introducir un horario disponible"),
       
       body("avatar").custom((value, { req }) => {
-        const file = req.files.avatar[0];        
+        var file = req.files.avatar; 
+        console.log(file);       
         const acceptedExtensions = [".gif",".png",".tif",".jpg"];
         
         if(!file) {
           throw new Error("Debes subir una imagen de perfil")
         }else {
+          file = file[0]
           const fileExtension = path.extname(file.originalname);
           if(!acceptedExtensions.includes(fileExtension)){
             throw new Error(`Las extensiones de archivo permitidas son: ${acceptedExtensions.join(", ")}`);
