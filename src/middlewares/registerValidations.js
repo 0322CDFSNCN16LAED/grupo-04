@@ -14,7 +14,7 @@ module.exports = {
         body("address").notEmpty().withMessage("Debes introducir una dirección"),
         body("city").notEmpty().withMessage("Debes introducir una ciudad"),
         body("state").notEmpty().withMessage("Debes introducir una provincia"),
-        body("zipCode").notEmpty().withMessage("Debes introducir un código postal"),
+        body("zipCode").notEmpty().withMessage("Debes introducir un código postal"),          
         body("avatar").custom((value, { req }) => {
           const file = req.file;          
           const acceptedExtensions = [".gif",".png",".tif",".jpg"];
@@ -42,13 +42,11 @@ module.exports = {
       body("phone").notEmpty().withMessage("Debes introducir un teléfono"),
       body("DNI").notEmpty().withMessage("Debes introducir un DNI"),
       body("IVA").notEmpty().withMessage("Debes introducir una condición frente al IVA"),
-      body("CUIT").notEmpty().withMessage("Debes introducir un número de CUIT"),
-      
-      body("time").notEmpty().withMessage("Debes introducir un horario disponible"),
-      
+      body("CUIT").notEmpty().withMessage("Debes introducir un número de CUIT"),      
+      body("time").notEmpty().withMessage("Debes introducir un horario disponible"),      
       body("avatar").custom((value, { req }) => {
         var file = req.files.avatar; 
-        console.log(file);       
+            
         const acceptedExtensions = [".gif",".png",".tif",".jpg"];
         
         if(!file) {
