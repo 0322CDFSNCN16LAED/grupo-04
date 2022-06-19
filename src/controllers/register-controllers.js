@@ -15,7 +15,7 @@ module.exports= {
   //*store user*//
   storeUser: (req,res) => {
     const resultValidation= validationResult(req);    
-
+    
     if (resultValidation.errors.length > 0) {
       res.render("registerUser", { 
         errors: resultValidation.mapped(),
@@ -33,14 +33,17 @@ module.exports= {
     if(req.file) {
       newUser.image = req.file.filename;     
       
+    }else{
+      newUser.image = "profile-user-pic.svg";      
+    }    
+    if(resultValidation.errors.length == 0){
+
       users.push(newUser);
       
       db.saveAllUsers(users);
       
       res.redirect("/login");
-    }else{
-      newUser.image = "profile-user-pic.svg";      
-    }    
+    }
   },  
 
   createProf: (req, res) => {
@@ -48,6 +51,16 @@ module.exports= {
   },
 
   storeProf: (req,res) => {
+    const resultValidation= validationResult(req);  
+    
+
+    if (resultValidation.errors.length > 0) {
+      res.render("registerprofesional", { 
+        errors: resultValidation.mapped(),
+        oldData: req.body,                
+      })      
+    };    
+
     const prof= db.getAllProf();
     const newProf = req.body;
     const jobsImgArray= req.files['finished-jobs']
@@ -70,11 +83,15 @@ module.exports= {
         } else {
             newProf.id = 1;
         }  
-        prof.push(newProf);
+    
+    if (resultValidation.errors.length == 0) {
+      prof.push(newProf);
 
-        db.saveAllProf(prof);
+      db.saveAllProf(prof);
 
-        res.redirect("/login");
+      res.redirect("/login");
+    }
+    
     },  
 };
 

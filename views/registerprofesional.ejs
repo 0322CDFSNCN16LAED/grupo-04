@@ -24,18 +24,38 @@
                                     <input 
                                         type="text" 
                                         name="name" 
-                                        class="form-control" 
+                                        class="form-control <%= 
+                                            locals.errors && errors.name 
+                                            ? 'is-invalid' 
+                                            : null 
+                                        %>" 
                                         placeholder="Nombre"
+                                        value="<%= locals.oldData ? oldData.name : null %>"
                                     >
+                                    <% if (locals.errors && errors.name) { %>
+                                        <div class= "error-msg">
+                                            <%= errors.name.msg %>               
+                                        </div>
+                                    <% } %>              
                                 </div>
                                 <div class="col">
                                     <label class="visually-hidden">Apellido</label>
                                     <input 
                                         type="text" 
                                         name="lastName" 
-                                        class="form-control" 
+                                        class="form-control <%= 
+                                            locals.errors && errors.lastName 
+                                            ? 'is-invalid' 
+                                            : null 
+                                        %>" 
+                                        value="<%= locals.oldData ? oldData.lastName : null %>"
                                         placeholder="Apellido"
                                     >
+                                    <% if (locals.errors && errors.lastName) { %>
+                                        <div class= "error-msg">
+                                            <%= errors.lastName.msg %>               
+                                        </div>
+                                    <% } %>
                                 </div>
                             </div>
                             <div class="col-auto mt-3">
@@ -45,37 +65,76 @@
                                     <input 
                                         type="text" 
                                         name="userName" 
-                                        class="form-control" 
+                                        class="form-control <%= 
+                                            locals.errors && errors.userName 
+                                            ? 'is-invalid' 
+                                            : null 
+                                        %>"  
                                         placeholder="Nombre de usuario"
-                                    >
+                                        value="<%= locals.oldData ? oldData.userName : null %>"
+                                    >                                    
                                 </div>
+                                <% if (locals.errors && errors.userName) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.userName.msg %>               
+                                    </div>
+                                <% } %>
                             </div>
                             <div class="col mt-3 mb-3">
                                 <label class="visually-hidden">E-mail</label>
                                 <input 
                                     type="email" 
                                     name="email" 
-                                    class="form-control" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.email 
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>"
                                     placeholder="E-mail"
+                                    value="<%= locals.oldData ? oldData.email : null %>"
                                 >
+                                <% if (locals.errors && errors.email) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.email.msg %>               
+                                    </div>
+                                <% } %>
                             </div>
                             <div class="col mb-3">
                                 <label class="visually-hidden">Contraseña</label>
                                 <input 
                                     type="password" 
                                     name="password" 
-                                    class="form-control" 
-                                    placeholder="Contraseña"
+                                    class="form-control <%= 
+                                    locals.errors && errors.password 
+                                    ? 'is-invalid' 
+                                    : null 
+                                %>"
+                                    placeholder="Contraseña"                                    
                                 >
+                                <% if (locals.errors && errors.password) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.password.msg %>               
+                                    </div>
+                                <% } %>
                             </div> 
                             <div class="col mt-3">
                                 <label class="visually-hidden">Teléfono</label>
                                 <input 
                                     type="text" 
                                     name="phone" 
-                                    class="form-control" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.phone
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>" 
                                     placeholder="Teléfono"
+                                    value="<%= locals.oldData ? oldData.phone : null %>"
                                 >
+                                <% if (locals.errors && errors.phone) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.phone.msg %>               
+                                    </div>
+                                <% } %>
                             </div>
                     
                             <div class="col mt-3">
@@ -83,37 +142,77 @@
                                 <input 
                                     type="text" 
                                     name="DNI" 
-                                    class="form-control" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.DNI 
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>" 
                                     placeholder="DNI"
+                                    value="<%= locals.oldData ? oldData.DNI : null %>"
                                 >
+                                <% if (locals.errors && errors.DNI) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.DNI.msg %>               
+                                    </div>
+                                <% } %>
                             </div>
                             <div class="col mt-3">
                                 <label class="visually-hidden" for="">Condición frente al IVA</label>
                                 <input 
                                     type="text" 
                                     name="IVA" 
-                                    class="form-control" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.IVA 
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>" 
                                     placeholder="Condición frente al IVA"
+                                    value="<%= locals.oldData ? oldData.IVA : null %>"
                                 >
+                                <% if (locals.errors && errors.IVA) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.IVA.msg %>               
+                                    </div>
+                                <% } %>
                             </div>
                             <div class="col mt-3">
                                 <label class="visually-hidden" for="">Cuit/Razón social</label>
                                 <input 
                                     type="text" 
                                     name="CUIT" 
-                                    class="form-control" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.CUIT 
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>" 
                                     placeholder="Cuit/Razón social"
+                                    value="<%= locals.oldData ? oldData.CUIT : null %>"
                                 >
                             </div>
+                            <% if (locals.errors && errors.CUIT) { %>
+                                <div class= "error-msg">
+                                    <%= errors.CUIT.msg %>               
+                                </div>
+                            <% } %>
                             <div class="font-medium mt-3"> Rubros </div>
                             <div class="form-check">
-                                <input class="form-check-input" name= "rubro" type="checkbox" value="Electricista" id="Electricista">
+                                <input 
+                                    class="form-check-input 
+                                    name= "rubro" 
+                                    type="checkbox" 
+                                    value="Electricista"
+                                >
                                 <label class="form-check-label" for="Electricista">
                                     Electricista
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" name= "rubro" type="checkbox" value="Plomero" id="Plomero">
+                                <input 
+                                    class="form-check-input" 
+                                    name= "rubro" 
+                                    type="checkbox" 
+                                    value="Plomero" 
+                                >
                                 <label class="form-check-label" for="Plomero">
                                     Plomero
                                 </label>
@@ -130,20 +229,61 @@
                                     Pintor
                                 </label>
                             </div>
+                            <% if (locals.errors && errors.rubro) { %>
+                                <div class= "error-msg">
+                                    <%= errors.rubro.msg %>               
+                                </div>
+                            <% } %>
+                           
+                         
                             <div class="mt-3 fx align-center">                    
                                 <label class="mr-3"><h4 class="font-medium">Horario</h4></label>
-                                <select name = "time" class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
-                                    <option selected>Elegí tu horario disponible</option>
-                                    <option value="mañana">de 8 a 12</option>
-                                    <option value="tarde">de 12 a 16</option>
-                                    <option value="tarde-noche">de 16 a 20</option>
-                                </select>
-                            </div>
+                                <select 
+                                    name = "time" 
+                                    class="form-select font-medium form-select-lg mb-3<%= 
+                                    locals.errors && errors.time 
+                                    ? 'is-invalid' 
+                                    : null 
+                                %>" "
+                                >                                
+                                <option value="">Elegí tu horario disponible</option>
+
+                            <% const horarios = ["de 8 a 12","de 12 a 16","de 16 a 20"] %>
+
+                            <% for( const unHorario of horarios) { %>                          
+
+                                    <option 
+                                        value="<%= unHorario %>"
+                                        <%= locals.oldData && (unHorario === oldData.time) ? "selected" : null %> 
+                                    > 
+                                        <%= unHorario %>  
+                                        
+                                    </option>
+                            <% } %>
+                        </select>                                
+                    </div>
+                    <% if (locals.errors && errors.time) { %>
+                        <div class= "error-msg">
+                            <%= errors.time.msg %>               
+                        </div>
+                    <% } %>
+                            
+                           
                             <div class="font-mediun mb-5-login mt-3">
                                 <div class="mb-3 fx align-center">                   
                                     <label for="avatar" class="form-label"><h4 class="font-medium mb-0" >Foto de perfil</h4></label>
-                                    <input class="form-control" type="file" name= "avatar">
-                                </div>                            
+                                    <input 
+                                    class="form-control" 
+                                    type="file" 
+                                    name= "avatar"
+                                    value= "<%= locals.oldData ? oldData.avatar : null %>"
+                                    >
+                                </div>  
+                                <% if (locals.errors && errors.avatar) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.avatar.msg %>               
+                                    </div>
+                                <% } %>                                                    
                             </div>
                             <div class="font-mediun mb-5-login">
                                 <div class="mb-3">                   
