@@ -15,14 +15,24 @@
                     <p class="font-large text-center mb-3">Iniciar sesión<p>
                 </div>    
                 <div>
-                    <form action="" method="">
+                    <form action="/login" method="POST">
                         <div class="col mt-3">
                             <label class="font-medium visually-hidden">E-mail</label>
-                            <input type="email" class="form-control" placeholder="E-mail" aria-label="E-mail">
+                            <input type="email" name= "email" class="form-control" placeholder="E-mail" aria-label="E-mail">
+                            <% if (locals.errors && errors.email) {%>
+                                <div class="error-msg">
+                                     <%= errors.email.msg %>
+                                </div> 
+                            <% } %>
                         </div>
                             <div class="col mt-3">
                                 <label class="font-medium visually-hidden">Contraseña</label>
-                            <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña">
+                            <input type="password" name= "password" class="form-control" placeholder="Contraseña" aria-label="Contraseña">
+                             <% if (locals.errors && errors.password) {%>
+                                <div class="error-msg">
+                                     <%= errors.password.msg %>
+                                </div> 
+                            <% } %>
                         </div>  
                         
                         <div class="text-right">
@@ -36,7 +46,7 @@
                         </div>
                         <div class="fx justify-center mt-3">
                             <button class="budg-button" type="submit">
-                                <a href="#">Ingresar</a>
+                                Ingresar
                             </button>  
                         </div>
                         

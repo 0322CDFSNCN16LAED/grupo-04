@@ -14,5 +14,5 @@ const storage= multer.diskStorage({
       cb(null,newFileName);
     }
   });
-
+   
   module.exports= storage;

@@ -1,5 +1,6 @@
 const path = require("path");
-const db = require("../data/db.js");
+const db = require("../models/Users.js");
+const bcryptjs= require("bcryptjs");
 const { validationResult } = require("express-validator")
 
 
@@ -25,22 +26,27 @@ module.exports= {
     const users= db.getAllUsers();
     const newUser = req.body;
 
-    if (users.length) {
-      newUser.id = users[users.length - 1].id + 1;
-    } else {
-      newUser.id = 1;
+    const userInDb = db.getOneUserByField("email", req.body.email);
+
+    if(userInDb){
+      return res.render("registerUser", {
+        errors: {
+          email: {
+            msg: "Este email ya esta registrado"
+          }
+        },
+        oldData: req.body
+      })
     }
-    if(req.file) {
-      newUser.image = req.file.filename;     
-      
-    }else{
-      newUser.image = "profile-user-pic.svg";      
-    }    
+
+    const userToCreate = {
+      ...req.body,
+      password: bcryptjs.hashSync(req.body.password,10),
+      avatar: req.file.filename
+    }
     if(resultValidation.errors.length == 0){
 
-      users.push(newUser);
-      
-      db.saveAllUsers(users);
+      db.createUser(userToCreate);      
       
       res.redirect("/login");
     }
@@ -65,6 +71,20 @@ module.exports= {
     const newProf = req.body;
     const jobsImgArray= req.files['finished-jobs']
     const profileImg = req.files["avatar"];
+    const password = req.body.password;
+
+    const userInDb = db.getOneProfByField("email", req.body.email);
+
+    if (userInDb) {
+      return res.render("registerprofesional", {
+        errors: {
+          email: {
+            msg: "Este email ya esta registrado",
+          },
+        },
+        oldData: req.body,
+      });
+    }
 
     if(profileImg){      
       newProf.image = profileImg[0].filename;;
@@ -78,16 +98,10 @@ module.exports= {
     }else{
       newProf.jobsImgs = []
     }
-    if (prof.length) {
-            newProf.id = prof[prof.length - 1].id + 1;
-        } else {
-            newProf.id = 1;
-        }  
-    
+    newProf.password =  bcryptjs.hashSync(password,10);
+           
     if (resultValidation.errors.length == 0) {
-      prof.push(newProf);
-
-      db.saveAllProf(prof);
+      db.createProf(newProf);
 
       res.redirect("/login");
     }

@@ -1,4 +1,7 @@
 const path = require("path");
+const db = require("../models/Users.js");
+const bcryptjs = require("bcryptjs");
+const { validationResult } = require("express-validator");
 
 module.exports = {
   home: (req, res) => {
@@ -7,16 +10,42 @@ module.exports = {
   login: (req, res) => {
     res.render("login");
   },
+  loginProcess:(req,res) => {
+    let userToLogin;
+    if (db.getOneProfByField("email", req.body.email)){
+
+      userToLogin = db.getOneProfByField("email", req.body.email);
+    }else {
+      userToLogin = db.getOneUserByField("email", req.body.email)
+    }; 
+
+   if(userToLogin){
+    let passwordOk = bcryptjs .compareSync(req.body.password,userToLogin.password);
+    if(passwordOk) {
+      return res.redirect("/")
+    }
+    return res.render("login", {
+      errors: {
+        password: {
+          msg: "La contraseña es incorrecta",
+        },
+      },
+    });
+   }else {
+    return res.render("login", {
+      errors: {
+        email: {
+          msg: "no se encuenbtra este email en nuestra base de datos",
+        },
+      },
+    });
+   }  
+  },   
   inbox: (req, res) => {
     res.render("inbox");
-  },
+  },  
   history: (req, res) => {
     res.render("history");
   },
-  profileUser: (req, res) => {
-    res.render("profileUser");
-  },
-  profileProfesional: (req, res) => {
-    res.render("profileProfesional");
-  },
+
 };
