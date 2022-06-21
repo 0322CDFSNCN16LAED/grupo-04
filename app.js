@@ -5,15 +5,15 @@ const app = express();
 
 const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware")
 
-app.use(userLoggedMiddleware);
 
 app.use(session({
   secret:"es un secreto",
   resave:false,
   saveUninitialized: false
 }));
-
 const methodOverride = require("method-override");
+
+app.use(userLoggedMiddleware);
 
 
 app.set("view engine", "ejs");
