@@ -19,6 +19,7 @@ router.get("/", mainControllers.home);
 router.get("/login",guestMiddleware, mainControllers.login);
 router.post("/login", mainControllers.loginProcess);
 
+router.get("/logout", mainControllers.logout);
 
 router.get("/inbox", mainControllers.inbox);
 

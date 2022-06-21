@@ -1,3 +1,30 @@
 [
-   
+    {
+        "id": 1,
+        "name": "Piero",
+        "lastName": "Jacinto",
+        "userName": "pieroJ",
+        "email": "pierojacinto@gmail.com",
+        "password": "$2a$10$HVHTlGXAHTQZh1BtLQAiRu.keuzoOvN.f3WQnzj3F7FDeXrihSMpO",
+        "phone": "1",
+        "address": "Bulnes 853",
+        "city": "ciudad autonoma de buenos aires",
+        "state": "Buenos Aires",
+        "zipCode": "1176",
+        "avatar": "user-1655773521246.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Piero",
+        "lastName": "Jacinto",
+        "userName": "pieroJ",
+        "email": "pierojacinto9@gmail.com",
+        "password": "$2a$10$uFhSBhgUWeojbiIACfsj8e9sUPLUKU7ef7wgua2V6pL1fdEd01U2W",
+        "phone": "1",
+        "address": "Bulnes 853",
+        "city": "ciudad autonoma de buenos aires",
+        "state": "Buenos Aires",
+        "zipCode": "1176",
+        "avatar": "user-1655775116702.jpg"
+    }
 ]

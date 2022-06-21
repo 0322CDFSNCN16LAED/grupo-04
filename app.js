@@ -3,6 +3,10 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 
+const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware")
+
+app.use(userLoggedMiddleware);
+
 app.use(session({
   secret:"es un secreto",
   resave:false,
