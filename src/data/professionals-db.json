@@ -1,3 +1,20 @@
 [
- 
+    {
+        "id": 2,
+        "name": "Piero",
+        "lastName": "Jacinto",
+        "userName": "tete",
+        "email": "pierojacinto2@gmail.com",
+        "password": "$2a$10$qlWvYw05tlNs4SWE0L9YWuRYf54c6PGlda55eKDXpXqx.nq3Wht9K",
+        "phone": "1",
+        "DNI": "1",
+        "IVA": "1",
+        "CUIT": "1",
+        "time": "de 12 a 16",
+        "radio": "",
+        "avatar": "user-1655771622778.jpg",
+        "jobsImgs": [
+            "user-1655771622784.jpg"
+        ]
+    }
 ]

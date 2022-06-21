@@ -1,3 +1,16 @@
 [
-   
+    {
+        "id": 1,
+        "name": "Piero",
+        "lastName": "Jacinto",
+        "userName": "pieroJ",
+        "email": "pierojacinto@gmail.com",
+        "password": "$2a$10$z3M9v9bFJYGwqUBcdky5..2RDpt6c26yOt1hpFR6uxDemDZKfg6fe",
+        "phone": "1",
+        "address": "Bulnes 853",
+        "city": "ciudad autonoma de buenos aires",
+        "state": "Buenos Aires",
+        "zipCode": "1176",
+        "avatar": "user-1655771279071.jpg"
+    }
 ]

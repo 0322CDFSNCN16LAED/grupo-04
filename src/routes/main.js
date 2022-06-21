@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 
+const guestMiddleware = require("../middlewares/guestMiddleware");
 const mainControllers = require("../controllers/main-controllers");
 const productsRouter = require("./products.js");
 const budgetRouter = require("./budget.js");
@@ -15,7 +16,7 @@ router.use("/user", usersRouter);
 
 router.get("/", mainControllers.home);
 
-router.get("/login", mainControllers.login);
+router.get("/login",guestMiddleware, mainControllers.login);
 router.post("/login", mainControllers.loginProcess);
 
 

@@ -24,10 +24,10 @@ module.exports = {
     if(passwordOk) {
       delete userToLogin.password;
       req.session.userLogged = userToLogin;
-      if(userToLogin.rubro){
-        return res.redirect("/user/detail")
-      }else{
-        return res.redirect("/user/prof/detail")
+      if ((userToLogin = db.getOneProfByField("email", req.body.email))) {
+        return res.redirect("/user/prof/detail");
+      } else {
+        return res.redirect("/user/detail");
       }
     }
     return res.render("login", {
