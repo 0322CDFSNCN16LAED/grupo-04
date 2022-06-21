@@ -1,5 +1,5 @@
 const path = require("path");
-const db = require("../data/db.js");
+const db = require("../models/Users.js");
 
 module.exports = {
   request: (req, res) => {

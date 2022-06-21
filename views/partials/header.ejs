@@ -27,13 +27,14 @@
 <header class="bg-orange">
     <div class="lapt-desk-header">
         <div>
+           
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" 
                 id="dropdownMenuLink" data-bs-toggle="dropdown" 
                 aria-expanded="false"><i class="fas fa-bars hamburguer"></i></a>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="/profile/user">Mi perfil</a></li>
+                    <li><a class="dropdown-item" href="/user/profile">Mi perfil</a></li>
                     <li><a class="dropdown-item" href="#">Notificaciones</a></li>
                     <li><a class="dropdown-item" href="/inbox">Bandeja de entrada</a></li>
                     <li><a class="dropdown-item" href="/history">Historial</a></li>
@@ -42,6 +43,8 @@
                     <li><a class="dropdown-item" href="#">Funcionamiento</a></li>
                     <li><a class="dropdown-item" href="#">Sobre Nosotros</a></li>
                     <li><a class="dropdown-item" href="#">FAQ</a></li>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    
                 </ul>
             </div>
         </div>
@@ -51,7 +54,20 @@
             <input type="text" class="" placeholder="Buscá el servicio que necesitás">
             <button><i class="fas fa-search"></i></button>
         </form>
+        
+        <% if (locals.isLogged) { %>             
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" 
+            id="dropdownMenuLink" data-bs-toggle="dropdown" 
+            aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="/user/profile/">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+        <% } else {%>
         <p class="mt-3"><a href="/login" class="right-bar">Ingresá</a></p>
         <p class="mt-3"><a href="/register" class="right-bar">Registrate</a></p>
+        <% } %>
     </div>
 </header>

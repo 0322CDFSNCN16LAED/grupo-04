@@ -5,13 +5,15 @@ const multer = require("multer");
 const storage = require("../middlewares/registerMulter")
 const upload = multer({storage})
 
+const guestMiddleware = require("../middlewares/guestMiddleware")
+
 const registerControllers = require("../controllers/register-controllers");
 
 const registerMiddlewares = require("../middlewares/registerValidations");
 const userValidations = registerMiddlewares.userValidations;
 const ProfValidations = registerMiddlewares.ProfValidations;
 
-router.get("/", registerControllers.register);
+router.get("/",guestMiddleware, registerControllers.register);
 
 //*create and store user*//
 router.get("/user", registerControllers.createUser);
