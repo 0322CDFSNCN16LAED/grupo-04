@@ -11,14 +11,17 @@
                 <h2 class="text-center bolder mb-3">Solicitud del cliente</h2>
                 <section>
                     <div class="mb-3 align-center">                    
-                        <p class="mr-3 font-medium">Categoría</p>
-                        <p><%= budgetToShow.rubro  %></p>
+                        <p class="mr-3 font-medium">Título del trabajo</p>
+                        <p><%= budgetToShow.tituloSolicitud  %></p>
                     </div>
                     <div class="mb-3">
                         <p class="mr-3 form-label font-medium">Descripción del trabajo</p>
                         <p class="form-control"><%= budgetToShow.detalleSolicitud  %></p>
                     </div>
-                    
+                    <div class="mb-3 align-center">                    
+                        <p class="mr-3 font-medium">Categoría</p>
+                        <p><%= budgetToShow.rubro  %></p>
+                    </div>                    
                     <div class="mb-3">                   
                         <p class="form-label font-medium">Imágenes de referencia</p>
                     </div> 
@@ -35,7 +38,7 @@
 
             <div class="grey-opacity budget-req desk-size">
                 <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
-                <form action="/budget/response" method="POST" enctype="multipart/form-data">
+                <form action="/budget/response" method="POST">
                     <div class="mb-3">
                         <label for="materiales" class="mr-3 form-label font-medium">Materiales</label>
                         <textarea name="materiales" class="form-control" id="materiales" rows="3"></textarea>

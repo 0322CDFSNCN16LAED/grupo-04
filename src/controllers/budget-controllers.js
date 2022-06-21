@@ -7,8 +7,8 @@ module.exports = {
   },
 
   storeBudgRequest: (req,res) => {
-    const newReq = req.body;
     const requests= db.getAllBudgetReq();
+    const newReq = req.body;
 
     if (requests.length) {
       newReq.id = requests[requests.length - 1].id + 1;
@@ -16,7 +16,15 @@ module.exports = {
       newReq.id = 1;
     }
 
-    //newReq.image = "profile-user-pic.svg";
+    const imgRefArray= req.files;
+    if(imgRefArray){
+      newReq.imgReferencia = imgRefArray.map(function(img){
+        return img.filename;
+      });
+    } else {
+      newReq.imgReferencia = [];
+    }
+
     requests.push(newReq);
     db.saveAllBudgetReq(requests);
     res.redirect("/");
@@ -36,13 +44,16 @@ module.exports = {
       newRes.id = 1;
     }
 
-    //newRes.image = "profile-user-pic.svg";
     responses.push(newRes);
     db.saveAllBudgetRes(responses);
-    res.redirect("/");
 
     const budgetToShow = responses.find((response) => response.id == req.params.id);
     res.render("budgetResponse", { budgetToShow: budgetToShow });
 
+    res.redirect("/");
   },
+
+  //storeBudgResponse: (req,res)=>{
+
+  //}
 };
