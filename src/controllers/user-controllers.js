@@ -1,10 +1,14 @@
 
 module.exports = {
   userDetail: (req, res) => {
-    res.render("userDetail");
+    res.render("userDetail",{
+        user: req.session.userLogged,
+    });
   },
   profDetail: (req, res) => {
-    res.render("profDetail");
+   res.render("profDetail",{
+        user: req.session.userLogged,
+    });
   },
   profileUser: (req, res) => {
     res.render("profileUser");

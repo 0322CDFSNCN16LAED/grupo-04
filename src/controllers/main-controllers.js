@@ -5,7 +5,7 @@ const { validationResult } = require("express-validator");
 
 module.exports = {
   home: (req, res) => {
-    res.render("index");
+   res.render("index");
   },
   login: (req, res) => {
     res.render("login");
@@ -22,7 +22,13 @@ module.exports = {
    if(userToLogin){
     let passwordOk = bcryptjs .compareSync(req.body.password,userToLogin.password);
     if(passwordOk) {
-      return res.redirect("/")
+      delete userToLogin.password;
+      req.session.userLogged = userToLogin;
+      if(userToLogin.rubro){
+        return res.redirect("/user/detail")
+      }else{
+        return res.redirect("/user/prof/detail")
+      }
     }
     return res.render("login", {
       errors: {

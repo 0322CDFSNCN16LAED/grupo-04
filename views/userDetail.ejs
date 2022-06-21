@@ -7,7 +7,12 @@
     <%- include('./partials/header') %>
     
     <main class="imagen-fondo-mobile dp-grid main-fx-size">
-        
+        <p>hi user <%= user.name %> </p>
+        <div>
+                <img src="/images/avatar/<%= user.avatar %>">
+
+        </div>
+        <p>user email: <%= user.email %> </p>
     </main>
 
      <%- include('./partials/footer') %>

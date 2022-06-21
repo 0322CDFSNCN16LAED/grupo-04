@@ -1,8 +1,16 @@
 const path = require("path");
 const express = require("express");
+const session = require("express-session");
+const app = express();
+
+app.use(session({
+  secret:"es un secreto",
+  resave:false,
+  saveUninitialized: false
+}));
+
 const methodOverride = require("method-override");
 
-const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));

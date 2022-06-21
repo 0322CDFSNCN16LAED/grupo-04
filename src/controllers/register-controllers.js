@@ -87,9 +87,9 @@ module.exports= {
     }
 
     if(profileImg){      
-      newProf.image = profileImg[0].filename;;
+      newProf.avatar = profileImg[0].filename;;
     }else{
-      newProf.image= "profile-user-pic.svg";
+      newProf.avatar= "profile-user-pic.svg";
     }
     if(jobsImgArray){
        newProf.jobsImgs = jobsImgArray.map(function (img) {
