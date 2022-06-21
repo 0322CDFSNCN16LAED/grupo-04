@@ -26,5 +26,33 @@
         "state": "Buenos Aires",
         "zipCode": "1176",
         "avatar": "user-1655775116702.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Piero",
+        "lastName": "Jacinto",
+        "userName": "asasa",
+        "email": "pierojacinto6@gmail.com",
+        "password": "$2a$10$TX1LZX5qYtbsWw/hbNli1uF5rsTezGDk0f37W.hqIfX88OcEetl8K",
+        "phone": "1",
+        "address": "Bulnes 853",
+        "city": "ciudad autonoma de buenos aires",
+        "state": "Buenos Aires",
+        "zipCode": "1176",
+        "avatar": "user-1655845779645.jpg"
+    },
+    {
+        "id": 4,
+        "name": "juan",
+        "lastName": "juan",
+        "userName": "juanju",
+        "email": "juan@g.com",
+        "password": "$2a$10$g5ITiCxGEJofCRMoSLLqmu0Hn3bzAMmdHX1NbhyN/LHn7s2owZCUe",
+        "phone": "1",
+        "address": "1",
+        "city": "1",
+        "state": "1",
+        "zipCode": "1",
+        "avatar": "user-1655845835210.jpg"
     }
 ]

@@ -31,7 +31,9 @@ module.exports = {
   },
 
   response: (req, res) => {
-    res.render("budgetResponse");
+    res.render("budgetResponse",{
+     
+    });
   },
 
   storeBudgResponse: (req,res) => {

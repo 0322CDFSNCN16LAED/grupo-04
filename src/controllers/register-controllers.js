@@ -73,9 +73,9 @@ module.exports= {
     const profileImg = req.files["avatar"];
     const password = req.body.password;
 
-    const userInDb = db.getOneProfByField("email", req.body.email);
+    const profInDb = db.getOneProfByField("email", req.body.email);
 
-    if (userInDb) {
+    if (profInDb) {
       return res.render("registerprofesional", {
         errors: {
           email: {

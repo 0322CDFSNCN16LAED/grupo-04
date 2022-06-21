@@ -1,3 +1,23 @@
 [
     
+    {
+        "id": 4,
+        "name": "juan",
+        "lastName": "ju",
+        "userName": "juju",
+        "email": "ju@g.com",
+        "password": "$2a$10$0i17hYi0WXP.BI76xYCaLOz9wn4UCTjtfgNifFukdUCaPoZ0X8cSS",
+        "phone": "1",
+        "DNI": "1",
+        "IVA": "1",
+        "CUIT": "1",
+        "rubro": "Pintor",
+        "time": "de 12 a 16",
+        "radio": "",
+        "avatar": "user-1655846054093.jpg",
+        "jobsImgs": [
+            "user-1655846054093.jpg",
+            "user-1655846054095.jpg"
+        ]
+    }
 ]

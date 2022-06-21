@@ -1,1 +1,32 @@
-[]
+[
+    {
+        "tituloSolicitud": "pintura",
+        "detalleSolicitud": "quiero pintar",
+        "rubro": "pintor",
+        "urgenciaTrabajo": "asap",
+        "id": 1,
+        "imgReferencia": [
+            "imgref-1655822165802.jpg"
+        ]
+    },
+    {
+        "tituloSolicitud": "arreglo electrico",
+        "detalleSolicitud": "instalacion electrica dpto",
+        "rubro": "electricista",
+        "urgenciaTrabajo": "estaSemana",
+        "id": 2,
+        "imgReferencia": [
+            "imgref-1655824835029.jpg"
+        ]
+    },
+    {
+        "tituloSolicitud": "pintor",
+        "detalleSolicitud": "pintar todo dpto",
+        "rubro": "albanil",
+        "urgenciaTrabajo": "esteMes",
+        "id": 3,
+        "imgReferencia": [
+            "imgref-1655824856415.jpg"
+        ]
+    }
+]

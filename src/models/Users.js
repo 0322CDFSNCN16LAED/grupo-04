@@ -74,6 +74,14 @@ module.exports = {
     }
     return 1;
   },
+  generateProfId: function () {
+    let allUsers = this.getAllProf();
+    let lastUser = allUsers.pop();
+    if (lastUser) {
+      return lastUser.id + 1;
+    }
+    return 1;
+  },
   createUser: function (userData) {
     let allUsers = this.getAllUsers();
     let newUser = {
@@ -86,10 +94,17 @@ module.exports = {
   createProf: function (userData) {
     let allProf = this.getAllProf();
     let newProf = {
-      id: this.generateUserId(),
+      id: this.generateProfId(),
       ...userData,
     };
     allProf.push(newProf);
     return this.saveAllProf(allProf);
   },
+  getprofFromBudget: function(budgReq){
+    let allProf = this.getAllProf();
+    const profAvailable= allBudgetReq.forEach(budget => { allProf.filter(prof => prof.rubro == budget.rubro)       
+    });  
+    return profAvailable
+   }
 };
+
