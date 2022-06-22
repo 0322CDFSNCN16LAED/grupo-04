@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-
+const authMiddleware = require("../middlewares/authMiddleware")
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const mainControllers = require("../controllers/main-controllers");
 const productsRouter = require("./products.js");
@@ -21,11 +21,8 @@ router.post("/login", mainControllers.loginProcess);
 
 router.get("/logout", mainControllers.logout);
 
-router.get("/inbox", mainControllers.inbox);
+router.get("/inbox", authMiddleware, mainControllers.inbox);
 
-router.get("/history", mainControllers.history);
-
-
-
+router.get("/history", authMiddleware, mainControllers.history);
 
 module.exports = router;

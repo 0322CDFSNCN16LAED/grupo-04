@@ -28,5 +28,15 @@
         "imgReferencia": [
             "imgref-1655824856415.jpg"
         ]
+    },
+    {
+        "tituloSolicitud": "pintura",
+        "detalleSolicitud": "pintar dpto",
+        "rubro": "pintor",
+        "urgenciaTrabajo": "estaSemana",
+        "id": 4,
+        "imgReferencia": [
+            "imgref-1655928455635.jpg"
+        ]
     }
 ]

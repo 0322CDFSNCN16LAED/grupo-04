@@ -1,7 +1,6 @@
 const path = require("path");
 const db = require("../models/Users.js");
 const bcryptjs = require("bcryptjs");
-const { validationResult } = require("express-validator");
 
 module.exports = {
   home: (req, res) => {
@@ -11,45 +10,45 @@ module.exports = {
     res.render("login");
   },
   loginProcess:(req,res) => {
-    let userToLogin;
-    if (db.getOneProfByField("email", req.body.email)){
+    const userToLogin = db.getOneUserByField("email", req.body.email);
+    const profToLogin = db.getOneProfByField("email", req.body.email);
+    
+    if (!userToLogin && !profToLogin) return res.render("login", {
+      errors: {
+        email: {
+          msg: "El usuario no existe",
+        },
+      },
+    });
+    
+    const user = userToLogin ? userToLogin : profToLogin;
+    req.session.userLogged = user;
 
-      userToLogin = db.getOneProfByField("email", req.body.email);
-    }else {
-      userToLogin = db.getOneUserByField("email", req.body.email)
-    }; 
-
-   if(userToLogin){
-    let passwordOk = bcryptjs .compareSync(req.body.password,userToLogin.password);
-    if(passwordOk) {
-      delete userToLogin.password;
-      req.session.userLogged = userToLogin;
-      if ((userToLogin = db.getOneProfByField("email", req.body.email))) {
-        return res.redirect("/user/prof/detail");
-      } else {
-        return res.redirect("/user/detail");
-      }
-    }
-    return res.render("login", {
+    let passwordOk = bcryptjs .compareSync(req.body.password, user.password);
+    if (!passwordOk) return res.render("login", {
       errors: {
         password: {
           msg: "La contraseña es incorrecta",
         },
       },
     });
-   }else {
-    return res.render("login", {
-      errors: {
-        email: {
-          msg: "no se encuenbtra este email en nuestra base de datos",
-        },
-      },
-    });
-   }  
+
+    return userToLogin
+      ? res.redirect("/user/detail")
+      : res.redirect("/user/prof/detail");
   },   
   inbox: (req, res) => {
-    res.render("inbox");
-  },  
+    const budgets = db.getAllBudgetReq();
+    const profBudgets = budgets.filter(
+      budget => budget.rubro.toUpperCase() === req.session.userLogged.rubro.toUpperCase()
+    );
+
+    const renderBudget = (budgetToShow) => {
+      res.render("budgetResponse", { budgetToShow });
+    }
+
+    res.render("inbox", { profBudgets, renderBudget });
+  },
   history: (req, res) => {
     res.render("history");
   },

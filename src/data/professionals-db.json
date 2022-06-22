@@ -1,5 +1,4 @@
 [
-    
     {
         "id": 4,
         "name": "juan",
@@ -19,5 +18,38 @@
             "user-1655846054093.jpg",
             "user-1655846054095.jpg"
         ]
+    },
+    {
+        "id": 5,
+        "name": "Piero",
+        "lastName": "Jacinto",
+        "userName": "1",
+        "email": "pierojacinto@gmail.com",
+        "password": "$2a$10$9Q/eIAwJUvFTtzIFesjGE.UMlBXG9MoJOXyexOHGYs.imXInNNwDS",
+        "phone": "1",
+        "DNI": "1",
+        "IVA": "1",
+        "CUIT": "1",
+        "time": "de 8 a 12",
+        "radio": "",
+        "avatar": "user-1655931741633.jpg",
+        "jobsImgs": []
+    },
+    {
+        "id": 6,
+        "name": "renzo",
+        "lastName": "jacinto",
+        "userName": "renja",
+        "email": "ren@gmail.com",
+        "password": "$2a$10$s14SIC/sExnJVzEAx5mdWOeiW0APbQ8gNvzzAL7Dfiw8aQwM1ycUG",
+        "phone": "1",
+        "DNI": "1",
+        "IVA": "1",
+        "CUIT": "1",
+        "rubro": "Pintor",
+        "time": "de 8 a 12",
+        "radio": "",
+        "avatar": "user-1655931801707.jpg",
+        "jobsImgs": []
     }
 ]
