@@ -82,6 +82,14 @@ module.exports = {
     }
     return 1;
   },
+  generateBudgId: function () {
+    let allBudg = this.getAllBudgetRes();
+    let lastBudg = allBudg.pop();
+    if (lastBudg) {
+      return lastBudg.id + 1;
+    }
+    return 1;
+  },
   createUser: function (userData) {
     let allUsers = this.getAllUsers();
     let newUser = {
@@ -90,6 +98,15 @@ module.exports = {
     };
     allUsers.push(newUser);
     return this.saveAllUsers(allUsers);
+  },
+  createBudg: function (budgData) {
+    let allBudg = this.getAllBudgetReq();
+    let newBudg = {
+      id: this.generateBudgId(),
+      ...budgData,
+    };
+    allBudg.push(newBudg);
+    return this.saveAllBudgetRes(allBudg);
   },
   createProf: function (userData) {
     let allProf = this.getAllProf();

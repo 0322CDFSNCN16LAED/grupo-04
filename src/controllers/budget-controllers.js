@@ -31,9 +31,11 @@ module.exports = {
   },
 
   response: (req, res) => {
-    res.render("budgetResponse",{
-     
-    });
+    const responses = db.getAllBudgetReq(); 
+    const budgetToShow = responses.find((response) => response.id == req.params.id);
+    console.log(budgetToShow)
+    res.render("budgetResponse", { budgetToShow: budgetToShow });
+  
   },
 
   storeBudgResponse: (req,res) => {
@@ -48,9 +50,6 @@ module.exports = {
 
     responses.push(newRes);
     db.saveAllBudgetRes(responses);
-
-    const budgetToShow = responses.find((response) => response.id == req.params.id);
-    res.render("budgetResponse", { budgetToShow: budgetToShow });
 
     res.redirect("/");
   },
