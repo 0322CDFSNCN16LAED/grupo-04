@@ -1,5 +1,6 @@
 const path = require("path");
-const db = require("../models/Users.js");
+const dbUsers = require("../models/Users.js");
+const dbProf = require("../models/prof.js");
 const bcryptjs= require("bcryptjs");
 const { validationResult } = require("express-validator")
 
@@ -23,10 +24,10 @@ module.exports= {
         oldData: req.body,                
       })      
     };    
-    const users= db.getAllUsers();
+    const users= dbUsers.getAllUsers();
     const newUser = req.body;
 
-    const userInDb = db.getOneUserByField("email", req.body.email);
+    const userInDb = dbUsers.getOneUserByField("email", req.body.email);
 
     if(userInDb){
       return res.render("registerUser", {
@@ -46,7 +47,7 @@ module.exports= {
     }
     if(resultValidation.errors.length == 0){
 
-      db.createUser(userToCreate);      
+      dbUsers.createUser(userToCreate);      
       
       res.redirect("/login");
     }
@@ -67,13 +68,13 @@ module.exports= {
       })      
     };    
 
-    const prof= db.getAllProf();
+    const prof= dbProf.getAllProf();
     const newProf = req.body;
     const jobsImgArray= req.files['finished-jobs']
     const profileImg = req.files["avatar"];
     const password = req.body.password;
 
-    const profInDb = db.getOneProfByField("email", req.body.email);
+    const profInDb = dbProf.getOneProfByField("email", req.body.email);
 
     if (profInDb) {
       return res.render("registerprofesional", {
@@ -101,7 +102,7 @@ module.exports= {
     newProf.password =  bcryptjs.hashSync(password,10);
            
     if (resultValidation.errors.length == 0) {
-      db.createProf(newProf);
+      dbProf.createProf(newProf);
 
       res.redirect("/login");
     }

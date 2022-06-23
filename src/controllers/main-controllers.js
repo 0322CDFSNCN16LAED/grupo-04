@@ -1,5 +1,6 @@
 const path = require("path");
-const db = require("../models/Users.js");
+const dbUsers = require("../models/Users.js");
+const dbProf = require("../models/prof.js");
 const bcryptjs = require("bcryptjs");
 
 module.exports = {
@@ -10,8 +11,8 @@ module.exports = {
     res.render("login");
   },
   loginProcess:(req,res) => {
-    const userToLogin = db.getOneUserByField("email", req.body.email);
-    const profToLogin = db.getOneProfByField("email", req.body.email);
+    const userToLogin = dbUsers.getOneUserByField("email", req.body.email);
+    const profToLogin = dbProf.getOneProfByField("email", req.body.email);
     
     if (!userToLogin && !profToLogin) return res.render("login", {
       errors: {

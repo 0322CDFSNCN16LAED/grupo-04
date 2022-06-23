@@ -1,5 +1,5 @@
 const path = require("path");
-const db = require("../models/Users.js");
+const dbBudget = require("../models/budget.js");
 
 module.exports = {
   request: (req, res) => {
@@ -7,7 +7,7 @@ module.exports = {
   },
 
   storeBudgRequest: (req,res) => {
-    const requests= db.getAllBudgetReq();
+    const requests= dbBudget.getAllBudgetReq();
     const newReq = req.body;
 
     if (requests.length) {
@@ -26,19 +26,19 @@ module.exports = {
     }
 
     requests.push(newReq);
-    db.saveAllBudgetReq(requests);
+    dbBudget.saveAllBudgetReq(requests);
     res.redirect("/");
   },
 
   response: (req, res) => {
-    const responses = db.getAllBudgetReq(); 
+    const responses = dbBudget.getAllBudgetReq(); 
     const budgetToShow = responses.find((response) => response.id == req.params.id);
     res.render("budgetResponse", { budgetToShow: budgetToShow });
   
   },
 
   storeBudgResponse: (req,res) => {
-    const responses= db.getAllBudgetRes();
+    const responses= dbBudget.getAllBudgetRes();
     const newRes = req.body;
 
     if (responses.length) {
@@ -48,7 +48,7 @@ module.exports = {
     }
 
     responses.push(newRes);
-    db.saveAllBudgetRes(responses);
+    dbBudget.saveAllBudgetRes(responses);
 
     res.redirect("/");
   },
