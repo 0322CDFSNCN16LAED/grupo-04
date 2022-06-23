@@ -21,7 +21,9 @@ router.post("/login", mainControllers.loginProcess);
 
 router.get("/logout", mainControllers.logout);
 
-router.get("/inbox", authMiddleware, mainControllers.inbox);
+router.get("/inboxUser", authMiddleware, mainControllers.inbox);
+
+router.get("/inboxProf", authMiddleware, mainControllers.inbox);
 
 router.get("/history", authMiddleware, mainControllers.history);
 

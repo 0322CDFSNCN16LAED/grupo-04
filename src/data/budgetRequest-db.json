@@ -29,5 +29,16 @@
             "imgref-1656022747747.png"
         ],
         "ubicacion": "Calle Siempre Viva 123"
+    },
+    {
+        "tituloSolicitud": "pintura",
+        "detalleSolicitud": "pintar casa",
+        "rubro": "Pintor",
+        "urgenciaTrabajo": "asap",
+        "ubicacion": "san nicolas",
+        "id": 4,
+        "imgReferencia": [
+            "imgref-1656026110317.jpg"
+        ]
     }
 ]
