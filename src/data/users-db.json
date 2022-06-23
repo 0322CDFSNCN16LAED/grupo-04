@@ -40,5 +40,19 @@
         "state": "1",
         "zipCode": "1",
         "avatar": "user-1656021268023.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Julieta",
+        "lastName": "Asis",
+        "userName": "juasru",
+        "email": "juliasisrueck@hotmail.com",
+        "password": "$2a$10$ppBU.tfqM41ESf/EDAMtLOJsvIRF0cxukJuMsP5axNccoGbycJG6e",
+        "phone": "1234",
+        "address": "1234",
+        "city": "1234",
+        "state": "123",
+        "zipCode": "1234",
+        "avatar": "user-1656022699476.png"
     }
 ]

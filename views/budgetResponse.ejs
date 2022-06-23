@@ -8,11 +8,11 @@
         <div class="fx justify-center align-center budget-direction ">
             
             <div class="grey-opacity budget-req budg-req-desk ">
-                <h2 class="text-center bolder mb-3">Solicitud del cliente</h2>
+                <h2 class="text-center bolder mb-3">Pedido del cliente</h2>
                 <section>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Título del trabajo</p>
-                        <p><%= budgetToShow.tituloSolicitud %></p>
+                        <p class="form-control"><%= budgetToShow.tituloSolicitud %></p>
                     </div>
                     <div class="mb-3">
                         <p class="mr-3 form-label font-medium">Descripción del trabajo</p>
@@ -20,14 +20,19 @@
                     </div>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Categoría</p>
-                        <p><%= budgetToShow.rubro  %></p>
+                        <p class="form-control"><%= budgetToShow.rubro  %></p>
                     </div>                    
                     <div class="mb-3">                   
                         <p class="form-label font-medium">Imágenes de referencia</p>
+                        <% budgetToShow.imgReferencia.forEach(img => { %>
+                            <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
+                                <img class="thumbnail" src="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
+                            </a>
+                        <% }) %>
                     </div> 
                     <div class="mb-3">
                         <p class="font-medium">Cuándo necesitas realizarlo:</p>
-                        <p><%= budgetToShow.urgenciaTrabajo  %></p>
+                        <p class="form-control"><%= budgetToShow.urgenciaTrabajo  %></p>
                     </div>
                     <div>
                         <p class="mr-3 budg-txt font-medium">Ubicación</p>
@@ -60,7 +65,7 @@
                     </div>
     
                     <div class="fx justify-end align-center">
-                        <label for="precioTrabajo" class="mr-3 form-label total-title">Total</label>
+                        <label for="precioTrabajo" class="mr-3 form-label total-title">$</label>
                         <textarea class="form-control total-price" name="precioTrabajo" id="precioTrabajo" rows="1"></textarea>
                     </div>               
                     <div class="fx justify-center mt-3">

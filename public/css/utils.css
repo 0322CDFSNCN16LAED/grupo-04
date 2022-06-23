@@ -121,3 +121,10 @@
 .br-10 { border-radius: 10px; }
 
 .foto-prof { width: 100%; }
+
+.thumbnail {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+    width: 10%; /* Set a small width */
+}

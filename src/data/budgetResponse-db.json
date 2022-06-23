@@ -1,3 +1,10 @@
 [
-    
+    {
+        "materiales": "tacho pintura 1l color rojo = $1000",
+        "manoDeObra": "$500",
+        "duracionTrabajo": "12 hs",
+        "comentariosTrabajo": "",
+        "precioTrabajo": "1500",
+        "id": 1
+    }
 ]
