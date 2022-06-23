@@ -1,11 +1,32 @@
 [
     {
-        "id": 4,
-        "name": "juan",
-        "lastName": "ju",
-        "userName": "juju",
-        "email": "ju@g.com",
-        "password": "$2a$10$0i17hYi0WXP.BI76xYCaLOz9wn4UCTjtfgNifFukdUCaPoZ0X8cSS",
+        "id": 1,
+        "name": "pedro",
+        "lastName": "pedro",
+        "userName": "pepe",
+        "email": "pepe@gmail.com",
+        "password": "$2a$10$QfjhxVgpqr2Q1i33qJ8HUefOhTVkONqndNqkQPqM7G9ZuJxnnfzte",
+        "phone": "1",
+        "DNI": "1",
+        "IVA": "1",
+        "CUIT": "1",
+        "rubro": "Gasista",
+        "time": "de 8 a 12",
+        "radio": "",
+        "avatar": "user-1656021121244.jpg",
+        "jobsImgs": [
+            "user-1656021121270.jpg",
+            "user-1656021121286.jpg",
+            "user-1656021121296.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "juana",
+        "lastName": "gomez",
+        "userName": "juani",
+        "email": "juana@gmail.com",
+        "password": "$2a$10$itfP/GAXTaAKtP7ND1U0CegfPorw49D7zg3NCxqilecCNizHCBIUu",
         "phone": "1",
         "DNI": "1",
         "IVA": "1",
@@ -13,43 +34,93 @@
         "rubro": "Pintor",
         "time": "de 12 a 16",
         "radio": "",
-        "avatar": "user-1655846054093.jpg",
+        "avatar": "user-1656021192989.jpg",
         "jobsImgs": [
-            "user-1655846054093.jpg",
-            "user-1655846054095.jpg"
+            "user-1656021193002.jpg",
+            "user-1656021193009.jpg"
         ]
     },
     {
-        "id": 5,
-        "name": "Piero",
-        "lastName": "Jacinto",
-        "userName": "1",
-        "email": "pierojacinto@gmail.com",
-        "password": "$2a$10$9Q/eIAwJUvFTtzIFesjGE.UMlBXG9MoJOXyexOHGYs.imXInNNwDS",
-        "phone": "1",
-        "DNI": "1",
-        "IVA": "1",
-        "CUIT": "1",
-        "time": "de 8 a 12",
-        "radio": "",
-        "avatar": "user-1655931741633.jpg",
-        "jobsImgs": []
-    },
-    {
-        "id": 6,
+        "id": 3,
         "name": "renzo",
-        "lastName": "jacinto",
-        "userName": "renja",
+        "lastName": "2",
+        "userName": "ren",
         "email": "ren@gmail.com",
-        "password": "$2a$10$s14SIC/sExnJVzEAx5mdWOeiW0APbQ8gNvzzAL7Dfiw8aQwM1ycUG",
+        "password": "$2a$10$5EaZvcjKaNBigU7NugVTIuWH3azVubk1YVb.9jnvE2l9/kiacKRRi",
         "phone": "1",
         "DNI": "1",
         "IVA": "1",
         "CUIT": "1",
         "rubro": "Pintor",
+        "time": "de 16 a 20",
+        "radio": "",
+        "avatar": "user-1656021230730.jpg",
+        "jobsImgs": [
+            "user-1656021230741.jpg",
+            "user-1656021230749.jpg",
+            "user-1656021230766.jpg"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "pedro",
+        "lastName": "pedro",
+        "userName": "pepe",
+        "email": "pepe@gmail.com",
+        "password": "$2a$10$QfjhxVgpqr2Q1i33qJ8HUefOhTVkONqndNqkQPqM7G9ZuJxnnfzte",
+        "phone": "1",
+        "DNI": "1",
+        "IVA": "1",
+        "CUIT": "1",
+        "rubro": "Electricista",
         "time": "de 8 a 12",
         "radio": "",
-        "avatar": "user-1655931801707.jpg",
-        "jobsImgs": []
+        "avatar": "user-1656021121244.jpg",
+        "jobsImgs": [
+            "user-1656021121270.jpg",
+            "user-1656021121286.jpg",
+            "user-1656021121296.jpg"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "sara",
+        "lastName": "gomez",
+        "userName": "Sari",
+        "email": "sara@gmail.com",
+        "password": "$2a$10$itfP/GAXTaAKtP7ND1U0CegfPorw49D7zg3NCxqilecCNizHCBIUu",
+        "phone": "1",
+        "DNI": "1",
+        "IVA": "1",
+        "CUIT": "1",
+        "rubro": "Electricista",
+        "time": "de 12 a 16",
+        "radio": "",
+        "avatar": "user-1656021192989.jpg",
+        "jobsImgs": [
+            "user-1656021193002.jpg",
+            "user-1656021193009.jpg"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "ezequiel",
+        "lastName": "bebe",
+        "userName": "eze",
+        "email": "eze@gmail.com",
+        "password": "$2a$10$5EaZvcjKaNBigU7NugVTIuWH3azVubk1YVb.9jnvE2l9/kiacKRRi",
+        "phone": "1",
+        "DNI": "1",
+        "IVA": "1",
+        "CUIT": "1",
+        "rubro": "Pintor",
+        "time": "de 16 a 20",
+        "radio": "",
+        "avatar": "user-1656021230730.jpg",
+        "jobsImgs": [
+            "user-1656021230741.jpg",
+            "user-1656021230749.jpg",
+            "user-1656021230766.jpg"
+        ]
     }
 ]

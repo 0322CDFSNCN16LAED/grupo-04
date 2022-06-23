@@ -40,7 +40,7 @@ module.exports = {
   inbox: (req, res) => {
     const budgets = db.getAllBudgetReq();
     const profBudgets = budgets.filter(
-      budget => budget.rubro.toUpperCase() === req.session.userLogged.rubro.toUpperCase()
+      budget => budget.rubro === req.session.userLogged.rubro
     );
 
     const renderBudget = (budgetToShow) => {

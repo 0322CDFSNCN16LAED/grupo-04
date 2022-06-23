@@ -1,42 +1,22 @@
 [
     {
         "tituloSolicitud": "pintura",
-        "detalleSolicitud": "quiero pintar",
-        "rubro": "pintor",
-        "urgenciaTrabajo": "asap",
+        "detalleSolicitud": "pintar mi dpto",
+        "rubro": "Pintor",
+        "urgenciaTrabajo": "estaSemana",
         "id": 1,
         "imgReferencia": [
-            "imgref-1655822165802.jpg"
+            "imgref-1656021389121.jpg"
         ]
     },
     {
         "tituloSolicitud": "arreglo electrico",
-        "detalleSolicitud": "instalacion electrica dpto",
-        "rubro": "electricista",
-        "urgenciaTrabajo": "estaSemana",
+        "detalleSolicitud": "relizar instalacion elñectrica de un departamento a estrenar",
+        "rubro": "Electricista",
+        "urgenciaTrabajo": "esteMes",
         "id": 2,
         "imgReferencia": [
-            "imgref-1655824835029.jpg"
-        ]
-    },
-    {
-        "tituloSolicitud": "pintor",
-        "detalleSolicitud": "pintar todo dpto",
-        "rubro": "albanil",
-        "urgenciaTrabajo": "esteMes",
-        "id": 3,
-        "imgReferencia": [
-            "imgref-1655824856415.jpg"
-        ]
-    },
-    {
-        "tituloSolicitud": "pintura",
-        "detalleSolicitud": "pintar dpto",
-        "rubro": "pintor",
-        "urgenciaTrabajo": "estaSemana",
-        "id": 4,
-        "imgReferencia": [
-            "imgref-1655928455635.jpg"
+            "imgref-1656021453933.jpg"
         ]
     }
 ]
