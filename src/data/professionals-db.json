@@ -122,5 +122,25 @@
             "user-1656021230749.jpg",
             "user-1656021230766.jpg"
         ]
+    },
+    {
+        "id": 7,
+        "name": "Pedro",
+        "lastName": "Gomez",
+        "userName": "pedrog",
+        "email": "pedrog@gmail.com",
+        "password": "$2a$10$YcxMkO0pBQlKJmdn9aX8A.egnOVuGp/UBFdofjS.IkWTxxMPBWhAe",
+        "phone": "1234",
+        "DNI": "1234",
+        "IVA": "1234",
+        "CUIT": "1234",
+        "rubro": "Pintor",
+        "time": "de 8 a 12",
+        "radio": "",
+        "terms": "",
+        "avatar": "user-1656022858914.png",
+        "jobsImgs": [
+            "user-1656022858916.png"
+        ]
     }
 ]

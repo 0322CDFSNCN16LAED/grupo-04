@@ -33,7 +33,6 @@ module.exports = {
   response: (req, res) => {
     const responses = dbBudget.getAllBudgetReq(); 
     const budgetToShow = responses.find((response) => response.id == req.params.id);
-    console.log(budgetToShow)
     res.render("budgetResponse", { budgetToShow: budgetToShow });
   
   },

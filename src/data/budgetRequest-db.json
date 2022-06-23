@@ -18,5 +18,16 @@
         "imgReferencia": [
             "imgref-1656021453933.jpg"
         ]
+    },
+    {
+        "tituloSolicitud": "pintura casa",
+        "detalleSolicitud": "pintar de rojo",
+        "rubro": "Pintor",
+        "urgenciaTrabajo": "asap",
+        "id": 3,
+        "imgReferencia": [
+            "imgref-1656022747747.png"
+        ],
+        "ubicacion": "Calle Siempre Viva 123"
     }
 ]
