@@ -1,6 +1,7 @@
 const path = require("path");
 const dbUsers = require("../models/Users.js");
 const dbProf = require("../models/prof.js");
+const dbBudgets = require("../models/budget.js");
 const bcryptjs = require("bcryptjs");
 
 module.exports = {
@@ -39,7 +40,7 @@ module.exports = {
       : res.redirect("/user/prof/detail");
   },   
   inbox: (req, res) => {
-    const budgets = db.getAllBudgetReq();
+    const budgets = dbBudgets.getAllBudgetReq();
     const profBudgets = budgets.filter(
       budget => budget.rubro === req.session.userLogged.rubro
     );
