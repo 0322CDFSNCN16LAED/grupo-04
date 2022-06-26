@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "userId": 1,
         "name": "juan",
         "lastName": "perez",
         "userName": "juanchi",
@@ -14,7 +14,7 @@
         "avatar": "user-1656020870920.jpg"
     },
     {
-        "id": 2,
+        "userId": 2,
         "name": "maria",
         "lastName": "marta",
         "userName": "marimar",
@@ -28,7 +28,7 @@
         "avatar": "user-1656020901067.jpg"
     },
     {
-        "id": 3,
+        "userId": 3,
         "name": "julia",
         "lastName": "paez",
         "userName": "Julia",
@@ -42,7 +42,7 @@
         "avatar": "user-1656021268023.jpg"
     },
     {
-        "id": 4,
+        "userId": 4,
         "name": "Julieta",
         "lastName": "Asis",
         "userName": "juasru",
@@ -54,5 +54,33 @@
         "state": "123",
         "zipCode": "1234",
         "avatar": "user-1656022699476.png"
+    },
+    {
+        "userId": 5,
+        "name": "melina",
+        "lastName": "perez",
+        "userName": "meli",
+        "email": "meli@gmail.com",
+        "password": "$2a$10$D8EOHKNVcfGkfBFizLe0BO1KApzI/LbNAcCXkUaxpdURPl91QaaB2",
+        "phone": "1",
+        "address": "1",
+        "city": "1",
+        "state": "1",
+        "zipCode": "1",
+        "avatar": "user-1656282595664.jpg"
+    },
+    {
+        "userId": 6,
+        "name": "mauro",
+        "lastName": "coleti",
+        "userName": "maurito",
+        "email": "mauro@gmail.com",
+        "password": "$2a$10$jGZjEbKY1qCNc2DADcEhfulsrZDXl4eDzmw7QMwlhdl1VjC50d1Aa",
+        "phone": "1",
+        "address": "1",
+        "city": "1",
+        "state": "1",
+        "zipCode": "1",
+        "avatar": "user-1656285228520.jpg"
     }
 ]

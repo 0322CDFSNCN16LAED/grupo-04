@@ -9,13 +9,8 @@ module.exports = {
   storeBudgRequest: (req,res) => {
     const requests= dbBudget.getAllBudgetReq();
     const newReq = req.body;
-
-    if (requests.length) {
-      newReq.id = requests[requests.length - 1].id + 1;
-    } else {
-      newReq.id = 1;
-    }
-
+    newReq.userId = req.session.userLogged.userId
+    
     const imgRefArray= req.files;
     if(imgRefArray){
       newReq.imgReferencia = imgRefArray.map(function(img){
@@ -24,14 +19,13 @@ module.exports = {
     } else {
       newReq.imgReferencia = [];
     }
-
-    requests.push(newReq);
-    dbBudget.saveAllBudgetReq(requests);
+    
+    dbBudget.createBudgReq(newReq);
     res.redirect("/");
   },
 
   response: (req, res) => {
-    const responses = dbBudget.getAllBudgetReq(); 
+    const responses = dbBudget.getAllBudgetRes(); 
     const budgetToShow = responses.find((response) => response.id == req.params.id);
     res.render("budgetResponse", { budgetToShow: budgetToShow });
   
@@ -40,20 +34,11 @@ module.exports = {
   storeBudgResponse: (req,res) => {
     const responses= dbBudget.getAllBudgetRes();
     const newRes = req.body;
+    newRes.profId= req.session.userLogged.profId
 
-    if (responses.length) {
-      newRes.id = responses[responses.length - 1].id + 1;
-    } else {
-      newRes.id = 1;
-    }
-
-    responses.push(newRes);
-    dbBudget.saveAllBudgetRes(responses);
+    dbBudget.createBudgRes(newRes);
 
     res.redirect("/");
   },
 
-  //storeBudgResponse: (req,res)=>{
-
-  //}
 };

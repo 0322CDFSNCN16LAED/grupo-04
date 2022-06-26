@@ -1,33 +1,3 @@
 [
-    {
-        "tituloSolicitud": "pintura",
-        "detalleSolicitud": "pintar mi dpto",
-        "rubro": "Pintor",
-        "urgenciaTrabajo": "estaSemana",
-        "id": 1,
-        "imgReferencia": [
-            "imgref-1656021389121.jpg"
-        ]
-    },
-    {
-        "tituloSolicitud": "arreglo electrico",
-        "detalleSolicitud": "relizar instalacion elñectrica de un departamento a estrenar",
-        "rubro": "Electricista",
-        "urgenciaTrabajo": "esteMes",
-        "id": 2,
-        "imgReferencia": [
-            "imgref-1656021453933.jpg"
-        ]
-    },
-    {
-        "tituloSolicitud": "pintura casa",
-        "detalleSolicitud": "pintar de rojo",
-        "rubro": "Pintor",
-        "urgenciaTrabajo": "asap",
-        "id": 3,
-        "imgReferencia": [
-            "imgref-1656022747747.png"
-        ],
-        "ubicacion": "Calle Siempre Viva 123"
-    }
+    
 ]
