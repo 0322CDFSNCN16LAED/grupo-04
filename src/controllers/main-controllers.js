@@ -49,7 +49,7 @@ module.exports = {
       res.render("budgetResponse", { budgetToShow });
     }
 
-    res.render("inbox", { profBudgets, renderBudget });
+    res.render("inboxProf", { profBudgets, renderBudget });
   },
   usersInbox: (req, res) => {
     const budgets = dbBudgets.getAllBudgetRes();

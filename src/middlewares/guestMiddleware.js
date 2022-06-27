@@ -1,4 +1,4 @@
-const db = require("../models/Users.js");
+const db = require("../models/prof.js");
 
 function guestMiddleware (req,res,next) {
     if(req.session.userLogged){        

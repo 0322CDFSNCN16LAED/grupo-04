@@ -38,11 +38,9 @@ module.exports = {
   storeBudgResponse: (req,res) => {
     const requests = dbBudget.getAllBudgetReq();    
     const responses= dbBudget.getAllBudgetRes();
-      
+          
     const newRes = req.body;
-    newRes.profId= req.session.userLogged.profId
- 
-   
+    newRes.profId= req.session.userLogged.profId   
     
     dbBudget.createBudgRes(newRes);
 

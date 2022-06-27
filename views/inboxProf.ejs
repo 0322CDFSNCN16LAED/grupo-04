@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %>
-
-<body>
-  <%- include('./partials/header') %>
-
-
-  <main class="imagen-fondo-mobile justify-center">
-
-    <div class="fx justify-center align-center fx-column">
-      <div class="w-100 fx justify-sp-a">
-
-        <div class="">
-          <h2 class="m-3 font-medium">Bandeja de Entrada</h2>
+  <%- include('./partials/head') %>
+  
+  <body>
+    <%- include('./partials/header') %>
+    
+    
+    <main class="imagen-fondo-mobile justify-center">
+      
+      <div class="fx justify-center align-center fx-column">
+        <div class="fx justify-center mt-3 fx-grow-10">
+          <button class="budg-res-btn br-10 font-small bolder">
+            <a href="/budget/request">Nueva Solicitud</a>
+          </button>
         </div>
-
+        <div class="w-100 fx justify-sp-a">
+          
+          <div class="">
+            <h2 class="m-3 font-medium">Bandeja de Entrada</h2>
+          </div>
+          
         <div class="fx-grow-90  justify-center">
           <div class="fx marco-detail direction-column shopc-marco-tablet lap-w-2">
             <div class="marco-prof-shop marco-detail-img fx justify-center mb-3">
@@ -49,6 +54,12 @@
               <div class="fx justify-sp-b mb-3">
                 <p class="font-medium"><%= budgetToShow.imgReferencia %></p>
               </div>
+              <div class="fx justify-center mt-3 fx-grow-10">
+                <button class="budg-res-btn br-10 font-small bolder">
+                  <a href="/budget/response/<%= budgetToShow.reqId %> ">Armar presupuesto</a>
+                </button>
+        
+              </div>
 
             </div>
             <% }) %>
@@ -58,12 +69,6 @@
         </div>
       </div>
 
-      <div class="fx justify-center mt-3 fx-grow-10">
-        <button class="budg-res-btn br-10 font-small bolder">
-          <a href="/budget/request">Nueva Solicitud</a>
-        </button>
-
-      </div>
 
       <% profBudgets.forEach(function(budget){ %>
     </div>
