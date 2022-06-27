@@ -39,7 +39,7 @@ module.exports = {
       ? res.redirect("/user/detail")
       : res.redirect("/user/prof/detail");
   },   
-  inbox: (req, res) => {
+  inboxProf: (req, res) => {
     const budgets = dbBudgets.getAllBudgetReq();
     const profBudgets = budgets.filter(
       budget => budget.rubro === req.session.userLogged.rubro
@@ -51,7 +51,7 @@ module.exports = {
 
     res.render("inboxProf", { profBudgets, renderBudget });
   },
-  usersInbox: (req, res) => {
+  inboxUsers: (req, res) => {
     const budgets = dbBudgets.getAllBudgetRes();
     const profBudgets = budgets.filter(
       budget => budget.userId === req.session.userLogged.userId
@@ -61,7 +61,7 @@ module.exports = {
       res.render("budgetResponse", { budgetToShow });
     }
 
-    res.render("inbox", { profBudgets, renderBudget });
+    res.render("inboxUsers", { profBudgets, renderBudget });
   },
   history: (req, res) => {
     res.render("history");
