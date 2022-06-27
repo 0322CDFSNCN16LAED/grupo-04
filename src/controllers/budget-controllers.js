@@ -25,8 +25,8 @@ module.exports = {
   },
 
   response: (req, res) => {
-    const responses = dbBudget.getAllBudgetRes(); 
-    const budgetToShow = responses.find((response) => response.id == req.params.id);
+    const requests = dbBudget.getAllBudgetReq(); 
+    const budgetToShow = requests.find((request) => request.reqId == req.params.reqId);
     res.render("budgetResponse", { budgetToShow: budgetToShow });
   
   },

@@ -1,3 +1,14 @@
 [
-    
+    {
+        "reqId": 1,
+        "tituloSolicitud": "pintura",
+        "detalleSolicitud": "pintar completamente un departamento de 4 ambientes",
+        "rubro": "Pintor",
+        "urgenciaTrabajo": "estaSemana",
+        "ubicacion": "corrientes 211",
+        "userId": 5,
+        "imgReferencia": [
+            "imgref-1656335507369.jpg"
+        ]
+    }
 ]
