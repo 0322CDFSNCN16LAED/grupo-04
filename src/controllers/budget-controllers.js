@@ -1,6 +1,6 @@
 const path = require("path");
 const dbBudget = require("../models/budget.js");
-
+const dbUsers = require("../models/Users")
 module.exports = {
   request: (req, res) => {
     res.render("budgetRequest");
@@ -26,16 +26,24 @@ module.exports = {
 
   response: (req, res) => {
     const requests = dbBudget.getAllBudgetReq(); 
-    const budgetToShow = requests.find((request) => request.reqId == req.params.reqId);
-    res.render("budgetResponse", { budgetToShow: budgetToShow });
-  
+    const users= dbUsers.getAllUsers();
+
+    const budgetToShow = requests.find((request) => request.reqId == req.params.reqId);    
+    const userToShow = users.find((user) => user.userId == budgetToShow.userId)
+    
+    res.render("budgetResponse", { budgetToShow: budgetToShow, userToShow:userToShow });
   },
+   
 
   storeBudgResponse: (req,res) => {
+    const requests = dbBudget.getAllBudgetReq();    
     const responses= dbBudget.getAllBudgetRes();
+      
     const newRes = req.body;
     newRes.profId= req.session.userLogged.profId
-
+ 
+   
+    
     dbBudget.createBudgRes(newRes);
 
     res.redirect("/");

@@ -1,3 +1,12 @@
 [
-   
+    {
+        "resId": 1,
+        "materiales": "1",
+        "manoDeObra": "1",
+        "duracionTrabajo": "1",
+        "comentariosTrabajo": "1",
+        "precioTrabajo": "1",
+        "profId": 6
+    }
+    
 ]
