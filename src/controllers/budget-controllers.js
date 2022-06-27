@@ -1,6 +1,6 @@
 const path = require("path");
 const dbBudget = require("../models/budget.js");
-
+const dbUsers = require("../models/Users")
 module.exports = {
   request: (req, res) => {
     res.render("budgetRequest");
@@ -9,13 +9,8 @@ module.exports = {
   storeBudgRequest: (req,res) => {
     const requests= dbBudget.getAllBudgetReq();
     const newReq = req.body;
-
-    if (requests.length) {
-      newReq.id = requests[requests.length - 1].id + 1;
-    } else {
-      newReq.id = 1;
-    }
-
+    newReq.userId = req.session.userLogged.userId
+    
     const imgRefArray= req.files;
     if(imgRefArray){
       newReq.imgReferencia = imgRefArray.map(function(img){
@@ -24,36 +19,34 @@ module.exports = {
     } else {
       newReq.imgReferencia = [];
     }
-
-    requests.push(newReq);
-    dbBudget.saveAllBudgetReq(requests);
+    
+    dbBudget.createBudgReq(newReq);
     res.redirect("/");
   },
 
   response: (req, res) => {
-    const responses = dbBudget.getAllBudgetReq(); 
-    const budgetToShow = responses.find((response) => response.id == req.params.id);
-    res.render("budgetResponse", { budgetToShow: budgetToShow });
-  
+    const requests = dbBudget.getAllBudgetReq(); 
+    const users= dbUsers.getAllUsers();
+
+    const budgetToShow = requests.find((request) => request.reqId == req.params.reqId);    
+    const userToShow = users.find((user) => user.userId == budgetToShow.userId)
+    
+    res.render("budgetResponse", { budgetToShow: budgetToShow, userToShow:userToShow });
   },
+   
 
   storeBudgResponse: (req,res) => {
+    const requests = dbBudget.getAllBudgetReq();    
     const responses= dbBudget.getAllBudgetRes();
+      
     const newRes = req.body;
-
-    if (responses.length) {
-      newRes.id = responses[responses.length - 1].id + 1;
-    } else {
-      newRes.id = 1;
-    }
-
-    responses.push(newRes);
-    dbBudget.saveAllBudgetRes(responses);
+    newRes.profId= req.session.userLogged.profId
+ 
+   
+    
+    dbBudget.createBudgRes(newRes);
 
     res.redirect("/");
   },
 
-  //storeBudgResponse: (req,res)=>{
-
-  //}
 };

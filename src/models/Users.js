@@ -31,14 +31,14 @@ module.exports = {
     let allUsers = this.getAllUsers();
     let lastUser = allUsers.pop();
     if (lastUser) {
-      return lastUser.id + 1;
+      return lastUser.userId + 1;
     }
     return 1;
   },
   createUser: function (userData) {
     let allUsers = this.getAllUsers();
     let newUser = {
-      id: this.generateUserId(),
+      userId: this.generateUserId(),
       ...userData,
     };
     allUsers.push(newUser);

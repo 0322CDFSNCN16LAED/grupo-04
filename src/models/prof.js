@@ -23,14 +23,14 @@ module.exports = {
     let allUsers = this.getAllProf();
     let lastUser = allUsers.pop();
     if (lastUser) {
-      return lastUser.id + 1;
+      return lastUser.profId + 1;
     }
     return 1;
   },
   createProf: function (userData) {
     let allProf = this.getAllProf();
     let newProf = {
-      id: this.generateProfId(),
+      profId: this.generateProfId(),
       ...userData,
     };
     allProf.push(newProf);

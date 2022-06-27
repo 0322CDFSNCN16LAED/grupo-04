@@ -1,8 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 
-const usersFilePath = path.join(__dirname, "../data/users-db.json");
-const profFilePath = path.join(__dirname, "../data/professionals-db.json");
 const budgetReqPath = path.join(__dirname, "../data/budgetRequest-db.json");
 const budgetResPath = path.join(__dirname, "../data/budgetResponse-db.json");
 
@@ -24,18 +22,35 @@ module.exports = {
     const budResTxt = JSON.stringify(budgets, null, 4);
     fs.writeFileSync(budgetResPath, budResTxt);
   },
-  generateBudgId: function () {
-    let allBudg = this.getAllBudgetRes();
+  generateBudgReqId: function () {
+    let allBudg = this.getAllBudgetReq();
     let lastBudg = allBudg.pop();
     if (lastBudg) {
-      return lastBudg.id + 1;
+      return lastBudg.reqId + 1;
     }
     return 1;
   },
-  createBudg: function (budgData) {
+  generateBudgResId: function () {
+    let allBudg = this.getAllBudgetRes();
+    let lastBudg = allBudg.pop();
+    if (lastBudg) {
+      return lastBudg.resId + 1;
+    }
+    return 1;
+  },
+  createBudgReq: function (budgData) {
     let allBudg = this.getAllBudgetReq();
     let newBudg = {
-      id: this.generateBudgId(),
+      reqId: this.generateBudgReqId(),
+      ...budgData,
+    };
+    allBudg.push(newBudg);
+    return this.saveAllBudgetReq(allBudg);
+  },
+  createBudgRes: function (budgData) {
+    let allBudg = this.getAllBudgetRes();
+    let newBudg = {
+      resId: this.generateBudgResId(),
       ...budgData,
     };
     allBudg.push(newBudg);

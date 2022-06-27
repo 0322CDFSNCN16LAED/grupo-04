@@ -1,44 +1,14 @@
 [
     {
+        "reqId": 1,
         "tituloSolicitud": "pintura",
-        "detalleSolicitud": "pintar mi dpto",
+        "detalleSolicitud": "pintar completamente un departamento de 4 ambientes",
         "rubro": "Pintor",
         "urgenciaTrabajo": "estaSemana",
-        "id": 1,
+        "ubicacion": "corrientes 211",
+        "userId": 5,
         "imgReferencia": [
-            "imgref-1656021389121.jpg"
-        ]
-    },
-    {
-        "tituloSolicitud": "arreglo electrico",
-        "detalleSolicitud": "relizar instalacion elñectrica de un departamento a estrenar",
-        "rubro": "Electricista",
-        "urgenciaTrabajo": "esteMes",
-        "id": 2,
-        "imgReferencia": [
-            "imgref-1656021453933.jpg"
-        ]
-    },
-    {
-        "tituloSolicitud": "pintura casa",
-        "detalleSolicitud": "pintar de rojo",
-        "rubro": "Pintor",
-        "urgenciaTrabajo": "asap",
-        "id": 3,
-        "imgReferencia": [
-            "imgref-1656022747747.png"
-        ],
-        "ubicacion": "Calle Siempre Viva 123"
-    },
-    {
-        "tituloSolicitud": "pintura",
-        "detalleSolicitud": "pintar casa",
-        "rubro": "Pintor",
-        "urgenciaTrabajo": "asap",
-        "ubicacion": "san nicolas",
-        "id": 4,
-        "imgReferencia": [
-            "imgref-1656026110317.jpg"
+            "imgref-1656335507369.jpg"
         ]
     }
 ]

@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "profId": 1,
         "name": "pedro",
         "lastName": "pedro",
         "userName": "pepe",
@@ -21,7 +21,7 @@
         ]
     },
     {
-        "id": 2,
+        "profId": 2,
         "name": "juana",
         "lastName": "gomez",
         "userName": "juani",
@@ -41,7 +41,7 @@
         ]
     },
     {
-        "id": 3,
+        "profId": 3,
         "name": "renzo",
         "lastName": "2",
         "userName": "ren",
@@ -62,7 +62,7 @@
         ]
     },
     {
-        "id": 4,
+        "profId": 4,
         "name": "pedro",
         "lastName": "pedro",
         "userName": "pepe",
@@ -83,7 +83,7 @@
         ]
     },
     {
-        "id": 5,
+        "profId": 5,
         "name": "sara",
         "lastName": "gomez",
         "userName": "Sari",
@@ -103,7 +103,7 @@
         ]
     },
     {
-        "id": 6,
+        "profId": 6,
         "name": "ezequiel",
         "lastName": "bebe",
         "userName": "eze",
@@ -124,7 +124,7 @@
         ]
     },
     {
-        "id": 7,
+        "profId": 7,
         "name": "Pedro",
         "lastName": "Gomez",
         "userName": "pedrog",
@@ -142,5 +142,22 @@
         "jobsImgs": [
             "user-1656022858916.png"
         ]
+    },
+    {
+        "profId": 8,
+        "name": "nahuel",
+        "lastName": "campos",
+        "userName": "nahuel",
+        "email": "nahuel@gmail.com",
+        "password": "$2a$10$/zveh25LNVwiyhEXSZTTFuJcqPDhEuSSn8cGb5/4o.pYswYqo8Ai6",
+        "phone": "1",
+        "DNI": "1",
+        "IVA": "1",
+        "CUIT": "1",
+        "rubro": "Gasista",
+        "time": "de 8 a 12",
+        "radio": "",
+        "avatar": "user-1656285273351.jpg",
+        "jobsImgs": []
     }
 ]

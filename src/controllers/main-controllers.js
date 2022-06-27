@@ -51,6 +51,18 @@ module.exports = {
 
     res.render("inbox", { profBudgets, renderBudget });
   },
+  usersInbox: (req, res) => {
+    const budgets = dbBudgets.getAllBudgetRes();
+    const profBudgets = budgets.filter(
+      budget => budget.userId === req.session.userLogged.userId
+    );
+
+    const renderBudget = (budgetToShow) => {
+      res.render("budgetResponse", { budgetToShow });
+    }
+
+    res.render("inbox", { profBudgets, renderBudget });
+  },
   history: (req, res) => {
     res.render("history");
   },
