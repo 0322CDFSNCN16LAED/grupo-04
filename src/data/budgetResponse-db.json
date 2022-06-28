@@ -8,5 +8,15 @@
         "precioTrabajo": "1",
         "profId": 6,
         "userId": 5
+    },
+    {
+        "resId": 4,
+        "materiales": "2",
+        "manoDeObra": "2",
+        "duracionTrabajo": "2",
+        "comentariosTrabajo": "2",
+        "precioTrabajo": "2",
+        "profId": 6,
+        "userId": 5
     }
 ]

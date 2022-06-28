@@ -44,12 +44,7 @@ module.exports = {
     const profBudgets = budgets.filter(
       budget => budget.rubro === req.session.userLogged.rubro
     );
-
-    const renderBudget = (budgetToShow) => {
-      res.render("budgetResponse", { budgetToShow });
-    }
-
-    res.render("inboxProf", { profBudgets, renderBudget });
+    res.render("inboxProf", { profBudgets});
   },
   inboxUser: (req, res) => {
     const budgets = dbBudgets.getAllBudgetRes();
