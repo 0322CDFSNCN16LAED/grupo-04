@@ -43,7 +43,7 @@
 
             <div class="grey-opacity budget-req desk-size">
                 <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
-                <form action="/budget/response" method="POST">
+                <form action="/budget/response/<%= budgetToShow.reqId %> " method="POST">
                     <div class="mb-3">
                         <label for="materiales" class="mr-3 form-label font-medium">Materiales</label>
                         <textarea name="materiales" class="form-control" id="materiales" rows="3"></textarea>

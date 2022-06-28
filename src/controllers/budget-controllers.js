@@ -30,7 +30,7 @@ module.exports = {
 
     const budgetToShow = requests.find((request) => request.reqId == req.params.reqId);    
     const userToShow = users.find((user) => user.userId == budgetToShow.userId)
-    
+   
     res.render("budgetResponse", { budgetToShow: budgetToShow, userToShow:userToShow });
   },
    
@@ -38,10 +38,16 @@ module.exports = {
   storeBudgResponse: (req,res) => {
     const requests = dbBudget.getAllBudgetReq();    
     const responses= dbBudget.getAllBudgetRes();
-          
-    const newRes = req.body;
-    newRes.profId= req.session.userLogged.profId   
+    const users = dbUsers.getAllUsers();
+
+    const budgetToShow = requests.find(
+      (request) => request.reqId == req.params.reqId
+    );
     
+    const userToShow = users.find((user) => user.userId == budgetToShow.userId); 
+    const newRes = req.body;
+    newRes.profId= req.session.userLogged.profId;   
+    newRes.userId= budgetToShow.userId;
     dbBudget.createBudgRes(newRes);
 
     res.redirect("/");
