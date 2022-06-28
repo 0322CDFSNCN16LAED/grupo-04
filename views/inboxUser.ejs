@@ -24,7 +24,7 @@
               </div>
 
             </div>
-            <% profBudgets.forEach(function(budgetToShow){ %>
+            <% userReq.forEach(function(budgetToShow){ %>
               
             <div class="marco-prof-shop marco-detail fx justify-center direction-column">
               <div class="fx justify-sp-b mb-3">
@@ -48,29 +48,30 @@
 
               <div class="fx justify-sp-b mb-3">
                 <p class="font-medium"><%= budgetToShow.imgReferencia %></p>
-              </div>
-
+              </div>              
             </div>
             <% }) %>
 
+            <% profBudgets.forEach(function(budgetToShow){ %>
             <div class="marco-prof-shop marco-detail fx justify-center direction-column">
               <div class="fx justify-sp-b mb-3">
                 <p class="font-18">Materiales</p>
-                <p class="font-18">$2500</p>
+                <p class="font-18"><%= budgetToShow.materiales %></p>
               </div>
               <div class="fx justify-sp-b mb-3">
                 <p class="font-18">Mano de Obra</p>
-                <p class="font-18">$2500</p>
+                <p class="font-18"><%= budgetToShow.manoDeObra %></p>
               </div>
               <div class="fx justify-sp-b">
                 <p class="font-18 bolder">Pagas</p>
-                <p class="font-18 bolder">$5000</p>
+                <p class="font-18 bolder"><%= budgetToShow.precioTrabajo %></p>
               </div>
             </div>
           </div>
         </div>
+        <% }) %>
       </div>
-
+      
       <div class="fx justify-center mt-3 fx-grow-10">
         <button class="budg-res-btn br-10 font-small bolder">
           <a href="/budget/request">Nueva Solicitud</a>
