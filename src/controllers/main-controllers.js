@@ -51,7 +51,7 @@ module.exports = {
 
     res.render("inboxProf", { profBudgets, renderBudget });
   },
-  inboxUsers: (req, res) => {
+  inboxUser: (req, res) => {
     const budgets = dbBudgets.getAllBudgetRes();
     const profBudgets = budgets.filter(
       budget => budget.userId === req.session.userLogged.userId
@@ -61,7 +61,7 @@ module.exports = {
       res.render("budgetResponse", { budgetToShow });
     }
 
-    res.render("inboxUsers", { profBudgets, renderBudget });
+    res.render("inboxUser", { profBudgets, renderBudget });
   },
   history: (req, res) => {
     res.render("history");
