@@ -33,8 +33,7 @@ module.exports = {
    
     res.render("budgetResponse", { budgetToShow: budgetToShow, userToShow:userToShow });
   },
-   
-
+  
   storeBudgResponse: (req,res) => {
     const requests = dbBudget.getAllBudgetReq();    
     const responses= dbBudget.getAllBudgetRes();
@@ -52,5 +51,17 @@ module.exports = {
 
     res.redirect("/");
   },
+
+  detail: (req,res) => {
+    const budgetsReq = dbBudget.getAllBudgetReq();
+    const userReq = budgetsReq.filter(
+      (budget) => budget.userId === req.session.userLogged.userId
+    );
+    const budgets = dbBudget.getAllBudgetRes();
+    const profRes = budgets.filter(
+      budget => budget.userId === req.session.userLogged.userId
+    );
+    res.render("budgetDetail", { userReq, profRes } );
+  }
 
 };

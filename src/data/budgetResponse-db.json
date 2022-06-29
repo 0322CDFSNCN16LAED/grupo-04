@@ -18,5 +18,17 @@
         "precioTrabajo": "2",
         "profId": 6,
         "userId": 5
+    },
+    {
+        "resId": 5,
+        "materiales": "3 tarros de pintura blanca de 20 l cada uno",
+        "precioMateriales": "6000",
+        "manoDeObra": "2 pintores",
+        "precioManoObra": "5000",
+        "duracionTrabajo": "12",
+        "comentariosTrabajo": "",
+        "precioFinal": "11000",
+        "profId": 2,
+        "userId": 5
     }
 ]

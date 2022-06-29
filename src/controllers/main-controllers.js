@@ -4,13 +4,16 @@ const dbProf = require("../models/prof.js");
 const dbBudgets = require("../models/budget.js");
 const bcryptjs = require("bcryptjs");
 
+
 module.exports = {
   home: (req, res) => {
    res.render("index");
   },
+
   login: (req, res) => {
     res.render("login");
   },
+
   loginProcess:(req,res) => {
     const userToLogin = dbUsers.getOneUserByField("email", req.body.email);
     const profToLogin = dbProf.getOneProfByField("email", req.body.email);
@@ -38,7 +41,8 @@ module.exports = {
     return userToLogin
       ? res.redirect("/user/detail")
       : res.redirect("/user/prof/detail");
-  },   
+  },
+
   inboxProf: (req, res) => {
     const budgets = dbBudgets.getAllBudgetReq();
     const profBudgets = budgets.filter(
@@ -46,21 +50,24 @@ module.exports = {
     );
     res.render("inboxProf", { profBudgets});
   },
+
   inboxUser: (req, res) => {
-    const budgets = dbBudgets.getAllBudgetRes();
     const budgetsReq = dbBudgets.getAllBudgetReq();
     const userReq = budgetsReq.filter(
       (budget) => budget.userId === req.session.userLogged.userId
     );
-    const profBudgets = budgets.filter(
+    const budgets = dbBudgets.getAllBudgetRes();
+    const profRes = budgets.filter(
       budget => budget.userId === req.session.userLogged.userId
     ); 
 
-    res.render("inboxUser", { profBudgets,userReq });
+    res.render("inboxUser", { profRes,userReq });
   },
+
   history: (req, res) => {
     res.render("history");
   },
+
   logout: (req,res) => {
     req.session.destroy();
     return res.redirect("/login")
