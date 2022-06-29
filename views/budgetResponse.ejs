@@ -46,17 +46,21 @@
                 <form action="/budget/response/<%= budgetToShow.reqId %> " method="POST">
                     <div class="mb-3">
                         <label for="materiales" class="mr-3 form-label font-medium">Materiales</label>
-                        <textarea name="materiales" class="form-control" id="materiales" rows="3"></textarea>
+                        <textarea name="materiales" class="form-control" id="materiales" rows="3" placeholder="Detalle los materiales a utilizar para este tipo de trabajo"></textarea>
+                        <label for="precioMateriales" class="mr-3 form-label total-title">$</label>
+                        <input type="text" class="form-control total-price" name="precioMateriales" id="precioMateriales"></input>
                     </div>
     
                     <div class="mb-3 ">
                         <label for="manoDeObra" class="mr-3 form-label font-medium">Mano de Obra</label>
-                        <textarea class="form-control" name="manoDeObra" id="manoDeObra" rows="3"></textarea>
+                        <textarea class="form-control" name="manoDeObra" id="manoDeObra" rows="3" placeholder="Detalle la cantidad y especialidad de los profesionales necesarios para este tipo de trabajo"></textarea>
+                        <label for="precioManoObra" class="mr-3 form-label total-title">$</label>
+                        <input type="text" class="form-control total-price" name="precioManoObra" id="precioManoObra"></input>
                     </div>
                     
                     <div class="mb-3">
-                        <label for="duracionTrabajo" class="mr-3 form-label font-medium">Duración estimada</label>
-                        <textarea class="form-control" name="duracionTrabajo" id="duracionTrabajo" rows="3"></textarea>
+                        <label for="duracionTrabajo" class="mr-3 form-label font-medium">Duración estimada (en horas)</label>
+                        <input type="text" class="form-control" name="duracionTrabajo" id="duracionTrabajo" rows="1"placeholder="Cantidad de horas que puede durar este trabajo"></textarea>
                     </div>
     
                      <div class="mb-3">
@@ -65,8 +69,8 @@
                     </div>
     
                     <div class="fx justify-end align-center">
-                        <label for="precioTrabajo" class="mr-3 form-label total-title">$</label>
-                        <textarea class="form-control total-price" name="precioTrabajo" id="precioTrabajo" rows="1"></textarea>
+                        <label for="precioFinal" class="mr-3 form-label total-title">Monto Total</label>
+                        <input type="text" class="form-control total-price" name="precioFinal" id="precioFinal" rows="1"></input>
                     </div>               
                     <div class="fx justify-center mt-3">
                         <button type="submit" class="budg-res-btn bolder">Enviar presupuesto</button>  
