@@ -28,7 +28,7 @@ router.post("/request", upload.array("imgReferencia", 5), budgetControllers.stor
 router.get("/response/:reqId", budgetControllers.response);
 router.post("/response/:reqId", budgetControllers.storeBudgResponse);
 
-//Profesional edita el formulario enviado
-
+//Usuario visualiza la solicitud enviada y el presupuesto recibido
+router.get("/detail/:resId", budgetControllers.detail);
 
 module.exports = router;

@@ -22,34 +22,28 @@
         <div class="fx-grow-90  justify-center">
           <div class="fx marco-detail direction-column shopc-marco-tablet lap-w-2">
             <div class="marco-prof-shop marco-detail-img fx justify-center mb-3">
-              
               <div class=>
                 <img src="/images/Profile-prof-pic.svg" alt="">
               </div>
-
             </div>
-            <% userReq.forEach(function(budgetToShow, profBudgets){ %>
-              
+
+            <% userReq.forEach(function(budgetToShow){ %> 
             <div class="marco-prof-shop marco-detail fx justify-center direction-column">
               <div class="fx justify-sp-b mb-3">
-                <p class="font-medium"><%= budgetToShow.tituloSolicitud %></p>
+                <p class="font-18"><%= budgetToShow.tituloSolicitud %></p>
               </div>
               <div class="fx justify-sp-b mb-3">
-                <p class="font-medium"><%= budgetToShow.detalleSolicitud %></p>
+                <p class="font-18"><%= budgetToShow.detalleSolicitud %></p>
               </div>
-
               <div class="fx justify-sp-b mb-3">
-                <p class="font-medium"><%= budgetToShow.rubro %></p>
+                <p class="font-18"><%= budgetToShow.rubro %></p>
               </div>
-
               <div class="fx justify-sp-b mb-3">
-                <p class="font-medium"><%= budgetToShow.urgenciaTrabajo %></p>
+                <p class="font-18"><%= budgetToShow.urgenciaTrabajo %></p>
               </div>
-
               <div class="fx justify-sp-b mb-3">
-                <p class="font-medium"><%= budgetToShow.ubicacion %></p>
+                <p class="font-18"><%= budgetToShow.ubicacion %></p>
               </div>
-
               <div class="fx justify-sp-b mb-3">
                 <% budgetToShow.imgReferencia.forEach(img => { %>
                   <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
@@ -57,29 +51,36 @@
                   </a>
                 <% }) %>
               </div>
+              <% }) %>
               
+              <h2>Presupuestos recibidos</h2>
+              <% profRes.forEach(function(budgRes){ %>
               <div class="fx justify-sp-b mb-3">
                 <p class="font-18">Materiales</p>
-                <p class="font-18"><%= profBudgets.precioMateriales %></p>
+                <p class="font-18"><%= budgRes.precioMateriales %></p>
               </div>
               <div class="fx justify-sp-b mb-3">
                 <p class="font-18">Mano de Obra</p>
-                <p class="font-18"><%= profBudgets.precioManoObra %></p>
+                <p class="font-18"><%= budgRes.precioManoObra %></p>
               </div>
               <div class="fx justify-sp-b">
                 <p class="font-18 bolder">Monto total</p>
-                <p class="font-18 bolder"><%= profBudgets.precioFinal %></p>
+                <p class="font-18 bolder"><%= budgRes.precioFinal %></p>
               </div>
-              
               <div>
                 <button class="budg-res-btn br-10 bolder">
-                  <a href="/product/cart/<%= budgetToShow.reqId %>">
+                  <a href="/budget/detail/<%= budgRes.id %>">
+                    Ver detalle </a>
+                </button>
+              </div>
+              <div>
+                <button class="budg-res-btn br-10 bolder">
+                  <a href="/product/cart/<%= budgRes.id %>">
                     Agregar al Carrito </a>
                 </button>
               </div>
-
+              <% }) %>
             </div>
-            <% }) %>
           </div>
         </div>
       </div>

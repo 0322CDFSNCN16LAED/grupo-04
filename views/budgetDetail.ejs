@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<body>
+    <%- include('./partials/header') %>
+
+    <main class="imagen-fondo-mobile justify-center">
+        <div class="fx justify-center align-center budget-direction ">
+            
+            <div class="grey-opacity budget-req budg-req-desk ">
+                <h2 class="text-center bolder mb-3"> Tu Pedido (<%= userToShow.name %> <%= userToShow.lastName %>)</h2>
+                <section>
+                    <div class="mb-3 align-center">                    
+                        <p class="mr-3 font-medium">Título del trabajo</p>
+                        <p class="form-control"><%= budgetToShow.tituloSolicitud %></p>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mr-3 form-label font-medium">Descripción del trabajo</p>
+                        <p class="form-control"><%= budgetToShow.detalleSolicitud  %></p>
+                    </div>
+                    <div class="mb-3 align-center">                    
+                        <p class="mr-3 font-medium">Categoría</p>
+                        <p class="form-control"><%= budgetToShow.rubro  %></p>
+                    </div>                    
+                    <div class="mb-3">                   
+                        <p class="form-label font-medium">Imágenes de referencia</p>
+                        <% budgetToShow.imgReferencia.forEach(img => { %>
+                            <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
+                                <img class="thumbnail" src="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
+                            </a>
+                        <% }) %>
+                    </div> 
+                    <div class="mb-3">
+                        <p class="font-medium">Cuándo necesitas realizarlo:</p>
+                        <p class="form-control"><%= budgetToShow.urgenciaTrabajo  %></p>
+                    </div>
+                    <div>
+                        <p class="mr-3 budg-txt font-medium">Ubicación</p>
+                        <p class="form-control"><%= budgetToShow.ubicacion  %></p>                        
+                    </div>                                           
+                </section>
+            </div>
+
+            <div class="grey-opacity budget-req desk-size">
+                <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
+                <form action="/budget/response/<%= budgetToShow.reqId %> " method="POST">
+                    <div class="mb-3">
+                        <label for="materiales" class="mr-3 form-label font-medium">Materiales</label>
+                        <textarea name="materiales" class="form-control" id="materiales" rows="3" placeholder="Detalle los materiales a utilizar para este tipo de trabajo"></textarea>
+                        <label for="precioMateriales" class="mr-3 form-label total-title">$</label>
+                        <input type="text" class="form-control total-price" name="precioMateriales" id="precioMateriales"></input>
+                    </div>
+    
+                    <div class="mb-3 ">
+                        <label for="manoDeObra" class="mr-3 form-label font-medium">Mano de Obra</label>
+                        <textarea class="form-control" name="manoDeObra" id="manoDeObra" rows="3" placeholder="Detalle la cantidad y especialidad de los profesionales necesarios para este tipo de trabajo"></textarea>
+                        <label for="precioManoObra" class="mr-3 form-label total-title">$</label>
+                        <input type="text" class="form-control total-price" name="precioManoObra" id="precioManoObra"></input>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="duracionTrabajo" class="mr-3 form-label font-medium">Duración estimada (en horas)</label>
+                        <input type="text" class="form-control" name="duracionTrabajo" id="duracionTrabajo" rows="1"placeholder="Cantidad de horas que puede durar este trabajo"></textarea>
+                    </div>
+    
+                     <div class="mb-3">
+                        <label for="comentariosTrabajo" class="mr-3 form-label font-medium">Comentarios adicionales</label>
+                        <textarea class="form-control" name="comentariosTrabajo" id="comentariosTrabajo" rows="3"></textarea>
+                    </div>
+    
+                    <div class="fx justify-end align-center">
+                        <label for="precioFinal" class="mr-3 form-label total-title">Monto Total</label>
+                        <input type="text" class="form-control total-price" name="precioFinal" id="precioFinal" rows="1"></input>
+                    </div>               
+                    <div class="fx justify-center mt-3">
+                        <button type="submit" class="budg-res-btn bolder">Enviar presupuesto</button>  
+                    </div>
+                </form>
+            </div>
+        </div>
+            
+
+    </main>
+    
+    <%- include('./partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
+
