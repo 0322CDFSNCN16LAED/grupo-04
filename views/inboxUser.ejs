@@ -20,17 +20,15 @@
       
       <div class="w-100 fx justify-sp-a">
         <div class="fx-grow-90  justify-center">
-          <% profBudgets.forEach(function(budgetToShow){ %>
-          <% userReq.forEach(function(budget){ %>
-          <div class="fx marco-detail direction-column shopc-marco-tablet lap-w-2">
+            <div class="fx marco-detail direction-column shopc-marco-tablet lap-w-2">
             <div class="marco-prof-shop marco-detail-img fx justify-center mb-3">
               <div class=>
-                <img src="/images/avatar/<%=  %> " alt="">
+                <img alt="">
               </div>
             </div>
 
-            <% userReq.forEach(function(budgetToShow){ %> 
             <div class="marco-prof-shop marco-detail fx justify-center direction-column">
+              <% userReq.forEach(function(budgetToShow){ %> 
               <div class="fx justify-sp-b mb-3">
                 <p class="font-18"><%= budgetToShow.tituloSolicitud %></p>
               </div>
@@ -84,7 +82,7 @@
               <% }) %>
             </div>
           </div>
-          <% }) %>
+        
         </div>
       </div>
     </div>
