@@ -53,14 +53,16 @@ module.exports = {
   },
 
   detail: (req,res) => {
-    const budgetsReq = dbBudget.getAllBudgetReq();
-    const userReq = budgetsReq.filter(
+    const budgetReq = dbBudget.getAllBudgetReq();
+    const userReq = budgetReq.filter(
       (budget) => budget.userId === req.session.userLogged.userId
     );
-    const budgets = dbBudget.getAllBudgetRes();
-    const profRes = budgets.filter(
+
+    const budgetRes = dbBudget.getAllBudgetRes();
+    const profRes = budgetRes.filter(
       budget => budget.userId === req.session.userLogged.userId
     );
+    
     res.render("budgetDetail", { userReq, profRes } );
   }
 
