@@ -10,6 +10,7 @@
             <div class="grey-opacity budget-req budg-req-desk ">
                 <h2 class="text-center bolder mb-3"> Tu Pedido</h2>
                 <section>
+                      <% userReq.forEach(function(userReq){ %>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Título del trabajo</p>
                         <p class="form-control"><%= userReq.tituloSolicitud %></p>
@@ -24,11 +25,7 @@
                     </div>                    
                     <div class="mb-3">                   
                         <p class="form-label font-medium">Imágenes de referencia</p>
-                        <% userReq.imgReferencia.forEach(img => { %>
-                            <a target="_blank" href="/images/budgetRequest/<%= userReq.imgReferencia %>">
-                                <img class="thumbnail" src="/images/budgetRequest/<%= userReq.imgReferencia %>">
-                            </a>
-                        <% }) %>
+                      
                     </div> 
                     <div class="mb-3">
                         <p class="font-medium">Cuándo necesitas realizarlo:</p>
@@ -38,9 +35,10 @@
                         <p class="mr-3 budg-txt font-medium">Ubicación</p>
                         <p class="form-control"><%= userReq.ubicacion  %></p>                        
                     </div>                                           
+                         <% }) %> 
                 </section>
             </div>
-
+            <% profRes.forEach(function(profRes){ %>
             <div class="grey-opacity budget-req desk-size">
                 <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
                 <div class="mb-3">
@@ -77,6 +75,7 @@
                         <a href="/product/cart/<%= profRes.resId %>">Agregar al Carrito</a>
                     </button>  
                 </div>
+                <% }) %> 
             </div>
         </div>
     </main>
