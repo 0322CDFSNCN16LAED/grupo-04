@@ -25,6 +25,11 @@
                     </div>                    
                     <div class="mb-3">                   
                         <p class="form-label font-medium">Imágenes de referencia</p>
+                        <% userReq.imgReferencia.forEach(img => { %>
+                            <a target="_blank" href="/images/budgetRequest/<%= userReq.imgReferencia %>">
+                                <img class="thumbnail" src="/images/budgetRequest/<%= userReq.imgReferencia %>">
+                            </a>
+                        <% }) %>
                       
                     </div> 
                     <div class="mb-3">
