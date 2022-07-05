@@ -29,56 +29,47 @@
 
             <div class="marco-prof-shop marco-detail fx justify-center direction-column">
               <% userReq.forEach(function(budgetToShow){ %> 
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-18"><%= budgetToShow.tituloSolicitud %></p>
-              </div>
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-18"><%= budgetToShow.detalleSolicitud %></p>
-              </div>
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-18"><%= budgetToShow.rubro %></p>
-              </div>
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-18"><%= budgetToShow.urgenciaTrabajo %></p>
-              </div>
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-18"><%= budgetToShow.ubicacion %></p>
-              </div>
-              <div class="fx justify-sp-b mb-3">
-                <% budgetToShow.imgReferencia.forEach(img => { %>
-                  <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
-                    <img class="thumbnail" src="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
-                  </a>
-                <% }) %>
-              </div>
-              <% }) %>
-              
-              <h2>Presupuestos recibidos</h2>
-              <% profRes.forEach(function(budgRes){ %>
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-18">Materiales</p>
-                <p class="font-18"><%= budgRes.precioMateriales %></p>
-              </div>
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-18">Mano de Obra</p>
-                <p class="font-18"><%= budgRes.precioManoObra %></p>
-              </div>
-              <div class="fx justify-sp-b">
-                <p class="font-18 bolder">Monto total</p>
-                <p class="font-18 bolder"><%= budgRes.precioFinal %></p>
-              </div>
-              <div>
-                <button class="budg-res-btn br-10 bolder">
-                  <a href="/budget/detail/<%= budgRes.resId %>">
-                    Ver detalle </a>
-                </button>
-              </div>
-              <div>
-                <button class="budg-res-btn br-10 bolder">
-                  <a href="/product/cart/<%= budgRes.resId %>">
-                    Agregar al Carrito </a>
-                </button>
-              </div>
+                <div class="fx justify-sp-b mb-3">
+                  <h2><%= budgetToShow.detalleSolicitud %></h2>
+                </div>
+                <div class="fx justify-sp-b mb-3">
+                  <% budgetToShow.imgReferencia.forEach(img => { %>
+                    <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
+                      <img class="thumbnail" src="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
+                    </a>
+                  <% }) %>
+                </div>
+                <p class="bolder">Presupuestos recibidos</p>
+                <% profRes.forEach(function(budgRes){ %>
+                  <% if (budgetToShow.reqId == budgRes.reqId) { %>
+                    <div class="fx justify-sp-b mb-3">
+                      <p class="font-18">Materiales</p>
+                      <p class="font-18"><%= budgRes.precioMateriales %></p>
+                    </div>
+                    <div class="fx justify-sp-b mb-3">
+                      <p class="font-18">Mano de Obra</p>
+                      <p class="font-18"><%= budgRes.precioManoObra %></p>
+                    </div>
+                    <div class="fx justify-sp-b">
+                      <p class="font-18 bolder">Monto total</p>
+                      <p class="font-18 bolder"><%= budgRes.precioFinal %></p>
+                    </div>
+                    <div>
+                      <button class="budg-res-btn br-10 bolder">
+                        <a href="/budget/detail/<%= budgRes.resId %>">
+                          Ver detalle </a>
+                      </button>
+                    </div>
+                    <div>
+                      <button class="budg-res-btn br-10 bolder">
+                        <a href="/product/cart/<%= budgRes.resId %>">
+                          Agregar al Carrito </a>
+                      </button>
+                    </div>
+                  <% } else { %>
+                    <p>No recibió presupuestos</p>
+                  <% } %>
+                <% }) %> 
               <% }) %>
             </div>
           </div>
