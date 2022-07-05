@@ -60,19 +60,14 @@ module.exports = {
   detail: (req,res) => {
     const budgetReq = dbBudget.getAllBudgetReq();
     const budgetRes = dbBudget.getAllBudgetRes();    
-   
     const test = budgetRes.filter( budget => budget.resId == req.params.resId);
-    console.log(test)
 
     const userReq = budgetReq.filter(
       (budget) => (budget.userId === req.session.userLogged.userId) && (budget.reqId == test[0].reqId)  
-    );      
-    
+    );
     const profRes = budgetRes.filter(
       budget => (budget.userId === req.session.userLogged.userId) && (budget.resId == req.params.resId) 
-    );  
-
-    
+    );
     res.render("budgetDetail", { userReq, profRes } );
   }
 
