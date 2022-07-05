@@ -131,50 +131,43 @@ a { text-decoration: none; color: black; }
     padding-top: 4%;
 }
 
-.budg-button {
+.primary-button {
     bottom: 100px;
     padding: 10px;  
     border-radius: 10px;
     background-color: #FF9900;
     border: none;
-    font-size: 100%;    
+    color: black;
+    margin: 10px;
+    font-size: 100%;
+    font-weight: bolder;    
 }
 
-.budg-button-no-position {
-    margin: 5%;
-    padding: 10px;  
-    border-radius: 10px;
-    background-color: #FF9900;
-    border: none;
-    font-size: 100%;    
-}
-
-.budg-button-white {
-    margin: 5%;
-    padding: 10px;  
-    border-radius: 10px;
-    background-color: #FFFF;
-    border: none;
-    font-size: 50%;
-    width: fit-content;
-    margin: auto;
-}
-
-.budg-button a {
+.primary-button a {
     list-style: none;
     text-decoration: none;
     color: black;
+    font-weight: bolder;
 }
 
-.budg-res-btn {
-    border: none;
+.secondary-button {
+    bottom: 100px;
+    padding: 10px;  
     border-radius: 10px;
-    background-color: #FF9900;
+    background-color: white;
+    border: #FF9900 solid;
     color: black;
-    padding: 8px;
-    margin-bottom: 4%;
-    font-size: larger;
+    margin: 10px;
+    font-size: 100%;    
 }
+
+.secondary-button a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+
 .cancel-button {
     background-color: #6c757d;
     padding: 10px;
