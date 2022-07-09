@@ -3,7 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 
-const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
+const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 
 app.use(
   session({
@@ -26,7 +26,7 @@ app.use(express.json());
 
 app.use(methodOverride("_method"));
 
-const mainRouter = require("./src/routes/main.js");
+const mainRouter = require("./routes/main.js");
 app.use("/", mainRouter);
 
 const PORT = 3000;
