@@ -3,7 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 
-const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
+const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 
 app.use(
   session({
@@ -19,14 +19,14 @@ app.use(userLoggedMiddleware);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(methodOverride("_method"));
 
-const mainRouter = require("./src/routes/main.js");
+const mainRouter = require("./routes/main.js");
 app.use("/", mainRouter);
 
 const PORT = 3000;
