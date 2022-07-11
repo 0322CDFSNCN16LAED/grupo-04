@@ -7,7 +7,7 @@ module.exports = {
     });
   },
   profDetail: (req, res) => {
-   res.render("profDetail",{
+    res.render("profDetail",{
         user: req.session.userLogged,
     });
   },
