@@ -1,7 +1,5 @@
-const path = require("path");
 const dbBudget = require("../models/budget.js");
 const dbUsers = require("../models/Users")
-const dbProf = require("../models/prof");
 
 module.exports = {
   request: (req, res) => {
@@ -68,6 +66,10 @@ module.exports = {
       budget => (budget.userId === req.session.userLogged.userId) && (budget.resId == req.params.resId) 
     );
     res.render("budgetDetail", { userReq, profRes } );
+  },
+  
+  cart: (req, res) => {
+    res.render("productCart");
   }
 
 };

@@ -31,4 +31,7 @@ router.post("/response/:reqId", budgetControllers.storeBudgResponse);
 //Usuario visualiza la solicitud enviada y el presupuesto recibido
 router.get("/detail/:resId", budgetControllers.detail);
 
+//Product se movio a budget.js
+router.get("/cart/:id", budgetControllers.cart);
+
 module.exports = router;

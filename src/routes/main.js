@@ -4,12 +4,11 @@ const multer = require("multer");
 const authMiddleware = require("../middlewares/authMiddleware")
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const mainControllers = require("../controllers/main-controllers");
-const productsRouter = require("./products.js");
 const budgetRouter = require("./budget.js");
 const registerRouter = require("./register.js");
 const usersRouter = require("./users.js");
 
-router.use("/product", productsRouter);
+//router.use("/product", productsRouter);
 router.use("/budget", budgetRouter);
 router.use("/register", registerRouter);
 router.use("/user", usersRouter);
