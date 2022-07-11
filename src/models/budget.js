@@ -63,4 +63,18 @@ module.exports = {
     });
     return profAvailable;
   },
+  getUserReq: function() {
+    const budgetReq = this.getAllBudgetReq();
+    const userReq = budgetReq.filter(
+      (budget) => budget.userId === req.session.userLogged.userId
+    );
+    return userReq;    
+  },
+  getProfRes: function() {
+    const budgetRes = dbBudget.getAllBudgetRes();
+    const profRes = budgetRes.filter(
+      budget => budget.userId === req.session.userLogged.userId
+    );
+    return profRes;
+  }
 };

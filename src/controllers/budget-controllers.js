@@ -1,6 +1,8 @@
 const path = require("path");
 const dbBudget = require("../models/budget.js");
 const dbUsers = require("../models/Users")
+const dbProf = require("../models/prof");
+
 module.exports = {
   request: (req, res) => {
     res.render("budgetRequest");
@@ -37,6 +39,7 @@ module.exports = {
   storeBudgResponse: (req,res) => {
     const requests = dbBudget.getAllBudgetReq();    
     const responses= dbBudget.getAllBudgetRes();
+  
     const users = dbUsers.getAllUsers();
 
     const budgetToShow = requests.find(
@@ -47,19 +50,22 @@ module.exports = {
     const newRes = req.body;
     newRes.profId= req.session.userLogged.profId;   
     newRes.userId= budgetToShow.userId;
+    newRes.reqId =  budgetToShow.reqId
     dbBudget.createBudgRes(newRes);
 
     res.redirect("/");
   },
 
   detail: (req,res) => {
-    const budgetsReq = dbBudget.getAllBudgetReq();
-    const userReq = budgetsReq.filter(
-      (budget) => budget.userId === req.session.userLogged.userId
+    const budgetReq = dbBudget.getAllBudgetReq();
+    const budgetRes = dbBudget.getAllBudgetRes();    
+    const test = budgetRes.filter( budget => budget.resId == req.params.resId);
+
+    const userReq = budgetReq.filter(
+      (budget) => (budget.userId === req.session.userLogged.userId) && (budget.reqId == test[0].reqId)  
     );
-    const budgets = dbBudget.getAllBudgetRes();
-    const profRes = budgets.filter(
-      budget => budget.userId === req.session.userLogged.userId
+    const profRes = budgetRes.filter(
+      budget => (budget.userId === req.session.userLogged.userId) && (budget.resId == req.params.resId) 
     );
     res.render("budgetDetail", { userReq, profRes } );
   }

@@ -1,7 +1,7 @@
 @media(min-width:481px) {
     /*----------MAIN-----------*/
     
-    .budg-button a {
+    .primary-button a {
         font-size: 120%;
         border-radius: 5px;
     } 

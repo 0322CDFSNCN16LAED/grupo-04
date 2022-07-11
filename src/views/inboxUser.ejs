@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+<body>
+  <%- include('./partials/header') %>
+
+  <main class="imagen-fondo-mobile justify-center">
+
+    <div class="fx justify-center align-center fx-column">
+      <div class="w-100 fx justify-sp-a">
+        <h2 class="m-3 font-medium">Bandeja de Entrada</h2>
+      </div>
+  
+      <div class="fx justify-center mt-3 fx-grow-10">
+        <button class="primary-button">
+          <a href="/budget/request">Nueva Solicitud</a>
+        </button>
+      </div>
+
+      <div class="fx-grow-90  justify-center">
+        <div class="fx marco-detail direction-column shopc-marco-tablet lap-w-2">
+          <div class="marco-prof-shop marco-detail-img fx justify-center mb-3">
+            <div class=>
+              <img src="/images/Profile-prof-pic.svg" alt="">
+            </div>
+          </div>
+      
+          <% userReq.forEach(function(budgetToShow){ %>   
+            <div class="marco-prof-shop marco-detail fx justify-center direction-column">
+              <div class="fx justify-sp-b mb-3">
+                <h2><%= budgetToShow.detalleSolicitud %></h2>
+              </div>
+              <div class="fx justify-sp-b mb-3">
+                <% budgetToShow.imgReferencia.forEach(img => { %>
+                  <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
+                    <img class="thumbnail" src="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
+                  </a>
+                <% }) %>
+              </div>
+              <p class="bolder">Presupuestos recibidos</p>
+              <% profRes.forEach(function(budgRes){ %>
+                <% if (budgetToShow.reqId == budgRes.reqId) { %>
+                  <div class="fx justify-sp-b mb-3">
+                    <p class="font-18">Materiales</p>
+                    <p class="font-18"><%= budgRes.precioMateriales %></p>
+                  </div>
+                  <div class="fx justify-sp-b mb-3">
+                    <p class="font-18">Mano de Obra</p>
+                    <p class="font-18"><%= budgRes.precioManoObra %></p>
+                  </div>
+                  <div class="fx justify-sp-b">
+                    <p class="font-18 bolder">Monto total</p>
+                    <p class="font-18 bolder"><%= budgRes.precioFinal %></p>
+                  </div>
+                  <div>
+                    <button class="secondary-button">
+                      <a href="/budget/detail/<%= budgRes.resId %>">
+                        Ver detalle </a>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="primary-button">
+                      <a href="/product/cart/<%= budgRes.resId %>">
+                        Agregar al Carrito </a>
+                    </button>
+                  </div>
+                <% } else { %>
+                  <p>No recibió presupuestos</p>
+                <% } %>
+              <% }) %> 
+            </div>
+          <% }) %>
+        
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('./partials/footer') %>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

@@ -10,5 +10,29 @@
         "imgReferencia": [
             "imgref-1656335507369.jpg"
         ]
+    },
+    {
+        "reqId": 2,
+        "tituloSolicitud": "electricista",
+        "detalleSolicitud": "realizar conexion electrica",
+        "rubro": "Electricista",
+        "urgenciaTrabajo": "estaSemana",
+        "ubicacion": "Siempre viva 124",
+        "userId": 5,
+        "imgReferencia": [
+            "imgref-1656972829875.JPG"
+        ]
+    },
+    {
+        "reqId": 3,
+        "tituloSolicitud": "Pintar mural para jardin de niños",
+        "detalleSolicitud": "Pintar mural para jardin de niños",
+        "rubro": "Pintor",
+        "urgenciaTrabajo": "esteMes",
+        "ubicacion": "Siempre viva 123",
+        "userId": 5,
+        "imgReferencia": [
+            "imgref-1656983931393.png"
+        ]
     }
 ]
