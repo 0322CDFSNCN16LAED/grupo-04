@@ -3,6 +3,7 @@ module.exports = {
   userDetail: (req, res) => {
     res.render("userDetail",{
         user: req.session.userLogged,
+       
     });
   },
   profDetail: (req, res) => {
