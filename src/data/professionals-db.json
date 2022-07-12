@@ -159,5 +159,24 @@
         "radio": "",
         "avatar": "user-1656285273351.jpg",
         "jobsImgs": []
+    },
+    {
+        "profId": 9,
+        "name": "vir",
+        "lastName": "gonzalez",
+        "userName": "vir",
+        "email": "vir@gmail.com",
+        "password": "$2a$10$7imZ44rzuzY5QIvo8rrHxOMxAeb2betVbCpjPygy.XfQ6YWhO5ChK",
+        "phone": "1",
+        "DNI": "1",
+        "IVA": "1",
+        "CUIT": "1",
+        "time": "de 8 a 12",
+        "radio": "",
+        "terms": "",
+        "avatar": "user-1657587219071.png",
+        "jobsImgs": [
+            "user-1657587219072.png"
+        ]
     }
 ]

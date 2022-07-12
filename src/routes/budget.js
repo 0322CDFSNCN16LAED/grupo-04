@@ -5,7 +5,6 @@ const multer = require("multer");
 
 const budgetControllers = require("../controllers/budget-controllers");
 
-//Multer
 const storage = multer.diskStorage({
     //Configura qué carpeta del servidor va a almacenar las imagenes del presupuesto
     destination: function(req,file,cb){
@@ -31,7 +30,8 @@ router.post("/response/:reqId", budgetControllers.storeBudgResponse);
 //Usuario visualiza la solicitud enviada y el presupuesto recibido
 router.get("/detail/:resId", budgetControllers.detail);
 
-//Product se movio a budget.js
+//Carrito de compras
+router.get("/cart", budgetControllers.cart);
 router.get("/cart/:id", budgetControllers.cart);
 
 module.exports = router;

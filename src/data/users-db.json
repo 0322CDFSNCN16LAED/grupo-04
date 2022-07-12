@@ -82,5 +82,19 @@
         "state": "1",
         "zipCode": "1",
         "avatar": "user-1656285228520.jpg"
+    },
+    {
+        "userId": 7,
+        "name": "Antonella",
+        "lastName": "Rodriguez",
+        "userName": "antorod",
+        "email": "anto@gmail.com",
+        "password": "$2a$10$w4cGdfYolbh6LtQT4CpThuB/c4nao38l0ahT6WUYz/It.YpFmNNn6",
+        "phone": "1",
+        "address": "1",
+        "city": "1",
+        "state": "1",
+        "zipCode": "1",
+        "avatar": "user-1657587120851.jpg"
     }
 ]

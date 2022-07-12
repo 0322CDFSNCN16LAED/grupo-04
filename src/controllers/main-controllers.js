@@ -1,9 +1,7 @@
-const path = require("path");
 const dbUsers = require("../models/Users.js");
 const dbProf = require("../models/prof.js");
-const dbBudgets = require("../models/budget.js");
 const bcryptjs = require("bcryptjs");
-
+const { validationResult } = require("express-validator")
 
 module.exports = {
   home: (req, res) => {
@@ -38,30 +36,7 @@ module.exports = {
       },
     });
 
-    return userToLogin
-      ? res.redirect("/user/detail")
-      : res.redirect("/user/prof/detail");
-  },
-
-  inboxProf: (req, res) => {
-    const budgets = dbBudgets.getAllBudgetReq();
-    const profBudgets = budgets.filter(
-      budget => budget.rubro === req.session.userLogged.rubro
-    );
-    res.render("inboxProf", { profBudgets});
-  },
-
-  inboxUser: (req, res) => {
-    const budgetsReq = dbBudgets.getAllBudgetReq();
-    const userReq = budgetsReq.filter(
-      (budget) => budget.userId === req.session.userLogged.userId
-    );
-    const budgets = dbBudgets.getAllBudgetRes();
-    const profRes = budgets.filter(
-      budget => budget.userId === req.session.userLogged.userId
-    ); 
-
-    res.render("inboxUser", { profRes,userReq });
+    return userToLogin ? res.redirect("/user/detail") : res.redirect("/prof/detail");
   },
 
   history: (req, res) => {
@@ -71,6 +46,108 @@ module.exports = {
   logout: (req,res) => {
     req.session.destroy();
     return res.redirect("/login")
-  }
+  },
+
+  register: (req, res) => {
+    res.render("register");
+  },
+  
+  createUser: (req, res) => {
+    
+    res.render("registerUser");
+  },
+  
+  storeUser: (req,res) => {
+    const resultValidation= validationResult(req);    
+    
+    if (resultValidation.errors.length > 0) {
+      res.render("registerUser", { 
+        errors: resultValidation.mapped(),
+        oldData: req.body,                
+      })      
+    };    
+    const users= dbUsers.getAllUsers();
+    const newUser = req.body;
+
+    const userInDb = dbUsers.getOneUserByField("email", req.body.email);
+
+    if(userInDb){
+      return res.render("registerUser", {
+        errors: {
+          email: {
+            msg: "Este email ya esta registrado"
+          }
+        },
+        oldData: req.body
+      })
+    }
+
+    const userToCreate = {
+      ...req.body,
+      password: bcryptjs.hashSync(req.body.password,10),
+      avatar: req.file.filename
+    }
+    if(resultValidation.errors.length == 0){
+
+      dbUsers.createUser(userToCreate);      
+      
+      res.redirect("/login");
+    }
+  },  
+
+  createProf: (req, res) => {
+    res.render("registerProfesional");
+  },
+
+  storeProf: (req,res) => {
+    const resultValidation= validationResult(req);  
+    
+    if (resultValidation.errors.length > 0) {
+      res.render("registerprofesional", { 
+        errors: resultValidation.mapped(),
+        oldData: req.body,                
+      })      
+    };    
+
+    const prof= dbProf.getAllProf();
+    const newProf = req.body;
+    const jobsImgArray= req.files['finished-jobs']
+    const profileImg = req.files["avatar"];
+    const password = req.body.password;
+
+    const profInDb = dbProf.getOneProfByField("email", req.body.email);
+
+    if (profInDb) {
+      return res.render("registerprofesional", {
+        errors: {
+          email: {
+            msg: "Este email ya esta registrado",
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    if(profileImg){      
+      newProf.avatar = profileImg[0].filename;;
+    }else{
+      newProf.avatar= "profile-user-pic.svg";
+    }
+    if(jobsImgArray){
+       newProf.jobsImgs = jobsImgArray.map(function (img) {
+         return img.filename;
+       });
+    }else{
+      newProf.jobsImgs = []
+    }
+    newProf.password =  bcryptjs.hashSync(password,10);
+           
+    if (resultValidation.errors.length == 0) {
+      dbProf.createProf(newProf);
+
+      res.redirect("/login");
+    }
+    
+  },
 
 };
