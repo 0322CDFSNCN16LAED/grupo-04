@@ -6,70 +6,66 @@
 <body>
     <%- include('./partials/header') %>
     
-   
     <main class="imagen-fondo-mobile dp-grid main-fx-size">
        
-            
+             <main class="imagen-fondo-mobile fx justify-center">
         <div class="fx justify-center"></div>
             <div class="grey-opacity profile-box desk-size">
-                <form action="">
+                <div>
                     <div class="fx justify-sp-a align-center">
-                        <div class="user-pic" style="background-image:url('../images/avatar/<%= user.avatar %>')"></div>
-                        <div class="font-large"> <%= user.name %> <%= user.lastName %>  </div>
+                        <div class="user-pic" style="background-image:url('../../images/avatar/<%= user.avatar %>')"></div>
+                        <div class="font-large"><%= user.name %> <%= user.lastName %> </div>
                     </div>
-                    <div class="fx map-column">
+                    <div class=" map-column">
                         <div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <label class="form-label">Nombre</label>
-                                   <p class="form-control"> <%= user.name %> </p>
+                                    <div>Nombre</div>
+                                    <div class="form-control"><%= user.name %>  </div>
                                 </div>
                                 <div class="col">
-                                    <label class="form-label">Apellido</label>
-                                    <p class="form-control"><%= user.lastName %></p>
+                                    <div>Apellido</div>
+                                    <div class="form-control"><%= user.lastName %></div>
                                 </div>
                             </div>
-                            <div class="col-auto">
-                                <label class="form-label">Nombre de usuario</label>
+                            <div class="col-auto mt-3">
+                                <div>Nombre de usuario</div>
                                 <div class="input-group">
                                     <div class="input-group-text mb-auto">@</div>
-                                    <p class="form-control"><%= user.userName %></p>
+                                    <p class="form-control"><%= user.userName %> </p>
                                 </div>
                             </div>
                             <div class="col mb-3">
-                                <label class="form-label">Email</label>
-                                <p class="form-control"><%= user.email %></p> 
-                            </div>                            
+                                <div>Email</div>
+                                <div class="form-control"><%= user.email %></div>
+                            </div>                           
                             
                             <div class="col mt-3">
-                                <label class="form-label">Teléfono</label>
-                                <p class="form-control"><%= user.phone %></p>
+                                <div>Teléfono</div>
+                                <div class="form-control" placeholder="Teléfono"><%= user.phone %></div>
                             </div>
         
                             <div class="col-12 mt-3 mb-3">
-                                <label class="form-label ">Dirección</label>
-                                <P class="form-control"> <%= user.address %></p> 
+                                <div>Dirección</div>
+                                <div class="form-control" id="Dirección"><%= user.address %></div>
                             </div>
-                            <div class="row g-3">
-                                <div class="col-sm-7">
-                                    <label class="form-label">Ciudad</label>
-                                    <p class="form-control"><%= user.city %> </p>
-                                </div>
-                                <div class="col-sm">
-                                    <label class="form-label">Provincia</label>
-                                    <p class="form-control"><%= user.state %> </p>
-                                </div>
-                                <div class="col-sm">
-                                    <label class="form-label">C.P</label>
-                                    <p class="form-control"><%= user.zipCode %> </p>
-                                </div>
-                            </div>                          
-    
+                            
+                            <div class="col-12 mt-3 mb-3">
+                                <div>Ciudad</div>
+                                <div class="form-control"><%= user.city %></div>
+                            </div>
+                                                    
+                            <div class="col-sm mt-3">
+                                <div>Provincia</div>
+                                <div class="form-control"><%= user.state %></div>
+                            </div>
+                            <div class="col-sm mt-3">
+                                <div>Código Postal</div>
+                                <div class="form-control"><%= user.zipCode %></div>
+                            </div>    
                         </div>                
                         
-                        <div class="fx justify-center mt-3  map-desk">
-                            <div class="map" style="background-image:url('../images/profile-map.png')"></div>
-                        </div>
+                        
                         
                     </div>
                     <div class="fx justify-center mt-3">
@@ -78,13 +74,17 @@
                         </button>  
                     </div>
         
-                </form>
+                </div>
 
             </div> 
         </div>    
     </main>
 
-    <%- include('./partials/footer') %>
+      
+        
+    </main>
+
+     <%- include('./partials/footer') %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

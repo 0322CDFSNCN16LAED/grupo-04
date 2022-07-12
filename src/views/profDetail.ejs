@@ -11,65 +11,61 @@
              <main class="imagen-fondo-mobile fx justify-center">
         <div class="fx justify-center"></div>
             <div class="grey-opacity profile-box desk-size">
-                <form action="">
+                <div>
                     <div class="fx justify-sp-a align-center">
                         <div class="user-pic" style="background-image:url('../../images/avatar/<%= user.avatar %>')"></div>
                         <div class="font-large"><%= user.name %> <%= user.lastName %> </div>
                     </div>
-                    <div class="fx map-column">
+                    <div class=" map-column">
                         <div>
                             <div class="row mt-3">
                                 <div class="col">
+                                    <div>Nombre</div>
                                     <div class="form-control"><%= user.name %>  </div>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido">
+                                    <div>Apellido</div>
+                                    <div class="form-control"><%= user.lastName %></div>
                                 </div>
                             </div>
                             <div class="col-auto mt-3">
-                                <label class="visually-hidden" for="">Nombre de usuario</label>
+                                <div>Nombre de usuario</div>
                                 <div class="input-group">
                                     <div class="input-group-text mb-auto">@</div>
                                     <p class="form-control"><%= user.userName %> </p>
                                 </div>
                             </div>
-                            <div class="col mt-3 mb-3">
-                                <input type="email" class="form-control" placeholder="E-mail" aria-label="E-mail">
-                            </div>
-                             <div class="col mb-3">
-                                <input type="password" class="form-control" placeholder="Cambiar contraseña" aria-label="Contraseña">
-                            </div>
-                            <div class="font-mediun mb-5-login mt-3">
-                                <div class="mb-3 fx align-center">                   
-                                    <label for="avatar" class="form-label"><h4 class="font-medium mb-0" >Foto de perfil</h4></label>
-                                    <input class="form-control" type="file" name= "avatar" id="avatar">
-                                </div>                            
-                            </div>
+                            <div class="col mb-3">
+                                <div>Email</div>
+                                <div class="form-control"><%= user.email %></div>
+                            </div>                           
+                            
                             <div class="col mt-3">
-                                <input type="text" class="form-control" placeholder="Teléfono" aria-label="Teléfono">
+                                <div>Teléfono</div>
+                                <div class="form-control" placeholder="Teléfono"><%= user.phone %></div>
                             </div>
         
                             <div class="col-12 mt-3 mb-3">
-                                <label for="Dirección" class="form-label visually-hidden">Dirección</label>
-                                <input type="text" class="form-control" id="Dirección" placeholder="Dirección">
+                                <div>DNI</div>
+                                <div class="form-control" id="Dirección"><%= user.DNI %></div>
                             </div>
-                            <div class="row g-3">
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" placeholder="Ciudad" aria-label="Ciudad">
-                                </div>
-                                <div class="col-sm">
-                                    <input type="text" class="form-control" placeholder="Provincia" aria-label="Provincia">
-                                </div>
-                                <div class="col-sm">
-                                    <input type="text" class="form-control" placeholder="Código postal" aria-label="Código postal">
-                                </div>
-                            </div>                          
-    
+                            
+                            <div class="col-12 mt-3 mb-3">
+                                <div>Condición Frente al IVA</div>
+                                <div class="form-control"><%= user.IVA %></div>
+                            </div>
+                                                    
+                            <div class="col-sm mt-3">
+                                <div>CUIT</div>
+                                <div class="form-control"><%= user.CUIT %></div>
+                            </div>
+                            <div class="col-sm mt-3">
+                                <div>Rubro</div>
+                                <div class="form-control"><%= user.rubro %></div>
+                            </div>    
                         </div>                
                         
-                        <div class="fx justify-center mt-3  map-desk">
-                            <div class="map" style="background-image:url('../images/profile-map.png')"></div>
-                        </div>
+                        
                         
                     </div>
                     <div class="fx justify-center mt-3">
@@ -78,7 +74,7 @@
                         </button>  
                     </div>
         
-                </form>
+                </div>
 
             </div> 
         </div>    

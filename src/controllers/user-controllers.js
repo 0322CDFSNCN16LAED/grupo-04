@@ -1,27 +1,23 @@
 
 module.exports = {
-  userDetail: (req, res) => {
+  userDetail: (req, res) => {    
     res.render("userDetail",{
-        user: req.session.userLogged,
-       
+        user: req.session.userLogged,       
     });
   },
-  profDetail: (req, res) => {
+  profDetail: (req, res) => {    
     res.render("profDetail",{
         user: req.session.userLogged,
     });
   },
-  profileUser: (req, res) => {
+  profileUser: (req, res) => {    
     res.render("profileUser");
   },
-  editUserProfile: (req,res) => {
-    
-
+  editUserProfile: (req,res) => {    
   },
   profileProf: (req, res) => {
     res.render("profileProfessional");
   },
-  editProfProfile: (req,res) => {
-    
+  editProfProfile: (req,res) => {    
 },
 }

@@ -26,6 +26,17 @@
         font-size: 1.2em;
         margin-top: 7%;
     }
+
+    /*-------profile professional---------*/
+     .profile-box {
+        padding: 5%;
+        border-radius: 5px;
+        margin: 4%;
+    }
+    .desk-size{
+        width: 60vh;
+
+    }   
    
 
 }

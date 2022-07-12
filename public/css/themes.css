@@ -323,6 +323,10 @@ a { text-decoration: none; color: black; }
     border-radius: 5px;
     margin: 4%;
 }
+.desk-size{
+        width: 80vh;
+
+}
 .map {
     display: inline-block;
     width: 300px;

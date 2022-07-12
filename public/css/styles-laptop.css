@@ -302,7 +302,7 @@
     
     /*---------PROFILE---------*/
     .profile-box {
-        padding: 2%;
+        padding: 5%;
         border-radius: 5px;
         margin: 4%;
     }
@@ -312,6 +312,10 @@
     }
     .map-desk {
         margin-left: 4%;        
+    }
+    .desk-size{
+        width: 80vh;
+
     }
   
 
