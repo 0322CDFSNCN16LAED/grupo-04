@@ -1,14 +1,8 @@
 const dbBudgets = require("../models/budget.js");
 
 module.exports = {
-  userDetail: (req, res) => {
+  userDetail: (req, res) => {    
     res.render("userDetail",{
-      user: req.session.userLogged,
-    });
-  },
-
-  profDetail: (req, res) => {
-    res.render("profDetail",{
       user: req.session.userLogged,
     });
   },
@@ -19,22 +13,6 @@ module.exports = {
 
   editUserProfile: (req,res) => {
     //código
-  },
-
-  profileProf: (req, res) => {
-    res.render("profileProfessional");
-  },
-
-  editProfProfile: (req,res) => {
-    //código
-  },
-
-  inboxProf: (req, res) => {
-    const budgets = dbBudgets.getAllBudgetReq();
-    const profBudgets = budgets.filter(
-      budget => budget.rubro === req.session.userLogged.rubro
-    );
-    res.render("inboxProf", { profBudgets});
   },
 
   inboxUser: (req, res) => {
@@ -49,5 +27,4 @@ module.exports = {
 
     res.render("inboxUser", { profRes,userReq });
   },
-
 }
