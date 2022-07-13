@@ -102,6 +102,7 @@
         margin-right: 35%;
         margin-left: 35%;
     }
+<<<<<<< HEAD
     /*-------editProf------*/
     .profile-box-edit{
         padding: 2%;
@@ -111,4 +112,10 @@
     
 
   
+=======
+    
+    .w-card {
+        width: 50vh;
+    }
+>>>>>>> 9c7ced43ff07cccbdd6f2bd73346863888901023
 }

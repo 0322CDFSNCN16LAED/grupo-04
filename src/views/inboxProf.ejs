@@ -6,57 +6,28 @@
     <%- include('./partials/header') %>
     
     <main class="imagen-fondo-mobile justify-center">
-      
-      <div class="fx justify-center align-center fx-column">
-        <div class="w-100 fx justify-sp-a">
-          <h2 class="m-3 font-medium">Bandeja de Entrada</h2>
-        </div>
-        
-        <h2 class="m-3 font-medium bolder">Presupuestos recibidos</h2>
-
-        <div class="fx-grow-90  justify-center">
-          <div class="fx marco-detail direction-column shopc-marco-tablet lap-w-2">
-
-            <% profBudgets.forEach(function(budgetToShow){ %>
-            <div class="marco-prof-shop marco-detail fx justify-center direction-column">
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-medium"><%= budgetToShow.tituloSolicitud %></p>
-              </div>
-              
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-medium"><%= budgetToShow.detalleSolicitud %></p>
-              </div>
-
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-medium"><%= budgetToShow.rubro %></p>
-              </div>
-
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-medium"><%= budgetToShow.urgenciaTrabajo %></p>
-              </div>
-
-              <div class="fx justify-sp-b mb-3">
-                <p class="font-medium"><%= budgetToShow.ubicacion %></p>
-              </div>
-
-              <div class="fx justify-sp-b mb-3">
-                <% budgetToShow.imgReferencia.forEach(img => { %>
-                  <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
-                      <img class="thumbnail" src="/images/budgetRequest/<%= budgetToShow.imgReferencia %>">
-                  </a>
-                <% }) %>
-              </div>
-
-              <div class="fx justify-center mt-3 fx-grow-10">
-                <button class="primary-button">
-                  <a href="/budget/response/<%= budgetToShow.reqId %> ">Armar presupuesto</a>
-                </button>
-              </div>
+      <h2 class="m-3 font-xlarge bolder">Bandeja de Entrada</h2>
+    
+      <section class="cards">
+        <% profBudgets.forEach(function(budgetToShow){ %>
+          <article class="card w-card">
+            <div class="justify-center">
+              <p class="font-medium bolder"><%= budgetToShow.tituloSolicitud %></p>
+              <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia[0] %>">
+                <img class="w-60" src="/images/budgetRequest/<%= budgetToShow.imgReferencia[0] %>">
+              </a>
+              <ul >
+                <li><i class="fas fa-info-circle"></i><p class="font-medium"><%= budgetToShow.detalleSolicitud %></p></li>
+                <li><i class="fas fa-calendar-day"></i><p class="font-medium"><%= budgetToShow.urgenciaTrabajo %></p></li>
+                <li><i class="fas fa-map-marker-alt"></i><p class="font-medium"><%= budgetToShow.ubicacion %></p></li>
+              </ul>
+              <button class="primary-button">
+                <a href="/budget/response/<%= budgetToShow.reqId %>">Armar presupuesto</a>
+              </button>
             </div>
-            <% }) %>
-          </div>
-        </div>
-      </div>
+          </article>
+        <% }) %>
+      </section>
 
   </main>
 

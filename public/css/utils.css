@@ -130,3 +130,18 @@
     padding: 5px; /* Some padding */
     width: 10%; /* Set a small width */
 }
+
+.cards {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4%;
+    padding: 2%;
+    background-color: white;
+}

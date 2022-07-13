@@ -1,4 +1,5 @@
 const dbBudgets = require("../models/budget.js");
+const dbUsers = require("../models/Users");
 
 module.exports = {
   profDetail: (req, res) => {
@@ -17,10 +18,12 @@ module.exports = {
 
   inboxProf: (req, res) => {
     const budgets = dbBudgets.getAllBudgetReq();
+
     const profBudgets = budgets.filter(
       budget => budget.rubro === req.session.userLogged.rubro
     );
-    res.render("inboxProf", { profBudgets});
+    
+    res.render("inboxProf", { profBudgets });
   },
 
 }
