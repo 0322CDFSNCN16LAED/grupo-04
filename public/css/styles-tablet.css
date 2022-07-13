@@ -50,4 +50,8 @@
       overflow-x: auto;
       white-space: nowrap;
     }
+
+    .card-w {
+        width: 45%;
+    }
 }

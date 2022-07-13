@@ -6,3 +6,8 @@
 /*.color-grey-footer {background-color:  #8c8c8c  ;}*/
 .color-grey-footer {background-color:  #205375  ;}
 .table-bg {background-color: #EFEFEF;}
+.card-border {
+    border: 2px #205375 solid;
+    margin: 2%;
+    padding: 3%;
+}

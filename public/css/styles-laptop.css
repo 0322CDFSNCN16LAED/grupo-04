@@ -317,8 +317,10 @@
         width: 80vh;
 
     }
-  
 
+    .w-card {
+        width: 40%;
+    }
 
 
 }

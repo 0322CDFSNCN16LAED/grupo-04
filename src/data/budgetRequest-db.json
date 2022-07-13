@@ -1,7 +1,7 @@
 [
     {
         "reqId": 1,
-        "tituloSolicitud": "pintura",
+        "tituloSolicitud": "Pintar dpto 60 m2",
         "detalleSolicitud": "pintar completamente un departamento de 4 ambientes",
         "rubro": "Pintor",
         "urgenciaTrabajo": "estaSemana",
