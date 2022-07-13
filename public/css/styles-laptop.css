@@ -317,6 +317,12 @@
         width: 80vh;
 
     }
+    /*-----editProf-----*/
+     .profile-box-edit{
+        padding: 2%;
+        border-radius: 5px;
+        margin: 4%;    
+    }
   
 
 

@@ -102,7 +102,12 @@
         margin-right: 35%;
         margin-left: 35%;
     }
-    
+    /*-------editProf------*/
+    .profile-box-edit{
+        padding: 2%;
+        border-radius: 5px;
+        margin: 4%;    
+    }
     
 
   

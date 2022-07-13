@@ -1,5 +1,5 @@
 const dbBudgets = require("../models/budget.js");
-
+const dbUsers = require("../models/Users.js");
 module.exports = {
   userDetail: (req, res) => {    
     res.render("userDetail",{
@@ -12,7 +12,9 @@ module.exports = {
   },
 
   editUserProfile: (req,res) => {
-    //código
+   const userToEdit = req.session.userLogged;
+   
+   res.render("editUser",{user:userToEdit})
   },
 
   inboxUser: (req, res) => {
