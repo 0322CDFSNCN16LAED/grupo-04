@@ -6,10 +6,12 @@
   <%- include('./partials/header') %>
 
   <main class="imagen-fondo-mobile justify-center">
-    <h2 class="m-3 font-xlarge bolder">Bandeja de Entrada</h2>
-    <button class="primary-button">
-      <a href="/budget/request">Nueva Solicitud</a>
-    </button>
+    <div class = "fx justify-sp-b text-right font-xlarge">    
+      <h2 class="m-3 font-xlarge bolder lapt-shop-title">Bandeja de Entrada</h2>
+      <button class="primary-button">
+        <a href="/budget/request">Nueva Solicitud</a>
+      </button>
+    </div>
 
     <section class="cards">
       <% userReq.forEach(function(budgetToShow){ %>
@@ -19,7 +21,7 @@
             <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia[0] %>">
               <img class="w-60" src="/images/budgetRequest/<%= budgetToShow.imgReferencia[0] %>">
             </a>
-            <p class="bolder">Presupuestos recibidos</p>
+            <p class="bolder mt-3">Presupuestos recibidos</p>
             <% profRes.forEach(function(budgRes){ %>
               <% if (budgetToShow.reqId == budgRes.reqId) { %>
                 <div class="card-border">
@@ -39,7 +41,7 @@
                   </div>
                 </div>
               <% } else { %>
-                <p>No recibió presupuestos</p>
+                <p>Aún no recibiste ningún presupuesto</p>
               <% } %>
             <% }) %>
           </div>
