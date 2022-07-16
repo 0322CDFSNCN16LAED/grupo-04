@@ -5,18 +5,16 @@
 
 <body>
     <%- include('./partials/header') %>
-
-    <main class="imagen-fondo-mobile main-fx-size">
-        <div class="fx align-center justify-center">
-
-            <div class="grey-opacity profile-box desk-size">
+    <main class="imagen-fondo-mobile fx justify-center">
+        <div class="fx justify-center"></div>
+            <div class="grey-opacity profile-box-edit desk-size">
                 <div>
                     <h3 class="text-center">Registrate</h3>
                     <p class="font-mediun  text-center mb-5 -login">Ofrece tus servicios sin costo</p>
                 </div>
                 
                 <form action="/register/prof" method="POST" enctype="multipart/form-data">
-                    <div class="fx map-column">
+                    <div class=" map-column">
                         <div>
                             <div class="row mt-3">
                                 <div class="col">
@@ -197,10 +195,10 @@
                             <div class="font-medium mt-3"> Rubros </div>
                             <div class="form-check">
                                 <input 
-                                    class="form-check-input 
+                                    class="form-check-input" 
                                     name= "rubro" 
                                     type="checkbox" 
-                                    value="Electricista"
+                                    value="Electricista" 
                                 >
                                 <label class="form-check-label" for="Electricista">
                                     Electricista
@@ -218,13 +216,21 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" name= "rubro" type="checkbox" value="Gasista" id="Gasista">
+                                <input class="form-check-input" 
+                                    name= "rubro" 
+                                    type="checkbox" 
+                                    value="Gasista" 
+                                    id="Gasista">
                                 <label class="form-check-label" for="Gasista">
                                     Gasista
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" name= "rubro" type="checkbox" value="Pintor" id="Pintor">
+                                <input class="form-check-input" 
+                                    name= "rubro" 
+                                    type="checkbox"
+                                    value="Pintor" 
+                                    id="Pintor">
                                 <label class="form-check-label" for="Pintor">
                                     Pintor
                                 </label>
@@ -291,23 +297,19 @@
                                     <input class="form-control" name= "finished-jobs" type="file" id="finished-jobs" multiple>
                                 </div>
                             </div>
-    
-                        </div>
-                        <div class="map-desk">
                             <div class="col mt-3">
                                 <label class="visually-hidden" for="">Radio de cobertura</label>
                                 <input type="text" name= "radio" class="form-control" placeholder="Radio de cobertura" aria-label="Radio de cobertura">
                             </div>
-                            
-                            <div class="fx justify-center mt-3">
-                                <div class="map" style="background-image:url('../images/radio-cobertura-map.png')"></div>
-                            </div>
+    
+                        </div>
+                        <div class="map-desk">                        
     
                         </div>                
 
                     </div>
                     
-                   <div class="form-check">
+                   <div class="form-check mt-3">
                                 <input class="form-check-input" name="terms" type="checkbox" value="" id="terminosYCondicioneS">
                                 <label class="form-check-label" for="terminosYCondiciones">
                                     Soy mayor de edad y acepto los términos y condiciones
