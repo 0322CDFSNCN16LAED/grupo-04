@@ -35,8 +35,15 @@
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li><a class="dropdown-item" href="#">Notificaciones</a></li>
-                    <li><a class="dropdown-item" href="/prof/inbox">Bandeja de entrada prof</a></li>
-                    <li><a class="dropdown-item" href="/user/inbox">Bandeja de entrada User</a></li>
+                    <% if (!locals.isLogged) { %>
+                        <li><a class="dropdown-item" href="/register">Registrate</a></li>                         
+                    <% } %>
+                    <% if (locals.isLogged && locals.isLogged.rubro) { %>
+                        <li><a class="dropdown-item" href="/prof/inbox">Bandeja de entrada</a></li>
+                    <% } %>
+                    <% if (locals.isLogged && locals.isLogged.userId) { %>
+                        <li><a class="dropdown-item" href="/user/inbox">Bandeja de entrada</a></li>
+                    <% } %>                         
                     <li><a class="dropdown-item" href="/history">Historial</a></li>
                     <li><a class="dropdown-item" href="#">Categorias</a></li>
                     <li><a class="dropdown-item" href="/budget/cart">Mi carrito</a></li>
@@ -60,8 +67,12 @@
             id="dropdownMenuLink" data-bs-toggle="dropdown" 
             aria-expanded="false"><i class="fa-solid fa-user"></i></a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="/user/profile/">Mi perfil User</a></li>
-                <li><a class="dropdown-item" href="/prof/profile/">Mi perfil Prof</a></li>
+                <% if (locals.isLogged && locals.isLogged.rubro) { %>
+                    <li><a class="dropdown-item" href="/prof/profile/">Mi perfil</a></li>                       
+                <% } %>
+                    <% if (locals.isLogged && locals.isLogged.userId) { %>
+                        <li><a class="dropdown-item" href="/user/profile/">Mi perfil</a></li>                      
+                    <% } %>                         
                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>
         </div>
