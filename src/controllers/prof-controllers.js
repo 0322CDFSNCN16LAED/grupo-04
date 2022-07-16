@@ -3,27 +3,24 @@ const dbUsers = require("../models/Users");
 
 module.exports = {
   profDetail: (req, res) => {
-    res.render("profDetail",{
+    res.render("profDetail", {
       user: req.session.userLogged,
     });
   },
 
-  profileProf: (req, res) => {
-    res.render("profileProfessional");
-  },
+  editProfProfile: (req, res) => {
+    const userToEdit = req.session.userLogged;
 
-  editProfProfile: (req,res) => {
-    //código
+    res.render("editProf", { user: userToEdit });
   },
 
   inboxProf: (req, res) => {
     const budgets = dbBudgets.getAllBudgetReq();
 
     const profBudgets = budgets.filter(
-      budget => budget.rubro === req.session.userLogged.rubro
+      (budget) => budget.rubro === req.session.userLogged.rubro
     );
-    
+
     res.render("inboxProf", { profBudgets });
   },
-
-}
+};

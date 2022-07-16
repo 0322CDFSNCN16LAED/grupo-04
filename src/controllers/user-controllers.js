@@ -16,7 +16,6 @@ module.exports = {
    
    res.render("editUser",{user:userToEdit})
   },
-
   inboxUser: (req, res) => {
     const budgetsReq = dbBudgets.getAllBudgetReq();
     const userReq = budgetsReq.filter(

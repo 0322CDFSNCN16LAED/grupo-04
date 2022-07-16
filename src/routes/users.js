@@ -6,8 +6,6 @@ const userControllers = require("../controllers/user-controllers");
 
 router.get("/detail", authMiddleware, userControllers.userDetail);
 router.get("/edit/:id", authMiddleware, userControllers.editUserProfile);
-router.get("/profile",authMiddleware, userControllers.profileUser);
-router.post("/profile/edit",userControllers.editUserProfile)
 router.get("/inbox", authMiddleware, userControllers.inboxUser);
 
 module.exports = router;
