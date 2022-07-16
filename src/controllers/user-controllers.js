@@ -6,15 +6,13 @@ module.exports = {
       user: req.session.userLogged,
     });
   },
-
-  profileUser: (req, res) => {
-    res.render("profileUser");
-  },
-
   editUserProfile: (req,res) => {
    const userToEdit = req.session.userLogged;
    
    res.render("editUser",{user:userToEdit})
+  },
+  updateUserProfile: (req,res) => {
+
   },
   inboxUser: (req, res) => {
     const budgetsReq = dbBudgets.getAllBudgetReq();

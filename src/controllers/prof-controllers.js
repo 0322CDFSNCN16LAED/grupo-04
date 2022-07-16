@@ -13,6 +13,9 @@ module.exports = {
 
     res.render("editProf", { user: userToEdit });
   },
+  updateProfProfile: (req,res) => {
+    
+  },
 
   inboxProf: (req, res) => {
     const budgets = dbBudgets.getAllBudgetReq();
