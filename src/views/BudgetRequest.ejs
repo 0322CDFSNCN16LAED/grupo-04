@@ -12,11 +12,33 @@
             <form action="/budget/request" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="tituloSolicitud" class="mr-3 form-label"><h4 class="font-medium">Título del trabajo</h4></label>
-                    <input class="form-control" type="text" id="tituloSolicitud" name="tituloSolicitud">
+                    <input 
+                    class="form-control 
+                    <%= locals.errors && errors.tituloSolicitud ? 'is-invalid' : null%>" 
+                    type="text" 
+                    name="tituloSolicitud"
+                    id="detalleSolicitud"
+                    value="<%= locals.oldData ? oldData.tituloSolicitud : null %>"
+                    placeholder="titulo del trabajo">
+                    <% if (locals.errors && errors.tituloSolicitud) { %>
+                        <div class= "error-msg">
+                            <%= errors.tituloSolicitud.msg %>               
+                        </div>
+                    <% } %>                        
                 </div>
-                <div class="mb-3">
-                    <label for="detalleSolicitud" class="mr-3 form-label"><h4 class="font-medium">Descripción del trabajo</h4></label>
-                    <textarea class="form-control" id="detalleSolicitud" name="detalleSolicitud" rows="3" placeholder="Detallá el trabajo a realizar"></textarea>
+                  <div>
+                    <label for="ubicacion"><h4 class="font-medium">Descripción del Trabajo</h4></label>
+                    <textarea 
+                    class="form-control <%= locals.errors && errors.detalleSolicitud ? 'is-invalid' : null%>" 
+                    id="detalleSolicitud" 
+                    name="detalleSolicitud" 
+                    rows="3" 
+                    placeholder="Ingresá tu domicilio"><%= locals.oldData ? oldData.detalleSolicitud : null %></textarea>
+                     <% if (locals.errors && errors.detalleSolicitud) { %>
+                        <div class= "error-msg">
+                            <%= errors.detalleSolicitud.msg %>               
+                        </div>
+                    <% } %>                        
                 </div>
                 <div class="mb-3 align-center">                    
                     <label for="rubro" class="mr-3"><h4 class="font-medium">Categoría</h4></label>
@@ -45,7 +67,17 @@
                 </div>
                 <div>
                     <label for="ubicacion"><h4 class="font-medium">Ubicación</h4></label>
-                    <textarea class="form-control" id="ubicacion" name="ubicacion" rows="3" placeholder="Ingresá tu domicilio"></textarea>
+                    <textarea 
+                    class="form-control <%= locals.errors && errors.ubicacion ? 'is-invalid' : null%>" 
+                    id="ubicacion" 
+                    name="ubicacion" 
+                    rows="3" 
+                    placeholder="Ingresá tu domicilio"><%= locals.oldData ? oldData.ubicacion : null %></textarea>
+                     <% if (locals.errors && errors.ubicacion) { %>
+                        <div class= "error-msg">
+                            <%= errors.ubicacion.msg %>               
+                        </div>
+                    <% } %>                        
                 </div>
                                         
                 <div class="fx justify-center mt-3">

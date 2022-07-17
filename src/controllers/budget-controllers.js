@@ -1,27 +1,37 @@
 const dbBudget = require("../models/budget.js");
 const dbUsers = require("../models/Users")
+const { validationResult } = require("express-validator")
 
 module.exports = {
   request: (req, res) => {
     res.render("budgetRequest");
   },
 
-  storeBudgRequest: (req,res) => {
-    const requests= dbBudget.getAllBudgetReq();
+  storeBudgRequest: (req, res) => {
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      res.render("BudgetRequest", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    } 
+    console.log(resultValidation)
     const newReq = req.body;
-    newReq.userId = req.session.userLogged.userId
-    
-    const imgRefArray= req.files;
-    if(imgRefArray){
-      newReq.imgReferencia = imgRefArray.map(function(img){
+    req.session.userLogged ? newReq.userId = req.session.userLogged.userId : res.redirect("/login");
+
+    const imgRefArray = req.files;
+    if (imgRefArray) {
+      newReq.imgReferencia = imgRefArray.map(function (img) {
         return img.filename;
       });
     } else {
       newReq.imgReferencia = [];
     }
-    
-    dbBudget.createBudgReq(newReq);
-    res.redirect("/");
+    if (resultValidation.errors.length == 0) {
+      dbBudget.createBudgReq(newReq);
+      res.redirect("/");      
+    }
+
   },
 
   response: (req, res) => {

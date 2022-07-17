@@ -19,9 +19,13 @@ const storage = multer.diskStorage({
 })
 const upload = multer({storage});
 
+const budgetMiddlewares = require("../middlewares/budgetValidations");
+const budgetReqValidations = budgetMiddlewares.budgReqValidations;
+
+
 //Usuario carga y envía solicitud de presupuesto
 router.get("/request", budgetControllers.request);
-router.post("/request", upload.array("imgReferencia", 5), budgetControllers.storeBudgRequest);
+router.post("/request", upload.array("imgReferencia", 5),budgetReqValidations, budgetControllers.storeBudgRequest);
 
 //Profesional carga y envía presupuesto del trabajo que pidió el usuario
 router.get("/response/:reqId", budgetControllers.response);
