@@ -35,7 +35,7 @@ router.get("/register/prof", mainControllers.createProf);
 router.post("/register/prof",
   upload.fields([
     { name: "avatar", maxCount: 1 },
-    { name: "finished-jobs", maxCount: 5 }
+    { name: "finished-jobs", maxCount: 20}
   ]),
   ProfValidations,
   mainControllers.storeProf
