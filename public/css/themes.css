@@ -139,7 +139,7 @@ a { text-decoration: none; color: black; }
     border: none;
     color: black;
     margin: 10px;
-    font-size: 100%;
+    font-size: 90%;
     font-weight: bolder;    
 }
 
@@ -158,10 +158,28 @@ a { text-decoration: none; color: black; }
     border: #FF9900 solid;
     color: black;
     margin: 10px;
-    font-size: 100%;    
+    font-size: 90%;    
 }
 
 .secondary-button a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+
+.terciary-button {
+    bottom: 100px;
+    padding: 10px;  
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+    color: black;
+    margin: 10px;
+    font-size: 90%;    
+}
+
+.terciary-button a {
     list-style: none;
     text-decoration: none;
     color: black;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+<body>
+  <%- include('./partials/header') %>
+
+  <main class="imagen-fondo-mobile justify-center">
+    <div class = "fx justify-sp-b text-right font-xlarge">    
+      <h2 class="m-3 font-xlarge bolder lapt-shop-title">Mi Carrito</h2>
+      <button class="primary-button">
+        <a href="/budget/request">Nueva Solicitud</a>
+      </button>
+    </div>
+
+    <section class="cards">
+      <% userItems.forEach(function(itemToShow){ %>
+        <article class="card w-card">
+          <div class="justify-center">
+            <p class="font-medium bolder"><%= getUserReq.tituloSolicitud %></p>
+            <p class="font-medium bolder"><%= getProfRes.precioFinal %></p>
+            <p class="font-medium bolder"><%= profName.name %> <%= profName.lastName %></p>
+            <p class="font-medium bolder"><%= itemToShow.diaTurno %></p>
+            <p class="font-medium bolder"><%= itemToShow.horario %></p>
+            <p class="font-medium bolder"><%= itemToShow.metodoPago %></p>
+
+            <div class="fx justify-sp-b">
+              <button class="terciary-button">
+                <a href="/budget/cart/<%= userItems.resId %>">Eliminar</a>
+              </button>
+              <button class="secondary-button">
+                <a href="/budget/cart/<%= userItems.resId %>">Editar</a>
+              </button>
+              <button class="primary-button">
+                <a href="/budget/detail/<%= userItems.resId %>">Ver detalle </a>
+              </button>
+            </div>
+          </div>
+        </article>  
+      <% }) %>
+    </section>
+  </main>
+
+  <%- include('./partials/footer') %>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

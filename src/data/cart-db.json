@@ -1,0 +1,14 @@
+[
+    {
+        "cartId": 2,
+        "profId": 6,
+        "userId": 5,
+        "reqId": 1,
+        "resId": 3,
+        "address": "pepito 123",
+        "email": "meli@gmail.com",
+        "diaTurno": "2022-07-29",
+        "horario": "tarde",
+        "metodoPago": "efectivo"
+    }
+]
