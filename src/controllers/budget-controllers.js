@@ -122,7 +122,7 @@ module.exports = {
       ...req.body,
     };
     dbBudget.createPurchase(newItem);
-    res.redirect("/");
+    res.redirect("/budget/cart");
   },
 
   cart: (req,res) =>{
