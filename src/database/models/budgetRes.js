@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   };
   const config = {
-    tableName: "budget_res",
+    tableName: "budget_response",
     timestamps: true,
     createdAt: "created_at",
     updatedAt: "updated_at",
