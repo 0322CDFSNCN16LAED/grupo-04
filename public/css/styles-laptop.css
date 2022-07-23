@@ -187,8 +187,8 @@
         padding: 10px;  
         border-radius: 10px;
         background-color: #FF9900;
-        border: none;
-        font-size: 12px; 
+        border: #FF9900 solid;
+        font-size: 90%; 
            
     } 
     .cajaformulario {

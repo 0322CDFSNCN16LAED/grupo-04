@@ -50,5 +50,18 @@
         "profId": 3,
         "userId": 5,
         "reqId": 1
+    },
+    {
+        "resId": 7,
+        "materiales": "cables",
+        "precioMateriales": "6000",
+        "manoDeObra": "2 tecnicos electricistas",
+        "precioManoObra": "10000",
+        "duracionTrabajo": "3",
+        "comentariosTrabajo": "",
+        "precioFinal": "16000",
+        "profId": 5,
+        "userId": 5,
+        "reqId": 2
     }
 ]

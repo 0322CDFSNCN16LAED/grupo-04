@@ -1,0 +1,14 @@
+[
+    {
+        "cartId": 1,
+        "profId": 6,
+        "userId": 5,
+        "reqId": 1,
+        "resId": 3,
+        "address": "cramer 5",
+        "email": "meli@gmail.com",
+        "diaTurno": "2022-07-22",
+        "horario": "mañana",
+        "metodoPago": "efectivo"
+    }
+]

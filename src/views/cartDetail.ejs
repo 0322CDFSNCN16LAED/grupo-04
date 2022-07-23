@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+    <%- include('./partials/header') %>
+    <main class="imagen-fondo-mobile justify-center">
+        <div class = "fx justify-sp-b text-right font-xlarge">    
+            <h2 class="m-3 font-xlarge bolder lapt-shop-title">Contratá el Servicio</h2>
+            <button class="primary-button">
+              <a href="/budget/request">Nueva Solicitud</a>
+            </button>
+        </div>     
+        
+        <div class="shopc-lap" >
+            <form class="fx justify-center lap-w-1" action="/budget/cart/<%= getProfRes[0].resId %>" method="POST">
+                <div class="marco-detail-2 box-size-1 shopc-marco-tablet marco-lap">
+                    <div class="form-box-padding">
+                        <div class="form-box">
+                            <h3 for="address" class="font-medium m-detail">Confirmá tu domicilio</h3>
+                            <input type="text" name="address" id="address" placeholder="<%= userName[0].address %>">
+                        </div>
+                    </div> 
+                    <div class="form-box-padding">
+                        <div class="form-box">
+                            <h3 for="email" class="font-medium m-detail">Mail de contacto</h3>
+                            <input type="text" name="email" id="email" placeholder="<%= userName[0].email %>">
+                        </div>
+                    </div>       
+                    
+                    <div class="form-box form-box-padding mb-3">    
+                        <h3 for="diaTurno" class="font-medium m-detail">Agendá tu turno!</h3>
+                        <input type="date" name="diaTurno" id="diaTurno" class="maxWit-200" placeholder="">                                           
+                    </div>
+                                                
+                    <div class="mb-3 fx form-box-padding align-center">                    
+                        <label for="horario" class="font-medium m-detail">Disponibilidad horaria</label>
+                        <select name="horario" id="horario" class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <option selected>Disponibilidad horaria</option>
+                            <option value="mañana">8:00 a 13:00</option>
+                            <option value="tarde">13:01 a 18:00</option>
+                            <option value="noche">18:01 a 21:00</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 fx align-center form-box-padding">                    
+                        <label for="metodoPago"class="font-medium">Método de pago</label>
+                        <select name="metodoPago" id="metodoPago" class="form-select font-medium form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <option selected>Seleccioná tu método de pago</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="debito">Débito</option>
+                            <option value="credito">Tarjeta de crédito</option>
+                            <option value="mercadoPago">Mercado Pago</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="marco-detail-2 box-size-1 shopc-marco-tablet marco-lap">
+                    <div class="fx marco-detail direction-column shopc-marco-tablet lap-w-2">
+                        <div class="marco-prof-shop marco-detail-img fx justify-center ">                   
+                            <div>
+                                <img src="/images/profilePic.svg" alt="">
+                            </div>
+                            <div>
+                                <h2 class="font-18 m-t-pro"><%= getUserReq[0].tituloSolicitud %></h2>
+                                <a href="#" class="mt-3"><%= profName[0].userName %></p></a>
+                            </div>
+                        </div>
+                        <div class="marco-prof-shop marco-detail fx justify-center direction-column">
+                            <div class="fx justify-sp-b mb-3">
+                                <p class="font-18">Materiales</p>
+                                <p class="font-18"><%= getProfRes[0].precioMateriales %></p>
+                            </div>
+                            <div class="fx justify-sp-b mb-3">
+                                <p class="font-18">Mano de Obra</p>
+                                <p class="font-18"><%= getProfRes[0].precioManoObra %> </p>
+                            </div>
+                            <div class="fx justify-sp-b">
+                                <p class="font-18 bolder">Pagás</p>
+                                <p class="font-18 bolder"><%= getProfRes[0].precioFinal %></p>
+                            </div>
+                        </div>
+    
+                        <div class="text-center txt-button-container pad-5 justify-center"> 
+                            <button type="reset" class="secondary-button">Cancelar</button> 
+                            <button type=“submit” class="primary-button">Pagar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <%- include('./partials/footer') %>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
