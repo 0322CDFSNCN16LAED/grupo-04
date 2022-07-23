@@ -58,5 +58,12 @@ module.exports = (sequelize, DataTypes) => {
   };
   const users = sequelize.define(alias, cols, config);
 
+  users.associate = (models) => {
+    users.hasMany(models.budgReq, {
+      foreignKey: "userId",
+      as: "budgReq",
+    });
+   };
+
   return users;
 };

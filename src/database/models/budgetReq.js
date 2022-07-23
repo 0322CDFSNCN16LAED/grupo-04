@@ -39,5 +39,12 @@ module.exports = (sequelize, DataTypes) => {
   };
   const budgetReq = sequelize.define(alias, cols, config);
 
+  budgetReq.associate = (models) => {
+      budgetReq.belongsTo(models.Users, {
+          foreignKey: 'userId',
+          as: 'users'
+      });
+  }
+
   return budgetReq;
 };
