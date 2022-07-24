@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(500),
     },
     jobsImgs: {
-      type: DataTypes.STRING(500),
+      type: DataTypes.STRING(500)
     },
   };
   const config = {
