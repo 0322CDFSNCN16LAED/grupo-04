@@ -142,7 +142,6 @@ module.exports = {
 
     if (resultValidation.errors.length == 0) {
       await db.Prof.create(newProf);
-
       res.redirect("/login");
     }
   },

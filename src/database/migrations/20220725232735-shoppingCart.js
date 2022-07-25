@@ -1,43 +1,36 @@
-'use strict';
+"use strict";
 const { DataTypes } = require("sequelize");
 
 module.exports = {
-  async up (queryInterface, Sequelize) {    
-    await queryInterface.createTable("budget_request", {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable("shopping-cart", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      tituloSolicitud: {
-        type: DataTypes.STRING(500),
-        allowNull: false,
-      },
-      userId: {
+      resId: {
         type: DataTypes.INTEGER,
         references: {
           model: {
-            tableName: "users",
+            tableName: "budget_response",
           },
           key: "id",
         },
         allowNull: false,
-      },      
-      detalleSolicitud: {
-        type: DataTypes.STRING(500),
+      },    
+      dia: {
+        type: DataTypes.DATE,
         allowNull: false,
       },
-      urgenciaTrabajo: {
-        type: DataTypes.STRING(500),
+      horario: {
+        type: DataTypes.DATE,
         allowNull: false,
       },
-      ubicacion: {
-        type: DataTypes.STRING(500),
+      metodoPago: {
+        type: DataTypes.STRING(255),
         allowNull: false,
-      },
-      imgReferencia: {
-        type: DataTypes.STRING(500),
       },
       estado: {
         type: DataTypes.STRING(255),
@@ -51,9 +44,9 @@ module.exports = {
         allowNull: false,
         type: DataTypes.DATE,
       },
-    });     
+    });
   },
-  async down (queryInterface, Sequelize) {    
-    await queryInterface.dropTable('budget_request');     
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable("shopping-cart");
+  },
 };

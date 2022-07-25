@@ -34,6 +34,13 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      DNI: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      avatar: {
+        type: DataTypes.STRING(500),
+      },
       address: {
         type: DataTypes.STRING(500),
         allowNull: false,
@@ -49,9 +56,6 @@ module.exports = {
       zipCode: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      },
-      avatar: {
-        type: DataTypes.STRING(500),
       },
       created_at: {
         allowNull: false,

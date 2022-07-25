@@ -9,27 +9,7 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
-      },
-      userId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: {
-            tableName: "users",
-          },
-          key: "id",
-        },
-        allowNull: false,
-      },
-      profId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: {
-            tableName: "professionals",
-          },
-          key: "id",
-        },
-        allowNull: false,
-      },
+      },      
       reqId: {
         type: DataTypes.INTEGER,
         references: {
@@ -68,6 +48,10 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      estado: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+      },      
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,
