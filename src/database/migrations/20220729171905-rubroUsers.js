@@ -3,7 +3,7 @@ const { DataTypes } = require("sequelize");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("professionals", {
+    await queryInterface.createTable("rubroUsers", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -20,23 +20,21 @@ module.exports = {
         },
         allowNull: false,
       },
-    
-      CUIT: {
-        type: DataTypes.INTEGER,
+      rubroNombre: {
+        type: DataTypes.STRING(500),
+        references: {
+          model: {
+            tableName: "rubros",
+          },
+          key: "nombre",
+        },
         allowNull: false,
-      },             
-      created_at: {
-        allowNull: false,
-        type: DataTypes.DATE,
       },
-      updated_at: {
-        allowNull: false,
-        type: DataTypes.DATE,
-      },
+      
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("professionals");
+    await queryInterface.dropTable("rubroUsers");
   },
 };

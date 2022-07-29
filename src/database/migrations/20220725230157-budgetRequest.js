@@ -23,7 +23,17 @@ module.exports = {
           key: "id",
         },
         allowNull: false,
-      },      
+      },
+      rubroNombre: {
+        type: DataTypes.STRING(500),
+        references: {
+          model: {
+            tableName: "rubros",
+          },
+          key: "nombre",
+        },
+        allowNull: false,
+      },
       detalleSolicitud: {
         type: DataTypes.STRING(500),
         allowNull: false,

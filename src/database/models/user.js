@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const alias = "Users";
+  const alias = "User";
   const cols = {
     id: {
       type: DataTypes.INTEGER,
@@ -29,7 +29,23 @@ module.exports = (sequelize, DataTypes) => {
     phone: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    },    
+    },
+    address: {
+      type: DataTypes.STRING(500),
+      allowNull: false,
+    },
+    city: {
+      type: DataTypes.STRING(500),
+      allowNull: false,
+    },
+    state: {
+      type: DataTypes.STRING(500),
+      allowNull: false,
+    },
+    zipCode: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     avatar: {
       type: DataTypes.STRING(500),
     },
@@ -40,14 +56,25 @@ module.exports = (sequelize, DataTypes) => {
     createdAt: "created_at",
     updatedAt: "updated_at",
   };
-  const users = sequelize.define(alias, cols, config);
+  const User = sequelize.define(alias, cols, config);
 
-  users.associate = (models) => {
-    users.hasMany(models.budgReq, {
-      foreignKey: "userId",
+  User.associate = (models) => {
+    User.hasMany(models.budgReq, {
       as: "budgReq",
+      foreignKey: "userId",
     });
-   };
+    User.belongsToMany(models.Rubro, {
+      as: "rubros",
+      through: "rubroUsers",
+      foreignKey: "userId",
+      otherKey: "rubroNombre",
+      timestamps: false,
+    });
+    User.hasMany(models.JobImgs, {
+      as: "jobsImg",
+      foreignKey: "userId",
+    });
+  };
 
-  return users;
+  return User;
 };

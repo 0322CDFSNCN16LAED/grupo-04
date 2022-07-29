@@ -153,45 +153,8 @@
                                         <%= errors.DNI.msg %>               
                                     </div>
                                 <% } %>
-                            </div>
-                            <div class="col mt-3">
-                                <label class="visually-hidden" for="">Condición frente al IVA</label>
-                                <input 
-                                    type="text" 
-                                    name="IVA" 
-                                    class="form-control <%= 
-                                        locals.errors && errors.IVA 
-                                        ? 'is-invalid' 
-                                        : null 
-                                    %>" 
-                                    placeholder="Condición frente al IVA"
-                                    value="<%= locals.oldData ? oldData.IVA : null %>"
-                                >
-                                <% if (locals.errors && errors.IVA) { %>
-                                    <div class= "error-msg">
-                                        <%= errors.IVA.msg %>               
-                                    </div>
-                                <% } %>
-                            </div>
-                            <div class="col mt-3">
-                                <label class="visually-hidden" for="">Cuit/Razón social</label>
-                                <input 
-                                    type="text" 
-                                    name="CUIT" 
-                                    class="form-control <%= 
-                                        locals.errors && errors.CUIT 
-                                        ? 'is-invalid' 
-                                        : null 
-                                    %>" 
-                                    placeholder="Cuit/Razón social"
-                                    value="<%= locals.oldData ? oldData.CUIT : null %>"
-                                >
-                            </div>
-                            <% if (locals.errors && errors.CUIT) { %>
-                                <div class= "error-msg">
-                                    <%= errors.CUIT.msg %>               
-                                </div>
-                            <% } %>
+                            </div>                            
+                       
                             <div class="font-medium mt-3"> Rubros </div>
                             <div class="form-check">
                                 <input 
@@ -239,44 +202,86 @@
                                 <div class= "error-msg">
                                     <%= errors.rubro.msg %>               
                                 </div>
-                            <% } %>
-                           
-                         
-                            <div class="mt-3 fx align-center">                    
-                                <label class="mr-3"><h4 class="font-medium">Horario</h4></label>
-                                <select 
-                                    name = "time" 
-                                    class="form-select font-medium form-select-lg mb-3<%= 
-                                    locals.errors && errors.time 
-                                    ? 'is-invalid' 
-                                    : null 
-                                %>" "
-                                >                                
-                                <option value="">Elegí tu horario disponible</option>
-
-                            <% const horarios = ["de 8 a 12","de 12 a 16","de 16 a 20"] %>
-
-                            <% for( const unHorario of horarios) { %>                          
-
-                                    <option 
-                                        value="<%= unHorario %>"
-                                        <%= locals.oldData && (unHorario === oldData.time) ? "selected" : null %> 
-                                    > 
-                                        <%= unHorario %>  
-                                        
-                                    </option>
-                            <% } %>
-                        </select>                                
-                    </div>
-                    <% if (locals.errors && errors.time) { %>
-                        <div class= "error-msg">
-                            <%= errors.time.msg %>               
-                        </div>
-                    <% } %>
-                            
-                           
+                            <% } %>  
+                             <div class="col-12 mt-3 mb-3">
+                                <label for="Dirección" class="form-label visually-hidden">Dirección</label>
+                                <input 
+                                    type="text" 
+                                    name= "address" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.address 
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>" 
+                                    placeholder="Dirección"
+                                    value="<%= locals.oldData ? oldData.address : null %>"
+                                >
+                                <% if (locals.errors && errors.address) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.address.msg %>               
+                                    </div>
+                                <% } %>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-sm-7">
+                                    <input 
+                                        type="text" 
+                                        name= "city" 
+                                        class="form-control <%= 
+                                            locals.errors && errors.city 
+                                            ? 'is-invalid' 
+                                            : null 
+                                        %>" 
+                                        placeholder="Ciudad"
+                                        value="<%= locals.oldData ? oldData.city : null %>"
+                                    >
+                                    <% if (locals.errors && errors.city) { %>
+                                        <div class= "error-msg">
+                                            <%= errors.city.msg %>               
+                                        </div>
+                                    <% } %>
+                                </div>
+                                
+                                <div class="col-sm">
+                                    <input 
+                                        type="text" 
+                                        name= "state" 
+                                        class="form-control <%=
+                                            locals.errors && errors.state
+                                            ? 'is-invalid'
+                                            : null 
+                                        %>"
+                                        placeholder="Provincia"
+                                        value="<%= locals.oldData ? oldData.state : null %>"
+                                    >
+                                    <% if (locals.errors && errors.state) { %>
+                                        <div class= "error-msg">
+                                            <%= errors.state.msg %>               
+                                        </div>
+                                    <% } %>
+                                </div>
+                                <div class="col-sm">
+                                    <input 
+                                        type="text" 
+                                        name= "zipCode" 
+                                        class="form-control <%= 
+                                            locals.errors && errors.zipCode 
+                                            ? "is-invalid form-control" 
+                                            : null 
+                                        %>"
+                                        placeholder="Código postal" 
+                                        aria-label="Código postal"
+                                        value="<%= locals.oldData ? oldData.zipCode : null %>"
+                                    >
+                                    <% if (locals.errors && errors.zipCode) { %>
+                                        <div class= "error-msg">
+                                            <%= errors.zipCode.msg %>               
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>                     
                             <div class="font-mediun mb-5-login mt-3">
-                                <div class="mb-3 fx align-center">                   
+                                <div class="mb-3  align-center">                   
                                     <label for="avatar" class="form-label"><h4 class="font-medium mb-0" >Foto de perfil</h4></label>
                                     <input 
                                     class="form-control" 
@@ -296,11 +301,7 @@
                                     <label for="finished-jobs" class="form-label "><h4 class="font-medium" >Trabajos realizados</h4></label>
                                     <input class="form-control" name= "finished-jobs" type="file" id="finished-jobs" multiple>
                                 </div>
-                            </div>
-                            <div class="col mt-3">
-                                <label class="visually-hidden" for="">Radio de cobertura</label>
-                                <input type="text" name= "radioUbicacion" class="form-control" placeholder="Radio de cobertura" aria-label="Radio de cobertura">
-                            </div>
+                            </div>                            
     
                         </div>
                         <div class="map-desk">                        

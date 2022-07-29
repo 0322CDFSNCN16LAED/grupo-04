@@ -70,7 +70,7 @@ module.exports = {
         oldData: req.body,
       });
     }
-    const userInDb = await db.Users.findOne({
+    const userInDb = await db.User.findOne({
       where: {
         email: req.body.email,
       },
@@ -86,7 +86,7 @@ module.exports = {
         oldData: req.body,
       });
     } else if (resultValidation.errors.length == 0) {
-      await db.Users.create({
+      await db.User.create({
         ...req.body,
         password: bcryptjs.hashSync(req.body.password, 10),
         avatar: req.file.filename,
@@ -101,7 +101,7 @@ module.exports = {
   },
 
   storeProf: async (req, res) => {
-    const resultValidation = validationResult(req);
+    const resultValidation = validationResult(req);    
 
     if (resultValidation.errors.length > 0) {
       res.render("registerprofesional", {
@@ -110,12 +110,13 @@ module.exports = {
       });
     }
 
-    const profInDb = await db.Prof.findOne({
+    const profInDb = await db.User.findOne({
       where: {
         email: req.body.email,
       },
     });
-    const newProf = req.body;
+    const newProf = req.body;  
+    console.log(newProf) 
     const jobsImgArray = req.files["finished-jobs"];
     const profileImg = req.files["avatar"];
     const password = req.body.password;
@@ -130,19 +131,23 @@ module.exports = {
         oldData: req.body,
       });
     }
-
-    newProf.avatar = profileImg ? profileImg[0].filename : "profile-user-pic.svg";
-    newProf.jobsImgs = "";
-    jobsImgArray.forEach((img, index) => newProf.jobsImgs += index === 0 ? `${img.filename}` : `,${img.filename}`)
-  //   newProf.jobsImgs = jobsImgArray ? jobsImgArray.map(function (img) {
-  //     return img.filename;
-  //  }) : [];
-
+    
+    newProf.avatar = profileImg ? profileImg[0].filename : "profile-user-pic.svg";    
+    
+    const jobsImgs = jobsImgArray ? jobsImgArray.map(function (img) {
+       return img.filename;
+    }) : [];     
+    
     newProf.password = bcryptjs.hashSync(password, 10);
 
     if (resultValidation.errors.length == 0) {
-      await db.Prof.create(newProf);
-      res.redirect("/login");
+    const rubros = req.body.rubro;     
+    const userCreated = await db.User.create(newProf)
+
+   await userCreated.setRubros(rubros); 
+   //await userCreated.addJobImgs(jobsImgArray);           
+     
+    res.redirect("/login");
     }
   },
 };
