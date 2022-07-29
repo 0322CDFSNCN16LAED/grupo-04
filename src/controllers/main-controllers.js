@@ -116,7 +116,6 @@ module.exports = {
       },
     });
     const newProf = req.body;  
-    console.log(newProf) 
     const jobsImgArray = req.files["finished-jobs"];
     const profileImg = req.files["avatar"];
     const password = req.body.password;
@@ -136,16 +135,16 @@ module.exports = {
     
     const jobsImgs = jobsImgArray ? jobsImgArray.map(function (img) {
        return img.filename;
-    }) : [];     
-    
+    }) : [];    
+
     newProf.password = bcryptjs.hashSync(password, 10);
 
     if (resultValidation.errors.length == 0) {
-    const rubros = req.body.rubro;     
+    const rubros = req.body.rubro;   
     const userCreated = await db.User.create(newProf)
 
    await userCreated.setRubros(rubros); 
-   //await userCreated.addJobImgs(jobsImgArray);           
+   //await userCreated.addJobImg(jobsImgs);           
      
     res.redirect("/login");
     }

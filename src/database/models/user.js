@@ -70,7 +70,7 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: "rubroNombre",
       timestamps: false,
     });
-    User.hasMany(models.JobImgs, {
+    User.hasMany(models.JobImg, {
       as: "jobsImg",
       foreignKey: "userId",
     });

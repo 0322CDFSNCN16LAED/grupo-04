@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const alias = "JobImgs";
+  const alias = "JobImg";
   const cols = {
     id: {
       type: DataTypes.INTEGER,
@@ -19,6 +19,13 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: "updated_at",
   };
   const jobImg = sequelize.define(alias, cols, config);
+
+   jobImg.associate = (models) => {
+     jobImg.belongsTo(models.User, {
+       as: "user",
+       foreignKey: "userId",
+     });     
+   };
 
   return jobImg;
 };
