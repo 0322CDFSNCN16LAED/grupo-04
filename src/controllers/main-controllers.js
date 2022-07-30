@@ -101,7 +101,7 @@ module.exports = {
   },
 
   storeProf: async (req, res) => {
-    const resultValidation = validationResult(req);    
+    const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
       res.render("registerprofesional", {
@@ -115,7 +115,7 @@ module.exports = {
         email: req.body.email,
       },
     });
-    const newProf = req.body;  
+    const newProf = req.body;
     const jobsImgArray = req.files["finished-jobs"];
     const profileImg = req.files["avatar"];
     const password = req.body.password;
@@ -130,23 +130,50 @@ module.exports = {
         oldData: req.body,
       });
     }
-    
-    newProf.avatar = profileImg ? profileImg[0].filename : "profile-user-pic.svg";    
-    
-    const jobsImgs = jobsImgArray ? jobsImgArray.map(function (img) {
-       return img.filename;
-    }) : [];    
+
+    newProf.avatar = profileImg
+      ? profileImg[0].filename
+      : "profile-user-pic.svg";
+
+    const jobsImgs = jobsImgArray
+      ? jobsImgArray.map(function (img) {
+          return img.filename;
+        })
+      : [];
 
     newProf.password = bcryptjs.hashSync(password, 10);
 
     if (resultValidation.errors.length == 0) {
-    const rubros = req.body.rubro;   
-    const userCreated = await db.User.create(newProf)
-
-   await userCreated.setRubros(rubros); 
-   //await userCreated.addJobImg(jobsImgs);           
-     
-    res.redirect("/login");
+      const rubros = req.body.rubro;
+      let userCreated = undefined;
+      try {
+        userCreated = await db.User.create(newProf);
+      } catch (error) {
+        console.log("Error al crear usuario: ", error);
+        return;
+      }
+      try {
+        await userCreated.setRubros(rubros);
+      } catch (error) {
+        userCreated.destroy();
+        return;
+      }
+      try {
+        if (jobsImgs) {
+          await db.JobImg.bulkCreate(
+            jobsImgs.map(function (img) {
+              return {
+                img: img,
+                userId: userCreated.id,
+              };
+            })
+          );
+        }
+      } catch (error) {
+        userCreated.destroy();
+        return;
+      }
+      res.redirect("/login");
     }
   },
 };

@@ -59,6 +59,7 @@ module.exports = {
     body("city").notEmpty().withMessage("Debes introducir una ciudad"),
     body("state").notEmpty().withMessage("Debes introducir una provincia"),
     body("zipCode").notEmpty().withMessage("Debes introducir un código postal"),
+    body("rubro").notEmpty().withMessage("Debes elegir por lo menos 1 rubro"),
     body("avatar").custom((value, { req }) => {
       var file = req.files.avatar;
 
