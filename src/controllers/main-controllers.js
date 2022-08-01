@@ -3,6 +3,7 @@ const dbProf = require("../models/prof.js");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
+const rubroUser = require("../database/models/rubroUser.js");
 
 module.exports = {
   home: (req, res) => {
@@ -13,11 +14,55 @@ module.exports = {
     res.render("login");
   },
 
-  loginProcess: (req, res) => {
-    const userToLogin = dbUsers.getOneUserByField("email", req.body.email);
-    const profToLogin = dbProf.getOneProfByField("email", req.body.email);
+  loginProcess: async (req, res) => {
+    const userToLogin = await db.User.findOne({
+      where: {
+        email: req.body.email
+      }
+    })    
+    const profToLogin = await db.User.findOne({
+      where:{
+        email: req.body.email
+      },
+      include: {
+        association:"rubros",
+        through: "rubroUsers",
+        where: {
+         nombre : "Electricista" || "Pintor" || "Gasista" || "Plomero"
+        } 
+      }
+    })   
+   
 
-    if (!userToLogin && !profToLogin)
+    if (!userToLogin)
+      return res.render("login", {
+        errors: {
+          email: {
+            msg: "El usuario no existe",
+          },
+        },
+      });
+    const user = profToLogin ? profToLogin : userToLogin;
+    
+    let passwordOk = bcryptjs.compareSync(req.body.password, user.password);
+    
+    if (!passwordOk)
+    return res.render("login", {
+      errors: {
+          password: {
+            msg: "La contraseña es incorrecta",
+          },
+        },
+      });
+      req.session.userLogged = user;
+      
+      return profToLogin
+      ? res.redirect("/prof/detail")
+      : res.redirect("/user/detail");
+      /*const userToLogin = dbUsers.getOneUserByField("email", req.body.email);
+      const profToLogin = dbProf.getOneProfByField("email", req.body.email);
+      
+      if (!userToLogin && !profToLogin)
       return res.render("login", {
         errors: {
           email: {
@@ -26,7 +71,7 @@ module.exports = {
         },
       });
 
-    const user = userToLogin ? userToLogin : profToLogin;
+    const user = userToLogin;
     req.session.userLogged = user;
 
     let passwordOk = bcryptjs.compareSync(req.body.password, user.password);
@@ -41,7 +86,7 @@ module.exports = {
 
     return userToLogin
       ? res.redirect("/user/detail")
-      : res.redirect("/prof/detail");
+      : res.redirect("/prof/detail");*/
   },
 
   history: (req, res) => {
