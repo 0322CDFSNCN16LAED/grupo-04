@@ -2,7 +2,7 @@ const db = require("../models/prof.js");
 
 function guestMiddleware (req,res,next) {
     if(req.session.userLogged){        
-       if(db.getOneProfByField("email", req.session.userLogged.email)){
+       if(req.session.userLogged.isProf){
         return res.redirect("/user/prof/detail")
       }else{
         return res.redirect("/user/detail")

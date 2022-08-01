@@ -10,10 +10,10 @@
                     <% if (!locals.isLogged) { %>
                         <li><a class="dropdown-item" href="/register">Registrate</a></li>                         
                     <% } %>
-                    <% if (locals.isLogged && locals.isLogged.rubro) { %>
+                    <% if (locals.isLogged && locals.userLogged.isProf) { %>
                         <li><a class="dropdown-item" href="/prof/inbox">Bandeja de entrada</a></li>
                     <% } %>
-                    <% if (locals.isLogged && locals.isLogged.userId) { %>
+                    <% if (locals.isLogged && !locals.userLogged.isProf) { %>
                         <li><a class="dropdown-item" href="/user/inbox">Bandeja de entrada</a></li>
                     <% } %>                         
                     <li><a class="dropdown-item" href="/history">Historial</a></li>
@@ -45,10 +45,10 @@
                     <% if (!locals.isLogged) { %>
                         <li><a class="dropdown-item" href="/register">Registrate</a></li>                         
                     <% } %>
-                    <% if (locals.isLogged && locals.isLogged.rubro) { %>
+                    <% if (locals.isLogged && locals.userLogged.isProf) { %>
                         <li><a class="dropdown-item" href="/prof/inbox">Bandeja de entrada</a></li>
                     <% } %>
-                    <% if (locals.isLogged && locals.isLogged.userId) { %>
+                    <% if (locals.isLogged && !locals.userLogged.isProf) { %>
                         <li><a class="dropdown-item" href="/user/inbox">Bandeja de entrada</a></li>
                     <% } %>                         
                     <li><a class="dropdown-item" href="/history">Historial</a></li>
@@ -74,12 +74,12 @@
             id="dropdownMenuLink" data-bs-toggle="dropdown" 
             aria-expanded="false"><i class="fa-solid fa-user"></i></a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <% if (locals.isLogged && locals.isLogged.rubro) { %>
+                <% if (locals.isLogged && locals.userLogged.isProf) { %>
                     <li><a class="dropdown-item" href="/prof/detail/">Mi perfil</a></li>                       
                 <% } %>
-                    <% if (locals.isLogged && locals.isLogged.userId) { %>
-                        <li><a class="dropdown-item" href="/user/detail/">Mi perfil</a></li>                      
-                    <% } %>                         
+                <% if (locals.isLogged && !locals.userLogged.isProf) { %>
+                    <li><a class="dropdown-item" href="/user/detail/">Mi perfil</a></li>                      
+                <% } %>                         
                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>
         </div>

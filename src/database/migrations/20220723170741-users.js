@@ -38,6 +38,11 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      isProf: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
       avatar: {
         type: DataTypes.STRING(500),
       },

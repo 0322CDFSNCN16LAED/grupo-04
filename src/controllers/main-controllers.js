@@ -17,22 +17,15 @@ module.exports = {
   loginProcess: async (req, res) => {
     const userToLogin = await db.User.findOne({
       where: {
-        email: req.body.email
-      }
-    })    
-    const profToLogin = await db.User.findOne({
-      where:{
-        email: req.body.email
+        email: req.body.email,
       },
-      include: {
-        association:"rubros",
-        through: "rubroUsers",
-        where: {
-         nombre : "Electricista" || "Pintor" || "Gasista" || "Plomero"
-        } 
-      }
-    })   
-   
+    });
+    const profToLogin = await db.User.findOne({
+      where: {
+        email: req.body.email,
+        isProf: true,
+      },
+    });
 
     if (!userToLogin)
       return res.render("login", {
@@ -43,50 +36,22 @@ module.exports = {
         },
       });
     const user = profToLogin ? profToLogin : userToLogin;
-    
+
     let passwordOk = bcryptjs.compareSync(req.body.password, user.password);
-    
+
     if (!passwordOk)
-    return res.render("login", {
-      errors: {
+      return res.render("login", {
+        errors: {
           password: {
             msg: "La contraseña es incorrecta",
           },
         },
       });
-      req.session.userLogged = user;
-      
-      return profToLogin
-      ? res.redirect("/prof/detail")
-      : res.redirect("/user/detail");
-      /*const userToLogin = dbUsers.getOneUserByField("email", req.body.email);
-      const profToLogin = dbProf.getOneProfByField("email", req.body.email);
-      
-      if (!userToLogin && !profToLogin)
-      return res.render("login", {
-        errors: {
-          email: {
-            msg: "El usuario no existe",
-          },
-        },
-      });
-
-    const user = userToLogin;
     req.session.userLogged = user;
 
-    let passwordOk = bcryptjs.compareSync(req.body.password, user.password);
-    if (!passwordOk)
-      return res.render("login", {
-        errors: {
-          password: {
-            msg: "La contraseña es incorrecta",
-          },
-        },
-      });
-
-    return userToLogin
-      ? res.redirect("/user/detail")
-      : res.redirect("/prof/detail");*/
+    return profToLogin
+      ? res.redirect("/prof/detail")
+      : res.redirect("/user/detail");
   },
 
   history: (req, res) => {
@@ -192,7 +157,7 @@ module.exports = {
       const rubros = req.body.rubro;
       let userCreated = undefined;
       try {
-        userCreated = await db.User.create(newProf);
+        userCreated = await db.User.create({ ...newProf, isProf: true });
       } catch (error) {
         console.log("Error al crear usuario: ", error);
         return;
@@ -211,7 +176,7 @@ module.exports = {
                 img: img,
                 userId: userCreated.id,
               };
-            })  
+            })
           );
         }
       } catch (error) {
