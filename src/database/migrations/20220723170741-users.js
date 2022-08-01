@@ -15,11 +15,11 @@ module.exports = {
         allowNull: false,
       },
       lastName: {
-        type: DataTypes.STRING(255),
+        type: DataTypes.STRING(500),
         allowNull: false,
       },
       userName: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(500),
       },
       email: {
         type: DataTypes.STRING(500),

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     userName: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(500),
     },
     email: {
       type: DataTypes.STRING(500),
@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     phone: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    DNI: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

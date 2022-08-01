@@ -12,10 +12,8 @@ module.exports = {
     }).then(async function () {
       queryInterface.sequelize.query(
         "insert into rubros (nombre) values ('Electricista'), ('Gasista'),('Pintor'),('Plomero')"
-      );
-      
+      );      
     })
-
   },
 
   async down(queryInterface, Sequelize) {

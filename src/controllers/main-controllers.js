@@ -166,7 +166,7 @@ module.exports = {
                 img: img,
                 userId: userCreated.id,
               };
-            })
+            })  
           );
         }
       } catch (error) {
