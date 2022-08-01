@@ -131,6 +131,25 @@
                                     </div>
                                 <% } %>
                             </div>
+                               <div class="col mt-3">
+                                <label class="visually-hidden" for="">DNI</label>
+                                <input 
+                                    type="text" 
+                                    name="DNI" 
+                                    class="form-control <%= 
+                                        locals.errors && errors.DNI 
+                                        ? 'is-invalid' 
+                                        : null 
+                                    %>" 
+                                    placeholder="DNI"
+                                    value="<%= locals.oldData ? oldData.DNI : null %>"
+                                >
+                                <% if (locals.errors && errors.DNI) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.DNI.msg %>               
+                                    </div>
+                                <% } %>
+                            </div>                            
         
                             <div class="col-12 mt-3 mb-3">
                                 <label for="Dirección" class="form-label visually-hidden">Dirección</label>
