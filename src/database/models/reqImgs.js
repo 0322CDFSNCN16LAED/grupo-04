@@ -20,5 +20,11 @@ module.exports = (sequelize, DataTypes) => {
   };
   const reqImg = sequelize.define(alias, cols, config);
 
+  reqImg.associate = (models) => {
+    reqImg.belongsTo(models.budgReq, {
+      as: 'budget_request',
+      foreignKey: 'reqId',
+    });
+  }
   return reqImg;
 };

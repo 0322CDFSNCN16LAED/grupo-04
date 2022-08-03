@@ -27,15 +27,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(500),
       allowNull: false,
     },
-    imgReferencia: {
-      type: DataTypes.STRING(500),
-    },
   };
   const config = {
     tableName: "budget_request",
     timestamps: true,
-    createdAt: "createdAt",
-    updatedAt: "updatedAt",
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   };
   const budgetReq = sequelize.define(alias, cols, config);
 
@@ -48,7 +45,12 @@ module.exports = (sequelize, DataTypes) => {
         as: "rubros",
         foreignKey: "rubroNombre",
       });
+      budgetReq.hasMany(models.ReqImgs, {
+        as: "req-imgs",
+        foreignKey: "reqId",
+      });
   }
+  
 
   return budgetReq;
 };

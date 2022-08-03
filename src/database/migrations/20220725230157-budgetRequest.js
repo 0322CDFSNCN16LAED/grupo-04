@@ -46,18 +46,15 @@ module.exports = {
         type: DataTypes.STRING(500),
         allowNull: false,
       },
-      imgReferencia: {
-        type: DataTypes.STRING(500),
-      },
       estado: {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: DataTypes.DATE,
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: DataTypes.DATE,
       },

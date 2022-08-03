@@ -17,34 +17,31 @@ module.exports = {
         oldData: req.body,
       });
     } 
-    console.log(resultValidation)
+
     const newReq = req.body;
     req.session.userLogged ? newReq.userId = req.session.userLogged.id : res.redirect("/login");
 
     const imgRefArray = req.files;
-    /*if (imgRefArray) {
-      newReq.imgReferencia = imgRefArray.map(function (img) {
-        return img.filename;
-      });
-    } else {
-      newReq.imgReferencia = [];
-    }*/
-    console.log(imgRefArray)
-    
-    if (resultValidation.errors.length == 0) {
-      await db.budgReq.create(newReq);
 
-      /*if (imgRefArray) {
-        await db.JobImg.bulkCreate(
-          jobsImgs.map(function (img) {
+    if (resultValidation.errors.length == 0) {
+      const budgetReqCreated = await db.budgReq.create(newReq);
+
+      if (imgRefArray) {
+        const refImgs = imgRefArray.map(function (img) {
+          return img.filename;
+        });
+
+        await db.ReqImgs.bulkCreate(
+          refImgs.map(function (img) {
             return {
               img: img,
-              userId: userCreated.id,
-            };*/
-
-      res.redirect("/");      
-    } 
-
+              reqId: budgetReqCreated.id,
+            }
+          })
+        );
+        res.redirect("/");
+      }
+    }
   },
 
   response: (req, res) => {
