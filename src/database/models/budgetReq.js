@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(500),
       allowNull: false,
     },
-    rubro: {
+    rubroNombre: {
       type: DataTypes.STRING(500),
       allowNull: false,
     },
@@ -34,8 +34,8 @@ module.exports = (sequelize, DataTypes) => {
   const config = {
     tableName: "budget_request",
     timestamps: true,
-    createdAt: "created_at",
-    updatedAt: "updated_at",
+    createdAt: "createdAt",
+    updatedAt: "updatedAt",
   };
   const budgetReq = sequelize.define(alias, cols, config);
 
@@ -43,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
       budgetReq.belongsTo(models.User, {
           foreignKey: 'userId',
           as: 'users'
+      });
+      budgetReq.belongsTo(models.Rubro, {
+        as: "rubros",
+        foreignKey: "rubroNombre",
       });
   }
 

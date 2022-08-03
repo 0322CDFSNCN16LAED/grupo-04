@@ -1,14 +1,15 @@
 const dbBudget = require("../models/budget");
 const dbProfs = require("../models/prof");
 const dbUsers = require("../models/Users");
-const { validationResult } = require("express-validator")
+const { validationResult } = require("express-validator");
+const db = require("../database/models");
 
 module.exports = {
   request: (req, res) => {
     res.render("budgetRequest");
   },
 
-  storeBudgRequest: (req, res) => {
+  storeBudgRequest: async (req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
       res.render("BudgetRequest", {
@@ -18,20 +19,31 @@ module.exports = {
     } 
     console.log(resultValidation)
     const newReq = req.body;
-    req.session.userLogged ? newReq.userId = req.session.userLogged.userId : res.redirect("/login");
+    req.session.userLogged ? newReq.userId = req.session.userLogged.id : res.redirect("/login");
 
     const imgRefArray = req.files;
-    if (imgRefArray) {
+    /*if (imgRefArray) {
       newReq.imgReferencia = imgRefArray.map(function (img) {
         return img.filename;
       });
     } else {
       newReq.imgReferencia = [];
-    }
+    }*/
+    console.log(imgRefArray)
+    
     if (resultValidation.errors.length == 0) {
-      dbBudget.createBudgReq(newReq);
+      await db.budgReq.create(newReq);
+
+      /*if (imgRefArray) {
+        await db.JobImg.bulkCreate(
+          jobsImgs.map(function (img) {
+            return {
+              img: img,
+              userId: userCreated.id,
+            };*/
+
       res.redirect("/");      
-    }
+    } 
 
   },
 

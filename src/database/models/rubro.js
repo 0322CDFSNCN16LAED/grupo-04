@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     Rubro.hasMany(models.budgReq, {
       as: "budget-request",
-      foreignKey: "id",
+      foreignKey: "rubroNombre",
     });
   };
 
