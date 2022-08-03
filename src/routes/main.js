@@ -28,17 +28,6 @@ router.get("/logout", mainControllers.logout);
 router.get("/history", authMiddleware, mainControllers.history);
 
 router.get("/register",guestMiddleware, mainControllers.register); 
-router.get("/register/user", mainControllers.createUser);
-router.post("/register/user", upload.single("avatar"), userValidations, mainControllers.storeUser);
 
-router.get("/register/prof", mainControllers.createProf);
-router.post("/register/prof",
-  upload.fields([
-    { name: "avatar", maxCount: 1 },
-    { name: "finished-jobs", maxCount: 20}
-  ]),
-  ProfValidations,
-  mainControllers.storeProf
-);
 
 module.exports = router;

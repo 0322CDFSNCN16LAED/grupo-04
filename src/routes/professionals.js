@@ -9,7 +9,19 @@ const authMiddleware = require("../middlewares/authMiddleware");
 const profControllers = require("../controllers/prof-controllers");
 
 const registerMiddlewares = require("../middlewares/registerValidations");
+
 const ProfValidations = registerMiddlewares.ProfValidations;
+
+router.get("/register", profControllers.createProf);
+router.post(
+  "/register",
+  upload.fields([
+    { name: "avatar", maxCount: 1 },
+    { name: "finished-jobs", maxCount: 20 },
+  ]),
+  ProfValidations,
+  profControllers.storeProf
+);
 
 router.get("/detail", authMiddleware, profControllers.profDetail)
 router.get("/edit/:id", authMiddleware, profControllers.editProfProfile);
