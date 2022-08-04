@@ -128,8 +128,25 @@ module.exports = {
    const profBudgets = await sequelize.query(
       `SELECT * FROM budget_request WHERE rubroNombre in ('${userRubros.join("','")}')`,
       { type: QueryTypes.SELECT }
-    );   
-    
-    res.render("inboxProf",{ profBudgets });
+    );
+    const budgets = profBudgets.map(function(budget){
+      return budget.id
+    }) 
+
+    const imgs = await sequelize.query(
+      `SELECT reqId, img FROM req_imgs WHERE reqId in (${budgets.join()})`,
+      { type: QueryTypes.SELECT }
+    );
+    const budgWithImgs = profBudgets.map(function(budget){
+      const budgImgs = imgs.filter(function(img){
+        return img.reqId === budget.id
+      }).map(function(filteredImg){
+        return filteredImg.img
+      })
+      return{
+        ...budget,
+        budgImgs }
+    })       
+    res.render("inboxProf", { budgWithImgs });
   },
 };

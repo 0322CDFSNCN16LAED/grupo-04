@@ -37,20 +37,19 @@ module.exports = (sequelize, DataTypes) => {
   const budgetReq = sequelize.define(alias, cols, config);
 
   budgetReq.associate = (models) => {
-      budgetReq.belongsTo(models.User, {
-          foreignKey: 'userId',
-          as: 'users'
-      });
-      budgetReq.belongsTo(models.Rubro, {
-        as: "rubros",
-        foreignKey: "rubroNombre",
-      });
-      budgetReq.hasMany(models.ReqImgs, {
-        as: "req-imgs",
-        foreignKey: "reqId",
-      });
-  }
-  
+    budgetReq.belongsTo(models.User, {
+      foreignKey: "userId",
+      as: "users",
+    });
+    budgetReq.belongsTo(models.Rubro, {
+      as: "rubros",
+      foreignKey: "rubroNombre",
+    });
+    budgetReq.hasMany(models.ReqImgs, {
+      as: "req_imgs",
+      foreignKey: "reqId",
+    });
+  };
 
   return budgetReq;
 };

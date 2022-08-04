@@ -8,24 +8,24 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     img: {
-        type: DataTypes.STRING(500),
-        allowNull: false,
-    }
+      type: DataTypes.STRING(500),
+      allowNull: false,
+    },
   };
   const config = {
-    tableName: "jobs-img",
+    tableName: "jobs_imgs",
     timestamps: true,
     createdAt: "created_at",
     updatedAt: "updated_at",
   };
   const jobImg = sequelize.define(alias, cols, config);
 
-   jobImg.associate = (models) => {
-     jobImg.belongsTo(models.User, {
-       as: "user",
-       foreignKey: "userId",
-     });     
-   };
+  jobImg.associate = (models) => {
+    jobImg.belongsTo(models.User, {
+      as: "user",
+      foreignKey: "userId",
+    });
+  };
 
   return jobImg;
 };

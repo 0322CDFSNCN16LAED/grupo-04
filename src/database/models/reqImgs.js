@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   };
   const config = {
-    tableName: "req-imgs",
+    tableName: "req_imgs",
     timestamps: true,
     createdAt: "created_at",
     updatedAt: "updated_at",
@@ -22,9 +22,9 @@ module.exports = (sequelize, DataTypes) => {
 
   reqImg.associate = (models) => {
     reqImg.belongsTo(models.budgReq, {
-      as: 'budget_request',
-      foreignKey: 'reqId',
+      as: "budget_request",
+      foreignKey: "reqId",
     });
-  }
+  };
   return reqImg;
 };
