@@ -1,9 +1,10 @@
 const dbBudgets = require("../models/budget.js");
 const dbProf = require("../models/prof")
-
+const { QueryTypes } = require('sequelize');
 const db = require("../database/models");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
+const { sequelize } = require("../database/models");
 
 module.exports = {
   createProf: (req, res) => {
@@ -86,7 +87,8 @@ module.exports = {
       res.redirect("/login");
     }
   },
-  profDetail: (req, res) => {
+  profDetail: async (req, res) => {   
+    
     res.render("profDetail", {
       user: req.session.userLogged,
     });
@@ -113,13 +115,21 @@ module.exports = {
     }
   },
 
-  inboxProf: (req, res) => {
-    const budgets = dbBudgets.getAllBudgetReq();
+  inboxProf: async (req, res) => {
+    const userId = req.session.userLogged.id;
+    const rubros = await sequelize.query(
+      `SELECT rubroNombre FROM rubrousers WHERE userId=${userId}`,
+      { type: QueryTypes.SELECT }
+    );   
+   const userRubros = rubros.map(function(rubro){
+    return rubro.rubroNombre;
+   })
 
-    const profBudgets = budgets.filter(
-      (budget) => budget.rubro === req.session.userLogged.rubro
-    );
-
-    res.render("inboxProf", { profBudgets });
+   const profBudgets = await sequelize.query(
+      `SELECT * FROM budget_request WHERE rubroNombre in ('${userRubros.join("','")}')`,
+      { type: QueryTypes.SELECT }
+    );   
+    
+    res.render("inboxProf",{ profBudgets });
   },
 };

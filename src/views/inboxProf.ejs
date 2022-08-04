@@ -13,9 +13,14 @@
           <article class="card w-card">
             <div class="justify-center">
               <p class="font-medium bolder"><%= budgetToShow.tituloSolicitud %></p>
+            <% if (budgetToShow.imgReferencia) { %>
               <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia[0] %>">
                 <img class="w-60" src="/images/budgetRequest/<%= budgetToShow.imgReferencia[0] %>">
-              </a>
+              </a>             
+            <% }else{ %>
+              <img class="w-60" src="/images/">
+
+              <% } %> 
               <ul >
                 <li><i class="fas fa-info-circle"></i><p class="font-medium"><%= budgetToShow.detalleSolicitud %></p></li>
                 <li><i class="fas fa-calendar-day"></i><p class="font-medium"><%= budgetToShow.urgenciaTrabajo %></p></li>
