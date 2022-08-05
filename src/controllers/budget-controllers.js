@@ -3,6 +3,9 @@ const dbProfs = require("../models/prof");
 const dbUsers = require("../models/Users");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
+const { QueryTypes } = require("sequelize");
+const { sequelize } = require("../database/models");
+
 
 module.exports = {
   request: (req, res) => {
@@ -44,13 +47,29 @@ module.exports = {
     }
   },
 
-  response: (req, res) => {
-    const requests = dbBudget.getAllBudgetReq(); 
-    const users= dbUsers.getAllUsers();
-
-    const budgetToShow = requests.find((request) => request.reqId == req.params.reqId);    
-    const userToShow = users.find((user) => user.userId == budgetToShow.userId)
-   
+  response: async (req, res) => {
+    const request = await db.budgReq.findOne({
+      where: {
+        id: req.params.reqId
+      }
+    }); 
+    const requestValues = request.dataValues
+    
+    const imgs = await sequelize.query(
+      `SELECT reqId, img FROM req_imgs WHERE reqId in (${request.id})`,
+      { type: QueryTypes.SELECT }
+    ); 
+    
+    const budgetToShow = {
+      ...requestValues,
+      img: imgs,
+    };  
+    console.log(budgetToShow.img)
+   const userToShow = await db.User.findOne({
+    where: {
+      id: budgetToShow.userId
+    }
+   })     
     res.render("budgetResponse", { budgetToShow: budgetToShow, userToShow:userToShow });
   },
   

@@ -132,7 +132,6 @@ module.exports = {
     const budgets = profBudgets.map(function(budget){
       return budget.id
     }) 
-
     const imgs = await sequelize.query(
       `SELECT reqId, img FROM req_imgs WHERE reqId in (${budgets.join()})`,
       { type: QueryTypes.SELECT }
