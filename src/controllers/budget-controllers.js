@@ -84,11 +84,10 @@ module.exports = {
     res.redirect("/");
   },
 
-  detail: (req, res) => {
+  detail: async (req, res) => {
     const budgetReq = dbBudget.getAllBudgetReq();
     const budgetRes = dbBudget.getAllBudgetRes();
     const test = budgetRes.filter((budget) => budget.resId == req.params.resId);
-
     const userReq = budgetReq.filter(
       (budget) =>
         budget.userId === req.session.userLogged.userId &&

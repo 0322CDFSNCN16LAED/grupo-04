@@ -1,60 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %>
+  <%- include('./partials/head') %>
 
-<body>
-  <%- include('./partials/header') %>
+  <body>
+    <%- include('./partials/header') %>
 
-  <main class="imagen-fondo-mobile justify-center">
-    <div class = "fx justify-sp-b text-right font-xlarge">    
-      <h2 class="m-3 font-xlarge bolder lapt-shop-title">Bandeja de Entrada</h2>
-      <button class="primary-button">
-        <a href="/budget/request">Nueva Solicitud</a>
-      </button>
-    </div>
+    <main class="imagen-fondo-mobile justify-center">
+      <div class="fx justify-sp-b text-right font-xlarge">
+        <h2 class="m-3 font-xlarge bolder lapt-shop-title">
+          Bandeja de Entrada
+        </h2>
+        <button class="primary-button">
+          <a href="/budget/request">Nueva Solicitud</a>
+        </button>
+      </div>
 
-    <section class="cards">
-      <% userReq.forEach(function(budgetToShow){ %>
+      <section class="cards">
+        <% profRes.forEach(function(budgetToShow){ %>
         <article class="card w-card">
           <div class="justify-center">
-            <p class="font-medium bolder"><%= budgetToShow.tituloSolicitud %></p>
-            <a target="_blank" href="/images/budgetRequest/<%= budgetToShow.imgReferencia[0] %>">
-              <img class="w-60" src="/images/budgetRequest/<%= budgetToShow.imgReferencia[0] %>">
+            <p class="font-medium bolder">
+              <%= budgetToShow.tituloSolicitud %>
+            </p>
+            <% imgs.forEach( img => { %> <% if (img.reqId == budgetToShow.reqId) { %>
+
+            <a target="_blank" href="/images/budgetRequest/<%= img.img  %>">
+              <img class="w-60" src="/images/budgetRequest/<%= img.img %>" />
             </a>
+            <% } %> <% }) %>
             <p class="bolder mt-3">Presupuestos recibidos</p>
-            <% profRes.forEach(function(budgRes){ %>
-              <% if (budgetToShow.reqId == budgRes.reqId) { %>
-                <div class="card-border">
-                  <div class="fx justify-sp-b">
-                    <p class="font-medium bolder">Monto total</p>
-                    <p class="font-medium bolder"><%= budgRes.precioFinal %></p>
-                  </div>
-                  <div class="fx justify-sp-b">
-                    <button class="secondary-button">
-                      <a href="/budget/detail/<%= budgRes.resId %>">
-                        Ver detalle </a>
-                    </button>
-                    <button class="primary-button">
-                      <a href="/budget/cart/<%= budgRes.resId %>">
-                        Contratar </a>
-                    </button>
-                  </div>
-                </div>
-              <% } else { %>
-                <p>Aún no recibiste ningún presupuesto</p>
-              <% } %>
-            <% }) %>
+            <div class="card-border">
+              <div class="fx justify-sp-b">
+                <p class="font-medium bolder">Monto total</p>
+                <p class="font-medium bolder">
+                  <%= budgetToShow.precioFinal %>
+                </p>
+              </div>
+              <div class="fx justify-sp-b">
+                <button class="secondary-button">
+                  <a href="/budget/detail/<%= budgetToShow.id %>">
+                    Ver detalle
+                  </a>
+                </button>
+                <button class="primary-button">
+                  <a href="/budget/cart/<%= budgetToShow.id %>"> Contratar </a>
+                </button>
+              </div>
+            </div>
           </div>
-        </article>  
-      <% }) %>
-    </section>
-  </main>
+        </article>
+        <% }) %>
+      </section>
+    </main>
 
-  <%- include('./partials/footer') %>
+    <%- include('./partials/footer') %>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-  </script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -3,6 +3,8 @@ const dbBudgets = require("../models/budget.js");
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
+const { sequelize } = require("../database/models");
+const { QueryTypes } = require("sequelize");
 
 module.exports = {
   createUser: (req, res) => {
@@ -53,19 +55,17 @@ module.exports = {
 
     res.render("editUser", { user: userToEdit });
   },
-  updateUserProfile: (req, res) => {
-    
-  },
-  inboxUser: (req, res) => {
-    const budgetsReq = dbBudgets.getAllBudgetReq();
-    const userReq = budgetsReq.filter(
-      (budget) => budget.userId === req.session.userLogged.userId
+  updateUserProfile: (req, res) => {},
+  inboxUser: async (req, res) => {
+    const user = req.session.userLogged.id;
+    const profRes = await sequelize.query(
+      `select * from budget_response bres join budget_request breq on bres.reqId = breq.id and breq.userId = ${user}`,
+      { type: QueryTypes.SELECT }
     );
-    const budgets = dbBudgets.getAllBudgetRes();
-    const profRes = budgets.filter(
-      (budget) => budget.userId === req.session.userLogged.userId
+    const imgs = await sequelize.query(
+      `select img,reqId from req_imgs ri join budget_request br on br.id = ri.reqId and br.userId = ${user}`,
+      { type: QueryTypes.SELECT }
     );
-
-    res.render("inboxUser", { profRes, userReq });
+    res.render("inboxUser", { profRes, imgs });
   },
 };
