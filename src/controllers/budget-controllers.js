@@ -85,20 +85,18 @@ module.exports = {
   },
 
   detail: async (req, res) => {
-    const budgetReq = dbBudget.getAllBudgetReq();
-    const budgetRes = dbBudget.getAllBudgetRes();
-    const test = budgetRes.filter((budget) => budget.resId == req.params.resId);
-    const userReq = budgetReq.filter(
-      (budget) =>
-        budget.userId === req.session.userLogged.userId &&
-        budget.reqId == test[0].reqId
+    const resId = req.params.resId;
+    const resp = await db.budgRes.findByPk(resId);
+    const reqId = resp.reqId;
+    const imgs = await sequelize.query(
+      `select img from req_imgs ri where reqId = (${reqId})`,
+      { type: QueryTypes.SELECT }
     );
-    const profRes = budgetRes.filter(
-      (budget) =>
-        budget.userId === req.session.userLogged.userId &&
-        budget.resId == req.params.resId
+    const budgetToShow = await sequelize.query(
+      `select * from budget_request breq join budget_response bres on bres.id = (${resId} and bres.reqId = breq.id)`,
+      { type: QueryTypes.SELECT }
     );
-    res.render("budgetDetail", { userReq, profRes });
+    res.render("budgetDetail", { budgetToShow, imgs });
   },
 
   cartDetail: (req, res) => {
