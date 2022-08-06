@@ -88,10 +88,19 @@ module.exports = {
     }
   },
   profDetail: async (req, res) => {   
-    
+    const userId = req.session.userLogged.id
+    const rubros = await sequelize.query(
+      `SELECT rubroNombre FROM rubrousers WHERE userId=${userId}`,
+      { type: QueryTypes.SELECT }
+    );
+    const userRubros = rubros.map(function (rubro) {
+      return rubro.rubroNombre;
+    });
+    console.log(userRubros)
     res.render("profDetail", {
       user: req.session.userLogged,
-    });
+      rubros: userRubros.join(", ")
+    }); 
   },
 
   editProfProfile: (req, res) => {
@@ -99,7 +108,7 @@ module.exports = {
 
     res.render("editProf", { user: userToEdit });
   },
-  updateProfProfile: (req, res) => {
+  updateProfProfile: async (req, res) => {
     const oldData = req.session.userLogged;
     const profToCreate = {
       ...req.body,
@@ -109,7 +118,11 @@ module.exports = {
       avatar: req.body.avatar ? req.file.filename : oldData.avatar,
     };
     if (resultValidation.errors.length == 0) {
-      dbProf.createProf(profToCreate);
+      await db.User.update(profToCreate,{
+        where: {
+          id: req.session.userLogged.id
+        }
+      });
 
       res.redirect("/prof/detail");
     }
