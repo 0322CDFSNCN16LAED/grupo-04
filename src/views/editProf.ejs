@@ -264,6 +264,21 @@
                                     <%= errors.rubro.msg %>               
                                 </div>
                             <% } %>
+                            <div class="form-check">
+                                <input class="form-check-input" 
+                                    name= "rubro" 
+                                    type="checkbox"
+                                    value="Albañil" 
+                                    id="Pintor">
+                                <label class="form-check-label" for="Albañil">
+                                    Albañil
+                                </label>
+                            </div>
+                            <% if (locals.errors && errors.rubro) { %>
+                                <div class= "error-msg">
+                                    <%= errors.rubro.msg %>               
+                                </div>
+                            <% } %>
                            
                          
                             <div class="mt-3 fx align-center">                    

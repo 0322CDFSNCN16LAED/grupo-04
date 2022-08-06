@@ -6,7 +6,6 @@ const db = require("../database/models");
 const { QueryTypes } = require("sequelize");
 const { sequelize } = require("../database/models");
 
-
 module.exports = {
   request: (req, res) => {
     res.render("budgetRequest");
@@ -19,10 +18,12 @@ module.exports = {
         errors: resultValidation.mapped(),
         oldData: req.body,
       });
-    } 
+    }
 
     const newReq = req.body;
-    req.session.userLogged ? newReq.userId = req.session.userLogged.id : res.redirect("/login");
+    req.session.userLogged
+      ? (newReq.userId = req.session.userLogged.id)
+      : res.redirect("/login");
 
     const imgRefArray = req.files;
 
@@ -39,7 +40,7 @@ module.exports = {
             return {
               img: img,
               reqId: budgetReqCreated.id,
-            }
+            };
           })
         );
         res.redirect("/");
@@ -50,98 +51,112 @@ module.exports = {
   response: async (req, res) => {
     const request = await db.budgReq.findOne({
       where: {
-        id: req.params.reqId
-      }
-    }); 
-    const requestValues = request.dataValues
-    
+        id: req.params.reqId,
+      },
+    });
+    const requestValues = request.dataValues;
+
     const imgs = await sequelize.query(
       `SELECT reqId, img FROM req_imgs WHERE reqId in (${request.id})`,
       { type: QueryTypes.SELECT }
-    ); 
-    
+    );
+
     const budgetToShow = {
       ...requestValues,
       img: imgs,
-    };  
-    console.log(budgetToShow.img)
-   const userToShow = await db.User.findOne({
-    where: {
-      id: budgetToShow.userId
-    }
-   })     
-    res.render("budgetResponse", { budgetToShow: budgetToShow, userToShow:userToShow });
+    };
+    const userToShow = await db.User.findOne({
+      where: {
+        id: budgetToShow.userId,
+      },
+    });
+    res.render("budgetResponse", {
+      budgetToShow: budgetToShow,
+      userToShow: userToShow,
+    });
   },
-  
-  storeBudgResponse: (req,res) => {
-    const requests = dbBudget.getAllBudgetReq();    
-    const responses= dbBudget.getAllBudgetRes();
-  
-    const users = dbUsers.getAllUsers();
 
-    const budgetToShow = requests.find(
-      (request) => request.reqId == req.params.reqId
-    );
-    
-    const userToShow = users.find((user) => user.userId == budgetToShow.userId); 
+  storeBudgResponse: async (req, res) => {
     const newRes = req.body;
-    newRes.profId= req.session.userLogged.profId;   
-    newRes.userId= budgetToShow.userId;
-    newRes.reqId =  budgetToShow.reqId
-    dbBudget.createBudgRes(newRes);
+    newRes.reqId = req.params.reqId;
+    await db.budgRes.create(newRes);
 
     res.redirect("/");
   },
 
-  detail: (req,res) => {
+  detail: (req, res) => {
     const budgetReq = dbBudget.getAllBudgetReq();
-    const budgetRes = dbBudget.getAllBudgetRes();    
-    const test = budgetRes.filter( budget => budget.resId == req.params.resId);
+    const budgetRes = dbBudget.getAllBudgetRes();
+    const test = budgetRes.filter((budget) => budget.resId == req.params.resId);
 
     const userReq = budgetReq.filter(
-      (budget) => (budget.userId === req.session.userLogged.userId) && (budget.reqId == test[0].reqId)  
+      (budget) =>
+        budget.userId === req.session.userLogged.userId &&
+        budget.reqId == test[0].reqId
     );
     const profRes = budgetRes.filter(
-      budget => (budget.userId === req.session.userLogged.userId) && (budget.resId == req.params.resId) 
+      (budget) =>
+        budget.userId === req.session.userLogged.userId &&
+        budget.resId == req.params.resId
     );
-    res.render("budgetDetail", { userReq, profRes } );
+    res.render("budgetDetail", { userReq, profRes });
   },
-  
+
   cartDetail: (req, res) => {
     const budgetReq = dbBudget.getAllBudgetReq();
     const budgetRes = dbBudget.getAllBudgetRes();
     const allProfs = dbProfs.getAllProf();
     const allUsers = dbUsers.getAllUsers();
 
-    const getBudgetRes = budgetRes.filter( (budget) => budget.resId == req.params.resId);
+    const getBudgetRes = budgetRes.filter(
+      (budget) => budget.resId == req.params.resId
+    );
     const getUserReq = budgetReq.filter(
-      (budget) => (budget.userId === req.session.userLogged.userId) && (budget.reqId == getBudgetRes[0].reqId)  
+      (budget) =>
+        budget.userId === req.session.userLogged.userId &&
+        budget.reqId == getBudgetRes[0].reqId
     );
     const getProfRes = budgetRes.filter(
-      (budget) => (budget.userId === req.session.userLogged.userId) && (budget.resId == req.params.resId) 
+      (budget) =>
+        budget.userId === req.session.userLogged.userId &&
+        budget.resId == req.params.resId
     );
-    const profName = allProfs.filter( (prof) => prof.profId == getProfRes[0].profId );
-    const userName = allUsers.filter( (user) => user.userId == getUserReq[0].userId );
+    const profName = allProfs.filter(
+      (prof) => prof.profId == getProfRes[0].profId
+    );
+    const userName = allUsers.filter(
+      (user) => user.userId == getUserReq[0].userId
+    );
 
     res.render("cartDetail", { getUserReq, getProfRes, profName, userName });
   },
 
-  storeCartItem: (req,res) =>{
+  storeCartItem: (req, res) => {
     const budgetReq = dbBudget.getAllBudgetReq();
     const budgetRes = dbBudget.getAllBudgetRes();
     const allProfs = dbProfs.getAllProf();
     const allUsers = dbUsers.getAllUsers();
 
-    const getBudgetRes = budgetRes.filter((budget) => budget.resId == req.params.resId);
+    const getBudgetRes = budgetRes.filter(
+      (budget) => budget.resId == req.params.resId
+    );
     const getUserReq = budgetReq.filter(
-      (budget) => (budget.userId === req.session.userLogged.userId) && (budget.reqId == getBudgetRes[0].reqId)
+      (budget) =>
+        budget.userId === req.session.userLogged.userId &&
+        budget.reqId == getBudgetRes[0].reqId
     );
-    const userName = allUsers.filter( (user) => user.userId == getUserReq[0].userId );
+    const userName = allUsers.filter(
+      (user) => user.userId == getUserReq[0].userId
+    );
     const getProfRes = budgetRes.filter(
-      (budget) => (budget.userId === req.session.userLogged.userId) && (budget.resId == req.params.resId)
+      (budget) =>
+        budget.userId === req.session.userLogged.userId &&
+        budget.resId == req.params.resId
     );
-    const profName = allProfs.filter( (prof) => prof.profId == getProfRes[0].profId );
-    
+    const profName = allProfs.filter(
+      (prof) => prof.profId == getProfRes[0].profId
+    );
+
     const newItem = {
       profId: profName[0].profId,
       userId: userName[0].userId,
@@ -153,20 +168,31 @@ module.exports = {
     res.redirect("/budget/cart");
   },
 
-  cart: (req,res) =>{
+  cart: (req, res) => {
     const budgetReq = dbBudget.getAllBudgetReq();
     const budgetRes = dbBudget.getAllBudgetRes();
     const allProfs = dbProfs.getAllProf();
     const allUsers = dbUsers.getAllUsers();
     const allItems = dbBudget.getAllCartItems();
 
-    const userItems = allItems.filter((item)=> req.session.userLogged.userId == item.userId);
-    const getUserReq = budgetReq.filter((budget) => budget.reqId == userItems.reqId);
+    const userItems = allItems.filter(
+      (item) => req.session.userLogged.userId == item.userId
+    );
+    const getUserReq = budgetReq.filter(
+      (budget) => budget.reqId == userItems.reqId
+    );
     const userName = allUsers.filter((user) => user.userId == userItems.userId);
-    const getProfRes = budgetRes.filter((budget) => budget.resId == userItems.resId);
-    const profName = allProfs.filter( (prof) => prof.profId == userItems.profId );
-    
-    res.render("cartMain", { userItems, getUserReq, getProfRes, profName, userName });
-  }
+    const getProfRes = budgetRes.filter(
+      (budget) => budget.resId == userItems.resId
+    );
+    const profName = allProfs.filter((prof) => prof.profId == userItems.profId);
 
+    res.render("cartMain", {
+      userItems,
+      getUserReq,
+      getProfRes,
+      profName,
+      userName,
+    });
+  },
 };

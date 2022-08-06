@@ -28,7 +28,7 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      mandoDeObra: {
+      manoDeObra: {
         type: DataTypes.STRING(500),
         allowNull: false,
       },
@@ -49,8 +49,7 @@ module.exports = {
         allowNull: false,
       },
       estado: {
-        type: DataTypes.STRING(255),
-        allowNull: false,
+        type: DataTypes.STRING(255),        
       },      
       created_at: {
         allowNull: false,

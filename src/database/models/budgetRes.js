@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    mandoDeObra: {
+    manoDeObra: {
       type: DataTypes.STRING(500),
       allowNull: false,
     },
@@ -46,6 +46,12 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: "updated_at",
   };
   const budgetRes = sequelize.define(alias, cols, config);
+  budgetRes.associate = (models) => {
+    budgetRes.belongsTo(models.budgReq, {
+      foreignKey: "reqId",
+      as: "budget_request",
+    });
+  }
 
   return budgetRes;
 };

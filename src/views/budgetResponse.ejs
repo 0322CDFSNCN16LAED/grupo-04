@@ -43,7 +43,7 @@
 
             <div class="grey-opacity budget-req desk-size">
                 <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
-                <form action="/budget/response/<%= budgetToShow.reqId %>" method="POST">
+                <form action="/budget/response/<%= budgetToShow.id %>" method="POST">
                     <div class="mb-3">
                         <label for="materiales" class="mr-3 form-label font-medium">Materiales</label>
                         <textarea name="materiales" class="form-control" id="materiales" rows="3" placeholder="Detalle los materiales a utilizar para este tipo de trabajo"></textarea>
@@ -55,7 +55,7 @@
                         <label for="manoDeObra" class="mr-3 form-label font-medium">Mano de Obra</label>
                         <textarea class="form-control" name="manoDeObra" id="manoDeObra" rows="3" placeholder="Detalle la cantidad y especialidad de los profesionales necesarios para este tipo de trabajo"></textarea>
                         <label for="precioManoObra" class="mr-3 form-label total-title">$</label>
-                        <input type="text" class="form-control total-price" name="precioManoObra" id="precioManoObra"></input>
+                        <input type="text" class="form-control total-price" name="precioManoDeObra" id="precioManoDeObra"></input>
                     </div>
                     
                     <div class="mb-3">

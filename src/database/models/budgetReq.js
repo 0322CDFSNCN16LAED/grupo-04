@@ -48,6 +48,10 @@ module.exports = (sequelize, DataTypes) => {
     budgetReq.hasMany(models.ReqImgs, {
       as: "req_imgs",
       foreignKey: "reqId",
+    });     
+    budgetReq.hasMany(models.budgRes, {
+      as: "budget_response",
+      foreignKey: "reqId",
     });
   };
 
