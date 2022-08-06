@@ -176,41 +176,8 @@
                                         <%= errors.DNI.msg %>               
                                     </div>
                                 <% } %>
-                            </div>
-                            <div class="col mt-3">
-                                <label for="IVA">Condición frente al IVA</label>
-                                <input 
-                                    type="text" 
-                                    name="IVA" 
-                                    value="<%= user.IVA %>"
-                                    class="form-control <%= 
-                                        locals.errors && errors.IVA 
-                                        ? 'is-invalid' 
-                                        : null 
-                                    %>" 
-                                    placeholder="Condición frente al IVA"
-                                    value="<%= locals.oldData ? oldData.IVA : null %>"
-                                >
-                                <% if (locals.errors && errors.IVA) { %>
-                                    <div class= "error-msg">
-                                        <%= errors.IVA.msg %>               
-                                    </div>
-                                <% } %>
-                            </div>
-                            <div class="col mt-3">
-                                <label for="CUIT">Cuit/Razón social</label>
-                                <input 
-                                    type="text" 
-                                    name="CUIT" 
-                                    value="<%= user.CUIT %>"
-                                    class="form-control <%= 
-                                        locals.errors && errors.CUIT 
-                                        ? 'is-invalid' 
-                                        : null 
-                                    %>" 
-                                    placeholder="Cuit/Razón social"                                    
-                                >
-                            </div>
+                            </div>                          
+                          
                             <% if (locals.errors && errors.CUIT) { %>
                                 <div class= "error-msg">
                                     <%= errors.CUIT.msg %>               
@@ -282,29 +249,7 @@
                            
                          
                             <div class="mt-3 fx align-center">                    
-                                <label class="mr-3"><h4 class="font-medium">Horario</h4></label>
-                                <select 
-                                    name = "time" 
-                                    class="form-select font-medium form-select-lg mb-3<%= 
-                                    locals.errors && errors.time 
-                                    ? 'is-invalid' 
-                                    : null 
-                                %>" "
-                                >                                
-                                <option value="">Elegí tu horario disponible</option>
-
-                            <% const horarios = ["de 8 a 12","de 12 a 16","de 16 a 20"] %>
-
-                            <% for( const unHorario of horarios) { %>                          
-
-                                    <option 
-                                        value="<%= unHorario %>"
-                                        <%= locals.oldData && (unHorario === oldData.time) ? "selected" : null %> 
-                                    > 
-                                        <%= unHorario %>  
-                                        
-                                    </option>
-                            <% } %>
+                                
                         </select>                                
                     </div>
                     <% if (locals.errors && errors.time) { %>
