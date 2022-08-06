@@ -72,6 +72,10 @@ module.exports = (sequelize, DataTypes) => {
       as: "budgReq",
       foreignKey: "userId",
     });
+    User.hasMany(models.budgRes, {
+      as: "budgRes",
+      foreignKey: "userId",
+    });
     User.belongsToMany(models.Rubro, {
       as: "rubros",
       through: "rubroUsers",

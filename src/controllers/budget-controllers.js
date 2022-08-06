@@ -79,6 +79,7 @@ module.exports = {
   storeBudgResponse: async (req, res) => {
     const newRes = req.body;
     newRes.reqId = req.params.reqId;
+    newRes.userId = req.session.userLogged.id;
     await db.budgRes.create(newRes);
 
     res.redirect("/");
@@ -99,33 +100,19 @@ module.exports = {
     res.render("budgetDetail", { budgetToShow, imgs });
   },
 
-  cartDetail: (req, res) => {
-    const budgetReq = dbBudget.getAllBudgetReq();
-    const budgetRes = dbBudget.getAllBudgetRes();
-    const allProfs = dbProfs.getAllProf();
-    const allUsers = dbUsers.getAllUsers();
-
-    const getBudgetRes = budgetRes.filter(
-      (budget) => budget.resId == req.params.resId
+  cartDetail: async (req, res) => {
+    const resId = req.params.resId;        
+    const budgetToShow = await sequelize.query(
+      `select * from budget_request breq join budget_response bres on bres.id = (${resId} and bres.reqId = breq.id)`,
+      { type: QueryTypes.SELECT }
     );
-    const getUserReq = budgetReq.filter(
-      (budget) =>
-        budget.userId === req.session.userLogged.userId &&
-        budget.reqId == getBudgetRes[0].reqId
-    );
-    const getProfRes = budgetRes.filter(
-      (budget) =>
-        budget.userId === req.session.userLogged.userId &&
-        budget.resId == req.params.resId
-    );
-    const profName = allProfs.filter(
-      (prof) => prof.profId == getProfRes[0].profId
-    );
-    const userName = allUsers.filter(
-      (user) => user.userId == getUserReq[0].userId
-    );
-
-    res.render("cartDetail", { getUserReq, getProfRes, profName, userName });
+    const user = await db.User.findByPk(req.session.userLogged.id)
+    const userToShow = user.dataValues
+    const profId = budgetToShow[0].userId;
+    const prof = await db.User.findByPk(profId);
+    const profToShow = prof.dataValues;    
+    
+    res.render("cartDetail", { budgetToShow, userToShow, profToShow });
   },
 
   storeCartItem: (req, res) => {

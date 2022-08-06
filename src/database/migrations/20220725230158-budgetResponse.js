@@ -9,12 +9,22 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
-      },      
+      },
       reqId: {
         type: DataTypes.INTEGER,
         references: {
           model: {
             tableName: "budget_request",
+          },
+          key: "id",
+        },
+        allowNull: false,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: {
+            tableName: "users",
           },
           key: "id",
         },
@@ -49,8 +59,8 @@ module.exports = {
         allowNull: false,
       },
       estado: {
-        type: DataTypes.STRING(255),        
-      },      
+        type: DataTypes.STRING(255),
+      },
       created_at: {
         allowNull: false,
         type: DataTypes.DATE,

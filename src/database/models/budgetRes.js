@@ -51,6 +51,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "reqId",
       as: "budget_request",
     });
+    budgetRes.belongsTo(models.User, {
+      foreignKey: "userId",
+      as: "users",
+    });
   }
 
   return budgetRes;
