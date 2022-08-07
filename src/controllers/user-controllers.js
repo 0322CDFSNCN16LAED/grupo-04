@@ -85,15 +85,11 @@ module.exports = {
     });
     profRes.forEach(function (res) {
       const req = userRequest.filter((req) => req.id === res.reqId);
-
       if (req && req.length > 0) {
         const index = userRequest.indexOf(req[0]);
-        console.log("res: ", res);
         if (index !== -1) userRequest[index].responses.push(res);
       }
     });
-    console.log(userRequest);
-
     res.render("inboxUser", { userRequest });
   },
 };
