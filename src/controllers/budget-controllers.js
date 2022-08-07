@@ -87,12 +87,15 @@ module.exports = {
 
   detail: async (req, res) => {
     const resId = req.params.resId;
+    
     const resp = await db.budgRes.findByPk(resId);
+    console.log("hola piero " + resp)
     const reqId = resp.reqId;
+    
     const imgs = await sequelize.query(
       `select img from req_imgs ri where reqId = (${reqId})`,
       { type: QueryTypes.SELECT }
-    );
+    );    
     const budgetToShow = await sequelize.query(
       `select * from budget_request breq join budget_response bres on bres.id = (${resId} and bres.reqId = breq.id)`,
       { type: QueryTypes.SELECT }
@@ -101,7 +104,7 @@ module.exports = {
   },
 
   cartDetail: async (req, res) => {
-    const resId = req.params.resId;        
+    const resId = req.params.resId;    
     const budgetToShow = await sequelize.query(
       `select * from budget_request breq join budget_response bres on bres.id = (${resId} and bres.reqId = breq.id)`,
       { type: QueryTypes.SELECT }

@@ -55,10 +55,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "userId",
       as: "users",
     });
-     budgetRes.belongsTo(models.ShoppingCart, {
+     /*budgetRes.belongsTo(models.ShoppingCart, {
        foreignKey: "resId",
        as: "ShoppingCart",
-     });
+     });*/
   }
 
   return budgetRes;
