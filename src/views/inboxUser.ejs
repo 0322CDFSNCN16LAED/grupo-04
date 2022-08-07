@@ -15,86 +15,72 @@
         </button>
       </div>
       <section class="row row-cols-1 row-cols-md-2 g-4">
-         <% profRes.forEach(function(budgetToShow){ %>
-      <div class="card" style="width: 22rem">
-        <h3 class="text-center bolder">Tu Pedido</h3>
-        <a
-          target="_blank"
-          href="/images/budgetRequest/<%= imgs[0].img  %> %>"
-        >
-          <img
-            class="card-img-top"
-            src="/images/budgetRequest/<%= imgs[0].img %>"
-          />
-        </a>
+        <% userRequest.forEach(function(budgetToShow){ %>
+          <div class="card" style="width: 22rem">
+          <h3 class="text-center bolder">Tu Pedido</h3>
+          <% if (budgetToShow.img && budgetToShow.img.length > 0) { %>
+          <a
+            target="_blank"
+            href="/images/budgetRequest/<%= budgetToShow.img[0] %> %>"
+          >
+            <img
+              class="card-img-top"
+              src="/images/budgetRequest/<%= budgetToShow.img[0] %>"
+            />
+          </a>
+          <% } %>
+          <div class="card-body">
+            <h5 class="card-title text-center bolder">
+              <%= budgetToShow.tituloSolicitud %>
+            </h5>
 
-        <div class="card-body">
-          <h5 class="card-title text-center  bolder">
-            <%= budgetToShow.tituloSolicitud %>
-          </h5>
-         
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item text-center">
-              <%= budgetToShow.detalleSolicitud %>
-            </li>
-          </ul>
-          <h5 class="bolder text-center">Presupuestos Recibidos</h5>
-        </div>        
-        <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-center">
+                <%= budgetToShow.detalleSolicitud %>
+              </li>
+            </ul>
+            <h5 class="bolder text-center">
+              Presupuestos Recibidos
+            </h5>
+            <% budgetToShow.responses.forEach(response => { %> 
+                <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+                  <div class="fx align-center">
+                      <div>
+                      <div class="card-header bolder">Profesional </div>
+                      <a href="/user/detail/<%= response.userId %>" class="font-medium text-center"><%= response.name %> <%= response.lastName %></a>
+                      </div>
+                      <div class="">
+                      <img src="/images/avatar/<%=response.avatar %>" class="card-img-top" alt="">
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title">
+                      <div class="fx justify-sp-b">
+                          <p class="font-medium bolder">Monto total</p>
+                          <p class="font-medium bolder">
+                          $ <%= response.precioFinal %>
+                          </p>
+                      </div>
+                      </h5>
+                  </div>
+                  <p class="card-text">
+                      <div class="fx justify-sp-b">
+                      <button class="secondary-button">
+                          <a href="/budget/detail/<%= response.id %>">
+                          Ver detalle
+                          </a>
+                      </button>
+                      <button class="primary-button">
+                          <a href="/budget/cart/<%= response.id %>"> Contratar </a>
+                      </button>
+                      </div>   
+                  </p>
+                </div>
               
-            </div>
+            <% }) %>
           </div>
         </div>
-      </div>
-      </div>
-
-      <% }) %></section>
-
-      </section>
-
-      <section class="cards">
-        <% profRes.forEach(function(budgetToShow){ %>
-        <article class="card w-card">
-          <div class="justify-center">
-            <p class="font-medium bolder">
-              <%= budgetToShow.tituloSolicitud %>
-            </p>
-            <% imgs.forEach( img => { %> <% if (img.reqId == budgetToShow.reqId) { %>
-
-            <a target="_blank" href="/images/budgetRequest/<%= img.img  %>">
-              <img class="w-60" src="/images/budgetRequest/<%= img.img %>" />
-            </a>
-            <% } %> <% }) %>
-            <p class="bolder mt-3">Presupuestos recibidos</p>
-            <div class="card-border">
-              <div class="fx justify-sp-b">
-                <p class="font-medium bolder">Monto total</p>
-                <p class="font-medium bolder">
-                  <%= budgetToShow.precioFinal %>
-                </p>
-              </div>
-              <div class="fx justify-sp-b">
-                <button class="secondary-button">
-                  <a href="/budget/detail/<%= budgetToShow.id %>">
-                    Ver detalle
-                  </a>
-                </button>
-                <button class="primary-button">
-                  <a href="/budget/cart/<%= budgetToShow.id %>"> Contratar </a>
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
-        <% }) %>
+          <% }) %>
       </section>
     </main>
 

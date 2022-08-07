@@ -1,0 +1,38 @@
+<section class="cards">
+        <% budgWithImgs.forEach(function(budgetToShow){ %>
+        <article class="card w-card">
+          <div class="justify-center">
+            <p class="font-medium bolder">
+              <%= budgetToShow.tituloSolicitud %>
+            </p>
+            <% budgetToShow.budgImgs.forEach(img => { %>
+
+            <a target="_blank" href="/images/budgetRequest/<%= img %>">
+              <img class="w-60" src="/images/budgetRequest/<%= img %>" />
+            </a>
+            <% }); %>
+
+            <ul>
+              <li>
+                <i class="fas fa-info-circle"></i>
+                <p class="font-medium"><%= budgetToShow.detalleSolicitud %></p>
+              </li>
+              <li>
+                <i class="fas fa-calendar-day"></i>
+                <p class="font-medium"><%= budgetToShow.urgenciaTrabajo %></p>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <p class="font-medium"><%= budgetToShow.ubicacion %></p>
+              </li>
+            </ul>
+            <button class="primary-button">
+              <a href="/budget/response/<%= budgetToShow.id %>"
+                >Armar presupuesto</a
+              >
+            </button>
+          </div>
+        </article>
+        <% }) %>
+      </section>
+    </main>

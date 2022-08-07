@@ -1,0 +1,33 @@
+<div class="card text-bg-light mb-3" style="max-width: 18rem;">
+    <div class="fx align-center">
+        <div>
+        <div class="card-header bolder">Profesional </div>
+        <a href="/user/detail/<%= response.userId %>" class="font-medium text-center"><%= response.name %> <%= response.lastName %></a>
+        </div>
+        <div class="">
+        <img src="/images/avatar/<%=response.avatar %>" class="card-img-top" alt="">
+        </div>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+        <div class="fx justify-sp-b">
+            <p class="font-medium bolder">Monto total</p>
+            <p class="font-medium bolder">
+            $ <%= response.precioFinal %>
+            </p>
+        </div>
+        </h5>
+    </div>
+    <p class="card-text">
+        <div class="fx justify-sp-b">
+        <button class="secondary-button">
+            <a href="/budget/detail/<%= response.id %>">
+            Ver detalle
+            </a>
+        </button>
+        <button class="primary-button">
+            <a href="/budget/cart/<%= response.id %>"> Contratar </a>
+        </button>
+        </div>   
+    </p>
+ </div>
