@@ -41,12 +41,17 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: "updated_at",
   };
   const shopCart = sequelize.define(alias, cols, config);
- /* shopCart.associate = (models) => {
-    shopCart.hasMany(models.budgRes, {
+   shopCart.associate = (models) => {
+    shopCart.belongsTo(models.User, {
+      as: "users",
+      foreignKey: "userId"
+    })
+    
+    /*shopCart.hasMany(models.budgRes, {
       as: "budget_response",
       foreignKey: "resId",
-    });
-  }*/
+    });*/
+  }
 
   return shopCart;
 };

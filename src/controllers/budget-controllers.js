@@ -87,34 +87,34 @@ module.exports = {
 
   detail: async (req, res) => {
     const resId = req.params.resId;
-    
+
     const resp = await db.budgRes.findByPk(resId);
-    console.log("hola piero " + resp)
     const reqId = resp.reqId;
-    
+
     const imgs = await sequelize.query(
       `select img from req_imgs ri where reqId = (${reqId})`,
       { type: QueryTypes.SELECT }
-    );    
+    );
     const budgetToShow = await sequelize.query(
       `select * from budget_request breq join budget_response bres on bres.id = (${resId} and bres.reqId = breq.id)`,
       { type: QueryTypes.SELECT }
     );
+
     res.render("budgetDetail", { budgetToShow, imgs });
   },
 
   cartDetail: async (req, res) => {
-    const resId = req.params.resId;    
+    const resId = req.params.resId;
     const budgetToShow = await sequelize.query(
       `select * from budget_request breq join budget_response bres on bres.id = (${resId} and bres.reqId = breq.id)`,
       { type: QueryTypes.SELECT }
     );
-    const user = await db.User.findByPk(req.session.userLogged.id)
-    const userToShow = user.dataValues
+    const user = await db.User.findByPk(req.session.userLogged.id);
+    const userToShow = user.dataValues;
     const profId = budgetToShow[0].userId;
     const prof = await db.User.findByPk(profId);
-    const profToShow = prof.dataValues;    
-    
+    const profToShow = prof.dataValues;
+
     res.render("cartDetail", { budgetToShow, userToShow, profToShow });
   },
 

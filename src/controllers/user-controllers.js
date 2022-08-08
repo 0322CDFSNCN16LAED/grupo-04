@@ -80,11 +80,11 @@ module.exports = {
     const profRes = await sequelize.query(
       `select * from budget_response bres join budget_request breq on bres.reqId = breq.id and breq.userId = ${user} join users u on bres.userId = u.id `,
       { type: QueryTypes.SELECT }
-    );
+    );    
     const imgs = await sequelize.query(
       `select img,reqId from req_imgs ri join budget_request br on br.id = ri.reqId and br.userId = ${user}`,
       { type: QueryTypes.SELECT }
-    );
+    );    
     userRequest.forEach(function (req) {
       req.responses = [];
       req.img = imgs
@@ -104,6 +104,7 @@ module.exports = {
         if (index !== -1) userRequest[index].responses.push(res);
       }
     });
+    console.log(userRequest)
     res.render("inboxUser", { userRequest });
   },
 };

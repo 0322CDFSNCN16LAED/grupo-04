@@ -76,6 +76,10 @@ module.exports = (sequelize, DataTypes) => {
       as: "budgRes",
       foreignKey: "userId",
     });
+    User.hasMany(models.ShoppingCart, {
+      as: "shopping-cart",
+      foreignKey: "userId",
+    });
     User.belongsToMany(models.Rubro, {
       as: "rubros",
       through: "rubroUsers",
