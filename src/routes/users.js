@@ -12,7 +12,7 @@ const userValidations = registerMiddlewares.userValidations;
 
 router.get("/detail", authMiddleware, userControllers.userDetail);
 router.get("/edit/:id", authMiddleware, userControllers.editUserProfile);
-router.put("/update/:id", authMiddleware, userControllers.updateUserProfile);
+router.put("/update/:id", authMiddleware,upload.single("avatar"), userControllers.updateUserProfile);
 router.get("/inbox", authMiddleware, userControllers.inboxUser);
 router.get("/register", userControllers.createUser);
 router.post(

@@ -56,7 +56,21 @@ module.exports = {
 
     res.render("editUser", { user: userToEdit });
   },
-  updateUserProfile: (req, res) => {},
+  updateUserProfile: async (req, res) => {
+    let userId= req.session.userLogged.id;
+    const oldData = req.session.userLogged;
+    let newData = req.body
+    console.log(newData)
+    const newUser= await db.User.update({
+      where: {
+        id: userId
+      }
+    })
+    console.log(newUser)
+    
+    
+    res.render("userDetail");
+  },
   inboxUser: async (req, res) => {
     const user = req.session.userLogged.id;
     const userRequest = await sequelize.query(
