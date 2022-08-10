@@ -1,6 +1,6 @@
 const dbBudgets = require("../models/budget.js");
-const dbProf = require("../models/prof")
-const { QueryTypes } = require('sequelize');
+const dbProf = require("../models/prof");
+const { QueryTypes } = require("sequelize");
 const db = require("../database/models");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
@@ -87,8 +87,8 @@ module.exports = {
       res.redirect("/login");
     }
   },
-  profDetail: async (req, res) => {   
-    const userId = req.session.userLogged.id
+  profDetail: async (req, res) => {
+    const userId = req.session.userLogged.id;
     const rubros = await sequelize.query(
       `SELECT rubroNombre FROM rubrousers WHERE userId=${userId}`,
       { type: QueryTypes.SELECT }
@@ -96,69 +96,94 @@ module.exports = {
     const userRubros = rubros.map(function (rubro) {
       return rubro.rubroNombre;
     });
-    console.log(userRubros)
+    console.log(userRubros);
     res.render("profDetail", {
       user: req.session.userLogged,
-      rubros: userRubros.join(", ")
-    }); 
+      rubros: userRubros.join(", "),
+    });
   },
 
-  editProfProfile: (req, res) => {
+  editProfProfile: async (req, res) => {
     const userToEdit = req.session.userLogged;
-
-    res.render("editProf", { user: userToEdit });
+    const rubros = await sequelize.query(
+      `SELECT rubroNombre FROM rubrousers WHERE userId=${userToEdit.id}`,
+      { type: QueryTypes.SELECT }
+    );  
+    const allRubros = await sequelize.query(
+      `SELECT nombre FROM rubros`,
+      { type: QueryTypes.SELECT }
+    );  
+    const rubrosToAppend = allRubros.filter(function(rubro){
+      return !rubros.includes(rubro);
+    });
+    
+    res.render("editProf", {
+      user: userToEdit,
+      rubros: rubros.map(function (rubro) {
+      return rubro.rubroNombre;
+     }).join(', '),
+     rubrosToDelete: rubros,
+     rubrosToAppend: rubrosToAppend     
+    })
   },
   updateProfProfile: async (req, res) => {
     const oldData = req.session.userLogged;
+    const rubros = await sequelize.query(
+      `SELECT rubroNombre FROM rubrousers WHERE userId=${oldData.id}`,
+      { type: QueryTypes.SELECT }
+    );
+    const oldPassword = req.body.oldPassword;
+    const newPassword = req.body.newPassword;    
+    const compareOldP = oldPassword
+      ? bcryptjs.compareSync(oldPassword, oldData.password)
+      : "";
+
     const profToCreate = {
-      ...req.body,
-      password: req.body.password
-        ? bcryptjs.hashSync(req.body.password, 10)
-        : oldData.password,
+      name: req.body.name,
+      lastName: req.body.lastName,
+      userName: req.body.userName,
+      email: req.body.email,      
+      phone: req.body.phone,
+      DNI: req.body.DNI,          
       avatar: req.body.avatar ? req.file.filename : oldData.avatar,
     };
-    if (resultValidation.errors.length == 0) {
-      await db.User.update(profToCreate,{
-        where: {
-          id: req.session.userLogged.id
-        }
-      });
-
-      res.redirect("/prof/detail");
+    if(compareOldP === true && newPassword){
+      profToCreate.password =  bcryptjs.hashSync(newPassword, 10)
+    }else{
+      profToCreate.password = oldData.password
     }
+    if(req.body.rubroAdd != ""){
+
+    }
+    
+    req.files["avatar"] ? (profToCreate.avatar = req.files["avatar"][0].filename) : "";
+    
+    
+    await db.User.update(profToCreate, {
+      where: {
+        id: req.session.userLogged.id,
+      },
+    });
+    req.session.userLogged = await db.User.findByPk(oldData.id)
+    console.log(req.session.userLogged)
+          
+    res.redirect("/");
   },
 
   inboxProf: async (req, res) => {
     const userId = req.session.userLogged.id;
-    const rubros = await sequelize.query(
-      `SELECT rubroNombre FROM rubrousers WHERE userId=${userId}`,
-      { type: QueryTypes.SELECT }
-    );   
-   const userRubros = rubros.map(function(rubro){
-    return rubro.rubroNombre;
-   })
-
-   const profBudgets = await sequelize.query(
-      `SELECT * FROM budget_request WHERE rubroNombre in ('${userRubros.join("','")}')`,
-      { type: QueryTypes.SELECT }
-    );
-    const budgets = profBudgets.map(function(budget){
-      return budget.id
-    }) 
-    const imgs = await sequelize.query(
-      `SELECT reqId, img FROM req_imgs WHERE reqId in (${budgets.join()})`,
-      { type: QueryTypes.SELECT }
-    );
-    const budgWithImgs = profBudgets.map(function(budget){
-      const budgImgs = imgs.filter(function(img){
-        return img.reqId === budget.id
-      }).map(function(filteredImg){
-        return filteredImg.img
-      })
-      return{
-        ...budget,
-        budgImgs }
-    })       
+    const user = await db.User.findByPk(userId, {
+      include: ["rubros"],
+    });   
+    const budgWithImgs = await db.budgReq.findAll({
+      where: {
+        rubroNombre: {
+          [db.Sequelize.Op.in]: user.rubros.map((rubro) => rubro.nombre),
+        },
+      },
+      include: ["req_imgs"],
+    });    
+    //console.log(JSON.stringify(budgWithImgs, null, 4));  
     res.render("inboxProf", { budgWithImgs });
   },
 };

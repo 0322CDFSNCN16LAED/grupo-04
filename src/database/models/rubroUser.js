@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   
   };
   const rubroUser = sequelize.define(alias, cols, config);
+  
 
   return rubroUser;
 };

@@ -3,15 +3,11 @@ const router = express.Router();
 
 const multer = require("multer");
 const storage = require("../middlewares/registerMulter");
-const upload = multer({storage});
+const upload = multer({ storage });
 
-const authMiddleware = require("../middlewares/authMiddleware")
+const authMiddleware = require("../middlewares/authMiddleware");
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const mainControllers = require("../controllers/main-controllers");
-
-const registerMiddlewares = require("../middlewares/registerValidations");
-const userValidations = registerMiddlewares.userValidations;
-const ProfValidations = registerMiddlewares.ProfValidations;
 
 const budgetRouter = require("./budget.js");
 const usersRouter = require("./users.js");
@@ -22,12 +18,11 @@ router.use("/user", usersRouter);
 router.use("/prof", profRouter);
 
 router.get("/", mainControllers.home);
-router.get("/login",guestMiddleware, mainControllers.login);
+router.get("/login", guestMiddleware, mainControllers.login);
 router.post("/login", mainControllers.loginProcess);
 router.get("/logout", mainControllers.logout);
 router.get("/history", authMiddleware, mainControllers.history);
 
-router.get("/register",guestMiddleware, mainControllers.register); 
-
+router.get("/register", guestMiddleware, mainControllers.register);
 
 module.exports = router;
