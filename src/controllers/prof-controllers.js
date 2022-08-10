@@ -181,9 +181,12 @@ module.exports = {
           [db.Sequelize.Op.in]: user.rubros.map((rubro) => rubro.nombre),
         },
       },
-      include: ["req_imgs"],
-    });    
-    //console.log(JSON.stringify(budgWithImgs, null, 4));  
+      include: ["req_imgs","users"],
+     
+    }); 
+    
+    
+    console.log(JSON.stringify(budgWithImgs, null, 4));  
     res.render("inboxProf", { budgWithImgs });
   },
 };
