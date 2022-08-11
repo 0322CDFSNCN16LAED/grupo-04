@@ -176,17 +176,37 @@
                                         <%= errors.DNI.msg %>               
                                     </div>
                                 <% } %>
-                            </div>                         
+                            </div>                      
                           
                             
                             <div class="col mt-3">
                                 Tus Rubros
                             </div>
                             <div class=" col mt-3 form-control">
-                                <%= rubros %> 
+                                <%= rubrosToDelete.join(", ") %> 
+                            </div>
+                            <div class="fx justify-sp-a">                                                           
+                                <%- include('./partials/checkboxArray', {array: rubrosToAppend, title:"Agregar Rubros", name:"rubroAdd"}) %>                        
+                                <%- include('./partials/checkboxArray', {array: rubrosToDelete, title:"Eliminar Rubros", name:"rubroDelete"}) %>                                
                             </div>
                             
-                            <%- include('./partials/rubrosAddDeleteEditProf') %>
+                            <div class="bolder col mt-3">
+                                Tus Trabajos Realizados
+                            </div>
+                            <% imgs.forEach(img => { %>
+                                <a target="_blank" href="/images/finished-jobs-images/<%= img.img %>">
+                                <img class="thumbnail" src="/images/finished-jobs-images/<%= img.img %>">
+                            </a>
+                               
+                            <% }) %>
+                             <div class="font-mediun mb-5-login">
+                                <div class="mb-3">                   
+                                    <label for="finished-jobs" class="form-label "><h4 class="font-medium" >Agregar Imagen</h4></label>
+                                    <input class="form-control" name= "finished-jobs" type="file" id="finished-jobs" multiple>
+                                </div>
+                            </div>                            
+    
+                                        
                             
                             <div class="font-mediun mb-5-login mt-3">
                                 <label for="avatar" class="form-label"><h4 class="font-medium mb-0" >Cambiar foto de perfil</h4></label>
