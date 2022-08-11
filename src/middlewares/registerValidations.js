@@ -82,3 +82,28 @@ module.exports = {
     }),
   ],
 };
+const { check, body } = require("express-validator");
+
+module.exports = [
+  check("name")
+    .notEmpty()
+
+    .withMessage("Ingresar un nombre")
+    .bail()
+
+    .isLength({ min: 3 })
+
+    .withMessage("El nombre debe tener mas de dos caracteres"),
+
+  check("email")
+    .notEmpty()
+
+    .isEmail()
+
+    .withMessage("Ingresar un email válido"),
+
+  check("contrasenia")
+    .isLength({ min: 8 })
+
+    .withMessage("La contrasenia deberia tener un minimo de 8 caracteres"),
+];
