@@ -1,0 +1,20 @@
+<% if (array.length > 0) { %>
+  <div>
+    <div class="font-medium mt-3 bolder"><%= title %></div>    
+      <% array.forEach(rubro => { %>    
+        <div class="form-check">
+          <input
+          class="form-check-input"
+          name="<%= name %>"
+          type="checkbox"
+          value="<%= rubro %>"
+          />
+          <label class="form-check-label" for="<%= rubro %>"> <%= rubro %> </label>
+        </div>
+      <% }) %>
+  </div>
+<% } %>
+  
+  
+
+
