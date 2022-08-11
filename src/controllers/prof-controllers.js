@@ -96,7 +96,6 @@ module.exports = {
     const userRubros = rubros.map(function (rubro) {
       return rubro.rubroNombre;
     });
-    console.log(userRubros);
     res.render("profDetail", {
       user: req.session.userLogged,
       rubros: userRubros.join(", "),
@@ -165,7 +164,6 @@ module.exports = {
       },
     });
     req.session.userLogged = await db.User.findByPk(oldData.id)
-    console.log(req.session.userLogged)
           
     res.redirect("/");
   },
@@ -184,9 +182,6 @@ module.exports = {
       include: ["req_imgs","users"],
      
     }); 
-    
-    
-    console.log(JSON.stringify(budgWithImgs, null, 4));  
     res.render("inboxProf", { budgWithImgs });
   },
 };

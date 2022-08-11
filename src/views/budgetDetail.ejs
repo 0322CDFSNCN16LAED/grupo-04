@@ -11,36 +11,36 @@
           <section>
             <div class="mb-3 align-center">
               <p class="mr-3 font-medium">Título del trabajo</p>
-              <p class="form-control"><%= budgetToShow[0].tituloSolicitud %></p>
+              <p class="form-control"><%= userReq.tituloSolicitud %></p>
             </div>
             <div class="mb-3">
               <p class="mr-3 form-label font-medium">Descripción del trabajo</p>
               <p class="form-control">
-                <%= budgetToShow[0].detalleSolicitud %>
+                <%= userReq.detalleSolicitud %>
               </p>
             </div>
             <div class="mb-3 align-center">
               <p class="mr-3 font-medium">Categoría</p>
-              <p class="form-control"><%= budgetToShow[0].rubroNombre %></p>
+              <p class="form-control"><%= userReq.rubroNombre %></p>
             </div>
             <div class="mb-3">
               <p class="form-label font-medium">Imágenes de referencia</p>
-              <% imgs.forEach(img => { %>
-              <a target="_blank" href="/images/budgetRequest/<%= img.img %>">
+              <% reqImgs.forEach(img => { %>
+              <a target="_blank" href="/images/budgetRequest/<%= img %>">
                 <img
                   class="thumbnail"
-                  src="/images/budgetRequest/<%= img.img %>"
+                  src="/images/budgetRequest/<%= img %>"
                 />
               </a>
               <% }) %>
             </div>
             <div class="mb-3">
               <p class="font-medium">Cuándo necesitas realizarlo:</p>
-              <p class="form-control"><%= budgetToShow[0].urgenciaTrabajo %></p>
+              <p class="form-control"><%= userReq.urgenciaTrabajo %></p>
             </div>
             <div>
               <p class="mr-3 budg-txt font-medium">Ubicación</p>
-              <p class="form-control"><%= budgetToShow[0].ubicacion %></p>
+              <p class="form-control"><%= userReq.ubicacion %></p>
             </div>
           </section>
         </div>
@@ -49,19 +49,19 @@
           <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
           <div class="mb-3">
             <p class="mr-3 form-label font-medium">Materiales</p>
-            <p class="form-control"><%= budgetToShow[0].materiales %></p>
+            <p class="form-control"><%= profRes[0].materiales %></p>
             <p class="mr-3 form-label total-title">$</p>
             <p class="form-control total-price">
-              <%= budgetToShow[0].precioMateriales %>
+              <%= profRes[0].precioMateriales %>
             </p>
           </div>
 
           <div class="mb-3">
             <p class="mr-3 form-label font-medium">Mano de Obra</p>
-            <p class="form-control"><%= budgetToShow[0].manoDeObra %></p>
+            <p class="form-control"><%= profRes[0].manoDeObra %></p>
             <p class="mr-3 form-label total-title">$</p>
             <p class="form-control total-price">
-              <%= budgetToShow[0].precioManoDeObra %>
+              <%= profRes[0].precioManoDeObra %>
             </p>
           </div>
 
@@ -69,26 +69,26 @@
             <p class="mr-3 form-label font-medium">
               Duración estimada (en horas)
             </p>
-            <p class="form-control"><%= budgetToShow[0].duracionTrabajo %></p>
+            <p class="form-control"><%= profRes[0].duracionTrabajo %></p>
           </div>
 
           <div class="mb-3">
             <p class="mr-3 form-label font-medium">Comentarios adicionales</p>
             <p class="form-control">
-              <%= budgetToShow[0].comentariosTrabajo %>
+              <%= profRes[0].comentariosTrabajo %>
             </p>
           </div>
 
           <div class="fx justify-end align-center">
             <p class="mr-3 form-label total-title">Monto Total</p>
             <p class="form-control total-price">
-              <%= budgetToShow[0].precioFinal %>
+              <%= profRes[0].precioFinal %>
             </p>
           </div>
 
           <div class="fx justify-center mt-3">
             <button class="primary-button">
-              <a href="/budget/cart/<%= budgetToShow[0].id %>"
+              <a href="/budget/cart/<%= profRes[0].id %>"
                 >Agregar al Carrito</a
               >
             </button>

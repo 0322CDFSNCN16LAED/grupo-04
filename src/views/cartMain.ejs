@@ -14,25 +14,25 @@
     </div>
 
     <section class="cards">
-      <% userItems.forEach(function(itemToShow){ %>
+      <% items.forEach(function(item){ %>
         <article class="card w-card">
           <div class="justify-center">
-            <p class="font-medium bolder"><%= getUserReq.tituloSolicitud %></p>
-            <p class="font-medium bolder"><%= getProfRes.precioFinal %></p>
-            <p class="font-medium bolder"><%= profName.name %> <%= profName.lastName %></p>
-            <p class="font-medium bolder"><%= itemToShow.diaTurno %></p>
-            <p class="font-medium bolder"><%= itemToShow.horario %></p>
-            <p class="font-medium bolder"><%= itemToShow.metodoPago %></p>
+            <p class="font-medium bolder"><%= item.tituloSolicitud %></p>
+            <p class="font-medium bolder"><%= item.precioFinal %></p>
+            <p class="font-medium bolder"><%= item.name %> <%= item.lastName %></p>
+            <p class="font-medium bolder"><%= item.diaTurno %></p>
+            <p class="font-medium bolder"><%= item.horario %></p>
+            <p class="font-medium bolder"><%= item.metodoPago %></p>
 
             <div class="fx justify-sp-b">
               <button class="terciary-button">
-                <a href="/budget/cart/<%= userItems.resId %>">Eliminar</a>
+                <a href="/budget/cart/<%= item.resId %>">Eliminar</a>
               </button>
               <button class="secondary-button">
-                <a href="/budget/cart/<%= userItems.resId %>">Editar</a>
+                <a href="/budget/cart/<%= item.resId %>">Editar</a>
               </button>
               <button class="primary-button">
-                <a href="/budget/detail/<%= userItems.resId %>">Ver detalle </a>
+                <a href="/budget/detail/<%= item.resId %>">Ver detalle </a>
               </button>
             </div>
           </div>
