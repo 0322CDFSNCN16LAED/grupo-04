@@ -3,23 +3,23 @@ const { body } = require("express-validator");
 
 module.exports = {
   userValidations: [
-    body("name").notEmpty().withMessage("Debes introducir un nombre"),
-    body("lastName").notEmpty().withMessage("Debes introducir un apellido"),
+    body("name").notEmpty().withMessage("Debes introducir tu nombre"),
+    body("lastName").notEmpty().withMessage("Debes introducir tu apellido"),
     body("userName")
       .notEmpty()
       .withMessage("Debes introducir un nombre de usuario"),
     body("email")
       .notEmpty()
-      .withMessage("Debes introducir un email")
+      .withMessage("Debes introducir tu email")
       .bail()
       .isEmail()
       .withMessage("Debes escribir un formato de correo válido"),
     body("password").notEmpty().withMessage("Debes introducir una contraseña"),
-    body("phone").notEmpty().withMessage("Debes introducir un teléfono"),
-    body("address").notEmpty().withMessage("Debes introducir una dirección"),
-    body("city").notEmpty().withMessage("Debes introducir una ciudad"),
-    body("state").notEmpty().withMessage("Debes introducir una provincia"),
-    body("zipCode").notEmpty().withMessage("Debes introducir un código postal"),
+    body("phone").notEmpty().withMessage("Debes introducir tu número de teléfono"),
+    body("address").notEmpty().withMessage("Debes introducir tu dirección"),
+    body("city").notEmpty().withMessage("Debes introducir el nombre de tu ciudad"),
+    body("state").notEmpty().withMessage("Debes introducir el nombre de tu provincia"),
+    body("zipCode").notEmpty().withMessage("Debes introducir tu código postal"),
     body("avatar").custom((value, { req }) => {
       const file = req.file;
       const acceptedExtensions = [".gif", ".png", ".tif", ".jpg"];
@@ -41,24 +41,24 @@ module.exports = {
   ],
 
   ProfValidations: [
-    body("name").notEmpty().withMessage("Debes introducir un nombre"),
-    body("lastName").notEmpty().withMessage("Debes introducir un apellido"),
+    body("name").notEmpty().withMessage("Debes introducir tu nombre"),
+    body("lastName").notEmpty().withMessage("Debes introducir tu apellido"),
     body("userName")
       .notEmpty()
       .withMessage("Debes introducir un nombre de usuario"),
     body("email")
       .notEmpty()
-      .withMessage("Debes introducir un email")
+      .withMessage("Debes introducir tu email")
       .bail()
       .isEmail()
       .withMessage("Debes escribir un formato de correo válido"),
     body("password").notEmpty().withMessage("Debes introducir una contraseña"),
-    body("phone").notEmpty().withMessage("Debes introducir un teléfono"),
-    body("DNI").notEmpty().withMessage("Debes introducir un DNI"),
-    body("address").notEmpty().withMessage("Debes introducir una dirección"),
-    body("city").notEmpty().withMessage("Debes introducir una ciudad"),
-    body("state").notEmpty().withMessage("Debes introducir una provincia"),
-    body("zipCode").notEmpty().withMessage("Debes introducir un código postal"),
+    body("phone").notEmpty().withMessage("Debes introducir tu número teléfono"),
+    body("DNI").notEmpty().withMessage("Debes introducir tu número de DNI"),
+    body("address").notEmpty().withMessage("Debes introducir tu dirección"),
+    body("city").notEmpty().withMessage("Debes introducir el nombre de tu ciudad"),
+    body("state").notEmpty().withMessage("Debes introducir el nombre de tu provincia"),
+    body("zipCode").notEmpty().withMessage("Debes introducir tu código postal"),
     body("rubro").notEmpty().withMessage("Debes elegir por lo menos 1 rubro"),
     body("avatar").custom((value, { req }) => {
       var file = req.files.avatar;
