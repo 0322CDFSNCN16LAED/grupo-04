@@ -1,7 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const db = require("../database/models");
 
-
 module.exports = {
   home: (req, res) => {
     res.render("index");
@@ -16,13 +15,13 @@ module.exports = {
       where: {
         email: req.body.email,
       },
+      raw: true,
+      nest: true,
     });
-    const profToLogin = await db.User.findOne({
-      where: {
-        email: req.body.email,
-        isProf: true,
-      },
-    });
+
+    const isProf = userToLogin.isProf === 1;
+
+    const profToLogin = isProf == true ? userToLogin : "";
 
     if (!userToLogin)
       return res.render("login", {
@@ -62,6 +61,32 @@ module.exports = {
 
   register: (req, res) => {
     res.render("register");
-  }, 
-  
+  },
+  newPassword: (req,res) => {
+    res.render("changePassword")
+  },
+  addNewPassword: async (req, res) => {
+    const user = req.session.userLogged;
+    const oldPassword = req.body.oldPassword;
+    let newPassword = req.body.newPassword;
+    const repeatNewPass = req.body.repeatNewPassword;
+    
+    const compareOldP = oldPassword
+      ? bcryptjs.compareSync(oldPassword, user.password)
+      : "";
+    const compareNewPass = newPassword
+      ? newPassword === repeatNewPass
+      : "";    
+    compareOldP === true && compareNewPass === true
+      ? user.password = bcryptjs.hashSync(newPassword, 10)        
+        
+      : "";    
+    await db.User.update(user,{
+      where: {
+        id: user.id
+      }
+    })
+    req.session.destroy();
+    return res.redirect("/login");
+  },
 };

@@ -1,5 +1,3 @@
-const dbBudgets = require("../models/budget.js");
-const dbProf = require("../models/prof");
 const { QueryTypes } = require("sequelize");
 const db = require("../database/models");
 const bcryptjs = require("bcryptjs");

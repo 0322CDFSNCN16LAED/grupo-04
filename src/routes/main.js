@@ -25,4 +25,7 @@ router.get("/history", authMiddleware, mainControllers.history);
 
 router.get("/register", guestMiddleware, mainControllers.register);
 
+router.get("/newPassword", authMiddleware, mainControllers.newPassword);
+router.post("/newPassword", mainControllers.addNewPassword);
+
 module.exports = router;

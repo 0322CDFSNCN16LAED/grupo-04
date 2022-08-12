@@ -1,11 +1,9 @@
-const dbBudgets = require("../models/budget.js");
-
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const { sequelize } = require("../database/models");
 const { QueryTypes } = require("sequelize");
-const prof = require("../models/prof.js");
+
 
 module.exports = {
   createUser: (req, res) => {
