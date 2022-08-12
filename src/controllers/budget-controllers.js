@@ -85,101 +85,65 @@ module.exports = {
     res.redirect("/");
   },
 
-  detail: async (req, res) => {
-    const resId = req.params.resId;
+  viewDetail: async (req, res) => {
+    const userId = req.session.userLogged.id;
 
-    const resp = await db.budgRes.findByPk(resId);
-    const reqId = resp.reqId;
+    const userReq = await db.budgReq.findOne({
+      where: {
+        userId: userId,
+      },
+      include: ["budget_response", "req_imgs"],
+    });
 
-    const imgs = await sequelize.query(
-      `select img from req_imgs ri where reqId = (${reqId})`,
-      { type: QueryTypes.SELECT }
-    );
-    const budgetToShow = await sequelize.query(
-      `select * from budget_request breq join budget_response bres on bres.id = (${resId} and bres.reqId = breq.id)`,
-      { type: QueryTypes.SELECT }
-    );
+    const reqImgs = userReq.req_imgs.map((img) => img.img);
+    const profRes = userReq.budget_response.filter((response) => response.id == req.params.resId)
 
-    res.render("budgetDetail", { budgetToShow, imgs });
+    res.render("budgetDetail", { userReq, reqImgs, profRes });
   },
 
-  cartDetail: async (req, res) => {
-    const resId = req.params.resId;
-    const budgetToShow = await sequelize.query(
-      `select * from budget_request breq join budget_response bres on bres.id = (${resId} and bres.reqId = breq.id)`,
-      { type: QueryTypes.SELECT }
-    );
-    const user = await db.User.findByPk(req.session.userLogged.id);
-    const userToShow = user.dataValues;
-    const profId = budgetToShow[0].userId;
-    const prof = await db.User.findByPk(profId);
-    const profToShow = prof.dataValues;
-
-    res.render("cartDetail", { budgetToShow, userToShow, profToShow });
+  addToCart: async (req, res) => {
+    const user = await db.User.findOne({
+      where: {
+        id: req.session.userLogged.id,
+      }
+    });    
+    const budgetToShow = await db.budgRes.findOne({
+      where: {
+        id: req.params.resId,
+      },
+      include: ["budget_request", "users"],
+    });
+    const reqImg = await db.ReqImgs.findOne({
+      where: {
+        reqId: budgetToShow.reqId
+      }
+    })
+    res.render("cartDetail", { user, budgetToShow, reqImg: reqImg.img });
   },
 
-  storeCartItem: (req, res) => {
-    const budgetReq = dbBudget.getAllBudgetReq();
-    const budgetRes = dbBudget.getAllBudgetRes();
-    const allProfs = dbProfs.getAllProf();
-    const allUsers = dbUsers.getAllUsers();
+  storeCartItem: async (req, res) => {
+    const resId = await db.budgRes.findByPk()
 
-    const getBudgetRes = budgetRes.filter(
-      (budget) => budget.resId == req.params.resId
-    );
-    const getUserReq = budgetReq.filter(
-      (budget) =>
-        budget.userId === req.session.userLogged.userId &&
-        budget.reqId == getBudgetRes[0].reqId
-    );
-    const userName = allUsers.filter(
-      (user) => user.userId == getUserReq[0].userId
-    );
-    const getProfRes = budgetRes.filter(
-      (budget) =>
-        budget.userId === req.session.userLogged.userId &&
-        budget.resId == req.params.resId
-    );
-    const profName = allProfs.filter(
-      (prof) => prof.profId == getProfRes[0].profId
-    );
-
-    const newItem = {
-      profId: profName[0].profId,
-      userId: userName[0].userId,
-      reqId: getUserReq[0].reqId,
-      resId: getBudgetRes[0].resId,
-      ...req.body,
-    };
-    dbBudget.createPurchase(newItem);
+    const shop = await db.ShoppingCart.create({
+      resId: 1,
+      userId: req.session.userLogged.id,
+      dia: req.body.diaTurno,
+      horario: req.body.horario,
+      metodoPago: req.body.metodoPago,
+      estado: "",
+    })
+    console.log(JSON.stringify(shop, null, 4))
     res.redirect("/budget/cart");
   },
 
-  cart: (req, res) => {
-    const budgetReq = dbBudget.getAllBudgetReq();
-    const budgetRes = dbBudget.getAllBudgetRes();
-    const allProfs = dbProfs.getAllProf();
-    const allUsers = dbUsers.getAllUsers();
-    const allItems = dbBudget.getAllCartItems();
+  cart: async (req, res) => {
+    const items = await db.ShoppingCart.findAll({
+      where: {
+        userId: req.session.userLogged.id,
+      }
+    })
+    console.log(JSON.stringify(items, null, 4))
 
-    const userItems = allItems.filter(
-      (item) => req.session.userLogged.userId == item.userId
-    );
-    const getUserReq = budgetReq.filter(
-      (budget) => budget.reqId == userItems.reqId
-    );
-    const userName = allUsers.filter((user) => user.userId == userItems.userId);
-    const getProfRes = budgetRes.filter(
-      (budget) => budget.resId == userItems.resId
-    );
-    const profName = allProfs.filter((prof) => prof.profId == userItems.profId);
-
-    res.render("cartMain", {
-      userItems,
-      getUserReq,
-      getProfRes,
-      profName,
-      userName,
-    });
+    res.render("cartMain", { items });
   },
 };

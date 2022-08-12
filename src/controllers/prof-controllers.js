@@ -96,7 +96,6 @@ module.exports = {
     const userRubros = rubros.map(function (rubro) {
       return rubro.rubroNombre;
     });
-    console.log(userRubros);
     res.render("profDetail", {
       user: req.session.userLogged,
       rubros: userRubros.join(", "),
@@ -105,35 +104,35 @@ module.exports = {
 
   editProfProfile: async (req, res) => {
     const userToEdit = req.session.userLogged;
-    const rubros = await sequelize.query(
-      `SELECT rubroNombre FROM rubrousers WHERE userId=${userToEdit.id}`,
-      { type: QueryTypes.SELECT }
-    );  
-    const allRubros = await sequelize.query(
-      `SELECT nombre FROM rubros`,
-      { type: QueryTypes.SELECT }
-    );  
-    const rubrosToAppend = allRubros.filter(function(rubro){
-      return !rubros.includes(rubro);
+    const user = await db.User.findByPk(userToEdit.id, {
+      include: ["rubros","jobsImg"],
     });
-    
+    const userJobImgs = user.jobsImg.map((img) => img);
+   
+    const allRubros = JSON.parse(
+      JSON.stringify(await db.Rubro.findAll(), null, 4)
+    ).map((rubro) => rubro.nombre);
+    const userRubros = user.rubros.map((rubro) => rubro.nombre);
+
+    const rubrosToAppend = allRubros.filter(function (rubro) {
+      return !userRubros.includes(rubro);
+    });
+
     res.render("editProf", {
       user: userToEdit,
-      rubros: rubros.map(function (rubro) {
-      return rubro.rubroNombre;
-     }).join(', '),
-     rubrosToDelete: rubros,
-     rubrosToAppend: rubrosToAppend     
-    })
+      rubrosToDelete: userRubros,
+      rubrosToAppend: rubrosToAppend,
+      imgs: userJobImgs
+    });
   },
   updateProfProfile: async (req, res) => {
     const oldData = req.session.userLogged;
-    const rubros = await sequelize.query(
-      `SELECT rubroNombre FROM rubrousers WHERE userId=${oldData.id}`,
-      { type: QueryTypes.SELECT }
-    );
+    const user = await db.User.findByPk(oldData.id, {
+      include: ["rubros", "jobsImg"],
+    });    
+    const jobsImgArray = req.files["finished-jobs"];
     const oldPassword = req.body.oldPassword;
-    const newPassword = req.body.newPassword;    
+    const newPassword = req.body.newPassword;
     const compareOldP = oldPassword
       ? bcryptjs.compareSync(oldPassword, oldData.password)
       : "";
@@ -142,30 +141,56 @@ module.exports = {
       name: req.body.name,
       lastName: req.body.lastName,
       userName: req.body.userName,
-      email: req.body.email,      
+      email: req.body.email,
       phone: req.body.phone,
-      DNI: req.body.DNI,          
+      DNI: req.body.DNI,
       avatar: req.body.avatar ? req.file.filename : oldData.avatar,
     };
-    if(compareOldP === true && newPassword){
-      profToCreate.password =  bcryptjs.hashSync(newPassword, 10)
-    }else{
-      profToCreate.password = oldData.password
-    }
-    if(req.body.rubroAdd != ""){
+    compareOldP === true && newPassword
+      ? (profToCreate.password = bcryptjs.hashSync(newPassword, 10))
+      : (profToCreate.password = oldData.password);
 
+    req.files["avatar"]
+      ? (profToCreate.avatar = req.files["avatar"][0].filename)
+      : "";
+
+    const rubrosToAdd = req.body.rubroAdd
+      ? typeof req.body.rubroAdd === "string"
+        ? [req.body.rubroAdd]
+        : req.body.rubroAdd
+      : undefined;
+
+    if (rubrosToAdd) await user.addRubros(rubrosToAdd);
+
+    const rubrosToDelete = req.body.rubroDelete
+      ? typeof req.body.rubroDelete === "string"
+        ? [req.body.rubroDelete]
+        : req.body.rubroDelete
+      : undefined;
+
+    if (rubrosToDelete) await user.removeRubros(rubrosToDelete);
+    
+    const jobsImgs = jobsImgArray
+      ? jobsImgArray.map(function (img) {
+          return img.filename;
+        })
+      : [];
+    if (jobsImgs) {
+      await db.JobImg.bulkCreate(
+        jobsImgs.map(function (img) {
+          return {
+            img: img,
+            userId:oldData.id,
+          };
+        })
+      );
     }
-    
-    req.files["avatar"] ? (profToCreate.avatar = req.files["avatar"][0].filename) : "";
-    
-    
     await db.User.update(profToCreate, {
       where: {
         id: req.session.userLogged.id,
       },
     });
     req.session.userLogged = await db.User.findByPk(oldData.id)
-    console.log(req.session.userLogged)
           
     res.redirect("/");
   },
@@ -174,7 +199,7 @@ module.exports = {
     const userId = req.session.userLogged.id;
     const user = await db.User.findByPk(userId, {
       include: ["rubros"],
-    });   
+    });
     const budgWithImgs = await db.budgReq.findAll({
       where: {
         rubroNombre: {
@@ -184,9 +209,6 @@ module.exports = {
       include: ["req_imgs","users"],
      
     }); 
-    
-    
-    console.log(JSON.stringify(budgWithImgs, null, 4));  
     res.render("inboxProf", { budgWithImgs });
   },
 };

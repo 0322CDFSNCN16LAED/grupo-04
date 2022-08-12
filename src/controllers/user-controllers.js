@@ -60,15 +60,12 @@ module.exports = {
     let userId= req.session.userLogged.id;
     const oldData = req.session.userLogged;
     let newData = req.body
-    console.log(newData)
+
     const newUser= await db.User.update({
       where: {
         id: userId
       }
     })
-    console.log(newUser)
-    
-    
     res.render("userDetail");
   },
   inboxUser: async (req, res) => {
@@ -104,7 +101,6 @@ module.exports = {
         if (index !== -1) userRequest[index].responses.push(res);
       }
     });
-    console.log(userRequest)
     res.render("inboxUser", { userRequest });
   },
 };
