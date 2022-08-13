@@ -2,6 +2,7 @@
 <html lang="en">
 
     <%- include('./partials/head') %>
+    <script src="/js/registerProf.js"></script>
 
 <body>
     <%- include('./partials/header') %>
@@ -154,70 +155,9 @@
                                     </div>
                                 <% } %>
                             </div>                            
-                       
-                            <div class="font-medium mt-3"> Rubros </div>
-                            <div class="form-check">
-                                <input 
-                                    class="form-check-input" 
-                                    name= "rubro" 
-                                    type="checkbox" 
-                                    value="Electricista" 
-                                >
-                                <label class="form-check-label" for="Electricista">
-                                    Electricista
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input 
-                                    class="form-check-input" 
-                                    name= "rubro" 
-                                    type="checkbox" 
-                                    value="Plomero" 
-                                >
-                                <label class="form-check-label" for="Plomero">
-                                    Plomero
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" 
-                                    name= "rubro" 
-                                    type="checkbox" 
-                                    value="Gasista" 
-                                    id="Gasista">
-                                <label class="form-check-label" for="Gasista">
-                                    Gasista
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" 
-                                    name= "rubro" 
-                                    type="checkbox"
-                                    value="Pintor" 
-                                    id="Pintor">
-                                <label class="form-check-label" for="Pintor">
-                                    Pintor
-                                </label>
-                            </div>
-                            <% if (locals.errors && errors.rubro) { %>
-                                <div class= "error-msg">
-                                    <%= errors.rubro.msg %>               
-                                </div>
-                            <% } %>  
-                            <div class="form-check">
-                                <input class="form-check-input" 
-                                    name= "rubro" 
-                                    type="checkbox"
-                                    value="Albañil" 
-                                    id="Pintor">
-                                <label class="form-check-label" for="Albañil">
-                                    Albañil
-                                </label>
-                            </div>
-                            <% if (locals.errors && errors.rubro) { %>
-                                <div class= "error-msg">
-                                    <%= errors.rubro.msg %>               
-                                </div>
-                            <% } %>  
+                                                                       
+                            <%- include('./partials/checkboxRubros', {array: rubros, title:"Rubros", name:"rubro"}) %>
+
                              <div class="col-12 mt-3 mb-3">
                                 <label for="Dirección" class="form-label visually-hidden">Dirección</label>
                                 <input 

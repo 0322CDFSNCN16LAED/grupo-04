@@ -5,20 +5,28 @@ const { validationResult } = require("express-validator");
 const { sequelize } = require("../database/models");
 
 module.exports = {
-  createProf: (req, res) => {
-    res.render("registerProfesional");
+  createProf: async (req, res) => {
+    const allRubros = JSON.parse(
+      JSON.stringify(await db.Rubro.findAll(), null, 4)
+    ).map((rubro) => rubro.nombre);    
+    
+    res.render("registerProfesional", {rubros: allRubros});
   },
 
   storeProf: async (req, res) => {
     const resultValidation = validationResult(req);
+       const allRubros = JSON.parse(
+         JSON.stringify(await db.Rubro.findAll(), null, 4)
+       ).map((rubro) => rubro.nombre); 
 
     if (resultValidation.errors.length > 0) {
       res.render("registerprofesional", {
         errors: resultValidation.mapped(),
         oldData: req.body,
+        rubros: allRubros,
       });
     }
-
+   
     const profInDb = await db.User.findOne({
       where: {
         email: req.body.email,
@@ -28,6 +36,7 @@ module.exports = {
     const jobsImgArray = req.files["finished-jobs"];
     const profileImg = req.files["avatar"];
     const password = req.body.password;
+    
 
     if (profInDb) {
       return res.render("registerprofesional", {
@@ -37,6 +46,7 @@ module.exports = {
           },
         },
         oldData: req.body,
+        rubros: allRubros,
       });
     }
 
