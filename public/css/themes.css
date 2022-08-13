@@ -333,6 +333,17 @@ a { text-decoration: none; color: black; }
   background-position: center center;
   background-size: cover;
 }
+.user-inbox-pic {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  border-radius: 10%;
+  background-color: #EFEFEF;
+  
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
 .map-column {
     flex-direction: column;
 }
@@ -382,3 +393,4 @@ table {
 .is-invalid{
     border: solid #B00020 1px;
 }
+/*---------inbox user card-----------*/

@@ -15,7 +15,10 @@
         </button>
       </div>
       <section class="row row-cols-1 row-cols-md-2 g-4">
-        <% userRequest.forEach(function(budgetToShow){ %>
+        <% for (let i = 0; i < userRequest.length; i++) {%>
+          <% const budgetToShow = userRequest[i] %> 
+          <% const id =  "id"+(i.toString()) %>           
+        
           <div class="card" style="width: 22rem">
           <h3 class="text-center bolder">Tu Pedido</h3>
           <% if (budgetToShow.img && budgetToShow.img.length > 0) { %>
@@ -42,12 +45,30 @@
             <h5 class="bolder text-center">
               Presupuestos Recibidos
             </h5>
-            <% budgetToShow.responses.forEach(response => { %> 
-              <%- include('./partials/inboxUserCards', {response}); %>  
-            <% }) %>
+            <div id="<%= id %>" class="carousel slide" data-interval="false">
+              <div class="carousel-inner">
+                <% for (let index = 0; index < budgetToShow.responses.length; index++) {%>
+                <% const response = budgetToShow.responses[index];%>                   
+                
+                <div class="<%=  index === 0 ? "carousel-item active": "carousel-item"  %>">
+                 
+                  <%- include('./partials/inboxUserCards', {response}); %>  
+                </div>
+              <% } %>
+                
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#<%= id %>" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#<%= id %>" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
         </div>
-          <% }) %>
+          <% } %>
       </section>
     </main>
 
