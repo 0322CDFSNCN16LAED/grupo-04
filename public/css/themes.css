@@ -394,3 +394,9 @@ table {
     border: solid #B00020 1px;
 }
 /*---------inbox user card-----------*/
+.carousel-control-next-icon{
+    background-image: url(https://cdn-icons-png.flaticon.com/512/271/271228.png)!important
+}
+.carousel-control-prev-icon{
+    background-image: url(https://cdn-icons-png.flaticon.com/512/271/271220.png)!important
+}
