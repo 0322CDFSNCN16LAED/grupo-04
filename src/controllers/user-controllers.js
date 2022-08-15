@@ -1,8 +1,8 @@
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-const { sequelize } = require("../database/models");
-const { QueryTypes } = require("sequelize");
+
+
 
 module.exports = {
   createUser: (req, res) => {

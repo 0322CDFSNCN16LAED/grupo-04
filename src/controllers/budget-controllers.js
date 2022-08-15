@@ -1,6 +1,3 @@
-const dbBudget = require("../models/budget");
-const dbProfs = require("../models/prof");
-const dbUsers = require("../models/Users");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
 const { QueryTypes } = require("sequelize");
