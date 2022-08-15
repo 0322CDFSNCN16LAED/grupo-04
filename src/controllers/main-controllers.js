@@ -46,8 +46,8 @@ module.exports = {
     req.session.userLogged = user;
 
     return profToLogin
-      ? res.redirect("/prof/detail")
-      : res.redirect("/user/detail");
+      ? res.redirect("/prof/inbox")
+      : res.redirect("/user/inbox");
   },
 
   history: (req, res) => {

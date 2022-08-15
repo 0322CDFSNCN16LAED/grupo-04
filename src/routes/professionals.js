@@ -23,7 +23,7 @@ router.post(
   profControllers.storeProf
 );
 
-router.get("/detail", authMiddleware, profControllers.profDetail)
+router.get("/detail/:id", authMiddleware, profControllers.profDetail)
 router.get("/edit/:id", authMiddleware, profControllers.editProfProfile);
 router.put("/update/:id",
   authMiddleware,

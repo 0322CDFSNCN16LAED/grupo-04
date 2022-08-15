@@ -99,7 +99,7 @@ module.exports = {
     }
   },
   profDetail: async (req, res) => {
-    const userId = req.session.userLogged.id;
+    const userId = req.params.id;
     const user = await db.User.findByPk(userId, {
       include: ["rubros", "jobsImg"],
     });
@@ -107,7 +107,7 @@ module.exports = {
     const userRubros = user.rubros.map((rubro) => rubro.nombre);
 
     res.render("profDetail", {
-      user: req.session.userLogged,
+      user: user,
       rubros: userRubros.join(", "),
       imgs: userJobImgs,
     });

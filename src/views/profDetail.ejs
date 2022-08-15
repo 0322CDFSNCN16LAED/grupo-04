@@ -67,11 +67,14 @@
                             <% }) %> 
                         </div>               
                     </div>
+                    <% if(locals.userLogged.id === user.id) { %> 
+                    
                     <div class="fx justify-center mt-3">
                         <button class="primary-button" type="submit">
                             <a href="/prof/edit/<%= user.id %>"> Actualizar mis datos</a>
                         </button>  
                     </div>
+                    <% } %> 
         
                 </div>
 

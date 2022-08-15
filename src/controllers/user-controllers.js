@@ -43,9 +43,10 @@ module.exports = {
       });
     }
   },
-  userDetail: (req, res) => {
+  userDetail: async (req, res) => {
+    const user = await db.User.findByPk(req.params.id)
     res.render("userDetail", {
-      user: req.session.userLogged,
+      user: user,
     });
   },
   editUserProfile: (req, res) => {

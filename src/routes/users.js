@@ -10,7 +10,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
 const userControllers = require("../controllers/user-controllers");
 const userValidations = registerMiddlewares.userValidations;
 
-router.get("/detail", authMiddleware, userControllers.userDetail);
+router.get("/detail/:id", authMiddleware, userControllers.userDetail);
 router.get("/edit/:id", authMiddleware, userControllers.editUserProfile);
 router.put("/update/:id", authMiddleware,upload.single("avatar"), userControllers.updateUserProfile);
 router.get("/inbox", authMiddleware, userControllers.inboxUser);

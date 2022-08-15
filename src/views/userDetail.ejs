@@ -63,16 +63,16 @@
                                 <div>Código Postal</div>
                                 <div class="form-control"><%= user.zipCode %></div>
                             </div>    
-                        </div>                
-                        
-                        
-                        
+                        </div>             
+                                               
+                     <% if(locals.userLogged.id === user.id) { %>   
                     </div>
                     <div class="fx justify-center mt-3">
                         <button class="primary-button">
                             <a href="/user/edit/<%= user.id %>"> Actualizar mis datos</a>
                         </button>  
                     </div>
+                    <% } %> 
         
                 </div>
 

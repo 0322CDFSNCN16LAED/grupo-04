@@ -75,10 +75,10 @@
             aria-expanded="false"><i class="fa-solid fa-user"></i></a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <% if (locals.isLogged && locals.userLogged.isProf) { %>
-                    <li><a class="dropdown-item" href="/prof/detail/">Mi perfil</a></li>                       
+                    <li><a class="dropdown-item" href="/prof/detail/<%= locals.userLogged.id %>">Mi perfil</a></li>                       
                 <% } %>
                 <% if (locals.isLogged && !locals.userLogged.isProf) { %>
-                    <li><a class="dropdown-item" href="/user/detail/">Mi perfil</a></li>                      
+                    <li><a class="dropdown-item" href="/user/detail/<%= locals.userLogged.id %>">Mi perfil</a></li>                      
                 <% } %>                         
                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
                 

@@ -2,10 +2,10 @@
     <div class="fx align-center">
         <div class="fx fx-column justify-center align-center">
         <div class="card-header bolder">Profesional </div>
-            <a href="/user/detail/<%= response.userId %>" class="font-medium text-center"><%= response.users.name %> <%= response.users.lastName %></a>
+            <a href="/prof/detail/<%= response.users.id %>" class="font-medium text-center"><%= response.users.name %> <%= response.users.lastName %></a>
         </div>
         <div class="ml-5">
-             <div class="user-inbox-pic " style="background-image:url('/images/avatar/<%=response.users.avatar %>')"></div>
+            <a href="/prof/detail/<%= response.users.id %>" class="user-inbox-pic " style="background-image:url('/images/avatar/<%=response.users.avatar %>')"></a>
             
         </div>
     </div>
