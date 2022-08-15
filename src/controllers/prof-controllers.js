@@ -141,6 +141,7 @@ module.exports = {
     const user = await db.User.findByPk(oldData.id, {
       include: ["rubros", "jobsImg"],
     });
+    const jobsImgArray = req.files["finished-jobs"];
 
     const profToCreate = {
       name: req.body.name,
