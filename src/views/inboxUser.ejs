@@ -15,20 +15,20 @@
         </button>
       </div>
       <section class="row row-cols-1 row-cols-md-2 g-4">
-        <% for (let i = 0; i < userRequest.length; i++) {%>
-          <% const budgetToShow = userRequest[i] %> 
+        <% for (let i = 0; i < budgets.length; i++) {%>
+          <% const budgetToShow = budgets[i] %> 
           <% const id =  "id"+(i.toString()) %>           
         
           <div class="card" style="width: 22rem">
           <h3 class="text-center bolder">Tu Pedido</h3>
-          <% if (budgetToShow.img && budgetToShow.img.length > 0) { %>
+          <% if (budgetToShow.req_imgs && budgetToShow.req_imgs.length > 0) { %>            
           <a
             target="_blank"
-            href="/images/budgetRequest/<%= budgetToShow.img[0] %> %>"
+            href="/images/budgetRequest/<%= budgetToShow.req_imgs[0].img %> %>"
           >
             <img
               class="card-img-top"
-              src="/images/budgetRequest/<%= budgetToShow.img[0] %>"
+              src="/images/budgetRequest/<%= budgetToShow.req_imgs[0].img %>"
             />
           </a>
           <% } %>
@@ -47,15 +47,17 @@
             </h5>
             <div id="<%= id %>" class="carousel slide" data-interval="false">
               <div class="carousel-inner">
-                <% for (let index = 0; index < budgetToShow.responses.length; index++) {%>
-                <% const response = budgetToShow.responses[index];%>                  
+                <% for (let index = 0; index < budgetToShow.budget_response.length; index++) {%>
+                <% const response = budgetToShow.budget_response[index];%>                  
                 
                 <div class="<%=  index === 0 ? "carousel-item active": "carousel-item"  %>">                 
-                  <%- include('./partials/inboxUserCards', {response}); %>  
-                </div>
+                  
+                            
+                    <%- include('./partials/inboxUserCards', {response}); %>  
+                  </div>
               <% } %>                
               </div>
-              <% if (budgetToShow.responses.length > 0) { %>
+              <% if (budgetToShow.budget_response.length > 0) { %>
                 <button class="carousel-control-prev" type="button" data-bs-target="#<%= id %>" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>

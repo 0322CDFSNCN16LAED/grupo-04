@@ -4,7 +4,6 @@ const bcryptjs = require("bcryptjs");
 const { sequelize } = require("../database/models");
 const { QueryTypes } = require("sequelize");
 
-
 module.exports = {
   createUser: (req, res) => {
     res.render("registerUser");
@@ -55,50 +54,29 @@ module.exports = {
     res.render("editUser", { user: userToEdit });
   },
   updateUserProfile: async (req, res) => {
-    let userId= req.session.userLogged.id;
+    let userId = req.session.userLogged.id;
     const oldData = req.session.userLogged;
-    let newData = req.body
+    let newData = req.body;
 
-    const newUser= await db.User.update({
+    const newUser = await db.User.update({
       where: {
-        id: userId
-      }
-    })
+        id: userId,
+      },
+    });
     res.render("userDetail");
   },
   inboxUser: async (req, res) => {
-    const user = req.session.userLogged.id;
-    const userRequest = await sequelize.query(
-      `select * from budget_request where userId = ${user}`,
-      { type: QueryTypes.SELECT }
-    );
-    const profRes = await sequelize.query(
-      `select * from budget_response bres join budget_request breq on bres.reqId = breq.id and breq.userId = ${user} join users u on bres.userId = u.id `,
-      { type: QueryTypes.SELECT }
-    );    
-    const imgs = await sequelize.query(
-      `select img,reqId from req_imgs ri join budget_request br on br.id = ri.reqId and br.userId = ${user}`,
-      { type: QueryTypes.SELECT }
-    );    
-    userRequest.forEach(function (req) {
-      req.responses = [];
-      req.img = imgs
-        .filter(function (img) {
-          if (img.reqId === req.id) {
-            return img.img;
-          }
-        })
-        .map(function (req) {
-          return req.img;
-        });
+    const userId = req.session.userLogged.id;
+    const budgets = await db.budgReq.findAll({
+      where: {
+        userId: userId,
+      },
+      include: [
+        "req_imgs",
+        "budget_response",
+        { association: "budget_response", include: ["users"] },
+      ],
     });
-    profRes.forEach(function (res) {
-      const req = userRequest.filter((req) => req.id === res.reqId);
-      if (req && req.length > 0) {
-        const index = userRequest.indexOf(req[0]);
-        if (index !== -1) userRequest[index].responses.push(res);
-      }
-    });
-    res.render("inboxUser", { userRequest });
+    res.render("inboxUser", { budgets });
   },
 };
