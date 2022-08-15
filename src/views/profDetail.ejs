@@ -20,42 +20,51 @@
                         <div>
                             <div class="row mt-3">
                                 <div class="col">
-                                    <div>Nombre</div>
+                                    <div class="bolder">Nombre</div>
                                     <div class="form-control"><%= user.name %>  </div>
                                 </div>
                                 <div class="col">
-                                    <div>Apellido</div>
+                                    <div class="bolder">Apellido</div>
                                     <div class="form-control"><%= user.lastName %></div>
                                 </div>
                             </div>
                             <div class="col-auto mt-3">
-                                <div>Nombre de usuario</div>
+                                <div class="bolder">Nombre de usuario</div>
                                 <div class="input-group">
                                     <div class="input-group-text mb-auto">@</div>
                                     <p class="form-control"><%= user.userName %> </p>
                                 </div>
                             </div>
                             <div class="col mb-3">
-                                <div>Email</div>
+                                <div class="bolder">Email</div>
                                 <div class="form-control"><%= user.email %></div>
                             </div>                           
                             
                             <div class="col mt-3">
-                                <div>Teléfono</div>
+                                <div class="bolder">Teléfono</div>
                                 <div class="form-control" placeholder="Teléfono"><%= user.phone %></div>
                             </div>
         
                             <div class="col-12 mt-3 mb-3">
-                                <div>DNI</div>
+                                <div class="bolder">DNI</div>
                                 <div class="form-control" id="Dirección"><%= user.DNI %></div>
                             </div>                            
                            
                             <div class="col-sm mt-3">
-                                <div>Rubro</div>
+                                <div class="bolder">Rubro</div>
                                
                                     <div class="form-control"><%= rubros %></div>                                 
                                 
-                            </div>    
+                            </div>   
+                             <div class="bolder col mt-3">
+                                Trabajos Realizados
+                            </div>
+                            <% imgs.forEach(img => { %>
+                                <a target="_blank" href="/images/finished-jobs-images/<%= img.img %>">
+                                <img class="thumbnail" src="/images/finished-jobs-images/<%= img.img %>">
+                            </a>
+                               
+                            <% }) %> 
                         </div>               
                     </div>
                     <div class="fx justify-center mt-3">

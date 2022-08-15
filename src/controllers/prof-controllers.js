@@ -8,26 +8,29 @@ module.exports = {
   createProf: async (req, res) => {
     const allRubros = JSON.parse(
       JSON.stringify(await db.Rubro.findAll(), null, 4)
-    ).map((rubro) => rubro.nombre);    
-    
-    res.render("registerProfesional", {rubros: allRubros});
+    ).map((rubro) => rubro.nombre);
+
+    res.render("registerProfesional", { rubros: allRubros });
   },
 
   storeProf: async (req, res) => {
     const resultValidation = validationResult(req);
-       const allRubros = JSON.parse(
-         JSON.stringify(await db.Rubro.findAll(), null, 4)
-       ).map((rubro) => rubro.nombre); 
+    const allRubros = JSON.parse(
+      JSON.stringify(await db.Rubro.findAll(), null, 4)
+    ).map((rubro) => rubro.nombre);
 
     if (resultValidation.errors.length > 0) {
       res.render("registerprofesional", {
         errors: resultValidation.mapped(),
         oldData: req.body,
-        rubrosData: typeof req.body.rubro === "string" ? [req.body.rubro] : req.body.rubro,
+        rubrosData:
+          typeof req.body.rubro === "string"
+            ? [req.body.rubro]
+            : req.body.rubro,
         rubros: allRubros,
       });
     }
-   
+
     const profInDb = await db.User.findOne({
       where: {
         email: req.body.email,
@@ -37,7 +40,6 @@ module.exports = {
     const jobsImgArray = req.files["finished-jobs"];
     const profileImg = req.files["avatar"];
     const password = req.body.password;
-    
 
     if (profInDb) {
       return res.render("registerprofesional", {
@@ -98,26 +100,26 @@ module.exports = {
   },
   profDetail: async (req, res) => {
     const userId = req.session.userLogged.id;
-    const rubros = await sequelize.query(
-      `SELECT rubroNombre FROM rubrousers WHERE userId=${userId}`,
-      { type: QueryTypes.SELECT }
-    );
-    const userRubros = rubros.map(function (rubro) {
-      return rubro.rubroNombre;
+    const user = await db.User.findByPk(userId, {
+      include: ["rubros", "jobsImg"],
     });
+    const userJobImgs = user.jobsImg.map((img) => img);
+    const userRubros = user.rubros.map((rubro) => rubro.nombre);
+
     res.render("profDetail", {
       user: req.session.userLogged,
       rubros: userRubros.join(", "),
+      imgs: userJobImgs,
     });
   },
 
   editProfProfile: async (req, res) => {
     const userToEdit = req.session.userLogged;
     const user = await db.User.findByPk(userToEdit.id, {
-      include: ["rubros","jobsImg"],
+      include: ["rubros", "jobsImg"],
     });
     const userJobImgs = user.jobsImg.map((img) => img);
-   
+
     const allRubros = JSON.parse(
       JSON.stringify(await db.Rubro.findAll(), null, 4)
     ).map((rubro) => rubro.nombre);
@@ -131,14 +133,14 @@ module.exports = {
       user: userToEdit,
       rubrosToDelete: userRubros,
       rubrosToAppend: rubrosToAppend,
-      imgs: userJobImgs
+      imgs: userJobImgs,
     });
   },
   updateProfProfile: async (req, res) => {
     const oldData = req.session.userLogged;
     const user = await db.User.findByPk(oldData.id, {
       include: ["rubros", "jobsImg"],
-    });    
+    });
     const jobsImgArray = req.files["finished-jobs"];
     const oldPassword = req.body.oldPassword;
     const newPassword = req.body.newPassword;
@@ -178,7 +180,7 @@ module.exports = {
       : undefined;
 
     if (rubrosToDelete) await user.removeRubros(rubrosToDelete);
-    
+
     const jobsImgs = jobsImgArray
       ? jobsImgArray.map(function (img) {
           return img.filename;
@@ -189,7 +191,7 @@ module.exports = {
         jobsImgs.map(function (img) {
           return {
             img: img,
-            userId:oldData.id,
+            userId: oldData.id,
           };
         })
       );
@@ -199,8 +201,8 @@ module.exports = {
         id: req.session.userLogged.id,
       },
     });
-    req.session.userLogged = await db.User.findByPk(oldData.id)
-          
+    req.session.userLogged = await db.User.findByPk(oldData.id);
+
     res.redirect("/");
   },
 
@@ -215,9 +217,8 @@ module.exports = {
           [db.Sequelize.Op.in]: user.rubros.map((rubro) => rubro.nombre),
         },
       },
-      include: ["req_imgs","users"],
-     
-    }); 
+      include: ["req_imgs", "users"],
+    });
     res.render("inboxProf", { budgWithImgs });
   },
 };
