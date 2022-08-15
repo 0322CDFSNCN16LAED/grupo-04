@@ -23,6 +23,7 @@ module.exports = {
       res.render("registerprofesional", {
         errors: resultValidation.mapped(),
         oldData: req.body,
+        rubrosData: typeof req.body.rubro === "string" ? [req.body.rubro] : req.body.rubro,
         rubros: allRubros,
       });
     }

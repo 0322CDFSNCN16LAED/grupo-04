@@ -48,23 +48,24 @@
             <div id="<%= id %>" class="carousel slide" data-interval="false">
               <div class="carousel-inner">
                 <% for (let index = 0; index < budgetToShow.responses.length; index++) {%>
-                <% const response = budgetToShow.responses[index];%>                   
+                <% const response = budgetToShow.responses[index];%>                  
                 
-                <div class="<%=  index === 0 ? "carousel-item active": "carousel-item"  %>">
-                 
+                <div class="<%=  index === 0 ? "carousel-item active": "carousel-item"  %>">                 
                   <%- include('./partials/inboxUserCards', {response}); %>  
                 </div>
-              <% } %>
-                
+              <% } %>                
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#<%= id %>" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#<%= id %>" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+              <% if (budgetToShow.responses.length > 0) { %>
+                <button class="carousel-control-prev" type="button" data-bs-target="#<%= id %>" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#<%= id %>" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+               
+              <% } %>
             </div>
           </div>
         </div>
