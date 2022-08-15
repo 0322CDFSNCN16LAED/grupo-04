@@ -55,16 +55,18 @@ module.exports = {
     res.render("editUser", { user: userToEdit });
   },
   updateUserProfile: async (req, res) => {
-    let userId = req.session.userLogged.id;
-    const oldData = req.session.userLogged;
-    let newData = req.body;
-
-    const newUser = await db.User.update({
+    let userId = req.session.userLogged.id;     
+    let newData = {
+      ...req.body,
+      avatar: req.file.filename      
+    };    
+    await db.User.update(newData,{
       where: {
         id: userId,
       },
     });
-    res.render("userDetail");
+    req.session.userLogged = await db.User.findByPk(userId);
+    res.render("userDetail",{user:req.session.userLogged});
   },
   inboxUser: async (req, res) => {
     const userId = req.session.userLogged.id;

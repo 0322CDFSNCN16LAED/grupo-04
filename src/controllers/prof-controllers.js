@@ -141,12 +141,6 @@ module.exports = {
     const user = await db.User.findByPk(oldData.id, {
       include: ["rubros", "jobsImg"],
     });
-    const jobsImgArray = req.files["finished-jobs"];
-    const oldPassword = req.body.oldPassword;
-    const newPassword = req.body.newPassword;
-    const compareOldP = oldPassword
-      ? bcryptjs.compareSync(oldPassword, oldData.password)
-      : "";
 
     const profToCreate = {
       name: req.body.name,
@@ -156,11 +150,7 @@ module.exports = {
       phone: req.body.phone,
       DNI: req.body.DNI,
       avatar: req.body.avatar ? req.file.filename : oldData.avatar,
-    };
-    compareOldP === true && newPassword
-      ? (profToCreate.password = bcryptjs.hashSync(newPassword, 10))
-      : (profToCreate.password = oldData.password);
-
+    };   
     req.files["avatar"]
       ? (profToCreate.avatar = req.files["avatar"][0].filename)
       : "";
