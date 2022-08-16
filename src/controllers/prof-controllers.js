@@ -19,7 +19,7 @@ module.exports = {
     ).map((rubro) => rubro.nombre);
 
     if (resultValidation.errors.length > 0) {
-      res.render("registerprofesional", {
+      return res.render("registerprofesional", {
         errors: resultValidation.mapped(),
         oldData: req.body,
         rubrosData:

@@ -13,7 +13,7 @@ module.exports = {
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
-      res.render("registerUser", {
+      return res.render("registerUser", {
         errors: resultValidation.mapped(),
         oldData: req.body,
       });
