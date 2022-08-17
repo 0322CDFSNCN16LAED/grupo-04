@@ -15,9 +15,7 @@
             </div>
             <div class="mb-3">
               <p class="mr-3 form-label font-medium">Descripción del trabajo</p>
-              <p class="form-control">
-                <%= userReq.detalleSolicitud %>
-              </p>
+              <p class="form-control"><%= userReq.detalleSolicitud %></p>
             </div>
             <div class="mb-3 align-center">
               <p class="mr-3 font-medium">Categoría</p>
@@ -27,10 +25,7 @@
               <p class="form-label font-medium">Imágenes de referencia</p>
               <% reqImgs.forEach(img => { %>
               <a target="_blank" href="/images/budgetRequest/<%= img %>">
-                <img
-                  class="thumbnail"
-                  src="/images/budgetRequest/<%= img %>"
-                />
+                <img class="thumbnail" src="/images/budgetRequest/<%= img %>" />
               </a>
               <% }) %>
             </div>
@@ -74,9 +69,7 @@
 
           <div class="mb-3">
             <p class="mr-3 form-label font-medium">Comentarios adicionales</p>
-            <p class="form-control">
-              <%= profRes[0].comentariosTrabajo %>
-            </p>
+            <p class="form-control"><%= profRes[0].comentariosTrabajo %></p>
           </div>
 
           <div class="fx justify-end align-center">
@@ -88,9 +81,7 @@
 
           <div class="fx justify-center mt-3">
             <button class="primary-button">
-              <a href="/budget/cart/<%= profRes[0].id %>"
-                >Agregar al Carrito</a
-              >
+              <a href="/budget/cart/<%= profRes[0].id %>">Agregar al Carrito</a>
             </button>
           </div>
         </div>

@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %>
+  <%- include('./partials/head') %>
 
-<body>
-  <%- include('./partials/header') %>
+  <body>
+    <%- include('./partials/header') %>
 
-  <main class="imagen-fondo-mobile justify-center">
-    <div class = "fx justify-sp-b text-right font-xlarge">    
-      <h2 class="m-3 font-xlarge bolder lapt-shop-title">Mi Carrito</h2>
-      <button class="primary-button">
-        <a href="/budget/request">Nueva Solicitud</a>
-      </button>
-    </div>
+    <main class="imagen-fondo-mobile justify-center">
+      <div class="fx justify-sp-b text-right font-xlarge">
+        <h2 class="m-3 font-xlarge bolder lapt-shop-title">Mi Carrito</h2>
+        <button class="primary-button">
+          <a href="/budget/request">Nueva Solicitud</a>
+        </button>
+      </div>
 
-    <section class="cards">
-      <% items.forEach(function(item){ %>
+      <section class="cards">
+        <% items.forEach(function(item){ %>
         <article class="card w-card">
           <div class="justify-center">
             <p class="font-medium bolder"><%= item.tituloSolicitud %></p>
             <p class="font-medium bolder"><%= item.precioFinal %></p>
-            <p class="font-medium bolder"><%= item.name %> <%= item.lastName %></p>
+            <p class="font-medium bolder">
+              <%= item.name %> <%= item.lastName %>
+            </p>
             <p class="font-medium bolder"><%= item.diaTurno %></p>
             <p class="font-medium bolder"><%= item.horario %></p>
             <p class="font-medium bolder"><%= item.metodoPago %></p>
@@ -36,16 +38,17 @@
               </button>
             </div>
           </div>
-        </article>  
-      <% }) %>
-    </section>
-  </main>
+        </article>
+        <% }) %>
+      </section>
+    </main>
 
-  <%- include('./partials/footer') %>
+    <%- include('./partials/footer') %>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-  </script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

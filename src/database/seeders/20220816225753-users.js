@@ -34,9 +34,10 @@ module.exports = {
       "user-1659649252472.jpg",
       "user-1659649326508.jpg",
       "user-1659804015413.jpg",
-      "user-1660000495568.jpg",      
+      "user-1660000495568.jpg",
     ];
-    const avatarImg = avatarArray[Math.floor(Math.random() * avatarArray.length)];
+    const avatarImg =
+      avatarArray[Math.floor(Math.random() * avatarArray.length)];
     Array(50)
       .fill(0)
       .forEach((_, i) => {

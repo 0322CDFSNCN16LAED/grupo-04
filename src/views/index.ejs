@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%- include('./partials/head') %>
 
-<%- include('./partials/head') %>
+  <body>
+    <%- include('./partials/header') %>
 
-<body>
-   <%- include('./partials/header') %>
-    
-   <main class="imagen-fondo-mobile dp-grid main-fx-size">
-        <div class="txt-button-container">
-           
-            <div class="txt-button">
-                <p class="txt-mobile ">
-                    Encontrá a los mejores profesionales
-                    para hacer reparaciones en tu hogar
-                </p>
-                <p class="txt-desk">
-                    ¿Necesitas reparar algo? ¿Tuviste un desperfecto y no sabés con quien resolverlo?
-                </p>
-                
-                <button class="primary-button">
-                    <a href="/budget/request"> Solicitar presupuesto ahora</a>
-                </button>              
-            </div>
+    <main class="imagen-fondo-mobile dp-grid main-fx-size">
+      <div class="txt-button-container">
+        <div class="txt-button">
+          <p class="txt-mobile">
+            Encontrá a los mejores profesionales para hacer reparaciones en tu
+            hogar
+          </p>
+          <p class="txt-desk">
+            ¿Necesitas reparar algo? ¿Tuviste un desperfecto y no sabés con
+            quien resolverlo?
+          </p>
+
+          <button class="primary-button">
+            <a href="/budget/request"> Solicitar presupuesto ahora</a>
+          </button>
         </div>
-        <div class="txt-home-desk">
-            <h2 class="font-xlarge">¿Qué necesitas? </h2>
-            <h2 class="font-xlarge">Habla rápidamente con profesionales de servicios para tu casa</h2>
-        </div>       
+      </div>
+      <div class="txt-home-desk">
+        <h2 class="font-xlarge">¿Qué necesitas?</h2>
+        <h2 class="font-xlarge">
+          Habla rápidamente con profesionales de servicios para tu casa
+        </h2>
+      </div>
     </main>
 
-     <%- include('./partials/footer') %>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-</body>
+    <%- include('./partials/footer') %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
