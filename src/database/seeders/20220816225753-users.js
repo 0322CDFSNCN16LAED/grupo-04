@@ -1,8 +1,7 @@
 "use strict";
-const { v4 } = require("uuid");
-const uuid = v4;
 const { faker } = require("@faker-js/faker");
 const db = require("../models");
+const bcryptjs = require("bcryptjs");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -23,6 +22,21 @@ module.exports = {
       "user-1659391517874.jpg",
       "user-1659395293985.jpg",
     ];
+    const avatarArray = [
+      "user-1659358788392.jpg",
+      "user-1659358993205.jpg",
+      "user-1659359071144.jpg",
+      "user-1659391310705.jpg",
+      "user-1659395127340.jpg",
+      "user-1659397127439.jpg",
+      "user-1659569564550.jpg",
+      "user-1659571371225.jpg",
+      "user-1659649252472.jpg",
+      "user-1659649326508.jpg",
+      "user-1659804015413.jpg",
+      "user-1660000495568.jpg",      
+    ];
+    const avatarImg = avatarArray[Math.floor(Math.random() * avatarArray.length)];
     Array(50)
       .fill(0)
       .forEach((_, i) => {
@@ -33,15 +47,15 @@ module.exports = {
           lastName: faker.name.lastName(),
           userName: faker.name.firstName(),
           email: faker.internet.email(),
-          password: 1,
-          phone: faker.phone.imei(),
+          password: bcryptjs.hashSync("1", 10),
+          phone: faker.phone.number(),
           DNI: faker.datatype.number({ min: 1000000 }),
           isProf: isProf,
           address: faker.address.streetAddress(),
           city: faker.address.city(),
           zipCode: faker.address.zipCode(),
           state: faker.address.state(),
-          avatar: faker.image.avatar(),
+          avatar: avatarImg,
           created_at: new Date(),
           updated_at: new Date(),
         };
