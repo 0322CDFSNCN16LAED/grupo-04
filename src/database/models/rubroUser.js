@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     },   
   };
   const config = {
-    tableName: "rubroUsers",
+    tableName: "rubrousers",
     timestamps: false,
   
   };
