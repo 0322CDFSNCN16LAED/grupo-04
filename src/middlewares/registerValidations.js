@@ -15,19 +15,26 @@ module.exports = {
       .isEmail()
       .withMessage("Debes escribir un formato de correo válido"),
     body("password").notEmpty().withMessage("Debes introducir una contraseña"),
-    body("phone").notEmpty().withMessage("Debes introducir tu número de teléfono"),
+    body("phone")
+      .notEmpty()
+      .withMessage("Debes introducir tu número de teléfono"),
     body("address").notEmpty().withMessage("Debes introducir tu dirección"),
-    body("city").notEmpty().withMessage("Debes introducir el nombre de tu ciudad"),
-    body("state").notEmpty().withMessage("Debes introducir el nombre de tu provincia"),
+    body("city")
+      .notEmpty()
+      .withMessage("Debes introducir el nombre de tu ciudad"),
+    body("state")
+      .notEmpty()
+      .withMessage("Debes introducir el nombre de tu provincia"),
     body("zipCode").notEmpty().withMessage("Debes introducir tu código postal"),
     body("avatar").custom((value, { req }) => {
       const file = req.file;
       const acceptedExtensions = [".gif", ".png", ".tif", ".jpg"];
-
+      console.log(file);
       if (!file) {
         throw new Error("Debes subir una imagen de perfil");
       } else {
         const fileExtension = path.extname(file.originalname);
+
         if (!acceptedExtensions.includes(fileExtension)) {
           throw new Error(
             `Las extensiones de archivo permitidas son: ${acceptedExtensions.join(
@@ -56,8 +63,12 @@ module.exports = {
     body("phone").notEmpty().withMessage("Debes introducir tu número teléfono"),
     body("DNI").notEmpty().withMessage("Debes introducir tu número de DNI"),
     body("address").notEmpty().withMessage("Debes introducir tu dirección"),
-    body("city").notEmpty().withMessage("Debes introducir el nombre de tu ciudad"),
-    body("state").notEmpty().withMessage("Debes introducir el nombre de tu provincia"),
+    body("city")
+      .notEmpty()
+      .withMessage("Debes introducir el nombre de tu ciudad"),
+    body("state")
+      .notEmpty()
+      .withMessage("Debes introducir el nombre de tu provincia"),
     body("zipCode").notEmpty().withMessage("Debes introducir tu código postal"),
     body("rubro").notEmpty().withMessage("Debes elegir por lo menos 1 rubro"),
     body("avatar").custom((value, { req }) => {

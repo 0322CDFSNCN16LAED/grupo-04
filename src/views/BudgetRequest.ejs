@@ -75,7 +75,11 @@
               id="imgReferencia"
               multiple
             />
+            <% if (locals.errors && errors.imgReferencia) { %>
+            <div class="error-msg"><%= errors.imgReferencia.msg %></div>
+            <% } %>
           </div>
+
           <div class="mb-3 align-center">
             <label for="urgenciaTrabajo" class="mr-3"
               ><h4 class="font-medium">Cuándo necesitas realizarlo:</h4></label
