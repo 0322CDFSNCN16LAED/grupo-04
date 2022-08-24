@@ -13,9 +13,10 @@ module.exports = {
     body("ubicacion").notEmpty().withMessage("debes introducir una ubicación"),
     body("imgReferencia").custom((value, { req }) => {
       const file = req.files;
+      console.log(file)
       const acceptedExtensions = [".gif", ".png", ".tif", ".jpg"];
 
-      if (!file) {
+      if (!file[0]) {
         throw new Error("Debes subir una imagen de perfil");
       } else {
         const fileExtension = file.map((img) => {
