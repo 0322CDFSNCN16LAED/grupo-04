@@ -37,6 +37,6 @@ router.get("/detail/:resId", budgetControllers.viewDetail);
 //Carrito de compras
 router.get("/cart", budgetControllers.cart);
 router.get("/cart/:resId", budgetControllers.addToCart);
-router.post("/cart", budgetControllers.storeCartItem);
+router.post("/cart/:resId", budgetControllers.storeCartItem);
 
 module.exports = router;
