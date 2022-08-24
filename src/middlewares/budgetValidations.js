@@ -13,7 +13,7 @@ module.exports = {
     body("ubicacion").notEmpty().withMessage("debes introducir una ubicación"),
     body("imgReferencia").custom((value, { req }) => {
       const file = req.files;
-      console.log(file)
+      
       const acceptedExtensions = [".gif", ".png", ".tif", ".jpg"];
 
       if (!file[0]) {
