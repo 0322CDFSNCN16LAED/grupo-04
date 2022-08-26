@@ -24,9 +24,9 @@
                     </div>                    
                     <div class="mb-3">                   
                         <p class="form-label font-medium">Imágenes de referencia</p>
-                        <% budgetToShow.img.forEach(img => { %>
-                            <a target="_blank" href="/images/budgetRequest/<%= img.img %>">
-                                <img class="thumbnail" src="/images/budgetRequest/<%= img.img %>">
+                        <% img.forEach(img => { %>
+                            <a target="_blank" href="/images/budgetRequest/<%= img %>">
+                                <img class="thumbnail" src="/images/budgetRequest/<%= img %>">
                             </a>
                         <% }) %>
                     </div> 

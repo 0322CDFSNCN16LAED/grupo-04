@@ -46,22 +46,22 @@ module.exports = {
   },
 
   response: async (req, res) => {
-    const request = await db.budgReq.findOne({
+    const budgetToShow = await db.budgReq.findOne({
       where: {
         id: req.params.reqId,
       },
+      include: ["req_imgs"],
     });
-    const requestValues = request.dataValues;
+    const imgs = budgetToShow.req_imgs.map((img) => {
+      return img.img;
+    });
+    console.log(JSON.stringify(imgs, null, 4));
+    //console.log(JSON.stringify(request,null,4))
+    // const imgs = await sequelize.query(
+    //   `SELECT reqId, img FROM req_imgs WHERE reqId in (${request.id})`,
+    //   { type: QueryTypes.SELECT }
+    // );
 
-    const imgs = await sequelize.query(
-      `SELECT reqId, img FROM req_imgs WHERE reqId in (${request.id})`,
-      { type: QueryTypes.SELECT }
-    );
-
-    const budgetToShow = {
-      ...requestValues,
-      img: imgs,
-    };
     const userToShow = await db.User.findOne({
       where: {
         id: budgetToShow.userId,
@@ -70,6 +70,7 @@ module.exports = {
     res.render("budgetResponse", {
       budgetToShow: budgetToShow,
       userToShow: userToShow,
+      img: imgs,
     });
   },
 
@@ -89,11 +90,17 @@ module.exports = {
       where: {
         userId: userId,
       },
-      include: ["budget_response", "req_imgs"],
+      include: ["req_imgs"],
     });
+    const profRes = await db.budgRes.findAll({
+      where: {
+        id: req.params.resId,
+      },
+    });
+    console.log(JSON.stringify(profRes,null,4));
 
     const reqImgs = userReq.req_imgs.map((img) => img.img);
-    const profRes = userReq.budget_response.filter((response) => response.id == req.params.resId)
+    
 
     res.render("budgetDetail", { userReq, reqImgs, profRes });
   },
@@ -102,8 +109,8 @@ module.exports = {
     const user = await db.User.findOne({
       where: {
         id: req.session.userLogged.id,
-      }
-    });    
+      },
+    });
     const budgetToShow = await db.budgRes.findOne({
       where: {
         id: req.params.resId,
@@ -112,14 +119,14 @@ module.exports = {
     });
     const reqImg = await db.ReqImgs.findOne({
       where: {
-        reqId: budgetToShow.reqId
-      }
-    })
+        reqId: budgetToShow.reqId,
+      },
+    });
     res.render("cartDetail", { user, budgetToShow, reqImg: reqImg.img });
   },
 
   storeCartItem: async (req, res) => {
-    const resId = await db.budgRes.findByPk()
+    const resId = await db.budgRes.findByPk();
 
     const shop = await db.ShoppingCart.create({
       resId: 1,
@@ -128,8 +135,8 @@ module.exports = {
       horario: req.body.horario,
       metodoPago: req.body.metodoPago,
       estado: "",
-    })
-    console.log(JSON.stringify(shop, null, 4))
+    });
+    console.log(JSON.stringify(shop, null, 4));
     res.redirect("/budget/cart");
   },
 
@@ -137,9 +144,9 @@ module.exports = {
     const items = await db.ShoppingCart.findAll({
       where: {
         userId: req.session.userLogged.id,
-      }
-    })
-    console.log(JSON.stringify(items, null, 4))
+      },
+    });
+    console.log(JSON.stringify(items, null, 4));
 
     res.render("cartMain", { items });
   },
