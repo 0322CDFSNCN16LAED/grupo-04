@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="marco-detail-2 shopc-marco-tablet marco-lap">
-                    <form action="/budget/cart" method="POST">
+                    <form action="/budget/cart/<%= budgetToShow.id %> " method="POST">
                         <div class="mb-3 align-center">                    
                             <label for="date" class="mr-3 font-medium">Día a realizar el trabajo</label>
                             <input type="date" name="diaTurno" id="diaTurno" class="form-control" placeholder="">

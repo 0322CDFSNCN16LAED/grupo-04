@@ -126,27 +126,42 @@ module.exports = {
   },
 
   storeCartItem: async (req, res) => {
-    const resId = await db.budgRes.findByPk();
+    const resId = await db.budgRes.findByPk()
 
     const shop = await db.ShoppingCart.create({
-      resId: 1,
+      resId: req.params.resId,
       userId: req.session.userLogged.id,
       dia: req.body.diaTurno,
       horario: req.body.horario,
       metodoPago: req.body.metodoPago,
       estado: "",
-    });
-    console.log(JSON.stringify(shop, null, 4));
+    })
+    console.log(JSON.stringify(shop, null, 4))
     res.redirect("/budget/cart");
   },
 
   cart: async (req, res) => {
+    const userId = req.session.userLogged.id;
+
+    const userReq = await db.budgReq.findOne({
+      where: {
+        userId: userId,
+      },
+      include: ["budget_response", "req_imgs"],
+    });
+    console.log(JSON.stringify(userReq, null, 4))
+
+    const reqImgs = userReq.req_imgs.map((img) => img.img);
+    console.log(JSON.stringify(reqImgs, null, 4))
+    const profRes = userReq.budget_response.filter((response) => response.id == req.params.resId);
+    console.log(JSON.stringify(profRes, null, 4))
+    
     const items = await db.ShoppingCart.findAll({
       where: {
         userId: req.session.userLogged.id,
-      },
-    });
-    console.log(JSON.stringify(items, null, 4));
+      }
+    })
+    console.log(JSON.stringify(items, null, 4))
 
     res.render("cartMain", { items });
   },

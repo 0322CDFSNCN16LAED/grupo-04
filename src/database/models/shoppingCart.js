@@ -47,10 +47,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "userId"
     })
     
-    /*shopCart.hasMany(models.budgRes, {
+    shopCart.hasMany(models.budgRes, {
       as: "budget_response",
-      foreignKey: "resId",
-    });*/
+      foreignKey: "id",
+    });
   }
 
   return shopCart;
