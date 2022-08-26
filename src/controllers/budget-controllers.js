@@ -56,11 +56,6 @@ module.exports = {
       return img.img;
     });
     console.log(JSON.stringify(imgs, null, 4));
-    //console.log(JSON.stringify(request,null,4))
-    // const imgs = await sequelize.query(
-    //   `SELECT reqId, img FROM req_imgs WHERE reqId in (${request.id})`,
-    //   { type: QueryTypes.SELECT }
-    // );
 
     const userToShow = await db.User.findOne({
       where: {
@@ -97,10 +92,9 @@ module.exports = {
         id: req.params.resId,
       },
     });
-    console.log(JSON.stringify(profRes,null,4));
+    console.log(JSON.stringify(profRes, null, 4));
 
     const reqImgs = userReq.req_imgs.map((img) => img.img);
-    
 
     res.render("budgetDetail", { userReq, reqImgs, profRes });
   },
@@ -126,7 +120,7 @@ module.exports = {
   },
 
   storeCartItem: async (req, res) => {
-    const resId = await db.budgRes.findByPk()
+    const resId = await db.budgRes.findByPk();
 
     const shop = await db.ShoppingCart.create({
       resId: req.params.resId,
@@ -135,8 +129,8 @@ module.exports = {
       horario: req.body.horario,
       metodoPago: req.body.metodoPago,
       estado: "",
-    })
-    console.log(JSON.stringify(shop, null, 4))
+    });
+    console.log(JSON.stringify(shop, null, 4));
     res.redirect("/budget/cart");
   },
 
@@ -149,19 +143,21 @@ module.exports = {
       },
       include: ["budget_response", "req_imgs"],
     });
-    console.log(JSON.stringify(userReq, null, 4))
+    console.log(JSON.stringify(userReq, null, 4));
 
     const reqImgs = userReq.req_imgs.map((img) => img.img);
-    console.log(JSON.stringify(reqImgs, null, 4))
-    const profRes = userReq.budget_response.filter((response) => response.id == req.params.resId);
-    console.log(JSON.stringify(profRes, null, 4))
-    
+    console.log(JSON.stringify(reqImgs, null, 4));
+    const profRes = userReq.budget_response.filter(
+      (response) => response.id == req.params.resId
+    );
+    console.log(JSON.stringify(profRes, null, 4));
+
     const items = await db.ShoppingCart.findAll({
       where: {
         userId: req.session.userLogged.id,
-      }
-    })
-    console.log(JSON.stringify(items, null, 4))
+      },
+    });
+    console.log(JSON.stringify(items, null, 4));
 
     res.render("cartMain", { items });
   },
