@@ -55,7 +55,7 @@ module.exports = {
     const imgs = budgetToShow.req_imgs.map((img) => {
       return img.img;
     });
-    console.log(JSON.stringify(imgs, null, 4));
+    // console.log(JSON.stringify(imgs, null, 4));
 
     const userToShow = await db.User.findOne({
       where: {
@@ -92,7 +92,7 @@ module.exports = {
         id: req.params.resId,
       },
     });
-    console.log(JSON.stringify(profRes, null, 4));
+    // console.log(JSON.stringify(profRes, null, 4));
 
     const reqImgs = userReq.req_imgs.map((img) => img.img);
 
@@ -130,32 +130,34 @@ module.exports = {
       metodoPago: req.body.metodoPago,
       estado: "",
     });
-    console.log(JSON.stringify(shop, null, 4));
+    // console.log(JSON.stringify(shop, null, 4));
     res.redirect("/budget/cart");
   },
 
   cart: async (req, res) => {
     const userId = req.session.userLogged.id;
 
-    const userReq = await db.budgReq.findOne({
-      where: {
-        userId: userId,
-      },
-      include: ["budget_response", "req_imgs"],
-    });
-    console.log(JSON.stringify(userReq, null, 4));
-
     const reqImgs = userReq.req_imgs.map((img) => img.img);
-    console.log(JSON.stringify(reqImgs, null, 4));
-    const profRes = userReq.budget_response.filter(
-      (response) => response.id == req.params.resId
-    );
-    console.log(JSON.stringify(profRes, null, 4));
+    // console.log(JSON.stringify(reqImgs, null, 4));
+    // const profRes = userReq.budget_response.filter(
+    //   (response) => response.id == req.params.resId
+    // );
+    // console.log(JSON.stringify(profRes, null, 4));
 
     const items = await db.ShoppingCart.findAll({
       where: {
         userId: req.session.userLogged.id,
       },
+      include: [
+        "budget_response",
+        {
+          association: "budget_response",
+          include: [
+            "budget_request",
+            { association: "budget_request", include: ["req_imgs"] },
+          ],
+        },
+      ],
     });
     console.log(JSON.stringify(items, null, 4));
 
