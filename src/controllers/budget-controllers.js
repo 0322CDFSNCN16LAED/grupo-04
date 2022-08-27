@@ -50,18 +50,16 @@ module.exports = {
       where: {
         id: req.params.reqId,
       },
-      include: ["req_imgs"],
+      include: ["req_imgs", "users"],
     });
     const imgs = budgetToShow.req_imgs.map((img) => {
       return img.img;
     });
     // console.log(JSON.stringify(imgs, null, 4));
+    console.log(JSON.stringify(budgetToShow, null, 4));
 
-    const userToShow = await db.User.findOne({
-      where: {
-        id: budgetToShow.userId,
-      },
-    });
+    const userToShow = budgetToShow.users;
+
     res.render("budgetResponse", {
       budgetToShow: budgetToShow,
       userToShow: userToShow,
