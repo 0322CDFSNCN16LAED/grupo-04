@@ -98,23 +98,19 @@ module.exports = {
   },
 
   addToCart: async (req, res) => {
-    const user = await db.User.findOne({
-      where: {
-        id: req.session.userLogged.id,
-      },
-    });
-    const budgetToShow = await db.budgRes.findOne({
+    const cartDetail = await db.budgRes.findOne({
       where: {
         id: req.params.resId,
       },
-      include: ["budget_request", "users"],
+      include: [
+        "budget_request",
+        "users",
+        { association: "budget_request", include: ["req_imgs", "users"] },
+      ],
     });
-    const reqImg = await db.ReqImgs.findOne({
-      where: {
-        reqId: budgetToShow.reqId,
-      },
-    });
-    res.render("cartDetail", { user, budgetToShow, reqImg: reqImg.img });
+    // console.log(JSON.stringify(cartDetail,null,4));
+
+    res.render("cartDetail", { cartDetail });
   },
 
   storeCartItem: async (req, res) => {
