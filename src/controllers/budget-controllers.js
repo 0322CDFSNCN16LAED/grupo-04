@@ -135,15 +135,6 @@ module.exports = {
   },
 
   cart: async (req, res) => {
-    const userId = req.session.userLogged.id;
-
-    const reqImgs = userReq.req_imgs.map((img) => img.img);
-    // console.log(JSON.stringify(reqImgs, null, 4));
-    // const profRes = userReq.budget_response.filter(
-    //   (response) => response.id == req.params.resId
-    // );
-    // console.log(JSON.stringify(profRes, null, 4));
-
     const items = await db.ShoppingCart.findAll({
       where: {
         userId: req.session.userLogged.id,
@@ -154,13 +145,13 @@ module.exports = {
           association: "budget_response",
           include: [
             "budget_request",
+            "users",
             { association: "budget_request", include: ["req_imgs"] },
           ],
         },
       ],
     });
-    console.log(JSON.stringify(items, null, 4));
-
+    // console.log(JSON.stringify(items,null,4));
     res.render("cartMain", { items });
   },
 };

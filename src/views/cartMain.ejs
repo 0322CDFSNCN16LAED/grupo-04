@@ -17,14 +17,14 @@
         <% items.forEach(function(item){ %>
         <article class="card w-card">
           <div class="justify-center">
-            <p class="font-medium bolder"><%= item.tituloSolicitud %></p>
-            <p class="font-medium bolder"><%= item.precioFinal %></p>
+            <p class="font-medium bolder"><%= item.budget_response[0].precioFinal %></p>
+            <p class="font-medium bolder"><%= item.budget_response[0].budget_request.tituloSolicitud %></p>
             <p class="font-medium bolder">
-              <%= item.name %> <%= item.lastName %>
+              <%= item.budget_response[0].users.name %> <%= item.budget_response[0].users.lastName %>
             </p>
-            <p class="font-medium bolder"><%= item.diaTurno %></p>
-            <p class="font-medium bolder"><%= item.horario %></p>
-            <p class="font-medium bolder"><%= item.metodoPago %></p>
+            <p class="font-medium bolder"><%= item.dia %></p>
+            <p class="font-medium bolder"><%= item.horario %></p> 
+            <p class="font-medium bolder"><%= item.metodoPago %></p>  
 
             <div class="fx justify-sp-b">
               <button class="terciary-button">
