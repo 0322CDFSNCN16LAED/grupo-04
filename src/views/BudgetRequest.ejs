@@ -14,48 +14,47 @@
           enctype="multipart/form-data"
         >
           <div class="mb-3">
-            <label for="tituloSolicitud" class="mr-3 form-label"
-              ><h4 class="font-medium">Título del trabajo</h4></label
-            >
+            <label for="tituloSolicitud" class="mr-3 form-label">
+              <h4 class="font-medium">Título del trabajo</h4>
+            </label>
             <input
               class="form-control <%= locals.errors && errors.tituloSolicitud ? 'is-invalid' : null%>"
               type="text"
               name="tituloSolicitud"
               id="detalleSolicitud"
               value="<%= locals.oldData ? oldData.tituloSolicitud : null %>"
-              placeholder="titulo del trabajo"
+              placeholder="Título del trabajo"
             />
             <% if (locals.errors && errors.tituloSolicitud) { %>
-            <div class="error-msg"><%= errors.tituloSolicitud.msg %></div>
+              <div class="error-msg"><%= errors.tituloSolicitud.msg %></div>
             <% } %>
           </div>
           <div>
-            <label for="ubicacion"
-              ><h4 class="font-medium">Descripción del Trabajo</h4></label
-            >
+            <label for="ubicacion">
+              <h4 class="font-medium">Descripción del Trabajo</h4>
+            </label>
             <textarea
               class="form-control <%= locals.errors && errors.detalleSolicitud ? 'is-invalid' : null%>"
               id="detalleSolicitud"
               name="detalleSolicitud"
               rows="3"
-              placeholder="Ingresá tu domicilio"
+              placeholder="Detallá el trabajo a realizar"
             >
-<%= locals.oldData ? oldData.detalleSolicitud : null %></textarea
-            >
+            <%= locals.oldData ? oldData.detalleSolicitud : null %></textarea>
             <% if (locals.errors && errors.detalleSolicitud) { %>
-            <div class="error-msg"><%= errors.detalleSolicitud.msg %></div>
+              <div class="error-msg"><%= errors.detalleSolicitud.msg %></div>
             <% } %>
           </div>
           <div class="mb-3 align-center">
-            <label for="rubro" class="mr-3"
-              ><h4 class="font-medium">Categoría</h4></label
-            >
+            <label for="rubro" class="mr-3">
+              <h4 class="font-medium">Categoría</h4>
+            </label>
             <select
               name="rubroNombre"
               class="form-select font-medium form-select-lg mb-3"
               aria-label=".form-select-lg example"
             >
-              <option selected>Elegí el profesional que necesitás</option>
+              <option selected>Seleccioná el profesional que necesitás</option>
               <option value="Albanil">Albañil</option>
               <option value="Electricista">Electricista</option>
               <option value="Gasista">Gasista</option>
@@ -65,9 +64,9 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="imgReferencia" class="form-label"
-              ><h4 class="font-medium">Imágenes de referencia</h4></label
-            >
+            <label for="imgReferencia" class="form-label">
+              <h4 class="font-medium">Imágenes de referencia</h4>
+            </label>
             <input
               class="form-control"
               name="imgReferencia"
@@ -81,26 +80,24 @@
           </div>
 
           <div class="mb-3 align-center">
-            <label for="urgenciaTrabajo" class="mr-3"
-              ><h4 class="font-medium">Cuándo necesitas realizarlo:</h4></label
-            >
+            <label for="urgenciaTrabajo" class="mr-3">
+              <h4 class="font-medium">Cuándo necesitas realizarlo:</h4>
+            </label>
             <select
               name="urgenciaTrabajo"
               class="form-select font-medium form-select-lg mb-3"
               aria-label=".form-select-lg example"
             >
-              <option selected>
-                Elegí cuándo necesitas realizar el trabajo
-              </option>
+              <option selected>Seleccioná cuándo necesitas realizar el trabajo</option>
               <option value="asap">Lo antes posible</option>
               <option value="estaSemana">Esta semana</option>
               <option value="esteMes">Este mes</option>
             </select>
           </div>
           <div>
-            <label for="ubicacion"
-              ><h4 class="font-medium">Ubicación</h4></label
-            >
+            <label for="ubicacion">
+              <h4 class="font-medium">Ubicación</h4>
+            </label>
             <textarea
               class="form-control <%= locals.errors && errors.ubicacion ? 'is-invalid' : null%>"
               id="ubicacion"
@@ -108,10 +105,9 @@
               rows="3"
               placeholder="Ingresá tu domicilio"
             >
-<%= locals.oldData ? oldData.ubicacion : null %></textarea
-            >
+            <%= locals.oldData ? oldData.ubicacion : null %></textarea>
             <% if (locals.errors && errors.ubicacion) { %>
-            <div class="error-msg"><%= errors.ubicacion.msg %></div>
+              <div class="error-msg"><%= errors.ubicacion.msg %></div>
             <% } %>
           </div>
 
