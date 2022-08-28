@@ -114,17 +114,14 @@ module.exports = {
   },
 
   storeCartItem: async (req, res) => {
-    const resId = await db.budgRes.findByPk();
-
-    const shop = await db.ShoppingCart.create({
+    await db.ShoppingCart.create({
       resId: req.params.resId,
       userId: req.session.userLogged.id,
       dia: req.body.diaTurno,
       horario: req.body.horario,
       metodoPago: req.body.metodoPago,
-      estado: "",
+      estado: "CONTRATADO",
     });
-    // console.log(JSON.stringify(shop, null, 4));
     res.redirect("/budget/cart");
   },
 
@@ -137,10 +134,10 @@ module.exports = {
         "budget_response",
         {
           association: "budget_response",
-          include: [
+          attributes: ["precioFinal", "userId"],
+          include: [ "users",
             "budget_request",
-            "users",
-            { association: "budget_request", include: ["req_imgs"] },
+            { association: "budget_request", attributes: ["tituloSolicitud"], include: ["req_imgs"] },
           ],
         },
       ],

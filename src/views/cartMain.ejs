@@ -17,14 +17,16 @@
         <% items.forEach(function(item){ %>
         <article class="card w-card">
           <div class="justify-center">
-            <p class="font-medium bolder"><%= item.budget_response[0].precioFinal %></p>
+            <a target="_blank" href="/images/budgetRequest/<%= item.budget_response[0].budget_request.req_imgs[0].img %>">
+              <img class="card-img-top" src="/images/budgetRequest/<%= item.budget_response[0].budget_request.req_imgs[0].img %>"/>
+            </a>
             <p class="font-medium bolder"><%= item.budget_response[0].budget_request.tituloSolicitud %></p>
-            <p class="font-medium bolder">
-              <%= item.budget_response[0].users.name %> <%= item.budget_response[0].users.lastName %>
-            </p>
-            <p class="font-medium bolder"><%= item.dia %></p>
-            <p class="font-medium bolder"><%= item.horario %></p> 
-            <p class="font-medium bolder"><%= item.metodoPago %></p>  
+            <p class="font-medium bolder">$ <%= item.budget_response[0].precioFinal %></p>
+            <p class="font-medium bolder">Profesional: <a target="_blank" href="/prof/detail/<%= item.budget_response[0].userId %>"><%= item.budget_response[0].users.userName %></a></p>
+            <p class="font-medium bolder">Día: <%= item.dia %></p>
+            <p class="font-medium bolder">Hora: <%= item.horario %></p> 
+            <p class="font-medium bolder">Método de pago: <%= item.metodoPago %></p>
+            <p class="font-medium bolder">Estado: <%= item.estado %></p> 
 
             <div class="fx justify-sp-b">
               <button class="terciary-button">
