@@ -46,30 +46,24 @@ module.exports = {
   },
 
   response: async (req, res) => {
-    const request = await db.budgReq.findOne({
+    const budgetToShow = await db.budgReq.findOne({
       where: {
         id: req.params.reqId,
       },
+      include: ["req_imgs", "users"],
     });
-    const requestValues = request.dataValues;
-
-    const imgs = await sequelize.query(
-      `SELECT reqId, img FROM req_imgs WHERE reqId in (${request.id})`,
-      { type: QueryTypes.SELECT }
-    );
-
-    const budgetToShow = {
-      ...requestValues,
-      img: imgs,
-    };
-    const userToShow = await db.User.findOne({
-      where: {
-        id: budgetToShow.userId,
-      },
+    const imgs = budgetToShow.req_imgs.map((img) => {
+      return img.img;
     });
+    // console.log(JSON.stringify(imgs, null, 4));
+    console.log(JSON.stringify(budgetToShow, null, 4));
+
+    const userToShow = budgetToShow.users;
+
     res.render("budgetResponse", {
       budgetToShow: budgetToShow,
       userToShow: userToShow,
+      img: imgs,
     });
   },
 
@@ -89,47 +83,48 @@ module.exports = {
       where: {
         userId: userId,
       },
-      include: ["budget_response", "req_imgs"],
+      include: ["req_imgs"],
     });
+    const profRes = await db.budgRes.findAll({
+      where: {
+        id: req.params.resId,
+      },
+    });
+    // console.log(JSON.stringify(profRes, null, 4));
 
     const reqImgs = userReq.req_imgs.map((img) => img.img);
-    const profRes = userReq.budget_response.filter((response) => response.id == req.params.resId)
 
     res.render("budgetDetail", { userReq, reqImgs, profRes });
   },
 
   addToCart: async (req, res) => {
-    const user = await db.User.findOne({
-      where: {
-        id: req.session.userLogged.id,
-      }
-    });    
-    const budgetToShow = await db.budgRes.findOne({
+    const cartDetail = await db.budgRes.findOne({
       where: {
         id: req.params.resId,
       },
-      include: ["budget_request", "users"],
+      include: [
+        "budget_request",
+        "users",
+        { association: "budget_request", include: ["req_imgs", "users"] },
+      ],
     });
-    const reqImg = await db.ReqImgs.findOne({
-      where: {
-        reqId: budgetToShow.reqId
-      }
-    })
-    res.render("cartDetail", { user, budgetToShow, reqImg: reqImg.img });
+    // console.log(JSON.stringify(cartDetail,null,4));
+
+    res.render("cartDetail", { cartDetail });
   },
 
   storeCartItem: async (req, res) => {
-    const resId = await db.budgRes.findByPk()
+    const resId = await db.budgRes.findByPk();
 
     const shop = await db.ShoppingCart.create({
-      resId: 1,
+      resId: req.params.resId,
       userId: req.session.userLogged.id,
       dia: req.body.diaTurno,
       horario: req.body.horario,
       metodoPago: req.body.metodoPago,
       estado: "",
-    })
-    console.log(JSON.stringify(shop, null, 4))
+    });
+    // console.log(JSON.stringify(shop, null, 4));
     res.redirect("/budget/cart");
   },
 
@@ -137,10 +132,20 @@ module.exports = {
     const items = await db.ShoppingCart.findAll({
       where: {
         userId: req.session.userLogged.id,
-      }
-    })
-    console.log(JSON.stringify(items, null, 4))
-
+      },
+      include: [
+        "budget_response",
+        {
+          association: "budget_response",
+          include: [
+            "budget_request",
+            "users",
+            { association: "budget_request", include: ["req_imgs"] },
+          ],
+        },
+      ],
+    });
+    // console.log(JSON.stringify(items,null,4));
     res.render("cartMain", { items });
   },
 };

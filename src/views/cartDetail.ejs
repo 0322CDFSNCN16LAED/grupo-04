@@ -17,26 +17,26 @@
             <div class="fx justify-center lap-w-1">
                 <div class="marco-detail-2 shopc-marco-tablet marco-lap">
                     <div>
-                        <h2 class="font-large m-t-pro bolder"><%= budgetToShow.budget_request.tituloSolicitud %></h2>
+                        <h2 class="font-large m-t-pro bolder"><%= cartDetail.budget_request.tituloSolicitud %></h2>
                     </div>
                     <div>
-                        <img href="/public/images/budgetRequest/<%= reqImg[0] %>" class="w-100"></img>
+                        <img href="/public/images/budgetRequest/<%= cartDetail.budget_request.req_imgs[0].img %>" class="w-100"></img>
                     </div>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Profesional elegido</p>
-                        <p class="form-control"><%= budgetToShow.users.userName %></p>
+                        <p class="form-control"><%= cartDetail.users.name %> <%= cartDetail.users.lastName %></p>
                     </div>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Costo del servicio</p>
-                        <p class="form-control">$ <%= budgetToShow.precioFinal %></p>
+                        <p class="form-control">$ <%= cartDetail.precioFinal %></p>
                     </div>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Duración del trabajo</p>
-                        <p class="form-control"><%= budgetToShow.duracionTrabajo %> hs</p>
+                        <p class="form-control"><%= cartDetail.duracionTrabajo %> hs</p>
                     </div>
                 </div>
                 <div class="marco-detail-2 shopc-marco-tablet marco-lap">
-                    <form action="/budget/cart" method="POST">
+                    <form action="/budget/cart/<%= cartDetail.id %> " method="POST">
                         <div class="mb-3 align-center">                    
                             <label for="date" class="mr-3 font-medium">Día a realizar el trabajo</label>
                             <input type="date" name="diaTurno" id="diaTurno" class="form-control" placeholder="">
@@ -62,15 +62,15 @@
                         </div>
                         <div class="mb-3 align-center">                    
                             <p class="mr-3 font-medium">Tu domicilio</p>
-                            <p class="form-control"><%= user.address %></p>
+                            <p class="form-control"><%= cartDetail.users.address %></p>
                         </div>
                         <div class="mb-3 align-center">                    
                             <p class="mr-3 font-medium">Tu número de teléfono</p>
-                            <p class="form-control"><%= user.phone %></p>
+                            <p class="form-control"><%= cartDetail.users.phone %></p>
                         </div>
                         <div class="text-center txt-button-container pad-5 justify-center"> 
                             <button class="terciary-button">
-                                <a href="/user/edit/<%=user.id%>">Editar mis datos</a>
+                                <a href="/user/edit/<%= cartDetail.users.id%>">Editar mis datos</a>
                             </button>
                             <button type="reset" class="secondary-button">Cancelar</button> 
                             <button type="submit" class="primary-button">Pagar</button>

@@ -400,3 +400,17 @@ table {
 .carousel-control-prev-icon{
     background-image: url(https://cdn-icons-png.flaticon.com/512/271/271220.png)!important
 }
+/*---------HISTORY TABLE-----------*/
+.card {
+    align-items: unset  !important;
+    margin-top: 0% !important;
+    margin-bottom: 4% !important;
+    margin-left: 4% !important;
+    margin-right: 4% !important;
+}
+.card-body {
+    padding-top: null !important;
+    padding-left: 1% !important;
+    padding-right: 1% !important;
+    padding-bottom: 2px !important;
+}

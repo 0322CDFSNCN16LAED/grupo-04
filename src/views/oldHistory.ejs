@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<body>
+    <%- include('./partials/header') %>
+
+    <main class="imagen-fondo-mobile justify-center">
+
+        <section>   
+            <div class="fx justify-sp-b text-right font-xlarge">
+                <h2 class="m-3 font-xlarge lapt-shop-pago">Mis contrataciones</h2>
+                <h2 class="m-3 font-xlarge lapt-shop-title">Revisá acá el estado de tus contrataciones</h2>
+                <i class="m-3 far fa-question-circle"></i>
+            </div>        
+            <div class="m-3">
+                <label for="date"><h4 class="font-medium">Fecha entre:</h4></label>
+                    <div class="fx justify-center">
+                        <input type="date" class="date-form mr-10">
+                        <input type="date" class="date-form">
+                    </div>
+            <div class="text-center txt-button-container pad-5 justify-center mt-3"> 
+                <button type=“submit” class="primary-button">Buscar</button>
+                <button type="reset" class="cancel-button font-medium">Nueva Búsqueda</button>            
+            </div>  
+        </section>
+        <section class="fx justify-center">
+            <table class="table table-bg m-3 ">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Concepto</th>
+                    <th scope="col">Proveedor</th>
+                    <th scope="col">Importe</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Medio de pago</th>
+                    <th scope="col">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>12/03/22</td>
+                    <td>Pintura dpto 2 ambientes</td>
+                    <td>Juancito</td>
+                    <td>$10.000</td>
+                    <td>Terminado</td>
+                    <td>Mercado pago</td>
+                    <td>Ninguna</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>01/05/21</td>
+                    <td>Instalacion electrica departamento 3 ambientes</td>
+                    <td>Pepito</td>
+                    <td>$50.000</td>
+                    <td>En proceso</td>
+                    <td>Débito</td>
+                    <td>Faltante de materiales</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+             
+           
+        </section>
+
+    </main>
+
+    <%- include('./partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
