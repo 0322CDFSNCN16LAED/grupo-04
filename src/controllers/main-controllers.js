@@ -19,6 +19,8 @@ module.exports = {
       nest: true,
     });
 
+    if (userToLogin === null) return res.redirect("login");
+
     const isProf = userToLogin.isProf === 1;
 
     const profToLogin = isProf == true ? userToLogin : "";
