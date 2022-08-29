@@ -38,5 +38,8 @@ router.get("/detail/:resId", budgetControllers.viewDetail);
 router.get("/cart", budgetControllers.cart);
 router.get("/cart/:resId", budgetControllers.addToCart);
 router.post("/cart/:resId", budgetControllers.storeCartItem);
+//router.get("/cart/edit/:id", budgetControllers.editCartItem);
+//router.put("/cart/edit/:id", budgetControllers.updateCartItem);
+//router.delete("/cart/edit/:id", budgetControllers.destroyCartItem);
 
 module.exports = router;

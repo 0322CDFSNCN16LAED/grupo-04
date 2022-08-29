@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const app = express();
+const dayjs = require("dayjs");
 
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 
@@ -13,6 +14,14 @@ app.use(
   })
 );
 const methodOverride = require("method-override");
+
+app.locals.dateFormat = (date) => {
+  return dayjs(date).format("MM/DD/YYYY");
+}
+
+app.locals.timeFormat = (time) => {
+  return dayjs(time).format("hh:mm A");
+}
 
 app.use(userLoggedMiddleware);
 

@@ -18,6 +18,7 @@ module.exports = {
     }
 
     const newReq = req.body;
+    newReq.estado = "PRESUPUESTO ENVIADO"
     req.session.userLogged
       ? (newReq.userId = req.session.userLogged.id)
       : res.redirect("/login");
@@ -55,9 +56,6 @@ module.exports = {
     const imgs = budgetToShow.req_imgs.map((img) => {
       return img.img;
     });
-    // console.log(JSON.stringify(imgs, null, 4));
-    console.log(JSON.stringify(budgetToShow, null, 4));
-
     const userToShow = budgetToShow.users;
 
     res.render("budgetResponse", {
@@ -71,6 +69,7 @@ module.exports = {
     const newRes = req.body;
     newRes.reqId = req.params.reqId;
     newRes.userId = req.session.userLogged.id;
+    newRes.estado = "PRESUPUESTO RESPONDIDO"
     await db.budgRes.create(newRes);
 
     res.redirect("/");
@@ -105,10 +104,10 @@ module.exports = {
       include: [
         "budget_request",
         "users",
-        { association: "budget_request", include: ["req_imgs", "users"] },
+        { association: "budget_request", include: ["req_imgs"] },
       ],
     });
-    // console.log(JSON.stringify(cartDetail,null,4));
+    //console.log(JSON.stringify(cartDetail,null,4));
 
     res.render("cartDetail", { cartDetail });
   },
@@ -120,7 +119,7 @@ module.exports = {
       dia: req.body.diaTurno,
       horario: req.body.horario,
       metodoPago: req.body.metodoPago,
-      estado: "CONTRATADO",
+      estado: "TRABAJO AGENDADO",
     });
     res.redirect("/budget/cart");
   },
@@ -144,5 +143,42 @@ module.exports = {
     });
     console.log(JSON.stringify(items,null,4));
     res.render("cartMain", { items });
+  },
+
+  editCartItem: async (req, res) => {
+    const cartDetail = await db.ShoppingCart.findByPk(req.params.id, {
+      include: [
+        "budget_response", "users",
+        {
+          association: "budget_response",
+          attributes: ["precioFinal", "duracionTrabajo", "userId"],
+          include: [ "users",
+            "budget_request",
+            { association: "budget_request", attributes: ["tituloSolicitud", "ubicacion"], include: ["req_imgs"] },
+          ],
+        },
+      ],
+    });
+    //console.log(JSON.stringify(cartDetail,null,4));
+
+    res.render("cartEdit", {cartDetail})
+  },
+
+  updateCartItem: async (req, res) => {
+    await db.ShoppingCart.update({
+      ...req.body,
+    },{
+      where: { id: req.params.id }
+    });
+    res.redirect("/budget/cart");
+  },
+
+  destroyCartItem: async (req, res) => {
+    await db.ShoppingCart.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.redirect("/budget/cart")
   },
 };

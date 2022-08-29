@@ -7,7 +7,7 @@
     <%- include('./partials/header') %>
     <main class="imagen-fondo-mobile justify-center">
         <div class = "fx justify-sp-b text-right font-xlarge">    
-            <h2 class="m-3 font-xlarge bolder lapt-shop-title">Estás contratando...</h2>
+            <h2 class="m-3 bolder lapt-shop-title">Estás editando...</h2>
             <button class="primary-button">
               <a href="/budget/request">Nueva Solicitud</a>
             </button>
@@ -17,8 +17,8 @@
             <div class="fx justify-center lap-w-1">
                 <div class="marco-detail-2 w-50 marco-lap">
                     <div>
-                        <h2 class="font-large m-t-pro bolder mb-3"><%= cartDetail.budget_request.tituloSolicitud %></h2>
-                        <img src="/images/budgetRequest/<%= cartDetail.budget_request.req_imgs[0].img %>" class="w-100 mb-3"></img>
+                        <h2 class="font-large m-t-pro bolder mb-3"><%= cartDetail.budget_response[0].budget_request.tituloSolicitud %></h2>
+                        <img src="/images/budgetRequest/<%= cartDetail.budget_response[0].budget_request.req_imgs[0].img %>" class="w-100 mb-3"></img>
                     </div>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Profesional elegido</p>
@@ -26,28 +26,28 @@
                     </div>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Costo del servicio</p>
-                        <p class="form-control">$ <%= cartDetail.precioFinal %></p>
+                        <p class="form-control">$ <%= cartDetail.budget_response[0].precioFinal %></p>
                     </div>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Duración del trabajo</p>
-                        <p class="form-control"><%= cartDetail.duracionTrabajo %> hs</p>
+                        <p class="form-control"><%= cartDetail.budget_response[0].duracionTrabajo %> horas</p>
                     </div>
                 </div>
                 <div class="marco-detail-2 w-50 marco-lap">
-                    <form action="/budget/cart/<%= cartDetail.id %> " method="POST">
+                    <form action="/budget/cart/edit/<%= cartDetail.id %>?_method=PUT" method="POST">
                         <div>
                             <h2 class="font-large m-t-pro bolder mb-3">Agendá el turno</h2>
                         </div>
                         <div class="mb-3 align-center">                    
-                            <label for="date" class="mr-3 font-medium mb-3">Día a realizar el trabajo</label>
-                            <input type="date" name="diaTurno" id="diaTurno" class="form-control" placeholder="">
+                            <label for="date" class="mr-3 font-medium">Día a realizar el trabajo</label>
+                            <input type="date" name="diaTurno" id="diaTurno" class="form-control" placeholder="<%= dateFormat(cartDetail.dia) %>">
                         </div>
                         <div class="mb-3 align-center">                    
-                            <label for="horario" class="mr-3 font-medium mb-3">Horario</label>
-                            <input type="time" min="08:00" max="20:00" name="horario" id="horario" class="form-control" aria-label=".form-select-lg example">
+                            <label for="horario" class="mr-3 font-medium">Horario</label>
+                            <input type="time" min="08:00" max="20:00" name="horario" id="horario" class="form-control" aria-label=".form-select-lg example" placeholder="<%= timeFormat(cartDetail.horario) %>">
                         </div>
                         <div class="mb-3 align-center">                    
-                            <label for="metodoPago" class="mr-3 font-medium mb-3">Método de pago</label>
+                            <label for="metodoPago" class="mr-3 font-medium">Método de pago</label>
                             <select name="metodoPago" id="metodoPago" class="form-control" aria-label=".form-select-lg example">
                                 <option selected>Elegí una opción</option>
                                 <option value="efectivo">Efectivo</option>
@@ -58,15 +58,15 @@
                         </div>
                         <div class="mb-3 align-center">                    
                             <p class="mr-3 font-medium">Dirección</p>
-                            <p class="form-control"><%= cartDetail.budget_request.ubicacion %></p>
+                            <p class="form-control"><%= cartDetail.budget_response[0].budget_request.ubicacion %></p>
                         </div>
                         <div class="mb-3 align-center">                    
                             <p class="mr-3 font-medium">Teléfono de contacto</p>
                             <p class="form-control"><%= cartDetail.users.phone %></p>
                         </div>
-                        <div class="text-center txt-button-container pad-5 justify-center"> 
-                            <button type="reset" class="secondary-button">Cancelar</button> 
-                            <button type="submit" class="primary-button">Agendar</button>
+                        <div class="text-center txt-button-container pad-5 justify-center">
+                            <button type="reset" class="secondary-button">Limpiar</button> 
+                            <button type="submit" class="primary-button">Editar</button>
                         </div>
                     </form>
                 </div>
