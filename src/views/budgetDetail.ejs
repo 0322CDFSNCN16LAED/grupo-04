@@ -11,19 +11,19 @@
           <section>
             <div class="mb-3 align-center">
               <p class="mr-3 font-medium">Título del trabajo</p>
-              <p class="form-control"><%= budgetDetail.tituloSolicitud %></p>
+              <p class="form-control"><%= budgetDetail.budget_request.tituloSolicitud %></p>
             </div>
             <div class="mb-3">
               <p class="mr-3 form-label font-medium">Descripción del trabajo</p>
-              <p class="form-control"><%= budgetDetail.detalleSolicitud %></p>
+              <p class="form-control"><%= budgetDetail.budget_request.detalleSolicitud %></p>
             </div>
             <div class="mb-3 align-center">
               <p class="mr-3 font-medium">Categoría</p>
-              <p class="form-control"><%= budgetDetail.rubroNombre %></p>
+              <p class="form-control"><%= budgetDetail.budget_request.rubroNombre %></p>
             </div>
             <div class="mb-3">
               <p class="form-label font-medium">Imágenes de referencia</p>
-              <% budgetDetail.req_imgs.map((img) => {  %> 
+              <% budgetDetail.budget_request.req_imgs.map((img) => {  %> 
                 <a target="_blank" href="/images/budgetRequest/<%= img.img %>">
                   <img class="thumbnail" src="/images/budgetRequest/<%= img.img %>" />
                 </a>
@@ -31,11 +31,11 @@
             </div>
             <div class="mb-3">
               <p class="font-medium">Cuándo necesitas realizarlo:</p>
-              <p class="form-control"><%= budgetDetail.urgenciaTrabajo %></p>
+              <p class="form-control"><%= budgetDetail.budget_request.urgenciaTrabajo %></p>
             </div>
             <div>
               <p class="mr-3 budg-txt font-medium">Ubicación</p>
-              <p class="form-control"><%= budgetDetail.ubicacion %></p>
+              <p class="form-control"><%= budgetDetail.budget_request.ubicacion %></p>
             </div>
           </section>
         </div>
@@ -44,19 +44,19 @@
           <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
           <div class="mb-3">
             <p class="mr-3 form-label font-medium">Materiales</p>
-            <p class="form-control"><%= budgetDetail.budget_response[0].materiales %></p>
+            <p class="form-control"><%= budgetDetail.materiales %></p>
             <p class="mr-3 form-label total-title">$</p>
             <p class="form-control total-price">
-              <%= budgetDetail.budget_response[0].precioMateriales %>
+              <%= budgetDetail.precioMateriales %>
             </p>
           </div>
 
           <div class="mb-3">
             <p class="mr-3 form-label font-medium">Mano de Obra</p>
-            <p class="form-control"><%= budgetDetail.budget_response[0].manoDeObra %></p>
+            <p class="form-control"><%= budgetDetail.manoDeObra %></p>
             <p class="mr-3 form-label total-title">$</p>
             <p class="form-control total-price">
-              <%= budgetDetail.budget_response[0].precioManoDeObra %>
+              <%= budgetDetail.precioManoDeObra %>
             </p>
           </div>
 
@@ -64,24 +64,24 @@
             <p class="mr-3 form-label font-medium">
               Duración estimada (en horas)
             </p>
-            <p class="form-control"><%= budgetDetail.budget_response[0].duracionTrabajo %></p>
+            <p class="form-control"><%= budgetDetail.duracionTrabajo %></p>
           </div>
 
           <div class="mb-3">
             <p class="mr-3 form-label font-medium">Comentarios adicionales</p>
-            <p class="form-control"><%= budgetDetail.budget_response[0].comentariosTrabajo %></p>
+            <p class="form-control"><%= budgetDetail.comentariosTrabajo %></p>
           </div>
 
           <div class="fx justify-end align-center">
             <p class="mr-3 form-label total-title">Monto Total</p>
             <p class="form-control total-price">
-              <%= budgetDetail.budget_response[0].precioFinal %>
+              <%= budgetDetail.precioFinal %>
             </p>
           </div>
 
           <div class="fx justify-center mt-3">
             <button class="primary-button">
-              <a href="/budget/cart/<%= budgetDetail.budget_response[0].id %>">Agregar al Carrito</a>
+              <a href="/budget/cart/<%= budgetDetail.id %>">Agregar al Carrito</a>
             </button>
           </div>
         </div>

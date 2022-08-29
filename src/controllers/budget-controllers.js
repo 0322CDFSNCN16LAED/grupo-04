@@ -75,14 +75,15 @@ module.exports = {
   },
 
   viewDetail: async (req, res) => {
-    const budgetDetail = await db.budgReq.findOne({
+    const budgetDetail = await db.budgRes.findOne({
       where: {
-        id: req.params.reqId,
-        userId: req.session.userLogged.id
+        id: req.params.resId,
       },
-      include: ["budget_response", "req_imgs"]
+      include: ["budget_request", "users",
+      { association: "budget_request", include: ["req_imgs"] }
+      ]
     })
-    //console.log(JSON.stringify(budgetDetail, null, 4));
+    console.log(JSON.stringify(budgetDetail, null, 4));
     res.render("budgetDetail", { budgetDetail });
   },
 
