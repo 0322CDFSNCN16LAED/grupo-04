@@ -35,7 +35,7 @@ module.exports = {
         allowNull: false,
       },
       horario: {
-        type: DataTypes.DATE,
+        type: DataTypes.TIME,
         allowNull: false,
       },
       metodoPago: {

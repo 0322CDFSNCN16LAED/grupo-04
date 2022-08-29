@@ -45,12 +45,15 @@
               <%= budgetToShow.users.name %> <%= budgetToShow.users.lastName %>
             </li>
           </ul>
-
-          <button class="primary-button">
-            <a href="/budget/response/<%= budgetToShow.id %>" class="card-link"
-              >Armar presupuesto</a
-            >
-          </button>
+          <% if (budgetToShow.estado === "PRESUPUESTO RESPONDIDO"){ %> 
+            <button class="primary-button" disabled>
+              <a href="/budget/response/<%= budgetToShow.id %>" class="card-link">Armar presupuesto</a>
+            </button>
+          <% }else{ %>
+            <button class="primary-button">
+              <a href="/budget/response/<%= budgetToShow.id %>" class="card-link">Armar presupuesto</a>
+            </button>
+          <% } %> 
         </div>
         <% }) %>
       </section>

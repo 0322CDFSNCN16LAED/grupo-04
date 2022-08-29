@@ -17,16 +17,14 @@ module.exports = {
       });
     }
 
-    const newReq = req.body;
-    newReq.estado = "PRESUPUESTO ENVIADO"
-    req.session.userLogged
-      ? (newReq.userId = req.session.userLogged.id)
-      : res.redirect("/login");
-
     const imgRefArray = req.files;
 
     if (resultValidation.errors.length == 0) {
-      const budgetReqCreated = await db.budgReq.create(newReq);
+      const budgetReqCreated = await db.budgReq.create({
+        ...req.body,
+        estado: "PRESUPUESTO ENVIADO",
+        userId: req.session.userLogged.id,
+      });
 
       if (imgRefArray) {
         const refImgs = imgRefArray.map(function (img) {
@@ -66,34 +64,26 @@ module.exports = {
   },
 
   storeBudgResponse: async (req, res) => {
-    const newRes = req.body;
-    newRes.reqId = req.params.reqId;
-    newRes.userId = req.session.userLogged.id;
-    newRes.estado = "PRESUPUESTO RESPONDIDO"
-    await db.budgRes.create(newRes);
+    await db.budgRes.create({
+      ...req.body,
+      reqId: req.params.reqId,
+      userId: req.session.userLogged.id,
+      estado: "PRESUPUESTO RESPONDIDO"
+    });
 
     res.redirect("/");
   },
 
   viewDetail: async (req, res) => {
-    const userId = req.session.userLogged.id;
-
-    const userReq = await db.budgReq.findOne({
-      where: {
-        userId: userId,
-      },
-      include: ["req_imgs"],
-    });
-    const profRes = await db.budgRes.findAll({
+    const budgetDetail = await db.budgReq.findOne({
       where: {
         id: req.params.resId,
+        userId: req.session.userLogged.id
       },
-    });
-    // console.log(JSON.stringify(profRes, null, 4));
-
-    const reqImgs = userReq.req_imgs.map((img) => img.img);
-
-    res.render("budgetDetail", { userReq, reqImgs, profRes });
+      include: ["budget_response", "req_imgs"]
+    })
+    //console.log(JSON.stringify(budgetDetail, null, 4));
+    res.render("budgetDetail", { budgetDetail });
   },
 
   addToCart: async (req, res) => {
