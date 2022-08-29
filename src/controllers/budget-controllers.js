@@ -54,6 +54,7 @@ module.exports = {
     const imgs = budgetToShow.req_imgs.map((img) => {
       return img.img;
     });
+    console.log(imgs);
     const userToShow = budgetToShow.users;
 
     res.render("budgetResponse", {

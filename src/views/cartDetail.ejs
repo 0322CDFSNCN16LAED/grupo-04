@@ -13,62 +13,66 @@
             </button>
         </div>     
         
-        <div class="shopc-lap" >
+        <div class="shopc-lap">
             <div class="fx justify-center lap-w-1">
-                <div class="marco-detail-2 w-50 marco-lap">
-                    <div>
-                        <h2 class="font-large m-t-pro bolder mb-3"><%= cartDetail.budget_request.tituloSolicitud %></h2>
-                        <img src="/images/budgetRequest/<%= cartDetail.budget_request.req_imgs[0].img %>" class="w-100 mb-3"></img>
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/budgetRequest/<%= cartDetail.budget_request.req_imgs[0].img %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= cartDetail.budget_request.tituloSolicitud %></h5>
+                        <p class="card-text"><%= cartDetail.budget_request.detalleSolicitud %></p>                        
                     </div>
-                    <div class="mb-3 align-center">                    
-                        <p class="mr-3 font-medium">Profesional elegido</p>
-                        <p class="form-control"><%= cartDetail.users.name %> <%= cartDetail.users.lastName %></p>
-                    </div>
-                    <div class="mb-3 align-center">                    
-                        <p class="mr-3 font-medium">Costo del servicio</p>
-                        <p class="form-control">$ <%= cartDetail.precioFinal %></p>
-                    </div>
-                    <div class="mb-3 align-center">                    
-                        <p class="mr-3 font-medium">Duración del trabajo</p>
-                        <p class="form-control"><%= cartDetail.duracionTrabajo %> hs</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><%= cartDetail.users.name %> <%= cartDetail.users.lastName %></li>
+                        <li class="list-group-item">$ <%= cartDetail.precioFinal %></li>
+                        <li class="list-group-item"><%= cartDetail.duracionTrabajo %> hs</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
                     </div>
                 </div>
-                <div class="marco-detail-2 w-50 marco-lap">
-                    <form action="/budget/cart/<%= cartDetail.id %> " method="POST">
-                        <div>
-                            <h2 class="font-large m-t-pro bolder mb-3">Agendá el turno</h2>
+
+                <form action="/budget/cart/<%= cartDetail.id %> " method="POST"></form>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Agendá el turno</h5>                   
                         </div>
-                        <div class="mb-3 align-center">                    
-                            <label for="date" class="mr-3 font-medium mb-3">Día a realizar el trabajo</label>
-                            <input type="date" name="diaTurno" id="diaTurno" class="form-control" placeholder="">
-                        </div>
-                        <div class="mb-3 align-center">                    
-                            <label for="horario" class="mr-3 font-medium mb-3">Horario</label>
-                            <input type="time" min="08:00" max="20:00" name="horario" id="horario" class="form-control" aria-label=".form-select-lg example">
-                        </div>
-                        <div class="mb-3 align-center">                    
-                            <label for="metodoPago" class="mr-3 font-medium mb-3">Método de pago</label>
-                            <select name="metodoPago" id="metodoPago" class="form-control" aria-label=".form-select-lg example">
-                                <option selected>Elegí una opción</option>
-                                <option value="efectivo">Efectivo</option>
-                                <option value="debito">Débito</option>
-                                <option value="credito">Tarjeta de crédito</option>
-                                <option value="mercadoPago">Mercado Pago</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 align-center">                    
-                            <p class="mr-3 font-medium">Dirección</p>
-                            <p class="form-control"><%= cartDetail.budget_request.ubicacion %></p>
-                        </div>
-                        <div class="mb-3 align-center">                    
-                            <p class="mr-3 font-medium">Teléfono de contacto</p>
-                            <p class="form-control"><%= cartDetail.users.phone %></p>
-                        </div>
-                        <div class="text-center txt-button-container pad-5 justify-center"> 
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> 
+                                <label for="date" class="mr-3 font-medium mb-3">Día a realizar el trabajo</label>
+                                <input type="date" name="diaTurno" id="diaTurno" class="form-control" placeholder="">
+                            </li>
+                            <li class="list-group-item">
+                                <label for="horario" class="mr-3 font-medium mb-3">Horario</label>
+                                <input type="time" min="08:00" max="20:00" name="horario" id="horario" class="form-control" aria-label=".form-select-lg example">
+                            </li>
+                            <li class="list-group-item">
+                                <label for="metodoPago" class="mr-3 font-medium mb-3">Método de pago</label>
+                                <select name="metodoPago" id="metodoPago" class="form-control" aria-label=".form-select-lg example">
+                                    <option selected>Elegí una opción</option>
+                                    <option value="efectivo">Efectivo</option>
+                                    <option value="debito">Débito</option>
+                                    <option value="credito">Tarjeta de crédito</option>
+                                    <option value="mercadoPago">Mercado Pago</option>
+                                </select>
+                            </li>
+                            <li class="list-group-item">
+                                <p class="mr-3 font-medium">Dirección</p>
+                                <p class="form-control"><%= cartDetail.budget_request.ubicacion %></p>
+                            </li>
+                            <li class="list-group-item">
+                                <p class="mr-3 font-medium">Teléfono de contacto</p>
+                                <p class="form-control"><%= cartDetail.users.phone %></p>
+                            </li>                            
+                        </ul>
+                        <div class="card-body">
                             <button type="reset" class="secondary-button">Cancelar</button> 
                             <button type="submit" class="primary-button">Agendar</button>
                         </div>
-                    </form>
+                    </div>
+                </form>
+
+                
                 </div>
             </div>
         </div>
