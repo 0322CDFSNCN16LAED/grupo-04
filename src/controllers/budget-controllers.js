@@ -77,7 +77,7 @@ module.exports = {
   viewDetail: async (req, res) => {
     const budgetDetail = await db.budgReq.findOne({
       where: {
-        id: req.params.resId,
+        id: req.params.reqId,
         userId: req.session.userLogged.id
       },
       include: ["budget_response", "req_imgs"]

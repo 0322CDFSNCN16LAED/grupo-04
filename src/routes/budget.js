@@ -32,7 +32,7 @@ router.get("/response/:reqId", budgetControllers.response);
 router.post("/response/:reqId", budgetControllers.storeBudgResponse);
 
 //Usuario visualiza la solicitud enviada y el presupuesto recibido
-router.get("/detail/:resId", budgetControllers.viewDetail);
+router.get("/detail/:reqId", budgetControllers.viewDetail);
 
 //Carrito de compras
 router.get("/cart", budgetControllers.cart);
