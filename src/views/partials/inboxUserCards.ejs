@@ -24,10 +24,12 @@
         <button class="secondary-button">
             <a href="/budget/detail/<%= response.id %>">
             Ver detalle
+            <% if (response.shopping_cart === null) { %>
+                <button class="primary-button">
+                    <a href="/budget/cart/<%= response.id %>"> Contratar </a>
+                </button>
+            <% } %>
             </a>
-        </button>
-        <button class="primary-button">
-            <a href="/budget/cart/<%= response.id %>"> Contratar </a>
         </button>
         </div>   
     </p>

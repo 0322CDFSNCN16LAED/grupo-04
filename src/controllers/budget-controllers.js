@@ -128,12 +128,12 @@ module.exports = {
           //attributes: ["precioFinal", "userId"],
           include: [ "users",
             "budget_request",
-            { association: "budget_request", attributes: ["tituloSolicitud"], include: ["req_imgs"] },
+            { association: "budget_request", include: ["req_imgs"] },
           ],
         },
       ],
     });
-    // console.log(JSON.stringify(items,null,4));
+    console.log(JSON.stringify(items,null,4));
     res.render("cartMain", { items });
   },
 

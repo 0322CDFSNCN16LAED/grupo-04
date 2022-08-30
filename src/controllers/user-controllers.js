@@ -77,9 +77,10 @@ module.exports = {
       include: [
         "req_imgs",
         "budget_response",
-        { association: "budget_response", include: ["users"] },
+        { association: "budget_response", include: ["users", "shopping_cart"] },
       ],
     });
+    console.log(JSON.stringify(budgets,null,4));
     res.render("inboxUser", { budgets });
   },
 };

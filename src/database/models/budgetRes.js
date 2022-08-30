@@ -61,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     budgetRes.belongsTo(models.ShoppingCart, {
        foreignKey: "id",
-       as: "shopping-cart",
+       as: "shopping_cart",
      });
   }
 
