@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(500),
       allowNull: false,
     },
+    estado: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
   };
   const config = {
     tableName: "budget_request",

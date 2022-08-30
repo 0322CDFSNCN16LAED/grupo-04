@@ -80,9 +80,11 @@
           </div>
 
           <div class="fx justify-center mt-3">
+            <% if (locals.userLogged.isProf != true ) {%> 
             <button class="primary-button">
               <a href="/budget/cart/<%= budgetDetail.id %>">Agregar al Carrito</a>
             </button>
+            <% } %> 
           </div>
         </div>
       </div>

@@ -60,6 +60,7 @@ module.exports = {
       },
       estado: {
         type: DataTypes.STRING(255),
+        allowNull: false,
       },
       created_at: {
         allowNull: false,
