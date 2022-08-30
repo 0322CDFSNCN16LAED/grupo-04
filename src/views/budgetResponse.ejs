@@ -24,12 +24,12 @@
                     </div>                    
                     <div class="mb-3">                   
                         <p class="form-label font-medium">Imágenes de referencia</p>
-                        <% img.forEach(img => { %>
+                        <% img.map(img => { %>
                             <a target="_blank" href="/images/budgetRequest/<%= img %>">
                                 <img class="thumbnail" src="/images/budgetRequest/<%= img %>">
                             </a>
                         <% }) %>
-                    </div> 
+                    </div>  
                     <div class="mb-3">
                         <p class="font-medium">Cuándo necesitas realizarlo:</p>
                         <p class="form-control"><%= budgetToShow.urgenciaTrabajo  %></p>
