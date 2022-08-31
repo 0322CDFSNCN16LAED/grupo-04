@@ -54,6 +54,7 @@ module.exports = {
     const imgs = budgetToShow.req_imgs.map((img) => {
       return img.img;
     });
+    console.log(imgs);
     const userToShow = budgetToShow.users;
 
     res.render("budgetResponse", {
@@ -122,7 +123,7 @@ module.exports = {
       { association: "budget_request", include: ["req_imgs"] }
       ]
     })
-    console.log(JSON.stringify(budgetDetail, null, 4));
+    // console.log(JSON.stringify(budgetDetail, null, 4));
     res.render("budgetDetail", { budgetDetail });
   },
 
@@ -137,7 +138,7 @@ module.exports = {
         { association: "budget_request", include: ["req_imgs"] },
       ],
     });
-    //console.log(JSON.stringify(cartDetail,null,4));
+    console.log(JSON.stringify(cartDetail,null,4));
 
     res.render("cartDetail", { cartDetail });
   },
@@ -163,10 +164,10 @@ module.exports = {
         "budget_response",
         {
           association: "budget_response",
-          attributes: ["precioFinal", "userId"],
+          //attributes: ["precioFinal", "userId"],
           include: [ "users",
             "budget_request",
-            { association: "budget_request", attributes: ["tituloSolicitud"], include: ["req_imgs"] },
+            { association: "budget_request", include: ["req_imgs"] },
           ],
         },
       ],

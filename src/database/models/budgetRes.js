@@ -38,6 +38,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    estado: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
   };
   const config = {
     tableName: "budget_response",
@@ -57,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     budgetRes.belongsTo(models.ShoppingCart, {
        foreignKey: "id",
-       as: "shopping-cart",
+       as: "shopping_cart",
      });
   }
 

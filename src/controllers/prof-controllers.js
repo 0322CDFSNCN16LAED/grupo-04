@@ -209,6 +209,16 @@ module.exports = {
       },
       include: ["req_imgs", "users"],
     });
-    res.render("inboxProf", { budgWithImgs });
+
+    const responsesSent = await db.budgRes.findAll({
+      where: {
+        userId: userId
+      }
+    })
+
+    //console.log(JSON.stringify(budgWithImgs, null, 4))
+    //console.log(JSON.stringify(responsesSent, null, 4))
+
+    res.render("inboxProf", { budgWithImgs, responsesSent });
   },
 };

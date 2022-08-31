@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   };
   const config = {
-    tableName: "shopping-cart",
+    tableName: "shopping_cart",
     timestamps: true,
     createdAt: "created_at",
     updatedAt: "updated_at",
