@@ -21,7 +21,7 @@ const upload = multer({storage});
 
 const budgetMiddlewares = require("../middlewares/budgetValidations");
 const budgetReqValidations = budgetMiddlewares.budgReqValidations;
-
+const budgetResValidations = budgetMiddlewares.budgResValidations;
 
 //Usuario carga y envía solicitud de presupuesto
 router.get("/request", budgetControllers.request);
@@ -29,7 +29,8 @@ router.post("/request", upload.array("imgReferencia", 5),budgetReqValidations, b
 
 //Profesional carga y envía presupuesto del trabajo que pidió el usuario
 router.get("/response/:reqId", budgetControllers.response);
-router.post("/response/:reqId", budgetControllers.storeBudgResponse);
+//router.post("/response/:reqId",budgetControllers.storeBudgResponse);
+router.post("/response/:reqId",budgetResValidations,budgetControllers.storeBudgResponseedu)
 
 //Usuario visualiza la solicitud enviada y el presupuesto recibido
 router.get("/detail/:resId", budgetControllers.viewDetail);
