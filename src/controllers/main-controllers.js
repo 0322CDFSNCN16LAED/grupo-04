@@ -14,17 +14,9 @@ module.exports = {
     const userToLogin = await db.User.findOne({
       where: {
         email: req.body.email,
-      },
-      raw: true,
-      nest: true,
+      },   
     });
-
-    if (userToLogin === null) return res.redirect("login");
-
-    const isProf = userToLogin.isProf === 1;
-
-    const profToLogin = isProf == true ? userToLogin : "";
-
+  
     if (!userToLogin)
       return res.render("login", {
         errors: {
@@ -32,7 +24,12 @@ module.exports = {
             msg: "El usuario no existe",
           },
         },
-      });
+      });      
+
+    const isProf = userToLogin.isProf === 1;
+
+    const profToLogin = isProf == true ? userToLogin : "";
+
     const user = profToLogin ? profToLogin : userToLogin;
 
     let passwordOk = bcryptjs.compareSync(req.body.password, user.password);

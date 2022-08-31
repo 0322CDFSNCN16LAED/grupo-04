@@ -80,7 +80,7 @@ module.exports = {
         { association: "budget_response", include: ["users", "shopping_cart"] },
       ],
     });
-    console.log(JSON.stringify(budgets,null,4));
+    // console.log(JSON.stringify(budgets,null,4));
     res.render("inboxUser", { budgets });
   },
 };
