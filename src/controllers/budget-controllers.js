@@ -62,7 +62,7 @@ module.exports = {
     });
   },
 
-  storeBudgResponse: async (req, res) => {
+  /*storeBudgResponse: async (req, res) => {
     await db.budgRes.create({
       ...req.body,
       reqId: req.params.reqId,
@@ -72,7 +72,46 @@ module.exports = {
 
     res.redirect("/");
   },
+  */
 
+  storeBudgResponseedu: async (req, res) => {
+
+    const budgetToShow = await db.budgReq.findOne({
+      where: {
+        id: req.params.reqId,
+      },
+      include: ["req_imgs", "users"],
+    });
+    const imgs = budgetToShow.req_imgs.map((img) => {
+      return img.img;
+    });
+
+    const userToShow = budgetToShow.users;
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      res.render("BudgetResponse", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+        budgetToShow: budgetToShow,
+      userToShow: userToShow,
+      img: imgs,
+      
+      });
+    }
+    console.log(resultValidation)
+
+    if (resultValidation.errors.length == 0) {
+      await db.budgRes.create({
+        ...req.body,
+        reqId: req.params.reqId,
+        userId: req.session.userLogged.id,
+        estado: "PRESUPUESTO RESPONDIDO"
+      });
+
+        res.redirect("/");
+      }
+    },
+  
   viewDetail: async (req, res) => {
     const budgetDetail = await db.budgRes.findOne({
       where: {
