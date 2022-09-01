@@ -40,20 +40,20 @@
                         </div>
                         <div class="mb-3 align-center">                    
                             <label for="date" class="mr-3 font-medium">Día a realizar el trabajo</label>
-                            <input type="date" name="diaTurno" id="diaTurno" class="form-control" placeholder="<%= dateFormat(cartDetail.dia) %>">
+                            <input type="date" name="diaTurno" id="diaTurno" class="form-control" value="<%= dateFormat(cartDetail.dia) %>">
                         </div>
                         <div class="mb-3 align-center">                    
                             <label for="horario" class="mr-3 font-medium">Horario</label>
-                            <input type="time" min="08:00" max="20:00" name="horario" id="horario" class="form-control" aria-label=".form-select-lg example" placeholder="<%= timeFormat(cartDetail.horario) %>">
+                            <input type="time" min="08:00" max="20:00" name="horario" id="horario" class="form-control" aria-label=".form-select-lg example" value="<%= cartDetail.horario %>">
                         </div>
                         <div class="mb-3 align-center">                    
                             <label for="metodoPago" class="mr-3 font-medium">Método de pago</label>
                             <select name="metodoPago" id="metodoPago" class="form-control" aria-label=".form-select-lg example">
-                                <option selected>Elegí una opción</option>
-                                <option value="efectivo">Efectivo</option>
-                                <option value="debito">Débito</option>
-                                <option value="credito">Tarjeta de crédito</option>
-                                <option value="mercadoPago">Mercado Pago</option>
+                                <option value="<%=cartDetail.metodoPago %>" <%= cartDetail.metodoPago == "" ? "selected" : "" %>>Elegí una opción</option>
+                                <option value="efectivo" <%= cartDetail.metodoPago == "efectivo" ? "selected" : "" %>>Efectivo</option>
+                                <option value="debito" <%= cartDetail.metodoPago == "debito" ? "selected" : "" %>>Débito</option>
+                                <option value="credito" <%= cartDetail.metodoPago == "credito" ? "selected" : "" %>>Tarjeta de crédito</option>
+                                <option value="mercadoPago" <%= cartDetail.metodoPago == "mercadoPago" ? "selected" : "" %>>Mercado Pago</option>
                             </select>
                         </div>
                         <div class="mb-3 align-center">                    
