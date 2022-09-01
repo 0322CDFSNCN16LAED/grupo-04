@@ -47,7 +47,7 @@
                     <div class="mb-3">
                         <label for="materiales" class="mr-3 form-label font-medium">Materiales</label>
                         <textarea name="materiales"
-                         class="form-control <%= locals.errors && errors.materiales ? 'is-invalid' : null%>"
+                          class="form-control <%= locals.errors && errors.materiales ? 'is-invalid' : null%>"
                           id="materiales" 
                           rows="3" 
                           placeholder="Detalle los materiales a utilizar para este tipo de trabajo"
@@ -78,7 +78,6 @@
                          placeholder="Detalle la cantidad y especialidad de los profesionales necesarios para este tipo de trabajo"
                         >
                         <%= locals.oldData ? oldData.manoDeObra : null %></textarea>
-
                         <% if (locals.errors && errors.manoDeObra) { %>
                             <div class="error-msg"><%= errors.manoDeObra.msg %></div>
                           <% } %>
@@ -89,6 +88,7 @@
                          class="form-control total-price <%= locals.errors && errors.precioManoDeObra ? 'is-invalid' : null%>" 
                          name="precioManoDeObra" 
                          id="precioManoDeObra"
+                         value="<%= locals.oldData ? oldData.precioManoDeObra : null %>"
                         />
                         <% if (locals.errors && errors.precioManoDeObra) { %>
                             <div class="error-msg"><%= errors.precioManoDeObra.msg %></div>

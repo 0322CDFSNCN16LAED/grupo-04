@@ -119,11 +119,11 @@ module.exports = {
       where: {
         id: req.params.resId,
       },
-      include: ["budget_request", "users",
+      include: ["budget_request", "users","shopping_cart",
       { association: "budget_request", include: ["req_imgs"] }
       ]
     })
-    // console.log(JSON.stringify(budgetDetail, null, 4));
+    console.log(JSON.stringify(budgetDetail, null, 4));
     res.render("budgetDetail", { budgetDetail });
   },
 
@@ -190,7 +190,9 @@ module.exports = {
         },
       ],
     });
-    //console.log(JSON.stringify(cartDetail,null,4));
+    
+    
+    console.log(JSON.stringify(cartDetail,null,4));
 
     res.render("cartEdit", {cartDetail})
   },
