@@ -4,19 +4,18 @@ const dayjs = require("dayjs");
 
 module.exports = {
   request: async (req, res) => {
-    const rubros = await db.Rubro.findAll()
-    console.log(JSON.stringify(rubros,null,4));
-    res.render("budgetRequest", {rubros});
+    const rubros = await db.Rubro.findAll();
+    res.render("budgetRequest", { rubros });
   },
 
   storeBudgRequest: async (req, res) => {
     const resultValidation = validationResult(req);
-     const rubros = await db.Rubro.findAll();
+    const rubros = await db.Rubro.findAll();
     if (resultValidation.errors.length > 0) {
       res.render("BudgetRequest", {
         errors: resultValidation.mapped(),
         oldData: req.body,
-        rubros: rubros
+        rubros: rubros,
       });
     }
 

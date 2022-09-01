@@ -33,14 +33,13 @@
             <label for="ubicacion" class="mr-3 form-label">
               <h4 class="font-medium">Descripción del trabajo</h4>
             </label>
-            <textarea
+            <textarea 
               class="form-control <%= locals.errors && errors.detalleSolicitud ? 'is-invalid' : null%>"
               id="detalleSolicitud"
               name="detalleSolicitud"
               rows="3"
               placeholder="Detallá el trabajo a realizar"
-            >
-            <%= locals.oldData ? oldData.detalleSolicitud : null %></textarea>
+            ><%= locals.oldData ? oldData.detalleSolicitud : null %></textarea>
             <% if (locals.errors && errors.detalleSolicitud) { %>
               <div class="error-msg"><%= errors.detalleSolicitud.msg %></div>
             <% } %>
@@ -104,8 +103,7 @@
               name="ubicacion"
               rows="1"
               placeholder="Ingresá tu domicilio"
-            >
-            <%= locals.oldData ? oldData.ubicacion : null %></textarea>
+            ><%= locals.oldData ? oldData.ubicacion : null %></textarea>
             <% if (locals.errors && errors.ubicacion) { %>
               <div class="error-msg"><%= errors.ubicacion.msg %></div>
             <% } %>
