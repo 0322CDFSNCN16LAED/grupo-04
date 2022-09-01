@@ -3,16 +3,20 @@ const db = require("../database/models");
 const dayjs = require("dayjs");
 
 module.exports = {
-  request: (req, res) => {
-    res.render("budgetRequest");
+  request: async (req, res) => {
+    const rubros = await db.Rubro.findAll()
+    console.log(JSON.stringify(rubros,null,4));
+    res.render("budgetRequest", {rubros});
   },
 
   storeBudgRequest: async (req, res) => {
     const resultValidation = validationResult(req);
+     const rubros = await db.Rubro.findAll();
     if (resultValidation.errors.length > 0) {
       res.render("BudgetRequest", {
         errors: resultValidation.mapped(),
         oldData: req.body,
+        rubros: rubros
       });
     }
 

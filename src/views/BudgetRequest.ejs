@@ -51,17 +51,17 @@
             </label>
             <select
               name="rubroNombre"
-              class="form-select font-medium form-select-lg mb-3"
+              class="form-select font-medium form-select-lg   <%= locals.errors && errors.rubroNombre ? 'is-invalid' : null%>"
               aria-label=".form-select-lg example"
             >
-              <option selected>Seleccioná el profesional que necesitás</option>
-              <option value="Albanil">Albañil</option>
-              <option value="Electricista">Electricista</option>
-              <option value="Gasista">Gasista</option>
-              <option value="Pintor">Pintor</option>
-              <option value="Plomero">Plomero</option>
-              <option value="Otro">Otro</option>
+              <option value="">Seleccioná el profesional que necesitás</option>              
+              <% for( let rubro of rubros ) { %>              
+                <option value="<%= rubro.nombre  %>" <%= locals.oldData && (rubro.nombre === oldData.rubroNombre ? "selected" : null) %> ><%= rubro.nombre %> </option>              
+                <% } %>
             </select>
+            <% if (locals.errors && errors.rubroNombre) { %>
+              <div class="error-msg"><%= errors.rubroNombre.msg %></div>
+            <% } %>
           </div>
           <div class="mb-3">
             <label for="imgReferencia" class="mr-3 form-label">

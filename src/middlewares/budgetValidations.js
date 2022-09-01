@@ -10,6 +10,8 @@ module.exports = {
     body("detalleSolicitud")
       .notEmpty()
       .withMessage("Debes detallar la solicitud que quieres realizar"),
+    body("rubroNombre").notEmpty().withMessage("debes selccionar un rubro"),
+    body("urgenciaTrabajo").notEmpty().withMessage("debes selccionar un campo"),
     body("ubicacion").notEmpty().withMessage("debes introducir una ubicación"),
     body("imgReferencia").custom((value, { req }) => {
       const file = req.files;
