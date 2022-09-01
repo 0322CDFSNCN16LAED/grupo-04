@@ -22,14 +22,16 @@
     <p class="card-text">
         <div class="fx justify-sp-b">
         <button class="secondary-button">
-            <a href="/budget/detail/<%= response.id %>">
-            Ver detalle
+            <a href="/budget/detail/<%= response.id %>">Ver detalle</a>
             <% if (response.shopping_cart === null) { %>
                 <button class="primary-button">
                     <a href="/budget/cart/<%= response.id %>"> Contratar </a>
                 </button>
-            <% } %>
-            </a>
+            <% } else { %>
+                <button class="primary-button">
+                    <a href="/budget/cart"> Ir al Carrito </a>
+                </button>
+            <% } %> 
         </button>
         </div>   
     </p>

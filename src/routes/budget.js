@@ -35,11 +35,13 @@ router.post("/response/:reqId", budgetControllers.storeBudgResponse);
 router.get("/detail/:resId", budgetControllers.viewDetail);
 
 //Carrito de compras
-router.get("/cart", budgetControllers.cart);
+router.get("/cart", budgetControllers.cartMain);
+router.get("/cart/prof", budgetControllers.cartMainProf);
+router.post("/cart/prof", budgetControllers.cartProf);
 router.get("/cart/:resId", budgetControllers.addToCart);
 router.post("/cart/:resId", budgetControllers.storeCartItem);
-//router.get("/cart/edit/:id", budgetControllers.editCartItem);
-//router.put("/cart/edit/:id", budgetControllers.updateCartItem);
-//router.delete("/cart/edit/:id", budgetControllers.destroyCartItem);
+router.get("/cart/edit/:id", budgetControllers.editCartItem);
+router.put("/cart/edit/:id", budgetControllers.updateCartItem);
+router.delete("/cart/edit/:id", budgetControllers.destroyCartItem);
 
 module.exports = router;

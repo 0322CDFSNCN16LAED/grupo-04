@@ -15,31 +15,35 @@
 
       <section class="cards">
         <% items.forEach(function(item){ %>
-        <article class="card w-card">
-          <div class="justify-center">
-            <a target="_blank" href="/images/budgetRequest/<%= item.budget_response[0].budget_request.req_imgs[0].img %>">
-              <img class="card-img-top" src="/images/budgetRequest/<%= item.budget_response[0].budget_request.req_imgs[0].img %>"/>
-            </a>
-            <p class="font-medium bolder"><%= item.budget_response[0].budget_request.tituloSolicitud %></p>
-            <p class="font-medium bolder">$ <%= item.budget_response[0].precioFinal %></p>
-            <p class="font-medium bolder">Profesional: <a target="_blank" href="/prof/detail/<%= item.budget_response[0].userId %>"><%= item.budget_response[0].users.userName %></a></p>
-            <p class="font-medium bolder">Día: <%= dateFormat(item.dia) %></p>
-            <p class="font-medium bolder">Hora: <%= item.horario %></p> 
-            <p class="font-medium bolder">Método de pago: <%= item.metodoPago %></p>
-            <p class="font-medium bolder">Estado: <%= item.estado %></p> 
-
-            <div class="fx justify-sp-b">
-              <form action="/budget/cart/edit/<%= item.id %>" method="POST">
-                <button class="terciary-button" type="submit">
-                  <a href="/budget/cart/edit/<%= item.id %>?_method=DELETE">Eliminar</a>
-                </button>
-              </form>
-              <button class="secondary-button">
-                <a href="/budget/cart/edit/<%= item.id %>">Editar</a>
-              </button>
-              <button class="primary-button">
-                <a href="/budget/detail/<%= item.resId %>">Ver detalle </a>
-              </button>
+        <article class="justify-center ml-5">
+          <div class="card" style="width: 18rem;">
+            <img src="/images/budgetRequest/<%= item.budget_response[0].budget_request.req_imgs[0].img %>" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title"><a target="_blank" href="/budget/detail/<%= item.resId %>"><%= item.budget_response[0].budget_request.tituloSolicitud %></a></h5>
+              <h5 class="card-title bolder">$ <%= item.budget_response[0].precioFinal %></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a target="_blank" href="/prof/detail/<%= item.budget_response[0].userId %>"><%= item.budget_response[0].users.name %> <%= item.budget_response[0].users.lastName %></a></li>
+              <li class="list-group-item"><%= dateFormat(item.dia) %></li>
+              <li class="list-group-item"><%= item.horario %></li>
+              <li class="list-group-item"><%= item.metodoPago %></li>
+              <li class="list-group-item"><%= item.estado %></li>
+            </ul>
+            <div class="card-body">
+              <ul class="nav">
+                <li class="nav-item">
+                  <form action="/budget/cart/edit/<%= item.id %>" method="POST">
+                    <button class="secondary-button" type="submit">
+                      <a href="/budget/cart/edit/<%= item.id %>?_method=DELETE">Cancelar Trabajo</a>
+                    </button>
+                  </form>
+                </li>
+                <li class="nav-item">
+                  <button class="primary-button">
+                    <a href="/budget/cart/edit/<%= item.id %>">Editar</a>
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </article>

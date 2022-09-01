@@ -217,7 +217,7 @@ module.exports = {
     })
 
     //console.log(JSON.stringify(budgWithImgs, null, 4))
-    //console.log(JSON.stringify(responsesSent, null, 4))
+    console.log(JSON.stringify(responsesSent, null, 4))
 
     res.render("inboxProf", { budgWithImgs, responsesSent });
   },
