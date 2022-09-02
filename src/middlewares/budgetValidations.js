@@ -49,6 +49,8 @@ module.exports = {
     body("comentariosTrabajo")
       .notEmpty()
       .withMessage("Debes incluir algunos comentarios"),
-    body("precioFinal").notEmpty().withMessage("Debes incluir el precio final"),
+    body("precioFinal")
+    .notEmpty()
+    .withMessage("Debes incluir el precio final"),
   ],
 };
