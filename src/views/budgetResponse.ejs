@@ -51,8 +51,7 @@
                           id="materiales" 
                           rows="3" 
                           placeholder="Detalle los materiales a utilizar para este tipo de trabajo"
-                        >
-                          <%= locals.oldData ? oldData.materiales : null %></textarea>
+                        ><%= locals.oldData ? oldData.materiales : null %></textarea>
                           <% if (locals.errors && errors.materiales) { %>
                             <div class="error-msg"><%= errors.materiales.msg %></div>
                           <% } %>
@@ -63,9 +62,7 @@
                         name="precioMateriales" 
                         id="precioMateriales"
                         value="<%= locals.oldData ? oldData.precioMateriales : null %>"
-                        />
-                        <% if (locals.errors && errors.precioMateriales) { %>
-                            <div class="error-msg"><%= errors.precioMateriales.msg %></div>
+                        /><% if (locals.errors && errors.precioMateriales) { %><div class="error-msg"><%= errors.precioMateriales.msg %></div>
                           <% } %>
                     </div>
     
@@ -76,8 +73,7 @@
                          id="manoDeObra" 
                          rows="3" 
                          placeholder="Detalle la cantidad y especialidad de los profesionales necesarios para este tipo de trabajo"
-                        >
-                        <%= locals.oldData ? oldData.manoDeObra : null %></textarea>
+                        ><%= locals.oldData ? oldData.manoDeObra : null %></textarea>
                         <% if (locals.errors && errors.manoDeObra) { %>
                             <div class="error-msg"><%= errors.manoDeObra.msg %></div>
                           <% } %>
@@ -117,10 +113,9 @@
                         <textarea 
                         class="form-control <%= locals.errors && errors.comentariosTrabajo ? 'is-invalid' : null%>" 
                         name="comentariosTrabajo" 
-                        id="comentariosTrabajo" 
-                        rows="3">
-                        <%= locals.oldData ? oldData.comentariosTrabajo : null %></textarea>
-
+                        id="comentariosTrabajo"
+                        placeholder="Comentarios extra"
+                        rows="3"><%= locals.oldData ? oldData.comentariosTrabajo : null %></textarea>
                         <% if (locals.errors && errors.comentariosTrabajo) { %>
                             <div class="error-msg"><%= errors.comentariosTrabajo.msg %></div>
                           <% } %>

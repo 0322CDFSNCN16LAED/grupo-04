@@ -84,13 +84,18 @@
             </label>
             <select
               name="urgenciaTrabajo"
-              class="form-select font-medium form-select-lg mb-3"
+              class="form-select font-medium form-select-lg"
               aria-label=".form-select-lg example"
             >
-              <option selected>Elegí cuándo necesitas realizar el trabajo</option>
-              <option value="asap">Lo antes posible</option>
-              <option value="estaSemana">Esta semana</option>
-              <option value="esteMes">Este mes</option>
+            <% const urgencia = ["Lo antes posible","Esta semana","Este mes"] %> 
+              <option value="">Elegí cuándo necesitas realizar el trabajo</option>
+              <% for( let chosen of urgencia ) { %>              
+                <option value="<%= chosen  %>" <%= locals.oldData && (chosen === oldData.urgenciaTrabajo ? "selected" : null) %> ><%= chosen %> </option>              
+              <% } %>
+            </select>
+            <% if (locals.errors && errors.urgenciaTrabajo) { %>
+              <div class="error-msg"><%= errors.urgenciaTrabajo.msg %></div>
+            <% } %>                          
             </select>
           </div>
           <div>
