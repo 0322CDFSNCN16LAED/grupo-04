@@ -90,9 +90,8 @@
                     
                         <input type="text"
                          class="form-control total-price <%= locals.errors && errors.precioManoObra ? 'is-invalid' : null%>" 
-                         name="precioManoObra" 
-                         id="precioManoObra"
-                         
+                         name="precioManoDeObra" 
+                         id="precioManoDeObra"                         
                          value="<%= locals.oldData ? oldData.precioManoObra : null %>"
                         />
                         <% if (locals.errors && errors.precioManoObra) { %>

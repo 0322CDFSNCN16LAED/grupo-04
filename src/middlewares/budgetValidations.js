@@ -42,15 +42,13 @@ module.exports = {
     body("materiales").notEmpty().withMessage("Debes llenar este campo"),
     body("precioMateriales").notEmpty().withMessage("Debes colocar un precio"),
     body("manoDeObra").notEmpty().withMessage("Debes detallar este campo"),
-    body("precioManoObra").notEmpty().withMessage("Debes colocar un precio"),
+    body("precioManoDeObra").notEmpty().withMessage("Debes colocar un precio"),
     body("duracionTrabajo")
       .notEmpty()
       .withMessage("Debes detallar la duración de la tarea"),
     body("comentariosTrabajo")
       .notEmpty()
       .withMessage("Debes incluir algunos comentarios"),
-    body("precioFinal")
-    .notEmpty()
-    .withMessage("Debes incluir el precio final"),
+    body("precioFinal").notEmpty().withMessage("Debes incluir el precio final"),
   ],
 };

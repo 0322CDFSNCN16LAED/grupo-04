@@ -102,7 +102,6 @@ module.exports = {
         img: imgs,
       });
     }
-    console.log(resultValidation);
 
     if (resultValidation.errors.length == 0) {
       await db.budgRes.create({
@@ -128,7 +127,6 @@ module.exports = {
         { association: "budget_request", include: ["req_imgs"] },
       ],
     });
-    console.log(JSON.stringify(budgetDetail, null, 4));
     res.render("budgetDetail", { budgetDetail });
   },
 
@@ -143,7 +141,6 @@ module.exports = {
         { association: "budget_request", include: ["req_imgs"] },
       ],
     });
-    //console.log(JSON.stringify(cartDetail,null,4));
 
     res.render("cartDetail", { cartDetail });
   },
@@ -179,7 +176,6 @@ module.exports = {
         },
       ],
     });
-    console.log(JSON.stringify(items, null, 4));
     res.render("cartMain", { items });
   },
 
@@ -203,9 +199,8 @@ module.exports = {
         },
       ],
     });
-    console.log(JSON.stringify(cartDetail, null, 4));
     const dia = dayjs(cartDetail.dia).format("MM/DD/YYYY");
-    //console.log(JSON.stringify(cartDetail,null,4));
+
     res.render("cartEdit", { cartDetail, dia });
   },
 

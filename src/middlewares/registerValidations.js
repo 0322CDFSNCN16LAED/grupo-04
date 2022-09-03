@@ -48,7 +48,6 @@ module.exports = {
     body("avatar").custom((value, { req }) => {
       const file = req.file;
       const acceptedExtensions = [".gif", ".png", ".tif", ".jpg"];
-      console.log(file);
       if (!file) {
         throw new Error("Debes subir una imagen de perfil");
       } else {

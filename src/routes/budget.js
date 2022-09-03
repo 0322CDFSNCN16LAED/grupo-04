@@ -22,6 +22,8 @@ const upload = multer({storage});
 const budgetMiddlewares = require("../middlewares/budgetValidations");
 const budgetReqValidations = budgetMiddlewares.budgReqValidations;
 const budgetResValidations = budgetMiddlewares.budgResValidations;
+const cartMiddlewares = require("../middlewares/cartValidations");
+const cartValidations = cartMiddlewares.cartValidations
 
 //Usuario carga y envía solicitud de presupuesto
 router.get("/request", budgetControllers.request);
@@ -38,11 +40,12 @@ router.get("/detail/:resId", budgetControllers.viewDetail);
 //Carrito de compras
 router.get("/cart", budgetControllers.cartMain);
 router.get("/cart/prof", budgetControllers.cartMainProf);
-router.post("/cart/prof", budgetControllers.cartProf);
+router.post("/cart/prof",cartValidations, budgetControllers.cartProf);
 router.get("/cart/:resId", budgetControllers.addToCart);
-router.post("/cart/:resId", budgetControllers.storeCartItem);
+router.post("/cart/:resId",cartValidations, budgetControllers.storeCartItem);
 router.get("/cart/edit/:id", budgetControllers.editCartItem);
-router.put("/cart/edit/:id", budgetControllers.updateCartItem);
+router.put("/cart/edit/:id",cartValidations, budgetControllers.updateCartItem);
 router.delete("/cart/edit/:id", budgetControllers.destroyCartItem);
 
 module.exports = router;
+    
