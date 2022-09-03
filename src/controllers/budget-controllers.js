@@ -220,9 +220,11 @@ module.exports = {
 
     await db.ShoppingCart.update(
       {
-        ...req.body,
         resId: cartDetail.resId,
         userId: cartDetail.userId,
+        dia: req.body.diaTurno,
+        horario: req.body.horario,
+        metodoPago: req.body.metodoPago,
       },
       {
         where: { id: req.params.id },
