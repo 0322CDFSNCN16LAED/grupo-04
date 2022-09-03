@@ -1,6 +1,5 @@
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
-const dayjs = require("dayjs");
 
 module.exports = {
   request: async (req, res) => {
@@ -68,19 +67,7 @@ module.exports = {
     });
   },
 
-  /*storeBudgResponse: async (req, res) => {
-    await db.budgRes.create({
-      ...req.body,
-      reqId: req.params.reqId,
-      userId: req.session.userLogged.id,
-      estado: "PRESUPUESTO RESPONDIDO"
-    });
-
-    res.redirect("/");
-  },
-  */
-
-  storeBudgResponseedu: async (req, res) => {
+  storeBudgResponse: async (req, res) => {
     const budgetToShow = await db.budgReq.findOne({
       where: {
         id: req.params.reqId,
@@ -141,8 +128,11 @@ module.exports = {
         { association: "budget_request", include: ["req_imgs"] },
       ],
     });
+    const today = new Date();
 
-    res.render("cartDetail", { cartDetail });
+    //console.log(JSON.stringify(cartDetail,null,4));
+
+    res.render("cartDetail", { cartDetail, today });
   },
 
   storeCartItem: async (req, res) => {
@@ -199,9 +189,9 @@ module.exports = {
         },
       ],
     });
-    const dia = dayjs(cartDetail.dia).format("MM/DD/YYYY");
-
-    res.render("cartEdit", { cartDetail, dia });
+    const today = new Date();
+    //console.log(JSON.stringify(cartDetail,null,4));
+    res.render("cartEdit", { cartDetail, today });
   },
 
   updateCartItem: async (req, res) => {
@@ -227,9 +217,11 @@ module.exports = {
 
     await db.ShoppingCart.update(
       {
-        ...req.body,
         resId: cartDetail.resId,
         userId: cartDetail.userId,
+        dia: req.body.diaTurno,
+        horario: req.body.horario,
+        metodoPago: req.body.metodoPago,
       },
       {
         where: { id: req.params.id },

@@ -40,7 +40,7 @@
                         </div>
                         <div class="mb-3 align-center">                    
                             <label for="date" class="mr-3 font-medium">Día a realizar el trabajo</label>
-                            <input type="date" name="diaTurno" id="diaTurno" class="form-control" value="<%= dateFormat(cartDetail.dia) %>">
+                            <input type="date" name="diaTurno" id="diaTurno" class="form-control" value="<%= dateFormat(cartDetail.dia) %>" min="<% dateFormat(today)%>">
                         </div>
                         <div class="mb-3 align-center">                    
                             <label for="horario" class="mr-3 font-medium">Horario</label>
