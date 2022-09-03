@@ -122,8 +122,8 @@
                         class="form-control <%= locals.errors && errors.comentariosTrabajo ? 'is-invalid' : null%>" 
                         name="comentariosTrabajo" 
                         id="comentariosTrabajo" 
-                        rows="3">
-                        <%= locals.oldData ? oldData.comentariosTrabajo : null %></textarea>
+                        rows="3"
+                        placeholder="Agregar comentarios adicionales"><%= locals.oldData ? oldData.comentariosTrabajo : null %></textarea>
                         <% if (locals.errors && errors.comentariosTrabajo){ %>
                         <div class="error-msg"><%= errors.comentariosTrabajo.msg %></div>
                           <% } %>
