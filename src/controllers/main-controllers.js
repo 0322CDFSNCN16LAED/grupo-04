@@ -4,14 +4,6 @@ const dayjs = require("dayjs");
 module.exports = {
   home: (req, res) => {
     res.render("index");
-  //   const todaysDate = dayjs(new Date()).format("MM/DD/YYYY");
-  //   var d = new Date(); // current date
-  //   var date = d.setMonth(d.getMonth()); // add month to the current date
-  //   var inputDate = new Date(d.setMonth(d.getMonth() - 2)); // add two months to the current date
-  //   console.log("comparison date - " + new Date(date));
-  //   console.log("input date - " + inputDate);
-  //   if (date < inputDate.getTime()) console.log("valid date");
-  //   else console.log("invalid date");
   },
 
   login: (req, res) => {
@@ -39,7 +31,7 @@ module.exports = {
     const profToLogin = isProf == true ? userToLogin : "";
 
     const user = profToLogin ? profToLogin : userToLogin;
-    
+
     let passwordOk = bcryptjs.compareSync(req.body.password, user.password);
 
     if (!passwordOk)

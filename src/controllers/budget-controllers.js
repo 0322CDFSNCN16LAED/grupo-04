@@ -190,11 +190,12 @@ module.exports = {
       ],
     });
     const today = new Date();
-    //console.log(JSON.stringify(cartDetail,null,4));
     res.render("cartEdit", { cartDetail, today });
   },
 
   updateCartItem: async (req, res) => {
+    const resultValidation = validationResult(req);
+    const today = new Date();
     const cartDetail = await db.ShoppingCart.findByPk(req.params.id, {
       include: [
         "budget_response",
@@ -214,21 +215,30 @@ module.exports = {
         },
       ],
     });
-
-    await db.ShoppingCart.update(
-      {
-        resId: cartDetail.resId,
-        userId: cartDetail.userId,
-        dia: req.body.diaTurno,
-        horario: req.body.horario,
-        metodoPago: req.body.metodoPago,
-      },
-      {
-        where: { id: req.params.id },
-      }
-    ).then(function () {
-      res.redirect("/budget/cart");
-    });
+    if (resultValidation.errors.length > 0) {
+      res.render("cartEdit", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+        cartDetail: cartDetail,
+        today: today,
+      });
+    }
+    if (resultValidation.errors.length == 0) {
+      await db.ShoppingCart.update(
+        {
+          resId: cartDetail.resId,
+          userId: cartDetail.userId,
+          dia: req.body.diaTurno,
+          horario: req.body.horario,
+          metodoPago: req.body.metodoPago,
+        },
+        {
+          where: { id: req.params.id },
+        }
+      ).then(function () {
+        res.redirect("/budget/cart");
+      });
+    }
   },
 
   destroyCartItem: async (req, res) => {

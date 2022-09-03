@@ -27,7 +27,7 @@
               class="form-control <%= locals.errors && errors.tituloSolicitud ? 'is-invalid' : null%>"
               type="text"
               name="tituloSolicitud"
-              id="detalleSolicitud"
+              id="tituloSolicitud"              
               value="<%= locals.oldData ? oldData.tituloSolicitud : null %>"
               placeholder="Título del trabajo"
             />
@@ -37,7 +37,7 @@
             <% } %>
           </div>
           <div>
-            <label for="ubicacion" class="mr-3 form-label">
+            <label for="detalleSolicitud" class="mr-3 form-label">
               <h4 class="font-medium">Descripción del trabajo</h4>
             </label>
             <textarea 

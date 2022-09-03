@@ -41,10 +41,15 @@
                         <div class="mb-3 align-center">                    
                             <label for="date" class="mr-3 font-medium">Día a realizar el trabajo</label>
                             <input type="date" name="diaTurno" id="diaTurno" class="form-control" value="<%= dateFormat(cartDetail.dia) %>" min="<% dateFormat(today)%>">
+                            <% if (locals.errors && errors.diaTurno) { %>
+                                <div class= "error-msg">
+                                    <%= errors.diaTurno.msg %>               
+                                </div>
+                            <% } %>                          
                         </div>
                         <div class="mb-3 align-center">                    
                             <label for="horario" class="mr-3 font-medium">Horario</label>
-                            <input type="time" min="08:00" max="20:00" name="horario" id="horario" class="form-control" aria-label=".form-select-lg example" value="<%= cartDetail.horario %>">
+                            <input type="time"  name="horario" id="horario" class="form-control" aria-label=".form-select-lg example" value="<%= cartDetail.horario %>">
                         </div>
                         <div class="mb-3 align-center">                    
                             <label for="metodoPago" class="mr-3 font-medium">Método de pago</label>
