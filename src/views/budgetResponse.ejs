@@ -43,27 +43,34 @@
 
             <div class="grey-opacity budget-req desk-size">
                 <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
+
                 <form action="/budget/response/<%= budgetToShow.id %>" method="POST">
                     <div class="mb-3">
-                        <label for="materiales" class="mr-3 form-label font-medium">Materiales</label>
-                        <textarea name="materiales"
-                          class="form-control <%= locals.errors && errors.materiales ? 'is-invalid' : null%>"
-                          id="materiales" 
-                          rows="3" 
-                          placeholder="Detalle los materiales a utilizar para este tipo de trabajo"
-                        ><%= locals.oldData ? oldData.materiales : null %></textarea>
-                          <% if (locals.errors && errors.materiales) { %>
-                            <div class="error-msg"><%= errors.materiales.msg %></div>
-                          <% } %>
-                        <label for="precioMateriales" class="mr-3 form-label total-title">$</label>
-                        <input 
-                        type="text" 
-                        class="form-control total-price <%= locals.errors && errors.precioMateriales ? 'is-invalid' : null%>" 
-                        name="precioMateriales" 
-                        id="precioMateriales"
-                        value="<%= locals.oldData ? oldData.precioMateriales : null %>"
-                        /><% if (locals.errors && errors.precioMateriales) { %><div class="error-msg"><%= errors.precioMateriales.msg %></div>
-                          <% } %>
+                            <div>
+                                <label for="materiales" class="mr-3 form-label font-medium">Materiales</label>
+                                <textarea 
+                                class="form-control <%= locals.errors && errors.materiales ? 'is-invalid' : null%>"
+                                name="materiales"
+                                id="materiales" 
+                                rows="3" 
+                                placeholder="Detalle los materiales a  para este tipo de trabajo"
+                                ><%= locals.oldData ? oldData.materiales : null %></textarea>
+
+                                <% if (locals.errors && errors.materiales) { %>
+                                <div class="error-msg"><%= errors.materiales.msg %></div>
+                                <% } %>
+                            </div>  
+                                <label for="precioMateriales" class="mr-3 form-label total-title">$</label>
+                                <input 
+                                type="text" 
+                                class="form-control total-price <%= locals.errors && errors.precioMateriales ? 'is-invalid' : null%>" 
+                                name="precioMateriales" 
+                                id="precioMateriales"
+                                value="<%= locals.oldData ? oldData.precioMateriales : null %>"
+                                />
+                                <% if (locals.errors && errors.precioMateriales) { %>
+                            <div class="error-msg"><%= errors.precioMateriales.msg %></div>
+                                <% } %>
                     </div>
     
                     <div class="mb-3 ">
@@ -80,14 +87,16 @@
 
                         <label for="precioManoObra"
                         class="mr-3 form-label total-title">$</label>
+                    
                         <input type="text"
-                         class="form-control total-price <%= locals.errors && errors.precioManoDeObra ? 'is-invalid' : null%>" 
-                         name="precioManoDeObra" 
-                         id="precioManoDeObra"
-                         value="<%= locals.oldData ? oldData.precioManoDeObra : null %>"
+                         class="form-control total-price <%= locals.errors && errors.precioManoObra ? 'is-invalid' : null%>" 
+                         name="precioManoObra" 
+                         id="precioManoObra"
+                         
+                         value="<%= locals.oldData ? oldData.precioManoObra : null %>"
                         />
-                        <% if (locals.errors && errors.precioManoDeObra) { %>
-                            <div class="error-msg"><%= errors.precioManoDeObra.msg %></div>
+                        <% if (locals.errors && errors.precioManoObra) { %>
+                            <div class="error-msg"><%= errors.precioManoObra.msg %></div>
                           <% } %>
                     </div>
                     
@@ -98,10 +107,9 @@
                          name="duracionTrabajo" 
                          id="duracionTrabajo" 
                          rows="1"
-                         placeholder="Cantidad de horas que puede durar este trabajo"
+                         
+                         value= "<%= locals.oldData ? oldData.duracionTrabajo : null %>"
                          >
-                         <%= locals.oldData ? oldData.duracionTrabajo : null %></textarea>
-
                         <% if (locals.errors && errors.duracionTrabajo) { %>
                             <div class="error-msg"><%= errors.duracionTrabajo.msg %></div>
                           <% } %>
@@ -113,11 +121,11 @@
                         <textarea 
                         class="form-control <%= locals.errors && errors.comentariosTrabajo ? 'is-invalid' : null%>" 
                         name="comentariosTrabajo" 
-                        id="comentariosTrabajo"
-                        placeholder="Comentarios extra"
-                        rows="3"><%= locals.oldData ? oldData.comentariosTrabajo : null %></textarea>
-                        <% if (locals.errors && errors.comentariosTrabajo) { %>
-                            <div class="error-msg"><%= errors.comentariosTrabajo.msg %></div>
+                        id="comentariosTrabajo" 
+                        rows="3"
+                        placeholder="Agregar comentarios adicionales"><%= locals.oldData ? oldData.comentariosTrabajo : null %></textarea>
+                        <% if (locals.errors && errors.comentariosTrabajo){ %>
+                        <div class="error-msg"><%= errors.comentariosTrabajo.msg %></div>
                           <% } %>
                     </div>
     
@@ -129,6 +137,7 @@
                         name="precioFinal" 
                         id="precioFinal" 
                         rows="1"
+                        value= "<%= locals.oldData ? oldData.precioFinal : null %>"
                         />
                         <% if (locals.errors && errors.precioFinal) { %>
                             <div class="error-msg"><%= errors.precioFinal.msg %></div>
