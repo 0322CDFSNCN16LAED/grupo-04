@@ -26,11 +26,13 @@ module.exports = {
         },
       });      
 
-    const isProf = userToLogin.isProf === 1;
+    const isProf = userToLogin.isProf == 1;
+    console.log(isProf);
 
     const profToLogin = isProf == true ? userToLogin : "";
 
     const user = profToLogin ? profToLogin : userToLogin;
+    // console.log(profToLogin);
 
     let passwordOk = bcryptjs.compareSync(req.body.password, user.password);
 
@@ -43,7 +45,7 @@ module.exports = {
         },
       });
     req.session.userLogged = user;
-
+    
     return profToLogin
       ? res.redirect("/prof/inbox")
       : res.redirect("/user/inbox");

@@ -9,6 +9,9 @@ module.exports = {
   },
 
   storeBudgRequest: async (req, res) => {
+    if (!req.session.userLogged) {
+      res.redirect("/login");
+    }
     const resultValidation = validationResult(req);
     const rubros = await db.Rubro.findAll();
     if (resultValidation.errors.length > 0) {
@@ -21,7 +24,7 @@ module.exports = {
 
     const imgRefArray = req.files;
 
-    if (resultValidation.errors.length == 0) {
+    if (resultValidation.errors.length == 0 && req.session.userLogged) {
       const budgetReqCreated = await db.budgReq.create({
         ...req.body,
         estado: "PRESUPUESTO ENVIADO",
