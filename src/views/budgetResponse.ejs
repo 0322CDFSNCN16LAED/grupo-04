@@ -80,8 +80,7 @@
                          id="manoDeObra" 
                          rows="3" 
                          placeholder="Detalle la cantidad y especialidad de los profesionales necesarios para este tipo de trabajo"
-                        >
-                        <%= locals.oldData ? oldData.manoDeObra : null %></textarea>
+                        ><%= locals.oldData ? oldData.manoDeObra : null %></textarea>
                         <% if (locals.errors && errors.manoDeObra) { %>
                             <div class="error-msg"><%= errors.manoDeObra.msg %></div>
                           <% } %>
