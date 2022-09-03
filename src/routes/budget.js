@@ -29,8 +29,7 @@ router.post("/request", upload.array("imgReferencia", 5),budgetReqValidations, b
 
 //Profesional carga y envía presupuesto del trabajo que pidió el usuario
 router.get("/response/:reqId", budgetControllers.response);
-//router.post("/response/:reqId",budgetControllers.storeBudgResponse);
-router.post("/response/:reqId",budgetResValidations,budgetControllers.storeBudgResponseedu)
+router.post("/response/:reqId",budgetResValidations,budgetControllers.storeBudgResponse)
 
 //Usuario visualiza la solicitud enviada y el presupuesto recibido
 router.get("/detail/:resId", budgetControllers.viewDetail);
