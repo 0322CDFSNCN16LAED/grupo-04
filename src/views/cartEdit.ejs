@@ -40,7 +40,12 @@
                         </div>
                         <div class="mb-3 align-center">                    
                             <label for="date" class="mr-3 font-medium">Día a realizar el trabajo</label>
-                            <input type="date" name="diaTurno" id="diaTurno" class="form-control" value="<%= dateFormat(cartDetail.dia) %>" min="<% dateFormat(today)%>">
+                            <input 
+                            type="date" 
+                            name="diaTurno" 
+                            id="diaTurno" 
+                            class="form-control" 
+                            value="<%= locals.oldData ? oldData.diaTurno : dateFormat(cartDetail.dia) %>" min="<% dateFormat(today)%>">
                             <% if (locals.errors && errors.diaTurno) { %>
                                 <div class= "error-msg">
                                     <%= errors.diaTurno.msg %>               
