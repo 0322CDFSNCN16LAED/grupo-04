@@ -2,7 +2,6 @@ const path = require("path");
 const { body } = require("express-validator");
 const dayjs = require("dayjs");
 module.exports = {
-  
   cartValidations: [
     body("diaTurno").custom((value, { req }) => {
       console.log(today, req.body);
@@ -15,5 +14,6 @@ module.exports = {
       }
       return true;
     }),
+    body("metodoPago").notEmpty().withMessage("debes seleccionar un metodo de pago"),
   ],
 };

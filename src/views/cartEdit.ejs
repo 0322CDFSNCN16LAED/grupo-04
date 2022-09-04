@@ -58,7 +58,11 @@
                                 <option value="">Elegí una opción</option>
                             <% for( let metodo of pagos ) { %>              
                                 <option value="<%= metodo  %>"<%= locals.oldData && (metodo === oldData.metodoPago ? "selected" : null) %> ><%= metodo %> </option>              
-                            <% } %>                               
+                            <% } %>
+                            </select>
+                            <% if (locals.errors && errors.metodoPago) { %>
+                                <div class="error-msg"><%= errors.metodoPago.msg %></div>
+                            <% } %>                                         
                             </select>
                         </div>
                         <div class="mb-3 align-center">                    
