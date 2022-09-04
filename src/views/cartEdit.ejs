@@ -54,11 +54,11 @@
                         <div class="mb-3 align-center">                    
                             <label for="metodoPago" class="mr-3 font-medium">Método de pago</label>
                             <select name="metodoPago" id="metodoPago" class="form-control" aria-label=".form-select-lg example">
-                                <option value="<%=cartDetail.metodoPago %>" <%= cartDetail.metodoPago == "" ? "selected" : "" %>>Elegí una opción</option>
-                                <option value="efectivo" <%= cartDetail.metodoPago == "efectivo" ? "selected" : "" %>>Efectivo</option>
-                                <option value="debito" <%= cartDetail.metodoPago == "debito" ? "selected" : "" %>>Débito</option>
-                                <option value="credito" <%= cartDetail.metodoPago == "credito" ? "selected" : "" %>>Tarjeta de crédito</option>
-                                <option value="mercadoPago" <%= cartDetail.metodoPago == "mercadoPago" ? "selected" : "" %>>Mercado Pago</option>
+                            <% const pagos = ["efectivo","debito","credito","mercadoPago"] %> 
+                                <option value="">Elegí una opción</option>
+                            <% for( let metodo of pagos ) { %>              
+                                <option value="<%= metodo  %>"<%= locals.oldData && (metodo === oldData.metodoPago ? "selected" : null) %> ><%= metodo %> </option>              
+                            <% } %>                               
                             </select>
                         </div>
                         <div class="mb-3 align-center">                    
