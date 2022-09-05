@@ -29,20 +29,23 @@
               <li class="list-group-item"><%= item.shopping_cart.metodoPago %></li>
               <li class="list-group-item"><%= item.shopping_cart.estado %></li>
             </ul>
-            <div class="card-body">
-              <ul class="nav">
-                <li class="nav-item">
-                  <form action="/budget/cart/prof" method="POST">
-                    <button class="secondary-button" type="submit">Rechazar</button>
-                  </form>
-                </li>
-                <li class="nav-item">
-                  <form action="/budget/cart/prof" method="POST">
-                    <button class="primary-button" type="submit">Aceptar Trabajo</button>
-                  </form>
-                </li>
-              </ul>
-            </div>
+            <% if (item.shopping_cart.estado === "TRABAJO AGENDADO") { %>
+              <div class="card-body"> 
+                <ul class="nav">
+                  <li class="nav-item">
+                    <form action="/budget/cart/prof?estado=RECHAZADO&id=<%= item.shopping_cart.id %>" method="POST">
+                      <button class="secondary-button" type="submit">Rechazar</button>
+                    </form>
+                  </li>
+                  <li class="nav-item">
+                    <form action="/budget/cart/prof?estado=ACEPTADO&id=<%= item.shopping_cart.id %>" method="POST">
+                      <button class="primary-button" type="submit">Aceptar</button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+            <% } %>
+            
           </div>
         </article>
         <% }) %>

@@ -29,22 +29,24 @@
               <li class="list-group-item"><%= item.metodoPago %></li>
               <li class="list-group-item"><%= item.estado %></li>
             </ul>
-            <div class="card-body">
-              <ul class="nav">
-                <li class="nav-item">
-                  <form action="/budget/cart/edit/<%= item.id %>" method="POST">
-                    <button class="secondary-button" type="submit">
-                      <a href="/budget/cart/edit/<%= item.id %>?_method=DELETE">Cancelar Trabajo</a>
+            <% if (item.estado === "TRABAJO AGENDADO") { %>
+              <div class="card-body">
+                <ul class="nav">
+                  <li class="nav-item">
+                    <form action="/budget/cart/edit/<%= item.id %>" method="POST">
+                      <button class="secondary-button" type="submit">
+                        <a href="/budget/cart/edit/<%= item.id %>?_method=DELETE">Cancelar Trabajo</a>
+                      </button>
+                    </form>
+                  </li>
+                  <li class="nav-item">
+                    <button class="primary-button">
+                      <a href="/budget/cart/edit/<%= item.id %>">Editar</a>
                     </button>
-                  </form>
-                </li>
-                <li class="nav-item">
-                  <button class="primary-button">
-                    <a href="/budget/cart/edit/<%= item.id %>">Editar</a>
-                  </button>
-                </li>
-              </ul>
-            </div>
+                  </li>
+                </ul>
+              </div>
+            <% } %>
           </div>
         </article>
         <% }) %>

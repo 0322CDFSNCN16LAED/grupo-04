@@ -261,9 +261,9 @@ module.exports = {
         "users",
         {
           association: "shopping_cart",
-          where: {
+          /*where: {
             estado: "TRABAJO AGENDADO",
-          },
+          },*/
         },
         {
           association: "budget_request",
@@ -275,10 +275,35 @@ module.exports = {
   },
 
   cartProf: async (req, res) => {
-    await db.ShoppingCart.upsert({
-      estado: "TRABAJO CONFIRMADO",
-    });
-    //WIP
-    res.redirect("/budget/cart/prof");
+    const estadoSeleccionado = req.query.estado;
+    const cartId = req.query.id;
+    console.log(estadoSeleccionado)
+    console.log(cartId)
+
+    if (estadoSeleccionado === "ACEPTADO") {
+      await db.ShoppingCart.update({
+        estado: "TRABAJO CONFIRMADO",
+      }, {
+        where: {
+          id: cartId
+        }
+      }
+      );
+  
+      res.redirect("/budget/cart/prof");
+    } else {
+      await db.ShoppingCart.upsert({
+        estado: "TRABAJO CANCELADO",
+      }, {
+        where: {
+          id: cartId
+        }
+      }
+      );
+  
+      res.redirect("/budget/cart/prof");
+    }
+
+    
   },
 };
