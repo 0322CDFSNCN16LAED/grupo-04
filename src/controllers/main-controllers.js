@@ -11,20 +11,21 @@ module.exports = {
   },
 
   loginProcess: async (req, res) => {
+    
     const userToLogin = await db.User.findOne({
       where: {
         email: req.body.email,
       },
     });
 
-    if (!userToLogin)
-      return res.render("login", {
-        errors: {
-          email: {
-            msg: "El usuario no existe",
-          },
-        },
-      });
+    // if (!userToLogin)
+    //   return res.render("login", {
+    //     errors: {
+    //       email: {
+    //         msg: "El usuario no existe",
+    //       },
+    //     },
+    //   });
 
     const isProf = userToLogin.isProf == 1;
 
