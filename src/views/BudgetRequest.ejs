@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('./partials/head') %>
-  <!--<script src="/js/budgReq.js"></script>-->
-
+  <script src="/js/budgReq.js"></script>
   <body>
     <%- include('./partials/header') %>
 
@@ -63,6 +62,7 @@
                 <option value="<%= rubro.nombre  %>" <%= locals.oldData && (rubro.nombre === oldData.rubroNombre ? "selected" : null) %> ><%= rubro.nombre %> </option>              
                 <% } %>
             </select>
+            <span class="error"></span>
             <% if (locals.errors && errors.rubroNombre) { %>
               <div class="error-msg"><%= errors.rubroNombre.msg %></div>
             <% } %>
@@ -78,6 +78,7 @@
               id="imgReferencia"
               multiple
             />
+            <span class="error"></span>
             <% if (locals.errors && errors.imgReferencia) { %>
             <div class="error-msg"><%= errors.imgReferencia.msg %></div>
             <% } %>
@@ -98,6 +99,7 @@
                 <option value="<%= chosen  %>"<%= locals.oldData && (chosen === oldData.urgenciaTrabajo ? "selected" : null) %> ><%= chosen %> </option>              
               <% } %>
             </select>
+            <span class="error"></span>
             <% if (locals.errors && errors.urgenciaTrabajo) { %>
               <div class="error-msg"><%= errors.urgenciaTrabajo.msg %></div>
             <% } %>                          
