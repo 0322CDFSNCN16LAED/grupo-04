@@ -22,8 +22,8 @@ module.exports = {
       .notEmpty()
       .withMessage("Debes completar tu email")
       .isEmail()
-      .withMessage("Debes escribir un formato de correo válido"),
-    body("password")
+      .withMessage("Debes escribir un formato de correo válido"),  
+        body("password")
       .notEmpty()
       .withMessage("Debes introducir una contraseña")
       .bail()
@@ -35,7 +35,9 @@ module.exports = {
       .bail()
       .isLength({ min: 8 })
       .withMessage("Debes introducir un número telefónico válido"),
-    body("address").notEmpty().withMessage("Debes completar tu dirección"),
+    body("address")
+      .notEmpty()
+      .withMessage("Debes completar tu dirección"),
     body("city")
       .notEmpty()
       .withMessage("Debes completar el nombre de tu ciudad"),
@@ -45,7 +47,8 @@ module.exports = {
     body("zipCode")
       .notEmpty()
       .withMessage("Debes completar tu código postal"),
-    body("avatar").custom((value, { req }) => {
+    body("avatar")
+      .custom((value, { req }) => {
       const file = req.file;
       const acceptedExtensions = [".gif", ".png", ".tif", ".jpg"];
       if (!file) {
