@@ -20,6 +20,37 @@ const validations = [
     ],
   },
   {
+    inputName: "rubroNombre",
+    validations: [
+      {
+        validator: isEmpty,
+        errorMsg: "Rubro no puede ser vacío",
+      },
+    ],
+  },
+  {
+    inputName: "imgReferencia",
+    validations: [
+      {
+        validator: isEmpty,
+        errorMsg: "Debes subir una imagen de referencia",
+      },
+      {
+        validator: (input) => /.(gif|jpeg|jpg|png)$/i.test(input.value) != "",
+        errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
+      },
+    ],
+  },
+  {
+    inputName: "urgenciaTrabajo",
+    validations: [
+      {
+        validator: isEmpty,
+        errorMsg: "Fecha no puede ser vacío",
+      },
+    ],
+  },
+  {
     inputName: "ubicacion",
     validations: [
       {
@@ -39,6 +70,7 @@ window.onload = function () {
 
     validations.forEach((inputToValidate) => {
       const input = formulario[inputToValidate.inputName];
+      
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
         if (!isValid) {
