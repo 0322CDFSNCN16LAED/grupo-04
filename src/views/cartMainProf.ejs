@@ -33,12 +33,12 @@
               <div class="card-body"> 
                 <ul class="nav">
                   <li class="nav-item">
-                    <form action="/budget/cart/prof?estado=RECHAZADO&id=<%= item.shopping_cart.id %>" method="POST">
+                    <form action="/cart/prof?estado=RECHAZADO&id=<%= item.shopping_cart.id %>" method="POST">
                       <button class="secondary-button" type="submit">Rechazar</button>
                     </form>
                   </li>
                   <li class="nav-item">
-                    <form action="/budget/cart/prof?estado=ACEPTADO&id=<%= item.shopping_cart.id %>" method="POST">
+                    <form action="/cart/prof?estado=ACEPTADO&id=<%= item.shopping_cart.id %>" method="POST">
                       <button class="primary-button" type="submit">Aceptar</button>
                     </form>
                   </li>

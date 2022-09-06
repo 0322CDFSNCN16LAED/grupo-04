@@ -25,11 +25,11 @@
             <a href="/budget/detail/<%= response.id %>">Ver detalle</a>
             <% if (response.shopping_cart === null) { %>
                 <button class="primary-button">
-                    <a href="/budget/cart/<%= response.id %>"> Contratar </a>
+                    <a href="/cart/<%= response.id %>"> Contratar </a>
                 </button>
             <% } else { %>
                 <button class="primary-button">
-                    <a href="/budget/cart"> Ir al Carrito </a>
+                    <a href="/cart"> Ir al Carrito </a>
                 </button>
             <% } %> 
         </button>

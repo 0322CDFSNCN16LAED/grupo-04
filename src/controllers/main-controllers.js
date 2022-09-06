@@ -1,6 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const db = require("../database/models");
-const dayjs = require("dayjs");
+
 module.exports = {
   home: (req, res) => {
     res.render("index");

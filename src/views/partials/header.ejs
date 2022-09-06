@@ -17,10 +17,10 @@
                         <li><a class="dropdown-item" href="/user/inbox">Bandeja de entrada</a></li>
                     <% } %>
                     <% if (locals.isLogged && locals.userLogged.isProf) { %>
-                        <li><a class="dropdown-item" href="/budget/cart/prof">Mi carrito</a></li>
+                        <li><a class="dropdown-item" href="/cart/prof">Mi carrito</a></li>
                     <% } %>
                     <% if (locals.isLogged && !locals.userLogged.isProf) { %>
-                        <li><a class="dropdown-item" href="/budget/cart">Mi carrito</a></li>
+                        <li><a class="dropdown-item" href="/cart">Mi carrito</a></li>
                     <% } %> 
                     <li><a class="dropdown-item" href="/history">Historial</a></li>
                     <li><a class="dropdown-item" href="#">Categorias</a></li>
@@ -59,10 +59,10 @@
                     <li><a class="dropdown-item" href="/history">Historial</a></li>
                     <li><a class="dropdown-item" href="#">Categorias</a></li>
                       <% if (locals.isLogged && locals.userLogged.isProf) { %>
-                        <li><a class="dropdown-item" href="/budget/cart/prof">Mi carrito</a></li>
+                        <li><a class="dropdown-item" href="/cart/prof">Mi carrito</a></li>
                     <% } %>
                     <% if (locals.isLogged && !locals.userLogged.isProf) { %>
-                        <li><a class="dropdown-item" href="/budget/cart">Mi carrito</a></li>
+                        <li><a class="dropdown-item" href="/cart">Mi carrito</a></li>
                     <% } %> 
                     <li><a class="dropdown-item" href="#">Funcionamiento</a></li>
                     <li><a class="dropdown-item" href="#">Sobre Nosotros</a></li>
