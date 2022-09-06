@@ -6,7 +6,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debe detallar los materiales Frontend",
+        errorMsg: "Debe detallar los materiales",
       },
     ],
   },
@@ -15,7 +15,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debes colocar el precio de los materialesFrontend ",
+        errorMsg: "Debes colocar el precio de los materiales",
       },
     ],
   },
@@ -24,7 +24,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debe detallar este campo Frontend",
+        errorMsg: "Debe detallar este campo",
       },
     ],
   },
@@ -33,7 +33,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debes colocar un precio de mano de obraFrontend",
+        errorMsg: "Debes colocar un precio de mano de obra",
       },
     ],
   },
@@ -42,7 +42,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debes colocar un tiempo aproximado Frontend",
+        errorMsg: "Debes colocar un tiempo aproximado",
       },
     ],
   },
@@ -51,7 +51,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debe completar este campo Frontend",
+        errorMsg: "Debe completar este campo",
       },
     ],
   },
@@ -60,7 +60,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debes colocar el precio total Frontend",
+        errorMsg: "Debes colocar el precio total",
       },
     ],
   },
