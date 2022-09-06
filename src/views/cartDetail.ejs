@@ -69,16 +69,13 @@
                             <li class="list-group-item">
                                 <label for="metodoPago" class="mr-3 font-medium mb-3">Método de pago</label>
                                 <select name="metodoPago" id="metodoPago" class="form-control" aria-label=".form-select-lg example">
-                                    <% const pagos = ["efectivo","debito","credito","mercadoPago"] %> 
-                                    <option value="">Elegí una opción</option>
-                                        <% for( let metodo of pagos ) { %>              
-                                            <option value="<%= metodo  %>"<%= locals.oldData && (metodo === oldData.metodoPago ? "selected" : null) %> ><%= metodo %> </option>              
-                                        <% } %>
-                                        </select>
-                                        <% if (locals.errors && errors.metodoPago) { %>
-                                            <div class="error-msg"><%= errors.metodoPago.msg %></div>
-                                        <% } %>
-                                </select>
+                                <% const pagos = ["efectivo","debito","credito","mercadoPago"] %> 
+                                    <option value="<%= cartDetail.metodoPago %> "><%= cartDetail.metodoPago %> </option>
+                                <% const pagosToShow= pagos.filter(metodo => metodo != cartDetail.metodoPago) %> 
+                                <% for( let metodo of pagosToShow ) {%>
+                                    <option value="<%= metodo  %>"<%= locals.oldData && (metodo === oldData.metodoPago ? "selected" : null) %> ><%= metodo %> </option>              
+                                <% } %>                                           
+                            </select>
                             </li>
                             <li class="list-group-item">
                                 <p class="mr-3 font-medium">Dirección</p>
