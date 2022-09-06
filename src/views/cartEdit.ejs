@@ -15,7 +15,7 @@
         
         <div class="shopc-lap" >
             <div class="fx justify-center lap-w-1">
-                <div class="marco-detail-2 w-50 marco-lap">
+                <div class="card" style="width: 18rem;">
                     <div>
                         <h2 class="font-large m-t-pro bolder mb-3"><%= cartDetail.budget_response[0].budget_request.tituloSolicitud %></h2>
                         <img src="/images/budgetRequest/<%= cartDetail.budget_response[0].budget_request.req_imgs[0].img %>" class="w-100 mb-3"></img>
@@ -33,7 +33,7 @@
                         <p class="form-control"><%= cartDetail.budget_response[0].duracionTrabajo %> horas</p>
                     </div>
                 </div>
-                <div class="marco-detail-2 w-50 marco-lap">
+                <div class="card" style="width: 18rem;">
                     <form action="/budget/cart/edit/<%= cartDetail.id %>?_method=PUT" method="POST">
                         <div>
                             <h2 class="font-large m-t-pro bolder mb-3">Agendá el turno</h2>

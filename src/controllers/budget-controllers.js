@@ -128,23 +128,41 @@ module.exports = {
         { association: "budget_request", include: ["req_imgs"] },
       ],
     });
-    const today = new Date();
-
     //console.log(JSON.stringify(cartDetail,null,4));
-
-    res.render("cartDetail", { cartDetail, today });
+    res.render("cartDetail", { cartDetail });
   },
 
   storeCartItem: async (req, res) => {
-    await db.ShoppingCart.create({
-      resId: req.params.resId,
-      userId: req.session.userLogged.id,
-      dia: req.body.diaTurno,
-      horario: req.body.horario,
-      metodoPago: req.body.metodoPago,
-      estado: "TRABAJO AGENDADO",
+    const cartDetail = await db.budgRes.findOne({
+      where: {
+        id: req.params.resId,
+      },
+      include: [
+        "budget_request",
+        "users",
+        { association: "budget_request", include: ["req_imgs"] },
+      ],
     });
-    res.redirect("/budget/cart");
+    
+    const resultValidation = validationResult(req);
+
+    if (resultValidation.errors.length == 0) {
+      await db.ShoppingCart.create({
+        resId: req.params.resId,
+        userId: req.session.userLogged.id,
+        dia: req.body.diaTurno,
+        horario: req.body.horario,
+        metodoPago: req.body.metodoPago,
+        estado: "TRABAJO AGENDADO",
+      });
+      res.redirect("/budget/cart");
+    } else {
+      res.render("cartDetail", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+        cartDetail: cartDetail
+      });
+    }
   },
 
   cartMain: async (req, res) => {
@@ -166,6 +184,7 @@ module.exports = {
         },
       ],
     });
+    console.log(JSON.stringify(items,null,4))
     res.render("cartMain", { items });
   },
 
@@ -277,33 +296,21 @@ module.exports = {
   cartProf: async (req, res) => {
     const estadoSeleccionado = req.query.estado;
     const cartId = req.query.id;
-    console.log(estadoSeleccionado)
-    console.log(cartId)
 
     if (estadoSeleccionado === "ACEPTADO") {
       await db.ShoppingCart.update({
         estado: "TRABAJO CONFIRMADO",
-      }, {
-        where: {
-          id: cartId
-        }
-      }
-      );
-  
+      },{
+        where: { id: cartId }
+      });
       res.redirect("/budget/cart/prof");
     } else {
       await db.ShoppingCart.upsert({
         estado: "TRABAJO CANCELADO",
-      }, {
-        where: {
-          id: cartId
-        }
-      }
-      );
-  
+      },{
+        where: { id: cartId }
+      });
       res.redirect("/budget/cart/prof");
     }
-
-    
   },
 };
