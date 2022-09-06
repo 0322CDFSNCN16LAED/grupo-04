@@ -25,15 +25,14 @@ module.exports = {
       .isEmail()
       .withMessage("Debes escribir un formato de correo válido")
       .custom(async (value, {req}) => {  
-        const userToLogin = await db.User.findAll({
-        where: {
-        email: req.body.email,
-        },
+        const userRegister = await db.User.findAll({
+          where: {
+            email: req.body.email,
+          },
         });
-          if (userToLogin) {
-            throw new Error("El e-mail ya está registrado");
+          if (userToRegister) {
+            throw new Error("El e-mail ingresado ya está registrado");
           }
-          console.log(userToLogin);
         }),
     body("password")
       .notEmpty()
@@ -95,8 +94,18 @@ module.exports = {
       .notEmpty()
       .withMessage("Debes completar tu email")
       .isEmail()
-      .withMessage("Debes escribir un formato de correo válido"),
-    body("password")
+      .withMessage("Debes escribir un formato de correo válido")
+      .custom(async (value, {req}) => {  
+        const userToRegister = await db.User.findAll({
+        where: {
+        email: req.body.email,
+        },
+        });
+          if (userToRegister) {
+            throw new Error("El e-mail ingresado ya está registrado");
+          }
+        }),
+      body("password")
       .notEmpty()
       .withMessage("Debes introducir una contraseña")
       .bail()
