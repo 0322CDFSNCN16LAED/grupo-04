@@ -75,7 +75,6 @@ window.onload = function () {
 
     validations.forEach((inputToValidate) => {
       const input = formulario[inputToValidate.inputName];
-      console.log(input);
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
         if (!isValid) {
@@ -93,7 +92,7 @@ window.onload = function () {
     });
 
     if (errores.length == 0) {
-      console.log("No hay errores, yay!");
+      formulario.submit();
     } else {
       console.log(errores);
     }
