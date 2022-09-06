@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('./partials/head') %>
+    <script src="/js/budgRes.js"></script>
 <body>
     <%- include('./partials/header') %>
 
@@ -44,7 +45,7 @@
             <div class="grey-opacity budget-req desk-size">
                 <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
 
-                <form action="/budget/response/<%= budgetToShow.id %>" method="POST">
+                <form id="formulario" action="/budget/response/<%= budgetToShow.id %>" method="POST">
                     <div class="mb-3">
                             <div>
                                 <label for="materiales" class="mr-3 form-label font-medium">Materiales</label>
@@ -55,7 +56,7 @@
                                 rows="3" 
                                 placeholder="Detalle los materiales a  para este tipo de trabajo"
                                 ><%= locals.oldData ? oldData.materiales : null %></textarea>
-
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.materiales) { %>
                                 <div class="error-msg"><%= errors.materiales.msg %></div>
                                 <% } %>
@@ -68,6 +69,7 @@
                                 id="precioMateriales"
                                 value="<%= locals.oldData ? oldData.precioMateriales : null %>"
                                 />
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.precioMateriales) { %>
                             <div class="error-msg"><%= errors.precioMateriales.msg %></div>
                                 <% } %>
@@ -81,6 +83,7 @@
                          rows="3" 
                          placeholder="Detalle la cantidad y especialidad de los profesionales necesarios para este tipo de trabajo"
                         ><%= locals.oldData ? oldData.manoDeObra : null %></textarea>
+                        <span class="error"></span>
                         <% if (locals.errors && errors.manoDeObra) { %>
                             <div class="error-msg"><%= errors.manoDeObra.msg %></div>
                           <% } %>
@@ -94,6 +97,7 @@
                          id="precioManoDeObra"                         
                          value="<%= locals.oldData ? oldData.precioManoObra : null %>"
                         />
+                        <span class="error"></span>
                         <% if (locals.errors && errors.precioManoObra) { %>
                             <div class="error-msg"><%= errors.precioManoObra.msg %></div>
                           <% } %>
@@ -109,6 +113,7 @@
                          
                          value= "<%= locals.oldData ? oldData.duracionTrabajo : null %>"
                          >
+                         <span class="error"></span>
                         <% if (locals.errors && errors.duracionTrabajo) { %>
                             <div class="error-msg"><%= errors.duracionTrabajo.msg %></div>
                           <% } %>
@@ -127,6 +132,7 @@
                         <div class="error-msg"><%= errors.comentariosTrabajo.msg %></div>
                           <% } %>
                     </div>
+                    <span class="error"></span>
     
                     <div class="fx justify-end align-center">
                         <label for="precioFinal" class="mr-3 form-label total-title">Monto Total</label>
@@ -138,6 +144,7 @@
                         rows="1"
                         value= "<%= locals.oldData ? oldData.precioFinal : null %>"
                         />
+                        <span class="error"></span>
                         <% if (locals.errors && errors.precioFinal) { %>
                             <div class="error-msg"><%= errors.precioFinal.msg %></div>
                           <% } %>
