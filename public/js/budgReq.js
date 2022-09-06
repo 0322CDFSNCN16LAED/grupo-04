@@ -36,8 +36,8 @@ const validations = [
         errorMsg: "Debes subir una imagen de referencia",
       },
       {
-        validator: (input) => /.(gif|jpeg|jpg|png)$/i.test(input.value) != "",
-        errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF).",
+        validator: (input) => /.(gif|jpeg|jpg|png|tif)$/i.test(input.value) != "",
+        errorMsg: "Debe ingresar un archivo válido (JPG, JPEG, PNG, GIF, TIF).",
       },
     ],
   },

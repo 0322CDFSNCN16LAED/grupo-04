@@ -56,7 +56,7 @@ module.exports = {
     body("zipCode").notEmpty().withMessage("Debes completar tu código postal"),
     body("avatar").custom((value, { req }) => {
       const file = req.file;
-      const acceptedExtensions = [".gif", ".png", ".tif", ".jpg"];
+      const acceptedExtensions = [".gif", ".png", ".tif", ".jpg",".jpeg"];
       if (!file) {
         throw new Error("Debes subir una imagen de perfil");
       } else {
