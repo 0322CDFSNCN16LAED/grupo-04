@@ -15,7 +15,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debes colocar el precio Frontend ",
+        errorMsg: "Debes colocar el precio de los materialesFrontend ",
       },
     ],
   },
@@ -29,11 +29,11 @@ const validations = [
     ],
   },
   {
-    inputName: "precioManoObra",
+    inputName: "precioManoDeObra",
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debes colocar un precio Frontend",
+        errorMsg: "Debes colocar un precio de mano de obraFrontend",
       },
     ],
   },
@@ -60,11 +60,10 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debes colocar el precio Frontend",
+        errorMsg: "Debes colocar el precio total Frontend",
       },
     ],
   },
-
 ];
 
 window.onload = function () {
@@ -76,7 +75,7 @@ window.onload = function () {
 
     validations.forEach((inputToValidate) => {
       const input = formulario[inputToValidate.inputName];
-      
+      console.log(input);
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
         if (!isValid) {
