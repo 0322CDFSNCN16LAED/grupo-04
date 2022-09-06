@@ -171,8 +171,8 @@ module.exports = {
         userId: req.session.userLogged.id,
       },
       include: [
-        "users",
         "budget_response",
+        "users",
         {
           association: "budget_response",
           attributes: ["precioFinal", "userId"],
