@@ -1,5 +1,6 @@
 const path = require("path");
 const { body } = require("express-validator");
+const db = require("../database/models");
 
 module.exports = {
   userValidations: [
@@ -22,8 +23,19 @@ module.exports = {
       .notEmpty()
       .withMessage("Debes completar tu email")
       .isEmail()
-      .withMessage("Debes escribir un formato de correo válido"),  
-        body("password")
+      .withMessage("Debes escribir un formato de correo válido")
+      .custom(async (value, {req}) => {  
+        const userToLogin = await db.User.findAll({
+        where: {
+        email: req.body.email,
+        },
+        });
+          if (userToLogin) {
+            throw new Error("El e-mail ya está registrado");
+          }
+          console.log(userToLogin);
+        }),
+    body("password")
       .notEmpty()
       .withMessage("Debes introducir una contraseña")
       .bail()
@@ -35,20 +47,15 @@ module.exports = {
       .bail()
       .isLength({ min: 8 })
       .withMessage("Debes introducir un número telefónico válido"),
-    body("address")
-      .notEmpty()
-      .withMessage("Debes completar tu dirección"),
+    body("address").notEmpty().withMessage("Debes completar tu dirección"),
     body("city")
       .notEmpty()
       .withMessage("Debes completar el nombre de tu ciudad"),
     body("state")
       .notEmpty()
       .withMessage("Debes completar el nombre de tu provincia"),
-    body("zipCode")
-      .notEmpty()
-      .withMessage("Debes completar tu código postal"),
-    body("avatar")
-      .custom((value, { req }) => {
+    body("zipCode").notEmpty().withMessage("Debes completar tu código postal"),
+    body("avatar").custom((value, { req }) => {
       const file = req.file;
       const acceptedExtensions = [".gif", ".png", ".tif", ".jpg"];
       if (!file) {
@@ -109,9 +116,7 @@ module.exports = {
     body("state")
       .notEmpty()
       .withMessage("Debes completar el nombre de tu provincia"),
-    body("zipCode")
-      .notEmpty()
-      .withMessage("Debes completar tu código postal"),
+    body("zipCode").notEmpty().withMessage("Debes completar tu código postal"),
     body("rubro")
       .notEmpty()
       .withMessage("Debes seleccionar por lo menos 1 rubro"),
