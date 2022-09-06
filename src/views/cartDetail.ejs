@@ -39,20 +39,45 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"> 
                                 <label for="date" class="mr-3 font-medium mb-3">Día a realizar el trabajo</label>
-                                <input type="date" name="diaTurno" id="diaTurno" class="form-control" min="<%today%>">
+                                <input 
+                                    type="date" 
+                                    name="diaTurno" 
+                                    id="diaTurno" 
+                                    class="form-control" 
+                                    value="<%= locals.oldData ? oldData.diaTurno : "" %>">
+                                <% if (locals.errors && errors.diaTurno) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.diaTurno.msg %>               
+                                    </div>
+                                <% } %>
                             </li>
                             <li class="list-group-item">
                                 <label for="horario" class="mr-3 font-medium mb-3">Horario</label>
-                                <input type="time" min="08:00" max="20:00" name="horario" id="horario" class="form-control" aria-label=".form-select-lg example">
+                                <input 
+                                    type="time" 
+                                    name="horario" 
+                                    id="horario" 
+                                    class="form-control" 
+                                    aria-label=".form-select-lg example"
+                                    value="<%= locals.oldData ? oldData.horario : timeFormat(cartDetail.horario) %>">
+                                <% if (locals.errors && errors.horario) { %>
+                                    <div class= "error-msg">
+                                        <%= errors.horario.msg %>               
+                                    </div>
+                                <% } %>
                             </li>
                             <li class="list-group-item">
                                 <label for="metodoPago" class="mr-3 font-medium mb-3">Método de pago</label>
                                 <select name="metodoPago" id="metodoPago" class="form-control" aria-label=".form-select-lg example">
-                                    <option selected>Elegí una opción</option>
-                                    <option value="efectivo">Efectivo</option>
-                                    <option value="debito">Débito</option>
-                                    <option value="credito">Tarjeta de crédito</option>
-                                    <option value="mercadoPago">Mercado Pago</option>
+                                    <% const pagos = ["efectivo","debito","credito","mercadoPago"] %> 
+                                    <option value="">Elegí una opción</option>
+                                        <% for( let metodo of pagos ) { %>              
+                                            <option value="<%= metodo  %>"<%= locals.oldData && (metodo === oldData.metodoPago ? "selected" : null) %> ><%= metodo %> </option>              
+                                        <% } %>
+                                        </select>
+                                        <% if (locals.errors && errors.metodoPago) { %>
+                                            <div class="error-msg"><%= errors.metodoPago.msg %></div>
+                                        <% } %>
                                 </select>
                             </li>
                             <li class="list-group-item">

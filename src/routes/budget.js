@@ -39,11 +39,11 @@ router.get("/detail/:resId", budgetControllers.viewDetail);
 //Carrito de compras
 router.get("/cart", budgetControllers.cartMain);
 router.get("/cart/prof", budgetControllers.cartMainProf);
-router.post("/cart/prof",cartValidations, budgetControllers.cartProf);
+router.post("/cart/prof", budgetControllers.cartProf);
 router.get("/cart/:resId", budgetControllers.addToCart);
-router.post("/cart/:resId",cartValidations, budgetControllers.storeCartItem);
+router.post("/cart/:resId", cartValidations, budgetControllers.storeCartItem);
 router.get("/cart/edit/:id", budgetControllers.editCartItem);
-router.put("/cart/edit/:id",cartValidations, budgetControllers.updateCartItem);
+router.put("/cart/edit/:id", cartValidations, budgetControllers.updateCartItem);
 router.delete("/cart/edit/:id", budgetControllers.destroyCartItem);
 
 module.exports = router;
