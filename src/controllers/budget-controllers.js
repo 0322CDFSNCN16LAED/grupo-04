@@ -166,6 +166,7 @@ module.exports = {
         },
       ],
     });
+    console.log(JSON.stringify(items,null,4));
     res.render("cartMain", { items });
   },
 

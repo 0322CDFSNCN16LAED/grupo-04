@@ -24,22 +24,27 @@ module.exports = {
       .withMessage("Debes completar tu email")
       .isEmail()
       .withMessage("Debes escribir un formato de correo válido")
-      .custom(async (value, {req}) => {  
+      .custom(async (value, { req }) => {
         const userRegister = await db.User.findAll({
           where: {
             email: req.body.email,
           },
         });
-          if (userToRegister) {
-            throw new Error("El e-mail ingresado ya está registrado");
-          }
-        }),
+        if (userToRegister) {
+          throw new Error("El e-mail ingresado ya está registrado");
+        }
+      }),
     body("password")
       .notEmpty()
       .withMessage("Debes introducir una contraseña")
       .bail()
       .isLength({ min: 8 })
-      .withMessage("La contraseña debe tener al menos ocho caracteres"),
+      .withMessage("La contraseña debe tener al menos ocho caracteres")
+      .bail()
+      .isStrongPassword()
+      .withMessage(
+        "Tu contraseña no es lo suficientemente poderosa, se requiere más dakka"
+      ),
     body("phone")
       .notEmpty()
       .withMessage("Debes completar tu número de teléfono")
@@ -56,7 +61,7 @@ module.exports = {
     body("zipCode").notEmpty().withMessage("Debes completar tu código postal"),
     body("avatar").custom((value, { req }) => {
       const file = req.file;
-      const acceptedExtensions = [".gif", ".png", ".tif", ".jpg",".jpeg"];
+      const acceptedExtensions = [".gif", ".png", ".tif", ".jpg", ".jpeg"];
       if (!file) {
         throw new Error("Debes subir una imagen de perfil");
       } else {
@@ -95,22 +100,38 @@ module.exports = {
       .withMessage("Debes completar tu email")
       .isEmail()
       .withMessage("Debes escribir un formato de correo válido")
-      .custom(async (value, {req}) => {  
+      .custom(async (value, { req }) => {
         const userToRegister = await db.User.findAll({
-        where: {
-        email: req.body.email,
-        },
+          where: {
+            email: req.body.email,
+          },
         });
-          if (userToRegister) {
-            throw new Error("El e-mail ingresado ya está registrado");
-          }
-        }),
-      body("password")
+        if (userToRegister) {
+          throw new Error("El e-mail ingresado ya está registrado");
+        }
+      }),
+    body("password")
       .notEmpty()
       .withMessage("Debes introducir una contraseña")
       .bail()
-      .isLength({ min: 8 })
-      .withMessage("La contraseña debe tener al menos ocho caracteres"),
+      .isStrongPassword([
+        {
+          minLength: 8,
+          minUppercase: 1,
+          minNumbers: 1,
+          minSymbols: 1,
+          returnScore: true,
+          pointsPerUnique: 1,
+          pointsPerRepeat: 0.5,
+          pointsForContainingLower: 10,
+          pointsForContainingUpper: 10,
+          pointsForContainingNumber: 10,
+          pointsForContainingSymbol: 10,
+        },
+      ])
+      .withMessage(
+        `La contraseña debe tener un minimo de 8 caracteres, 1 mayuscula, 1 simbolo y 1 numero`
+      ),
     body("phone")
       .notEmpty()
       .withMessage("Debes completar tu número teléfono")
