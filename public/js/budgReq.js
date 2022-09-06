@@ -88,7 +88,7 @@ window.onload = function () {
     });
 
     if (errores.length == 0) {
-      console.log("No hay errores, yay!");
+      formulario.submit();
     } else {
       console.log(errores);
     }
