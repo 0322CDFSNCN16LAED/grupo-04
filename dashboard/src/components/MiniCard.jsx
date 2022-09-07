@@ -8,6 +8,7 @@ const propTypes = {
         "danger",
         "warning",
         "success",
+        "info"
     ]),
 };
 export default function MiniCard({ title, color, value, icon }) {
