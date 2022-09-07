@@ -4,8 +4,8 @@ const db = require("../database/models")
 
 module.exports = {
   loginValidations: [
-    body("email").custom((value) => {
-      return db.User.findByEmail(value).then((user) => {
+    body("email").custom(async (value) => {
+      return await db.User.findByEmail(value).then((user) => {
         if (!user) {
           return Promise.reject("email no existe");
         }
