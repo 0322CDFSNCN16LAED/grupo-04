@@ -1,0 +1,57 @@
+@media(min-width:481px) {
+    /*----------MAIN-----------*/
+    
+    .primary-button a {
+        font-size: 90%;
+        border-radius: 5px;
+    } 
+    /*----------SHOPPING CART---------*/
+
+    .shopc-marco-tablet {
+        max-width: 80%;
+        justify-content: center;
+    }
+
+    /*----------HISTORY---------*/
+
+    .lapt-history {
+    display: flex;
+    justify-content: space-between;
+    }
+
+    /*----------FOOTER---------*/
+
+    .nav-bar ul li a {
+        text-decoration: none;
+        font-size: 1.2em;
+        margin-top: 7%;
+    }
+
+    /*-------profile professional---------*/
+     .profile-box {
+        padding: 5%;
+        border-radius: 5px;
+        margin: 4%;
+    }
+    .desk-size{
+        width: 60vh;
+
+    }   
+   
+
+}
+
+@media (max-width: 600px) {
+    table {
+      display: block;
+      max-width: -moz-fit-content;
+      max-width: fit-content;
+      margin: 0 auto;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .card-w {
+        width: 45%;
+    }
+}

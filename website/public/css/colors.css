@@ -1,0 +1,13 @@
+.bg-orange { background-color:#FF9900; }
+.bg-white { background-color: white; }
+.bg-light-grey { background-color: #C4C4C4;} 
+.font-white { color: white; }
+.grey-opacity { background-color: rgba(196, 196, 196, 0.8); }
+/*.color-grey-footer {background-color:  #8c8c8c  ;}*/
+.color-grey-footer {background-color:  #205375  ;}
+.table-bg {background-color: #EFEFEF;}
+.card-border {
+    border: 2px #205375 solid;
+    margin: 2%;
+    padding: 3%;
+}

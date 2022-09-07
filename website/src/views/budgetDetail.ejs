@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head') %>
+  <body>
+    <%- include('./partials/header') %>
+
+    <main class="imagen-fondo-mobile justify-center">
+      <div class="fx justify-center align-center budget-direction">
+        <div class="grey-opacity budget-req budg-req-desk">
+          <h2 class="text-center bolder mb-3">Tu Pedido</h2>
+          <section>
+            <div class="mb-3 align-center">
+              <p class="mr-3 font-medium">Título del trabajo</p>
+              <p class="form-control"><%= budgetDetail.budget_request.tituloSolicitud %></p>
+            </div>
+            <div class="mb-3">
+              <p class="mr-3 form-label font-medium">Descripción del trabajo</p>
+              <p class="form-control"><%= budgetDetail.budget_request.detalleSolicitud %></p>
+            </div>
+            <div class="mb-3 align-center">
+              <p class="mr-3 font-medium">Categoría</p>
+              <p class="form-control"><%= budgetDetail.budget_request.rubroNombre %></p>
+            </div>
+            <div class="mb-3">
+              <p class="form-label font-medium">Imágenes de referencia</p>
+              <% budgetDetail.budget_request.req_imgs.map((img) => {  %> 
+                <a target="_blank" href="/images/budgetRequest/<%= img.img %>">
+                  <img class="thumbnail" src="/images/budgetRequest/<%= img.img %>" />
+                </a>
+              <% }) %>
+            </div>
+            <div class="mb-3">
+              <p class="font-medium">Cuándo necesitas realizarlo:</p>
+              <p class="form-control"><%= budgetDetail.budget_request.urgenciaTrabajo %></p>
+            </div>
+            <div>
+              <p class="mr-3 budg-txt font-medium">Ubicación</p>
+              <p class="form-control"><%= budgetDetail.budget_request.ubicacion %></p>
+            </div>
+          </section>
+        </div>
+
+        <div class="grey-opacity budget-req desk-size">
+          <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
+          <div class="mb-3">
+            <p class="mr-3 form-label font-medium">Materiales</p>
+            <p class="form-control"><%= budgetDetail.materiales %></p>
+            <p class="mr-3 form-label total-title">$</p>
+            <p class="form-control total-price">
+              <%= budgetDetail.precioMateriales %>
+            </p>
+          </div>
+
+          <div class="mb-3">
+            <p class="mr-3 form-label font-medium">Mano de Obra</p>
+            <p class="form-control"><%= budgetDetail.manoDeObra %></p>
+            <p class="mr-3 form-label total-title">$</p>
+            <p class="form-control total-price">
+              <%= budgetDetail.precioManoDeObra %>
+            </p>
+          </div>
+
+          <div class="mb-3">
+            <p class="mr-3 form-label font-medium">
+              Duración estimada (en horas)
+            </p>
+            <p class="form-control"><%= budgetDetail.duracionTrabajo %></p>
+          </div>
+
+          <div class="mb-3">
+            <p class="mr-3 form-label font-medium">Comentarios adicionales</p>
+            <p class="form-control"><%= budgetDetail.comentariosTrabajo %></p>
+          </div>
+
+          <div class="fx justify-end align-center">
+            <p class="mr-3 form-label total-title">Monto Total</p>
+            <p class="form-control total-price">
+              <%= budgetDetail.precioFinal %>
+            </p>
+          </div>
+
+          <div class="fx justify-center mt-3">
+            <% if (locals.userLogged.isProf != true && budgetDetail.shopping_cart === null) {%> 
+            <button class="primary-button">
+              <a href="/cart/<%= budgetDetail.id %>">Agregar al Carrito</a>
+            </button>
+            <% } else { %> 
+               <button class="primary-button">
+                    <a href="/cart"> Ir al Carrito </a>
+                </button>
+            <% } %> 
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('./partials/footer') %>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

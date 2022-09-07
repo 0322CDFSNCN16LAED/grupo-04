@@ -1,0 +1,60 @@
+.bg-grisoscuro {
+  background-color: #A6A6A6;
+}
+.centradologin {
+  background-color: #A6A6A6;
+  padding: 10%;
+  margin: 10%;
+  position: absolute;
+  align-items: center;  
+}
+.font-azul{
+  color:blue;
+}
+
+.caja-main {
+  display: flex;
+  background-color: #edf5f0
+}
+
+.primary-button-login {
+  bottom: 100px;
+  padding: 10px;  
+  border-radius: 20px;
+  background-color: #FF9900;
+  border: none;
+  font-size: 90%; 
+}
+
+.login-form-box input {
+  padding: 4px;
+  border-radius: 15px;
+  width: 100%;
+  border: none;
+  margin-top: 4%;
+  margin-bottom: 3%;
+}
+.login-error input{
+  padding: 4px;
+  border-radius: 15px;
+  width: 100%;
+  margin-top: 2%;
+}
+.login-icons{
+  font-size: 2em;
+  margin-bottom: 12%;
+  margin-top: 15%;
+}
+.ancor-login {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  max-width: 50%;
+  margin-left: 25%;
+}
+.mb-5-login {
+  margin-bottom: 5%;
+}
+.mb-3-login {
+  margin-bottom: 3%;
+}

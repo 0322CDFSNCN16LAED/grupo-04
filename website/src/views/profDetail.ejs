@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<body>
+    <%- include('./partials/header') %>
+    
+   
+       
+    <main class="imagen-fondo-mobile fx justify-center">
+        <div class="fx justify-center"></div>
+            <div class="grey-opacity profile-box-edit desk-size">
+                <div>
+                    <div class="fx justify-sp-a align-center">
+                        <div class="user-pic" style="background-image:url('../../images/avatar/<%= user.avatar %>')"></div>
+                        <div class="font-large"><%= user.name %> <%= user.lastName %> </div>
+                    </div>
+                    <div class=" map-column">
+                        <div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <div class="bolder">Nombre</div>
+                                    <div class="form-control"><%= user.name %>  </div>
+                                </div>
+                                <div class="col">
+                                    <div class="bolder">Apellido</div>
+                                    <div class="form-control"><%= user.lastName %></div>
+                                </div>
+                            </div>
+                            <div class="col-auto mt-3">
+                                <div class="bolder">Nombre de usuario</div>
+                                <div class="input-group">
+                                    <div class="input-group-text mb-auto">@</div>
+                                    <p class="form-control"><%= user.userName %> </p>
+                                </div>
+                            </div>
+                            <div class="col mb-3">
+                                <div class="bolder">Email</div>
+                                <div class="form-control"><%= user.email %></div>
+                            </div>                           
+                            
+                            <div class="col mt-3">
+                                <div class="bolder">Teléfono</div>
+                                <div class="form-control" placeholder="Teléfono"><%= user.phone %></div>
+                            </div>
+        
+                            <div class="col-12 mt-3 mb-3">
+                                <div class="bolder">DNI</div>
+                                <div class="form-control" id="Dirección"><%= user.DNI %></div>
+                            </div>                            
+                           
+                            <div class="col-sm mt-3">
+                                <div class="bolder">Rubro</div>
+                               
+                                    <div class="form-control"><%= rubros %></div>                                 
+                                
+                            </div>   
+                             <div class="bolder col mt-3">
+                                Trabajos Realizados
+                            </div>
+                            <% imgs.forEach(img => { %>
+                                <a target="_blank" href="/images/finished-jobs-images/<%= img.img %>">
+                                <img class="thumbnail" src="/images/finished-jobs-images/<%= img.img %>">
+                            </a>
+                               
+                            <% }) %> 
+                        </div>               
+                    </div>
+                    <% if(locals.userLogged.id === user.id) { %> 
+                    
+                    <div class="fx justify-center mt-3">
+                        <button class="primary-button" type="submit">
+                            <a href="/prof/edit/<%= user.id %>"> Actualizar mis datos</a>
+                        </button>  
+                    </div>
+                    <% } %> 
+        
+                </div>
+
+            </div> 
+        </div>    
+    </main>
+
+      
+        
+    </main>
+
+     <%- include('./partials/footer') %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

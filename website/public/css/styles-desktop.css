@@ -1,0 +1,115 @@
+@media(min-width:1280px) {
+    /*----------MAIN-----------*/
+    .imagen-fondo-mobile::after {
+        background-size: auto;                
+    }
+    /*--------SHOPPING CART------------*/
+
+    .shopc-lap{
+        display: flex;
+        justify-content:center;
+    }
+    .lapt-shop-title {
+        display: flex;
+        font-size: 30px;
+    }
+    .box-size-1{
+        width: 600px;
+        height: 440px;
+    }
+
+    /*--------HEADER------------*/
+
+    .dropdown {
+        position: relative;
+    }
+    
+    .label {
+        cursor: pointer;
+        padding: 0.8rem 1rem;
+        width: 100%;
+        font-size: 25px;
+        display: block;
+        box-sizing: border-box;
+        transition: all 0.3s;
+    }
+    
+    .items li {
+        color: black;
+        background: local;
+        background-color: rgba(196,196,196,0.5);
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: all 0.2s;
+    }
+    
+    .items li:hover {
+        border-left: 5px solid;
+    }
+    
+    .dropdown i {
+        margin-right: 10px;
+    }
+    
+    .items {
+        font-size: 16px;
+        visibility: hidden;
+        min-width: 100%;
+        height: 0;
+        position: absolute;
+        top: 48px;
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform 0.3s;
+    }
+    
+    .items::before {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        transform: rotate(45deg);
+        top: -7px;
+        left: 20px;
+        z-index: -1;
+    }
+    
+    .dropdown:hover > .items {
+        opacity: 1;
+        visibility: visible;
+        height: unset;
+        transform: scaleY(1);
+    }
+    
+    .dropdown:hover > .label {
+        background: #ff9900a1;
+    }
+     /*--------------BUDGET REQUEST----------*/
+
+    .budg-req-desk {
+        max-width: 40%;
+    }
+    .budget-req {
+        padding: 2%;
+    }
+    /*---------INBOX---------*/
+    .foto-prof { width: 50%; }
+   
+    /*----------LOGIN-------*/
+    .login-desk {
+        margin-right: 35%;
+        margin-left: 35%;
+    }
+    /*-------editProf------*/
+    .profile-box-edit{
+        padding: 2%;
+        border-radius: 5px;
+        margin: 4%;    
+    }   
+   
+    .w-card {
+        width: 50vh;
+    }
+}

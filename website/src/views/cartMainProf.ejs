@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head') %>
+
+  <body>
+    <%- include('./partials/header') %>
+
+    <main class="imagen-fondo-mobile justify-center">
+      <div class="fx justify-sp-b text-right font-xlarge">
+        <h2 class="m-3 font-xlarge bolder lapt-shop-title">Mi Carrito</h2>
+        <button class="primary-button">
+          <a href="/budget/request">Nueva Solicitud</a>
+        </button>
+      </div>
+
+      <section class="cards">
+        <% cartProf.forEach(function(item){ %>
+        <article class="justify-center ml-5">
+          <div class="card" style="width: 18rem;">
+            <img src="/images/budgetRequest/<%= item.budget_request.req_imgs[0].img %>" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title"><a target="_blank" href="/budget/detail/<%= item.id %>"><%= item.budget_request.tituloSolicitud %></a></h5>
+              <h5 class="card-title bolder">$ <%= item.precioFinal %></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a target="_blank" href="/user/detail/<%= item.budget_request.userId %>"><%= item.budget_request.users.name %> <%= item.budget_request.users.lastName %></a></li>
+              <li class="list-group-item"><%= dateFormat(item.shopping_cart.dia) %></li>
+              <li class="list-group-item"><%= item.shopping_cart.horario %></li>
+              <li class="list-group-item"><%= item.shopping_cart.metodoPago %></li>
+              <li class="list-group-item"><%= item.shopping_cart.estado %></li>
+            </ul>
+            <% if (item.shopping_cart.estado === "TRABAJO AGENDADO") { %>
+              <div class="card-body"> 
+                <ul class="nav">
+                  <li class="nav-item">
+                    <form action="/cart/prof?estado=RECHAZADO&id=<%= item.shopping_cart.id %>" method="POST">
+                      <button class="secondary-button" type="submit">Rechazar</button>
+                    </form>
+                  </li>
+                  <li class="nav-item">
+                    <form action="/cart/prof?estado=ACEPTADO&id=<%= item.shopping_cart.id %>" method="POST">
+                      <button class="primary-button" type="submit">Aceptar</button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+            <% } %>
+            
+          </div>
+        </article>
+        <% }) %>
+      </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
