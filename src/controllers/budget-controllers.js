@@ -108,7 +108,6 @@ module.exports = {
         id: req.params.resId,
       },
       include: [
-        "budget_request",
         "users",
         "shopping_cart",
         { association: "budget_request", include: ["req_imgs"] },

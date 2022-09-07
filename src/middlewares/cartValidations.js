@@ -3,8 +3,8 @@ const dayjs = require("dayjs");
 
 module.exports = {
   cartValidations: [
-    body("diaTurno").notEmpty().custom((value, { req }) => {
-      let today = dayjs(new Date()).format("YYYY-MM-DD");
+    body("diaTurno").custom((value, { req }) => {
+      let today = dayjs(new Date()).format("MM-DD-YYYY");
       let inputDate = req.body.diaTurno;
       const valid = today < inputDate;
       if (valid == false) {
@@ -12,7 +12,7 @@ module.exports = {
       }
       return true;
     }),
-    body("horario").notEmpty().custom((value, { req }) => {
+    body("horario").custom((value, { req }) => {
       let minHour = dayjs("08:00 AM").format("hh:mm A");
       let maxHour = dayjs("08:00 PM").format("hh:mm A");
       let inputTime = dayjs(req.body.horario).format("hh:mm A");

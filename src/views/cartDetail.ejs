@@ -2,6 +2,7 @@
 <html lang="en">
 
 <%- include('./partials/head') %>
+<script src="/js/cart.js"></script>
 
 <body>
     <%- include('./partials/header') %>
@@ -15,7 +16,7 @@
         
         <div class="shopc-lap">
             <div class="fx justify-center lap-w-1">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 30rem;">
                     <img src="/images/budgetRequest/<%= cartDetail.budget_request.req_imgs[0].img %>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><%= cartDetail.budget_request.tituloSolicitud %></h5>
@@ -31,8 +32,8 @@
                     </div>
                 </div>
 
-                <form action="/cart/<%= cartDetail.id %>" method="POST"> 
-                    <div class="card" style="width: 18rem;">
+                <form action="/cart/<%= cartDetail.id %>" method="POST" id="formulario"> 
+                    <div class="card" style="width: 20rem;">
                         <div class="card-body">
                             <h5 class="card-title">Agendá el turno</h5>                   
                         </div>
@@ -44,7 +45,9 @@
                                     name="diaTurno" 
                                     id="diaTurno" 
                                     class="form-control" 
-                                    value="<%= locals.oldData ? oldData.diaTurno : "" %>">
+                                    value="<%= locals.oldData ? oldData.diaTurno : "" %>"
+                                >
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.diaTurno) { %>
                                     <div class= "error-msg">
                                         <%= errors.diaTurno.msg %>               
@@ -59,7 +62,9 @@
                                     id="horario" 
                                     class="form-control" 
                                     aria-label=".form-select-lg example"
-                                    value="<%= locals.oldData ? oldData.horario : timeFormat(cartDetail.horario) %>">
+                                    value="<%= locals.oldData ? oldData.horario : timeFormat(cartDetail.horario) %>"
+                                >
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.horario) { %>
                                     <div class= "error-msg">
                                         <%= errors.horario.msg %>               
@@ -69,13 +74,17 @@
                             <li class="list-group-item">
                                 <label for="metodoPago" class="mr-3 font-medium mb-3">Método de pago</label>
                                 <select name="metodoPago" id="metodoPago" class="form-control" aria-label=".form-select-lg example">
+                                <option value="">Seleccioná un método de pago</option>
                                 <% const pagos = ["efectivo","debito","credito","mercadoPago"] %> 
-                                    <option value="<%= cartDetail.metodoPago %> "><%= cartDetail.metodoPago %> </option>
-                                <% const pagosToShow= pagos.filter(metodo => metodo != cartDetail.metodoPago) %> 
-                                <% for( let metodo of pagosToShow ) {%>
+                                <% for( let metodo of pagos ) {%>
                                     <option value="<%= metodo  %>"<%= locals.oldData && (metodo === oldData.metodoPago ? "selected" : null) %> ><%= metodo %> </option>              
                                 <% } %>                                           
-                            </select>
+                                </select>
+                                <span class="error"></span>
+                                <% if (locals.errors && errors.metodoPago) { %>
+                                    <div class="error-msg"><%= errors.metodoPago.msg %></div>
+                                <% } %>                                         
+                                </select>
                             </li>
                             <li class="list-group-item">
                                 <p class="mr-3 font-medium">Dirección</p>
@@ -92,9 +101,6 @@
                         </div>
                     </div>
                 </form>
-
-                
-                </div>
             </div>
         </div>
     </main>

@@ -86,4 +86,7 @@ module.exports = {
     req.session.destroy();
     return res.redirect("/login");
   },
+  funcionamiento: (req,res) =>{
+    res.render("funcionamiento")
+  }
 };

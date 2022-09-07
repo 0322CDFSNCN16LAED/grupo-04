@@ -13,6 +13,6 @@ router.get("/:resId", cartControllers.addToCart);
 router.post("/:resId", cartValidations, cartControllers.storeCartItem);
 router.get("/edit/:id", cartControllers.editCartItem);
 router.put("/edit/:id", cartValidations, cartControllers.updateCartItem);
-router.delete("/edit/:id", cartControllers.destroyCartItem);
+router.delete("/edit/:id", cartControllers.cancelCartItem);
 
 module.exports = router;

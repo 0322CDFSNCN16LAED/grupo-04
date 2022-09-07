@@ -17,7 +17,7 @@
           <% const budgetToShow = budgets[i] %> 
           <% const id =  "id"+(i.toString()) %>           
         
-          <div class="card" style="width: 22rem">
+          <div class="card" style="width: 18rem;">
           <% if (budgetToShow.req_imgs && budgetToShow.req_imgs.length > 0) { %>            
           <a
             target="_blank"
@@ -33,15 +33,9 @@
             <h5 class="card-title text-center bolder">
               <%= budgetToShow.tituloSolicitud %>
             </h5>
-
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item text-center">
-                <%= budgetToShow.detalleSolicitud %>
-              </li>
-            </ul>
-            <h5 class="bolder text-center">
+            <p class="card-text text-center">
               Presupuestos Recibidos
-            </h5>
+            </p>
             <div id="<%= id %>" class="carousel slide" data-interval="false">
               <div class="carousel-inner">
                 <% for (let index = 0; index < budgetToShow.budget_response.length; index++) {%>

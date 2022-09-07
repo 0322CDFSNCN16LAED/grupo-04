@@ -16,7 +16,7 @@ app.use(
 const methodOverride = require("method-override");
 
 app.locals.dateFormat = (date) => {
-  return dayjs(date).format("YYYY-MM-DD");
+  return dayjs(date).format("DD-MM-YYYY");
 }
 
 app.locals.timeFormat = (time) => {

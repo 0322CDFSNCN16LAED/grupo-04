@@ -22,6 +22,7 @@ router.use("/user", usersRouter);
 router.use("/prof", profRouter);
 
 router.get("/", mainControllers.home);
+router.get("/funcionamiento", mainControllers.funcionamiento);
 router.get("/login", guestMiddleware, mainControllers.login);
 router.post("/login",loginValidations, mainControllers.loginProcess);
 router.get("/logout", mainControllers.logout);
