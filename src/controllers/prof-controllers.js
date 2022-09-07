@@ -1,7 +1,6 @@
 const db = require("../database/models");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
-const { sequelize } = require("../database/models");
 
 module.exports = {
   createProf: async (req, res) => {
@@ -208,6 +207,7 @@ module.exports = {
         },
       },
       include: ["req_imgs", "users"],
+      order: [["urgenciaTrabajo", "ASC"]]
     });
 
     const responsesSent = await db.budgRes.findAll({

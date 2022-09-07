@@ -11,11 +11,13 @@ const mainControllers = require("../controllers/main-controllers");
 const loginMiddleware = require("../middlewares/loginValidations")
 const loginValidations = loginMiddleware.loginValidations
 
+const apiRouter = require("./api.js");
 const budgetRouter = require("./budget.js");
 const cartRouter = require("./cart.js");
 const usersRouter = require("./users.js");
 const profRouter = require("./professionals.js");
 
+router.use("/api", apiRouter);
 router.use("/budget", budgetRouter);
 router.use("/cart", cartRouter);
 router.use("/user", usersRouter);
