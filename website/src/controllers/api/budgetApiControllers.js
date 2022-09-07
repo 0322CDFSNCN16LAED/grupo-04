@@ -32,7 +32,7 @@ module.exports = {
     });
     budgReqList.map(
       (url) =>
-        (url.dataValues.detail = `http://localhost:3000/budget/detail/${url.id}`)
+        (url.dataValues.detail = `http://localhost:3001/budget/detail/${url.id}`)
     );
     res.status(200).json({
       count: budgReqList.length,
@@ -62,7 +62,7 @@ module.exports = {
         },
       ],
     });
-    budgetId.dataValues.imgUrl = `http://localhost:3000/images/budgetRequest/${budgetId.dataValues.req_imgs[0].img}`;
+    budgetId.dataValues.imgUrl = `http://localhost:3001/images/budgetRequest/${budgetId.dataValues.req_imgs[0].img}`;
     res.status(200).json(budgetId);
   },
 };

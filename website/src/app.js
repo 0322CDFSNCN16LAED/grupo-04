@@ -43,7 +43,7 @@ const apiBudgetsRouter = require("./routes/api/budgetApi.js");
 app.use("/", mainRouter);
 app.use("/api/users", apiUsersRouter);
 app.use("/api/budget", apiBudgetsRouter);
-const PORT = 3000;
+const PORT = 3001;
 app.listen(PORT, () => {
   console.log("Estamos corriendo en el puerto " + PORT);
 });

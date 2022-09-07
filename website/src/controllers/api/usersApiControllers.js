@@ -5,7 +5,7 @@ module.exports = {
         const usersList = await db.User.findAll({
             attributes: ["id", "name", "lastName", "email"],
         });
-        usersList.map((url)=> url.dataValues.detail = `http://localhost:3000/user/detail/${url.id}`)
+        usersList.map((url)=> url.dataValues.detail = `http://localhost:3001/user/detail/${url.id}`)
         res.status(200).json({
             count: usersList.length,
             users: usersList,
@@ -16,7 +16,7 @@ module.exports = {
         const userId = await db.User.findByPk(req.params.id, {
             attributes: { exclude: ["password", "isProf"]},
         })
-        userId.dataValues.avatarUrl = `http://localhost:3000/images/avatar/${userId.dataValues.avatar}`
+        userId.dataValues.avatarUrl = `http://localhost:3001/images/avatar/${userId.dataValues.avatar}`
         res.status(200).json(userId)
     },   
 }
