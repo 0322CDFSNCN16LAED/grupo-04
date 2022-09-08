@@ -1,4 +1,4 @@
-import LastMovie from "./LastMovie";
+import LastUser from "./LastUser";
 import MiniCard from "./MiniCard";
 import { useState, useEffect, useRef } from "react";
 import PresupuestosPorRubro from "./budget/PresupuestosPorRubro";
@@ -32,10 +32,12 @@ function SearchUsers() {
 
 export default function Dashboard() {
   const [countByCategory, setCountByCategory] = useState({});
+  const [lastUser, setLastUser] = useState({});
+
   const [isBudgetLoading, setIsBudgetLoading] = useState(false);
   const [isUsersLoading, setIsUsersLoading] = useState(false);
   const [isRubrosLoading, setIsRubrosLoading] = useState(false);
-  
+
   const [budgetAmount, setBudgetAmount] = useState(0);
   const [usersAmount, setUsersAmount] = useState(0);
   const [rubrosAmount, setRubrosAmount] = useState(0);
@@ -56,27 +58,27 @@ export default function Dashboard() {
     };
     const fetchUsersAmount = async () => {
       try {
-        setIsRubrosLoading(true);
+        setIsUsersLoading(true);
         const result = await fetch(`${EXPRESS_HOST}/users`);
         const usersResult = await result.json();
         setUsersAmount(usersResult.count);
-      } catch (error) {
-        console.log("error", error);
-      } finally {
-        setIsRubrosLoading(false);
-      }
-    };
-    const fetchRubrosAmount = async () => {
-      try {
-        setIsUsersLoading(true);
-        const result = await fetch(`${EXPRESS_HOST}/budget/rubros`);
-        const rubrosResult = await result.json();
-        console.log(rubrosResult)
-        setRubrosAmount(rubrosResult.count);
+        setLastUser(usersResult.users[0]);
       } catch (error) {
         console.log("error", error);
       } finally {
         setIsUsersLoading(false);
+      }
+    };
+    const fetchRubrosAmount = async () => {
+      try {
+        setIsRubrosLoading(true);
+        const result = await fetch(`${EXPRESS_HOST}/budget/rubros`);
+        const rubrosResult = await result.json();
+        setRubrosAmount(rubrosResult.count);
+      } catch (error) {
+        console.log("error", error);
+      } finally {
+        setIsRubrosLoading(false);
       }
     };
 
@@ -90,8 +92,8 @@ export default function Dashboard() {
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
       </div>
-      
-      <div className="row">        
+
+      <div className="row">
         {isBudgetLoading ? (
           <p>Loading...</p>
         ) : (
@@ -99,7 +101,7 @@ export default function Dashboard() {
             title="Total de presupuestos pedidos"
             value={budgetAmount.toString()}
             icon="fa-user"
-            color= "danger"
+            color="danger"
           />
         )}
 
@@ -119,14 +121,14 @@ export default function Dashboard() {
             title="Total de rubros"
             value={rubrosAmount.toString()}
             icon="fa-user"
-            color= "secondary"
+            color="secondary"
           />
         )}
-      </div>   
+      </div>
       {/* <!-- Content Row Last Movie in Data Base --> */}
       <div className="row">
         {/* <!-- Last Movie in DB --> */}
-        <LastMovie />        
+        <LastUser lastUser={lastUser} />
         {/* <!-- Genres in DB --> */}
         <PresupuestosPorRubro countByCategory={countByCategory} />
       </div>
