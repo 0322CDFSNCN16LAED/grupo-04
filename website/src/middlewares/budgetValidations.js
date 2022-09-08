@@ -6,7 +6,7 @@ module.exports = {
   budgReqValidations: [
     body("tituloSolicitud")
       .notEmpty()
-      .withMessage("Debes introducir un titulo de tu solicitud")
+      .withMessage("Debes introducir un título para tu solicitud")
       .isLength({ min: 5 })
       .withMessage("El título de la solicitud debe tener al menos cinco caracteres"),
     body("detalleSolicitud")
@@ -16,13 +16,13 @@ module.exports = {
       .withMessage("El detalle de la solicitud debe tener al menos veinte caracteres"),
     body("rubroNombre")
       .notEmpty()
-      .withMessage("debes selccionar un rubro"),
+      .withMessage("Debes selccionar un rubro"),
     body("urgenciaTrabajo")
       .notEmpty()
-      .withMessage("debes selccionar un campo"),
+      .withMessage("Debes selccionar un campo"),
     body("ubicacion")
       .notEmpty()
-      .withMessage("debes introducir una ubicación"),
+      .withMessage("Debes introducir una ubicación"),
     body("imgReferencia")
       .custom((value, { req }) => {
       const file = req.files;

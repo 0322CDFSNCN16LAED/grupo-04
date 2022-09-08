@@ -22,7 +22,7 @@ module.exports = {
        return res.render("login", {
          errors: {
            email: {
-             msg: "El usuario no existe",
+             msg: "El usuario no está registrado",
            },
          },
        });
