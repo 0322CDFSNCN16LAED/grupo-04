@@ -6,6 +6,9 @@ const dayjs = require("dayjs");
 
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 
+ const cors = require("cors");
+
+ app.use(cors(["localhost:3000"]));
 
 app.use(
   session({
