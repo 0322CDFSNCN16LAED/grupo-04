@@ -35,8 +35,10 @@ export default function Dashboard() {
   const [countByCategory, setCountByCategory] = useState({});
   const [isBudgetLoading, setIsBudgetLoading] = useState(false);
   const [isUsersLoading, setIsUsersLoading] = useState(false);
+  const [isRubrosLoading, setIsRubrosLoading] = useState(false);
 
   const [usersAmount, setUsersAmount] = useState(0);
+  const [rubrosAmount, setRubrosAmount] = useState(0);
 
   useEffect(() => {
     const fetchBudgetAmount = async () => {
@@ -54,10 +56,23 @@ export default function Dashboard() {
     };
     const fetchUsersAmount = async () => {
       try {
-        setIsUsersLoading(true);
+        setIsRubrosLoading(true);
         const result = await fetch(`${EXPRESS_HOST}/users`);
         const usersResult = await result.json();
         setUsersAmount(usersResult.count);
+      } catch (error) {
+        console.log("error", error);
+      } finally {
+        setIsRubrosLoading(false);
+      }
+    };
+    const fetchRubrosAmount = async () => {
+      try {
+        setIsUsersLoading(true);
+        const result = await fetch(`${EXPRESS_HOST}/budget/rubros`);
+        const rubrosResult = await result.json();
+        console.log(rubrosResult)
+        setRubrosAmount(rubrosResult.count);
       } catch (error) {
         console.log("error", error);
       } finally {
@@ -67,6 +82,7 @@ export default function Dashboard() {
 
     fetchBudgetAmount();
     fetchUsersAmount();
+    fetchRubrosAmount();
   }, []);
 
   return (
@@ -74,10 +90,8 @@ export default function Dashboard() {
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
       </div>
-
-      {/* <!-- Content Row Movies--> */}
-      <div className="row">
-        {/* <!-- Movies in Data Base --> */}
+      
+      <div className="row">        
         {isBudgetLoading ? (
           <p>Loading...</p>
         ) : (
@@ -85,6 +99,7 @@ export default function Dashboard() {
             title="Total de presupuestos pedidos"
             value={budgetAmount.toString()}
             icon="fa-user"
+            color= "danger"
           />
         )}
 
@@ -97,15 +112,21 @@ export default function Dashboard() {
             icon="fa-user"
           />
         )}
-      </div>
-      {/* <!-- End movies in Data Base --> */}
-
+        {isRubrosLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <MiniCard
+            title="Total de rubros"
+            value={rubrosAmount.toString()}
+            icon="fa-user"
+            color= "secondary"
+          />
+        )}
+      </div>   
       {/* <!-- Content Row Last Movie in Data Base --> */}
       <div className="row">
         {/* <!-- Last Movie in DB --> */}
-        <LastMovie />
-        {/* <!-- End content row last movie in Data Base --> */}
-
+        <LastMovie />        
         {/* <!-- Genres in DB --> */}
         <PresupuestosPorRubro countByCategory={countByCategory} />
       </div>
