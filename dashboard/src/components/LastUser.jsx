@@ -36,14 +36,14 @@ export default function LastUser({lastUser}) {
         <div className="text-center">
           <img
             className="img-fluid px-3 px-sm-4 mt-3 mb-4"
-            style={{ width: "40rem" }}
-            src={`../../../website/public/images/avatar/${lastUser.avatar}`}
+            style={{ width: "20rem" }}
+            src={`http://localhost:3001/images/avatar/${lastUser.avatar}`}
             alt=" User-Avatar"
           />
         </div>
         <div>Email: {lastUser.email}</div>
         <div>Provincia: {lastUser.state}</div>
-        <div>Ciudad: {lastUser.city}</div>
+        <div className= "mb-3">Ciudad: {lastUser.city}</div>
         <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">
           View movie detail
         </a>
