@@ -31,12 +31,12 @@ function SearchUsers() {
 }
 
 export default function Dashboard() {
-  const [budgetAmount, setBudgetAmount] = useState(0);
   const [countByCategory, setCountByCategory] = useState({});
   const [isBudgetLoading, setIsBudgetLoading] = useState(false);
   const [isUsersLoading, setIsUsersLoading] = useState(false);
   const [isRubrosLoading, setIsRubrosLoading] = useState(false);
-
+  
+  const [budgetAmount, setBudgetAmount] = useState(0);
   const [usersAmount, setUsersAmount] = useState(0);
   const [rubrosAmount, setRubrosAmount] = useState(0);
 
