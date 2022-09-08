@@ -47,6 +47,15 @@ module.exports = {
       status: 200,
     });
   },
+  rubros: async (req,res) => {
+    const rubros = await db.Rubro.findAll()
+    const count= rubros.length
+    // console.log(rubrosCount);
+    res.status(200).json({
+      count
+    })
+
+  },
   budgetDetail: async (req, res) => {
     const budgetId = await db.budgReq.findByPk(req.params.id, {
       attributes: ["id", "tituloSolicitud", "detalleSolicitud", "userId"],
