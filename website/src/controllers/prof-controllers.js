@@ -206,16 +206,25 @@ module.exports = {
           [db.Sequelize.Op.in]: user.rubros.map((rubro) => rubro.nombre),
         },
       },
-      include: ["req_imgs", "users"],
+      attributes: ["id", "tituloSolicitud", "urgenciaTrabajo", "ubicacion"],
+      include: [{
+        association: "req_imgs",
+        attributes: ["img"]
+        }, {
+        association: "users",
+        attributes: ["name", "lastName"]
+      },{
+        association: "budget_response",
+        attributes: ["estado"],
+        /*where: {
+          userId: userId
+        }*/
+      }],
       order: [["urgenciaTrabajo", "ASC"]]
     });
 
-    const responsesSent = await db.budgRes.findAll({
-      where: {
-        userId: userId
-      }
-    })  
-   
-    res.render("inboxProf", { budgWithImgs, responsesSent });
+    console.log(JSON.stringify(budgWithImgs,null,4))
+
+    res.render("inboxProf", { budgWithImgs });
   },
 };
