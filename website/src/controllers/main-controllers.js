@@ -1,5 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const db = require("../database/models");
+const { validationResult } = require("express-validator");
 
 module.exports = {
   home: (req, res) => {
@@ -11,43 +12,31 @@ module.exports = {
   },
 
   loginProcess: async (req, res) => {
-    
+    const resultValidation = validationResult(req);
     const userToLogin = await db.User.findOne({
       where: {
         email: req.body.email,
       },
     });
-
-    if (!userToLogin)
-       return res.render("login", {
-         errors: {
-           email: {
-             msg: "El usuario no está registrado",
-           },
-         },
-       });
-
-    const isProf = userToLogin.isProf == 1;
-
-    const profToLogin = isProf == true ? userToLogin : "";
-
-    const user = profToLogin ? profToLogin : userToLogin;
-
-    let passwordOk = bcryptjs.compareSync(req.body.password, user.password);
-
-    if (!passwordOk)
+    if (resultValidation.errors.length > 0) {
       return res.render("login", {
-        errors: {
-          password: {
-            msg: "La contraseña es incorrecta",
-          },
-        },
+        errors: resultValidation.mapped(),
+        oldData: req.body,
       });
-    req.session.userLogged = user;
+    }
+    if (userToLogin) {
+      const isProf = userToLogin.isProf == 1;
 
-    return profToLogin
-      ? res.redirect("/prof/inbox")
-      : res.redirect("/user/inbox");
+      const profToLogin = isProf == true ? userToLogin : "";
+
+      const user = profToLogin ? profToLogin : userToLogin;
+
+      req.session.userLogged = user;
+
+      return profToLogin
+        ? res.redirect("/prof/inbox")
+        : res.redirect("/user/inbox");
+    }
   },
 
   history: (req, res) => {
@@ -86,7 +75,7 @@ module.exports = {
     req.session.destroy();
     return res.redirect("/login");
   },
-  funcionamiento: (req,res) =>{
-    res.render("funcionamiento")
-  }
+  funcionamiento: (req, res) => {
+    res.render("funcionamiento");
+  },
 };

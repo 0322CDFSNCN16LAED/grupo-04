@@ -24,6 +24,7 @@
                   class="form-control"
                   placeholder="E-mail"
                   aria-label="E-mail"
+                  value="<%= locals.oldData ? oldData.email : null %>"
                 />
                 <% if (locals.errors && errors.email) {%>
                 <div class="error-msg"><%= errors.email.msg %></div>
