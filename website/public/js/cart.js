@@ -1,15 +1,13 @@
-const isEmpty = (input) => input.value.trim() != "";
-
 const validations = [
   {
     inputName: "diaTurno",
     validations: [
       {
-        validator: isEmpty,
+        validator: (input) => input.value.trim() != "",
         errorMsg: "Debes seleccionar una fecha",
       },
       {
-        validator: (input)=> new Date() < input.value,
+        validator: (input)=> (new Date().toISOString().split('T')[0]) < input.value,
         errorMsg: "Debes seleccionar una fecha válida",
       },
     ],
@@ -18,8 +16,8 @@ const validations = [
     inputName: "horario",
     validations: [
       {
-        validator: isEmpty,
-        errorMsg: "Debes seleccionar un horario entre las 8:00 AM y las 8:00 PM",
+        validator: (input) => input.value.trim() != "",
+        errorMsg: "Debes seleccionar un horario entre las 8:00 y las 20:00 horas",
       },
     ],
   },
@@ -27,7 +25,7 @@ const validations = [
     inputName: "metodoPago",
     validations: [
       {
-        validator: isEmpty,
+        validator: (input) => input.value.trim() != "",
         errorMsg: "Debes seleccionar un método de pago",
       },
     ],
@@ -43,7 +41,7 @@ window.onload = function () {
 
     validations.forEach((inputToValidate) => {
       const input = formulario[inputToValidate.inputName];
-      console.log(input)
+      console.log(input.value)
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
         console.log(isValid)
@@ -61,10 +59,10 @@ window.onload = function () {
       input.parentElement.querySelector(".error").innerHTML = "";
     });
 
-    if (errores.length == 0) {
-      formulario.submit();
-    } else {
+    if (errores.length > 0) {
       console.log(errores);
+    } else {
+      formulario.submit();
     }
   });
 };
