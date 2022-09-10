@@ -62,7 +62,7 @@
                                     id="horario" 
                                     class="form-control" 
                                     aria-label=".form-select-lg example"
-                                    value="<%= locals.oldData ? oldData.horario : timeFormat(cartDetail.horario) %>"
+                                    value="<%= locals.oldData ? oldData.horario : cartDetail.horario %>"
                                 >
                                 <span class="error"></span>
                                 <% if (locals.errors && errors.horario) { %>
