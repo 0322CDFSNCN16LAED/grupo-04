@@ -403,7 +403,7 @@ table {
 /*---------HISTORY TABLE-----------*/
 .card {
     align-items: unset  !important;
-    margin-top: 0% !important;
+    /* margin-top: 0% !important; */
     margin-bottom: 4% !important;
     margin-left: 4% !important;
     margin-right: 4% !important;

@@ -14,26 +14,11 @@ function SearchUsers() {
     e.preventDefault();
     //movie = e.target.search.value;
   }
-
-  useEffect(() => {
-    fetch(`${EXPRESS_HOST}`)
-      .then(function (respuesta) {
-        return respuesta.json();
-      })
-      .then(function (informacion) {
-        setUsers(informacion);
-        console.log(informacion);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [user]);
 }
-
-export default function Dashboard() {
+const Dashboard = () => {
   const [countByCategory, setCountByCategory] = useState({});
-  const [lastUser, setLastUser] = useState({});
-  const [lastBudgetRes, setLastBudgetRes] = useState({});
+  const [lastUser, setLastUser] = useState();
+  const [lastBudgetRes, setLastBudgetRes] = useState();
 
   const [isBudgetLoading, setIsBudgetLoading] = useState(false);
   const [isBudgetResLoading, setIsBudgetResLoading] = useState(false);
@@ -43,61 +28,60 @@ export default function Dashboard() {
   const [budgetAmount, setBudgetAmount] = useState(0);
   const [usersAmount, setUsersAmount] = useState(0);
   const [rubrosAmount, setRubrosAmount] = useState(0);
+ 
+  const fetchBudgetAmount = async () => {
+    try {
+      setIsBudgetLoading(true);
+      const result = await fetch(`${EXPRESS_HOST}/budget`);
+      const budgetsResult = await result.json();
+      setBudgetAmount(budgetsResult.count);
+      setCountByCategory(budgetsResult.countByCategory);
+    } catch (error) {
+      console.log("error", error);
+    } finally {
+      setIsBudgetLoading(false);
+    }
+  };
+  const fetchBudgetResponse = async () => {
+    try {
+      setIsBudgetResLoading(true);
+      const result = await fetch(`${EXPRESS_HOST}/budget/response`);
+      const budgetsResult = await result.json();      
+      setLastBudgetRes(budgetsResult.responses[0]);
+    } catch (error) {
+      console.log("error", error);
+    } finally {
+      setIsBudgetResLoading(false);
+    }
+  };
+  const fetchUsersAmount = async () => {
+    try {
+      setIsUsersLoading(true);
+      const result = await fetch(`${EXPRESS_HOST}/users`);
+      const usersResult = await result.json();
+      setUsersAmount(usersResult.count);
+      setLastUser(usersResult.users[0]);
+    } catch (error) {
+      console.log("error", error);
+    } finally {
+      setIsUsersLoading(false);
+    }
+  };
+  const fetchRubrosAmount = async () => {
+    try {
+      setIsRubrosLoading(true);
+      const result = await fetch(`${EXPRESS_HOST}/budget/rubros`);
+      const rubrosResult = await result.json();
+      setRubrosAmount(rubrosResult.count);
+    } catch (error) {
+      console.log("error", error);
+    } finally {
+      setIsRubrosLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchBudgetAmount = async () => {
-      try {
-        setIsBudgetLoading(true);
-        const result = await fetch(`${EXPRESS_HOST}/budget`);
-        const budgetsResult = await result.json();
-        setBudgetAmount(budgetsResult.count);
-        setCountByCategory(budgetsResult.countByCategory);
-      } catch (error) {
-        console.log("error", error);
-      } finally {
-        setIsBudgetLoading(false);
-      }
-    };
-    const fetchBudgetResponse = async () => {
-      try {
-        setIsBudgetResLoading(true);
-        const result = await fetch(`${EXPRESS_HOST}/budget/response`);
-        const budgetsResult = await result.json();
-        setLastBudgetRes(budgetsResult.responses[0]);
-        // console.log(JSON.stringify(lastBudgetRes, null, 4));
-      } catch (error) {
-        console.log("error", error);
-      } finally {
-        setIsBudgetResLoading(false);
-      }
-    };
-    const fetchUsersAmount = async () => {
-      try {
-        setIsUsersLoading(true);
-        const result = await fetch(`${EXPRESS_HOST}/users`);
-        const usersResult = await result.json();
-        setUsersAmount(usersResult.count);
-        setLastUser(usersResult.users[0]);
-        // console.log(JSON.stringify(lastUser, null, 4));
-      } catch (error) {
-        console.log("error", error);
-      } finally {
-        setIsUsersLoading(false);
-      }
-    };
-    const fetchRubrosAmount = async () => {
-      try {
-        setIsRubrosLoading(true);
-        const result = await fetch(`${EXPRESS_HOST}/budget/rubros`);
-        const rubrosResult = await result.json();
-        setRubrosAmount(rubrosResult.count);
-      } catch (error) {
-        console.log("error", error);
-      } finally {
-        setIsRubrosLoading(false);
-      }
-    };
-
+    console.log("fetching budget amount");
     fetchBudgetAmount();
     fetchUsersAmount();
     fetchRubrosAmount();
@@ -142,16 +126,19 @@ export default function Dashboard() {
           />
         )}
       </div>
-      {/* <!-- Content Row Last Movie in Data Base --> */}
+
       <div className="row">
-        {/* <!-- Last Movie in DB --> */}
-        <LastUser lastUser={lastUser} lastBudgetRes={lastBudgetRes} />
-        {/* <!-- Genres in DB --> */}
+        {lastUser && lastBudgetRes && !isBudgetResLoading && !isUsersLoading ? (
+          <LastUser lastUser={lastUser} lastBudgetRes={lastBudgetRes} />
+        ) : (
+          <p>Loading...</p>
+        )}
+
         <PresupuestosPorRubro countByCategory={countByCategory} />
       </div>
     </>
   );
-}
+};
 
 const miniCards = [
   {
@@ -196,3 +183,5 @@ const miniCards = [
     icon: "fa-award",
   },
 ];
+
+export default Dashboard;

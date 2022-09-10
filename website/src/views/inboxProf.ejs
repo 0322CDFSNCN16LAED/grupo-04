@@ -40,17 +40,20 @@
               <%= budgetToShow.users.name %> <%= budgetToShow.users.lastName %>
             </li>
           </ul>
-          <% for( let response of responsesSent ) { %>
-            <% if (budgetToShow.id == response.reqId && response.estado == "PRESUPUESTO RESPONDIDO" ) { %>
-             <div class="text-center btn btn-success">RESPONDIDO</div>
-            <% } else { %>
-              <button class="primary-button">
-                <a href="/budget/response/<%= budgetToShow.id %>" class="card-link">Armar presupuesto</a>
-              </button>
-            <% } %> 
+          <% let respondido = false %> 
+          <% for( let response of responsesSent ) { %>                      
+            <% if ( budgetToShow.id == response.reqId ) { %>
+              <% respondido= true %> 
+             <div class="text-center btn btn-success">RESPONDIDO</div>          
           <% } %>
-            </div>
-        <% }) %>
+          <% } %>
+          <% if (!respondido) { %>
+            <button class="primary-button">
+              <a href="/budget/response/<%= budgetToShow.id %>" class="card-link">Armar presupuesto</a>
+            </button>
+            <% } %>
+          </div>
+        <% }) %> 
       </section>
     </main>
 
