@@ -39,13 +39,10 @@
             <div id="<%= id %>" class="carousel slide" data-interval="false">
               <div class="carousel-inner">
                 <% for (let index = 0; index < budgetToShow.budget_response.length; index++) {%>
-                <% const response = budgetToShow.budget_response[index];%>                  
-                
-                <div class="<%=  index === 0 ? "carousel-item active": "carousel-item"  %>">                 
-                  
-                            
-                    <%- include('./partials/inboxUserCards', {response}); %>  
-                  </div>
+                <% const response = budgetToShow.budget_response[index];%>                 
+                <div class="<%=  index === 0 ? "carousel-item active": "carousel-item"  %>">               
+                  <%- include('./partials/inboxUserCards', {response}); %>  
+                </div>
               <% } %>                
               </div>
               <% if (budgetToShow.budget_response.length > 0) { %>
@@ -62,7 +59,7 @@
             </div>
           </div>
         </div>
-          <% } %>
+        <% } %>
       </section>
     </main>
 

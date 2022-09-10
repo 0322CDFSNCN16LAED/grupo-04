@@ -100,7 +100,7 @@ export default function Dashboard() {
           <MiniCard
             title="Total de presupuestos pedidos"
             value={budgetAmount.toString()}
-            icon="fa-user"
+            icon="fa-user-cog"
             color="danger"
           />
         )}
@@ -111,7 +111,7 @@ export default function Dashboard() {
           <MiniCard
             title="Total de usuarios"
             value={usersAmount.toString()}
-            icon="fa-user"
+            icon="fa-user-hard-hat"
           />
         )}
         {isRubrosLoading ? (
