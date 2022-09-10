@@ -18,6 +18,7 @@ module.exports = {
     });
     const budgReqList = await db.budgReq.findAll({
       attributes: ["id", "tituloSolicitud", "detalleSolicitud", "userId"],
+      order: [["created_at", "DESC"]],
       include: [
         {
           association: "req_imgs",
@@ -32,8 +33,9 @@ module.exports = {
     });
     budgReqList.map(
       (url) =>
-        (url.dataValues.detail = `http://localhost:3001/budget/detail/${url.id}`)
+        (url.dataValues.detail = `http://localhost:3001/budget/detail/${url.budget_response.id}`)
     );
+    console.log(JSON.stringify(budgReqList, null, 4));
     res.status(200).json({
       count: budgReqList.length,
       countByCategory: {
@@ -47,14 +49,13 @@ module.exports = {
       status: 200,
     });
   },
-  rubros: async (req,res) => {
-    const rubros = await db.Rubro.findAll()
-    const count= rubros.length
+  rubros: async (req, res) => {
+    const rubros = await db.Rubro.findAll();
+    const count = rubros.length;
     // console.log(rubrosCount);
     res.status(200).json({
-      count
-    })
-
+      count,
+    });
   },
   budgetDetail: async (req, res) => {
     const budgetId = await db.budgReq.findByPk(req.params.id, {
@@ -73,5 +74,26 @@ module.exports = {
     });
     budgetId.dataValues.imgUrl = `http://localhost:3001/images/budgetRequest/${budgetId.dataValues.req_imgs[0].img}`;
     res.status(200).json(budgetId);
+  },
+  budgetResponse: async (req, res) => {
+    const responses = await db.budgRes.findAll({
+      order: [["created_at", "DESC"]],
+      include: [
+        { association: "users", attributes: ["name", "lastName"] },
+        {
+          association: "budget_request",
+          include: [
+            { association: "req_imgs", attributes: ["img"] },
+            { association: "users", attributes: ["name", "lastName"] },
+          ],
+        },
+      ],
+    });
+    responses.map(
+      (url) =>
+        (url.dataValues.detail = `http://localhost:3001/budget/detail/${url.id}`)
+    );
+    console.log(JSON.stringify(responses, null, 4));
+    res.status(200).json({count: responses.length,responses});
   },
 };

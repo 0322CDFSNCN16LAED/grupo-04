@@ -33,8 +33,10 @@ function SearchUsers() {
 export default function Dashboard() {
   const [countByCategory, setCountByCategory] = useState({});
   const [lastUser, setLastUser] = useState({});
+  const [lastBudgetRes, setLastBudgetRes] = useState({});
 
   const [isBudgetLoading, setIsBudgetLoading] = useState(false);
+  const [isBudgetResLoading, setIsBudgetResLoading] = useState(false);
   const [isUsersLoading, setIsUsersLoading] = useState(false);
   const [isRubrosLoading, setIsRubrosLoading] = useState(false);
 
@@ -56,6 +58,19 @@ export default function Dashboard() {
         setIsBudgetLoading(false);
       }
     };
+    const fetchBudgetResponse = async () => {
+      try {
+        setIsBudgetResLoading(true);
+        const result = await fetch(`${EXPRESS_HOST}/budget/response`);
+        const budgetsResult = await result.json();
+        setLastBudgetRes(budgetsResult.responses[0]);
+        // console.log(JSON.stringify(lastBudgetRes, null, 4));
+      } catch (error) {
+        console.log("error", error);
+      } finally {
+        setIsBudgetResLoading(false);
+      }
+    };
     const fetchUsersAmount = async () => {
       try {
         setIsUsersLoading(true);
@@ -63,6 +78,7 @@ export default function Dashboard() {
         const usersResult = await result.json();
         setUsersAmount(usersResult.count);
         setLastUser(usersResult.users[0]);
+        // console.log(JSON.stringify(lastUser, null, 4));
       } catch (error) {
         console.log("error", error);
       } finally {
@@ -85,6 +101,7 @@ export default function Dashboard() {
     fetchBudgetAmount();
     fetchUsersAmount();
     fetchRubrosAmount();
+    fetchBudgetResponse();
   }, []);
 
   return (
@@ -128,7 +145,7 @@ export default function Dashboard() {
       {/* <!-- Content Row Last Movie in Data Base --> */}
       <div className="row">
         {/* <!-- Last Movie in DB --> */}
-        <LastUser lastUser={lastUser} />
+        <LastUser lastUser={lastUser} lastBudgetRes={lastBudgetRes} />
         {/* <!-- Genres in DB --> */}
         <PresupuestosPorRubro countByCategory={countByCategory} />
       </div>
