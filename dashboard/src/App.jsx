@@ -25,7 +25,7 @@ function App() {
                                 component={Dashboard}
                                 exact={true}
                             />
-                            <Route path="/movies" component={MoviesList} />
+                            <Route path="/budgets" component={MoviesList} />
                             <Route path="/search" component={SearchMovies} />
                         </Switch>
                     </div>

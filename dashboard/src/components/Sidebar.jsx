@@ -38,7 +38,7 @@ function Sidebar() {
 
       {/* <!-- Nav Item - Pages --> */}
       <li className="nav-item">
-        <Link className="nav-link collapsed" to="/movies" exact="true">
+        <Link className="nav-link collapsed" to="/budgets" exact="true">
           <i className="fas fa-fw fa-folder"></i>
           <span>Budgets</span>
         </Link>
@@ -56,7 +56,7 @@ function Sidebar() {
           <i className="fas fa-fw fa-chart-area"></i>
           <span>Charts</span>
         </a>
-      </li>
+      </li> 
 
       {/* <!-- Nav Item - Tables --> */}
       <li className="nav-item">
