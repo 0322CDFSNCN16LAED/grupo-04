@@ -1,6 +1,6 @@
 import BigCard from "./BigCard";
 import PropTypes from "prop-types";
-
+import logoReparaYa from "../assets/images/logoReparaYa.svg";
 const propTypes = {
   lastUser: PropTypes.object.isRequired,
   lastBudgetRes: PropTypes.object.isRequired
@@ -32,7 +32,7 @@ export default function LastUser({ lastUser, lastBudgetRes }) {
           className="btn btn-danger"
           target="_blank"
           rel="noreferrer"
-          href={`${lastBudgetRes.detail}`}
+            href={`${lastBudgetRes.detail}`}
         >
           Ver Detalle del presupuesto
         </a>
