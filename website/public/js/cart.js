@@ -19,6 +19,10 @@ const validations = [
         validator: (input) => input.value.trim() != "",
         errorMsg: "Debes seleccionar un horario entre las 8:00 y las 20:00 horas",
       },
+      {
+        validator: (input) => input.value > "8:00" || input.value < "20:00",
+        errorMsg: "Debes seleccionar un horario entre las 8:00 y las 20:00 horas",
+      },
     ],
   },
   {
