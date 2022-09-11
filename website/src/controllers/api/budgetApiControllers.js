@@ -103,4 +103,10 @@ module.exports = {
     });
     res.status(200).json({ count: purchased.length, purchased });
   },
+  budgetList: async(req,res) =>{
+    const list = await db.budgReq.findAll({
+      include:["budget_response"]
+    })
+    res.status(200).json(list);
+  }
 };
