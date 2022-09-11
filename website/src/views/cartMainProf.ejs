@@ -30,7 +30,7 @@
                 <li class="list-group-item"><%= dateFormat(item.shopping_cart.dia) %></li>
                 <li class="list-group-item"><%= item.shopping_cart.horario %></li>
                 <li class="list-group-item"><%= item.shopping_cart.metodoPago %></li>
-                <li class="list-group-item"><%= item.shopping_cart.estado %></li>
+                <li class="list-group-item <%= (item.shopping_cart.estado == "TRABAJO CONFIRMADO" ? "color-green" : "color-blue") %>  "><%= item.shopping_cart.estado %></li>
               </ul>             
            
             <% if (item.shopping_cart.estado === "TRABAJO AGENDADO") { %>
