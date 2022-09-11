@@ -23,16 +23,24 @@ export default function LastUser({ lastUser, lastBudgetRes }) {
             Titulo de la Solicitud:{" "}
             {lastBudgetRes.budget_request.tituloSolicitud}
           </div>
-          <div className="mb-3">
+          <div>
             Detalle de la Solicitud:{" "}
             {lastBudgetRes.budget_request.detalleSolicitud}
+          </div>
+          <div>
+            Pedido Por: {lastBudgetRes.budget_request.users.name}{" "}
+            {lastBudgetRes.budget_request.users.lastName}
+          </div>
+          <div>
+             Respondido Por: {lastBudgetRes.users.name}{" "}
+            {lastBudgetRes.users.lastName}
           </div>
         </div>
         <a
           className="btn btn-danger"
           target="_blank"
           rel="noreferrer"
-            href={`${lastBudgetRes.detail}`}
+          href={`${lastBudgetRes.detail}`}
         >
           Ver Detalle del presupuesto
         </a>
