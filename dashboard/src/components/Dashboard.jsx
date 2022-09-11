@@ -22,6 +22,7 @@ const Dashboard = () => {
   const [profAmount, setProfAmount] = useState(0);
   const [clientAmount, setClientAmount] = useState(0);
   const [rubrosAmount, setRubrosAmount] = useState(0);
+  const [purchasedAmount, setPurchasedAmount] = useState(0);
 
   const fetchBudgetAmount = async () => {
     try {
@@ -52,10 +53,10 @@ const Dashboard = () => {
   const fetchBudgetPurchased = async () => {
     try {
       setIsBudgetPurchasedLoading(true);
-      const result = await fetch(`${EXPRESS_HOST}/budget/response`);
+      const result = await fetch(`${EXPRESS_HOST}/budget/purchased`);
       const budgetsResult = await result.json();
-      setLastBudgetRes(budgetsResult.responses[0]);
-      setResponsesAmount(budgetsResult.count);
+      setPurchasedAmount(budgetsResult.count);
+      
     } catch (error) {
       console.log("error", error);
     } finally {
@@ -96,6 +97,7 @@ const Dashboard = () => {
     fetchUsersAmount();
     fetchRubrosAmount();
     fetchBudgetResponse();
+    fetchBudgetPurchased();
   }, []);
 
   return (
@@ -121,6 +123,16 @@ const Dashboard = () => {
           <MiniCard
             title="Total de presupuestos Respondidos"
             value={responsesAmount.toString()}
+            icon="fa-user-cog"
+            color="danger"
+          />
+        )}
+        {isBudgetPurchasedLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <MiniCard
+            title="Total de presupuestos Contratados"
+            value={purchasedAmount.toString()}
             icon="fa-user-cog"
             color="danger"
           />

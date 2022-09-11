@@ -95,7 +95,12 @@ module.exports = {
     );
     res.status(200).json({ count: responses.length, responses });
   },
-  budgetPurchased: async (req,res) => {
-    
-  }
+  budgetPurchased: async (req, res) => {
+    const purchased = await db.ShoppingCart.findAll({
+      where: {
+        estado: "TRABAJO CONFIRMADO",
+      },
+    });
+    res.status(200).json({ count: purchased.length, purchased });
+  },
 };
