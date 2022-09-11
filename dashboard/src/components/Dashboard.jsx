@@ -12,7 +12,8 @@ const Dashboard = () => {
 
   const [isBudgetLoading, setIsBudgetLoading] = useState(false);
   const [isBudgetResLoading, setIsBudgetResLoading] = useState(false);
-  const [isBudgetPurchasedLoading, setIsBudgetPurchasedLoading] = useState(false);
+  const [isBudgetPurchasedLoading, setIsBudgetPurchasedLoading] =
+    useState(false);
   const [isUsersLoading, setIsUsersLoading] = useState(false);
   const [isRubrosLoading, setIsRubrosLoading] = useState(false);
 
@@ -56,7 +57,6 @@ const Dashboard = () => {
       const result = await fetch(`${EXPRESS_HOST}/budget/purchased`);
       const budgetsResult = await result.json();
       setPurchasedAmount(budgetsResult.count);
-      
     } catch (error) {
       console.log("error", error);
     } finally {
@@ -188,15 +188,4 @@ const Dashboard = () => {
     </>
   );
 };
-
-const miniCards = [  
-  {
-    id: "32",
-    title: "Total de trabajos contratados",
-    color: "danger",
-    value: "49",
-    icon: "fa-award",
-  },
-];
-
 export default Dashboard;
