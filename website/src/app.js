@@ -6,9 +6,9 @@ const dayjs = require("dayjs");
 
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
 
- const cors = require("cors");
+const cors = require("cors");
 
- app.use(cors(["localhost:3000"]));
+app.use(cors(["localhost:3000"]));
 
 app.use(
   session({
@@ -21,7 +21,7 @@ const methodOverride = require("method-override");
 
 app.locals.dateFormat = (date) => {
   return dayjs(date).format("YYYY-MM-DD");
-}
+};
 
 app.use(userLoggedMiddleware);
 

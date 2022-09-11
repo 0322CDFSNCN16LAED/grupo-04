@@ -157,6 +157,7 @@ module.exports = {
         },
       ],
     });
+    console.log(JSON.stringify(cartProf,null,4));
     res.render("cartMainProf", { cartProf });
   },
   
@@ -179,5 +180,6 @@ module.exports = {
       });
       res.redirect("/cart/prof");
     }
+    
   },
 }

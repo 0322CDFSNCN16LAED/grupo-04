@@ -95,4 +95,7 @@ module.exports = {
     );
     res.status(200).json({ count: responses.length, responses });
   },
+  budgetPurchased: async (req,res) => {
+    
+  }
 };

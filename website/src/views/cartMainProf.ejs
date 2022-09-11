@@ -22,13 +22,17 @@
               <h5 class="card-title"><a target="_blank" href="/budget/detail/<%= item.id %>"><%= item.budget_request.tituloSolicitud %></a></h5>
               <h5 class="card-title bolder">$ <%= item.precioFinal %></h5>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><a target="_blank" href="/user/detail/<%= item.budget_request.userId %>"><%= item.budget_request.users.name %> <%= item.budget_request.users.lastName %></a></li>
-              <li class="list-group-item"><%= dateFormat(item.shopping_cart.dia) %></li>
-              <li class="list-group-item"><%= item.shopping_cart.horario %></li>
-              <li class="list-group-item"><%= item.shopping_cart.metodoPago %></li>
-              <li class="list-group-item"><%= item.shopping_cart.estado %></li>
-            </ul>
+            <% if (item.shopping_cart == null) { %>
+              <div class="text-center color-red">Aguardando respuesta del usuario</div>
+            <% }else{ %> 
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a target="_blank" href="/user/detail/<%= item.budget_request.userId %>"><%= item.budget_request.users.name %> <%= item.budget_request.users.lastName %></a></li>
+                <li class="list-group-item"><%= dateFormat(item.shopping_cart.dia) %></li>
+                <li class="list-group-item"><%= item.shopping_cart.horario %></li>
+                <li class="list-group-item"><%= item.shopping_cart.metodoPago %></li>
+                <li class="list-group-item"><%= item.shopping_cart.estado %></li>
+              </ul>             
+           
             <% if (item.shopping_cart.estado === "TRABAJO AGENDADO") { %>
               <div class="card-body"> 
                 <ul class="nav">
@@ -44,6 +48,7 @@
                   </li>
                 </ul>
               </div>
+               <% } %>
             <% } %>
             
           </div>
