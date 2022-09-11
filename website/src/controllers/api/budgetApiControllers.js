@@ -93,7 +93,6 @@ module.exports = {
       (url) =>
         (url.dataValues.detail = `http://localhost:3001/budget/detail/${url.id}`)
     );
-    console.log(JSON.stringify(responses, null, 4));
-    res.status(200).json({count: responses.length,responses});
+    res.status(200).json({ count: responses.length, responses });
   },
 };

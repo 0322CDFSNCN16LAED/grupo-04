@@ -32,7 +32,7 @@ export default function LastUser({ lastUser, lastBudgetRes }) {
           className="btn btn-danger"
           target="_blank"
           rel="noreferrer"
-          href={`${lastBudgetRes.detail}`}
+            href={`${lastBudgetRes.detail}`}
         >
           Ver Detalle del presupuesto
         </a>

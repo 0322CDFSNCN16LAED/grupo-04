@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import logoDH from "../assets/images/logo-DH.png";
+import logoReparaYa from "../assets/images/logoReparaYa.svg";
 
 function Sidebar() {
   return (
@@ -15,7 +15,7 @@ function Sidebar() {
         href="/"
       >
         <div className="sidebar-brand-icon">
-          <img className="w-100" src={logoDH} alt="Digital House" />
+          <img className="w-100" src={logoReparaYa} alt="Digital House" />
         </div>
       </a>
 
@@ -26,7 +26,7 @@ function Sidebar() {
       <li className="nav-item active">
         <a className="nav-link" href="/">
           <i className="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard - DH movies</span>
+          <span>Dashboard - Repara Ya</span>
         </a>
       </li>
 
@@ -40,13 +40,13 @@ function Sidebar() {
       <li className="nav-item">
         <Link className="nav-link collapsed" to="/movies" exact="true">
           <i className="fas fa-fw fa-folder"></i>
-          <span>Movies</span>
+          <span>Budgets</span>
         </Link>
       </li>
       <li className="nav-item">
         <Link className="nav-link collapsed" to="/search" exact="true">
           <i className="fas fa-fw fa-search"></i>
-          <span>Search Movies</span>
+          <span>Search Budgets</span>
         </Link>
       </li>
 
