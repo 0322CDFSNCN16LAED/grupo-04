@@ -1,12 +1,21 @@
-export default function Movie({ title, genre, id, rating, awards, length }) {
+export default function Movie({
+  id,
+  tituloSolicitud,
+  detalleSolicitud,
+  rubroNombre,
+  ubicacion,
+  estado,
+  urgenciaTrabajo,
+}) {
   return (
     <tr>
       <td>{id}</td>
-      <td>{title}</td>
-      <td>{genre ? genre.name : "No definido"}</td>
-      <td>{rating}</td>
-      <td>{awards}</td>
-      <td>{length || "No definido"}</td>
+      <td>{tituloSolicitud}</td>
+      <td>{detalleSolicitud}</td>
+      <td>{rubroNombre}</td>
+      <td>{ubicacion}</td>
+      <td>{estado}</td>
+      <td>{urgenciaTrabajo}</td>
     </tr>
   );
 }
