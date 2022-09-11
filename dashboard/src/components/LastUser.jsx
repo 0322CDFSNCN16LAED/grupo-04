@@ -1,6 +1,6 @@
 import BigCard from "./BigCard";
 import PropTypes from "prop-types";
-import logoReparaYa from "../assets/images/logoReparaYa.svg";
+
 const propTypes = {
   lastUser: PropTypes.object.isRequired,
   lastBudgetRes: PropTypes.object.isRequired
