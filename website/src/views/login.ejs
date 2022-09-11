@@ -15,7 +15,7 @@
           </div>
 
           <div>
-            <form action="/login" method="POST">
+            <form action="/login" method="POST" id="formulario">
               <div class="col mt-3">
                 <label class="font-medium visually-hidden">E-mail</label>
                 <input
@@ -26,6 +26,7 @@
                   aria-label="E-mail"
                   value="<%= locals.oldData ? oldData.email : null %>"
                 />
+                <span class="error"></span>
                 <% if (locals.errors && errors.email) {%>
                 <div class="error-msg"><%= errors.email.msg %></div>
                 <% } %>
@@ -39,6 +40,7 @@
                   placeholder="Contraseña"
                   aria-label="Contraseña"
                 />
+                <span class="error"></span>
                 <% if (locals.errors && errors.password) {%>
                 <div class="error-msg"><%= errors.password.msg %></div>
                 <% } %>
