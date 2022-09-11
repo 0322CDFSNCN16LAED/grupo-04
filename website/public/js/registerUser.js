@@ -56,6 +56,15 @@ const validations = [
     ],
   },
   {
+    inputName: "DNI",
+    validations: [
+      {
+        validator: isEmpty,
+        errorMsg: "DNI no puede estar vacío",
+      },
+    ],
+  },
+  {
     inputName: "address",
     validations: [
       {
@@ -101,7 +110,8 @@ const validations = [
       {
         validator: (input) =>
           /.(gif|jpeg|jpg|png|tif)$/i.test(input.value) != "",
-        errorMsg: "Debes ingresar un archivo válido (JPG, JPEG, PNG, GIF, TIF).",
+        errorMsg:
+          "Debes ingresar un archivo válido (JPG, JPEG, PNG, GIF, TIF).",
       },
     ],
   },
