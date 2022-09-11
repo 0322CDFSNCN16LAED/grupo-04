@@ -14,7 +14,7 @@
                     <p class="font-mediun  text-center mb-5 -login">Ofrece tus servicios sin costo</p>
                 </div>
                 
-                <form action="/prof/register" method="POST" enctype="multipart/form-data">
+                <form action="/prof/register" method="POST" enctype="multipart/form-data" id="formulario">
                     <div class=" map-column">
                         <div>
                             <div class="row mt-3">
@@ -31,6 +31,7 @@
                                         placeholder="Nombre"
                                         value="<%= locals.oldData ? oldData.name : null %>"
                                     >
+                                    <span class="error"></span>
                                     <% if (locals.errors && errors.name) { %>
                                         <div class= "error-msg">
                                             <%= errors.name.msg %>               
@@ -50,6 +51,7 @@
                                         value="<%= locals.oldData ? oldData.lastName : null %>"
                                         placeholder="Apellido"
                                     >
+                                    <span class="error"></span>
                                     <% if (locals.errors && errors.lastName) { %>
                                         <div class= "error-msg">
                                             <%= errors.lastName.msg %>               
@@ -72,12 +74,13 @@
                                         placeholder="Nombre de usuario"
                                         value="<%= locals.oldData ? oldData.userName : null %>"
                                     >                                    
-                                </div>
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.userName) { %>
                                     <div class= "error-msg">
                                         <%= errors.userName.msg %>               
                                     </div>
                                 <% } %>
+                            </div>
                             </div>
                             <div class="col mt-3 mb-3">
                                 <label class="visually-hidden">E-mail</label>
@@ -92,6 +95,7 @@
                                     placeholder="E-mail"
                                     value="<%= locals.oldData ? oldData.email : null %>"
                                 >
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.email) { %>
                                     <div class= "error-msg">
                                         <%= errors.email.msg %>               
@@ -110,6 +114,7 @@
                                 %>"
                                     placeholder="Contraseña"                                    
                                 >
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.password) { %>
                                     <div class= "error-msg">
                                         <%= errors.password.msg %>               
@@ -129,6 +134,7 @@
                                     placeholder="Teléfono"
                                     value="<%= locals.oldData ? oldData.phone : null %>"
                                 >
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.phone) { %>
                                     <div class= "error-msg">
                                         <%= errors.phone.msg %>               
@@ -149,6 +155,7 @@
                                     placeholder="DNI"
                                     value="<%= locals.oldData ? oldData.DNI : null %>"
                                 >
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.DNI) { %>
                                     <div class= "error-msg">
                                         <%= errors.DNI.msg %>               
@@ -171,6 +178,7 @@
                                     placeholder="Dirección"
                                     value="<%= locals.oldData ? oldData.address : null %>"
                                 >
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.address) { %>
                                     <div class= "error-msg">
                                         <%= errors.address.msg %>               
@@ -190,6 +198,7 @@
                                         placeholder="Ciudad"
                                         value="<%= locals.oldData ? oldData.city : null %>"
                                     >
+                                    <span class="error"></span>
                                     <% if (locals.errors && errors.city) { %>
                                         <div class= "error-msg">
                                             <%= errors.city.msg %>               
@@ -209,6 +218,7 @@
                                         placeholder="Provincia"
                                         value="<%= locals.oldData ? oldData.state : null %>"
                                     >
+                                    <span class="error"></span>
                                     <% if (locals.errors && errors.state) { %>
                                         <div class= "error-msg">
                                             <%= errors.state.msg %>               
@@ -228,6 +238,7 @@
                                         aria-label="Código postal"
                                         value="<%= locals.oldData ? oldData.zipCode : null %>"
                                     >
+                                    <span class="error"></span>
                                     <% if (locals.errors && errors.zipCode) { %>
                                         <div class= "error-msg">
                                             <%= errors.zipCode.msg %>               
@@ -245,6 +256,7 @@
                                     value= "<%= locals.oldData ? oldData.avatar : null %>"
                                     >
                                 </div>  
+                                <span class="error"></span>
                                 <% if (locals.errors && errors.avatar) { %>
                                     <div class= "error-msg">
                                         <%= errors.avatar.msg %>               
