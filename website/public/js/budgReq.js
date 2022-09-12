@@ -6,7 +6,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Titulo no puede ser vacío",
+        errorMsg: "Titulo no puede estar vacío",
       },
     ],
   },
@@ -15,7 +15,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Detalle no puede ser vacío",
+        errorMsg: "Detalle no puede estar vacío",
       },
     ],
   },
@@ -24,7 +24,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Rubro no puede ser vacío",
+        errorMsg: "Rubro no puede estar vacío",
       },
     ],
   },
@@ -46,7 +46,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Fecha no puede ser vacío",
+        errorMsg: "Fecha no puede estar vacío",
       },
     ],
   },
@@ -55,7 +55,7 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Ubicacion no puede ser vacío",
+        errorMsg: "Ubicacion no puede estar vacío",
       },
     ],
   },
