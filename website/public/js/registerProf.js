@@ -46,7 +46,7 @@ const validations = [
         errorMsg: "Email no puede estar vacío",
       },
       {
-        validator: (input) => /\S+@\S+\.\S+/.test(input.value) == true,
+        validator: (input) => /\S+@\S+\.\S+/.test(input.value) != "",
         errorMsg: "Email debe ser valido fe",
       },
     ],
