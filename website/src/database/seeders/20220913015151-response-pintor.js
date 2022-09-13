@@ -10,7 +10,7 @@ module.exports = {
       where: { isProf: 1 },
       include: ["rubros"],
     });
-    Array(20)
+    Array(200)
       .fill(0)
       .forEach((_, i) => {
         const randomUserId = Users[Math.floor(Math.random() * Users.length)];
@@ -32,8 +32,9 @@ module.exports = {
             created_at: new Date(),
             updated_at: new Date(),
           };
-        }
-        console.log(JSON.stringify(budgetRes, null, 4));
+          const res = {...randomBudgRes, precioFinal: randomBudgRes.precioMateriales + randomBudgRes.precioManoDeObra}
+          budgetRes.push(res)
+        }        
       });
     await queryInterface.bulkInsert("budget_response", budgetRes);
   },
