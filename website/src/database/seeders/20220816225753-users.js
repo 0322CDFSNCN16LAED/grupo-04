@@ -38,7 +38,7 @@ module.exports = {
     ];
     const avatarImg =
       avatarArray[Math.floor(Math.random() * avatarArray.length)];
-    Array(50)
+    Array(250)
       .fill(0)
       .forEach((_, i) => {
         const isProf = Math.round(Math.random());

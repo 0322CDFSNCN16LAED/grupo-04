@@ -41,7 +41,7 @@ module.exports = {
     ];
     const UrgTrabajoArray = ["Lo antes posible", "Esta semana", "Este mes"];
 
-    Array(20)
+    Array(150)
       .fill(0)
       .forEach((_, i) => {
         const randomUserId = Users[Math.floor(Math.random() * Users.length)];
