@@ -16,21 +16,21 @@
       <section class="cards">
         <% items.forEach(function(item){ %>
         <article class="justify-center ml-5">
-          <% if (item.budget_response[0] != null) { %>             
+                     
           <div class="card" style="width: 18rem;">
-              <img src="/images/budgetRequest/<%= item.budget_response[0].budget_request.req_imgs[0].img %>" class="card-img-top" alt="...">
+              <img src="/images/budgetRequest/<%= item.budget_response.budget_request.req_imgs[0].img %>" class="card-img-top" alt="...">
               <div class="card-body text-center">
-                <h5 class="card-title"><a target="_blank" href="/budget/detail/<%= item.resId %>"><%= item.budget_response[0].budget_request.tituloSolicitud %></a></h5>
-                <h5 class="card-title bolder">$ <%= item.budget_response[0].precioFinal %></h5>
+                <h5 class="card-title"><a target="_blank" href="/budget/detail/<%= item.resId %>"><%= item.budget_response.budget_request.tituloSolicitud %></a></h5>
+                <h5 class="card-title bolder">$ <%= item.budget_response.precioFinal %></h5>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a target="_blank" href="/prof/detail/<%= item.budget_response[0].userId %>"><%= item.budget_response[0].users.name %> <%= item.budget_response[0].users.lastName %></a></li>
+                <li class="list-group-item"><a target="_blank" href="/prof/detail/<%= item.budget_response.userId %>"><%= item.budget_response.users.name %> <%= item.budget_response.users.lastName %></a></li>
                 <li class="list-group-item"><%= dateFormat(item.dia) %></li>
                 <li class="list-group-item"><%= item.horario %></li>
                 <li class="list-group-item"><%= item.metodoPago %></li>
                 <li class="list-group-item"><%= item.estado %></li>
               </ul>
-              <% } %>
+              
               <% if (item.estado === "TRABAJO AGENDADO") { %>
                 <div class="card-body">
                   <ul class="nav">

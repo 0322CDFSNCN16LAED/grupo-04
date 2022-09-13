@@ -177,26 +177,25 @@ window.onload = function () {
     validations.forEach((inputToValidate) => {
       const input = formulario[inputToValidate.inputName];
 
+      let parent;
+      if (input instanceof RadioNodeList) {
+        parent = input[0].parentElement.parentElement;
+      } else {
+        parent = input.parentElement;
+      }
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
         if (!isValid) {
           errores.push(validation.errorMsg);
-          if (inputToValidate.inputName == "rubro") {
-            document.querySelector("#errorRubro").innerHTML =
-              validation.errorMsg;
-            console.log(document.querySelector("#errorRubro"));
-          } else {
-            input.parentElement.classList.add("is-notvalid");
-            input.parentElement.classList.remove("is-valid");
-            input.parentElement.querySelector(".error").innerHTML =
-              validation.errorMsg;
-          }
+          parent.classList.add("is-notvalid");
+          parent.classList.remove("is-valid");
+          parent.querySelector(".error").innerHTML = validation.errorMsg;
           return;
         }
       }
-      input.parentElement.classList.add("is-valid");
-      input.parentElement.classList.remove("is-notvalid");
-      input.parentElement.querySelector(".error").innerHTML = "";
+      parent.classList.add("is-valid");
+      parent.classList.remove("is-notvalid");
+      parent.querySelector(".error").innerHTML = "";
       document.querySelector("#errorRubro").innerHTML = "";
     });
 

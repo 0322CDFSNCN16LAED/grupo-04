@@ -59,8 +59,8 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "userId",
       as: "users",
     });
-    budgetRes.belongsTo(models.ShoppingCart, {
-       foreignKey: "id",
+    budgetRes.hasOne(models.ShoppingCart, {
+       foreignKey: "resId",
        as: "shopping_cart",
      });
   }
