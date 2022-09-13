@@ -162,8 +162,29 @@
                                     </div>
                                 <% } %>
                             </div>                            
-                            <div>                                           
-                            <%- include('./partials/checkboxRubros', {array: rubros, title:"Rubros", name:"rubro"}) %>
+                            <div>
+                            <% if (rubros.length > 0) { %>
+                            <div>
+                                <div class="font-medium mt-3 bolder">Rubros</div>
+                                <% rubros.forEach(rubro => { %>
+                                <div class="form-check">                                        
+                                    <label class="form-check-label" for="<%= rubro %>"> <%= rubro %> </label>
+                                    <input
+                                        id="<%= rubro %>"
+                                        class="form-check-input"
+                                        name="rubro"
+                                        type="checkbox"
+                                        value="<%= rubro %>"
+                                        <%= locals.rubrosData && rubrosData.includes(rubro) ? "checked" : null  %>               
+                                        />
+                                </div>
+                                <% }) %>                                                                                           
+                                <span class="error" style="color:red" id="errorRubro" name="errorRubro"></span>
+                                </div>
+                            <% } %> <% if (locals.errors && errors.rubro) { %>
+                            <div class="error-msg"><%= errors.rubro.msg %></div>
+                            <% } %>                                           
+                            
                             <span class="error"></span>
                             <% if (locals.errors && errors.rubro) { %>
                                     <div class= "error-msg">
@@ -261,8 +282,8 @@
                                     name= "avatar"
                                     value= "<%= locals.oldData ? oldData.avatar : null %>"
                                     >
+                                    <span class="error"></span>
                                 </div>  
-                                <span class="error"></span>
                                 <% if (locals.errors && errors.avatar) { %>
                                     <div class= "error-msg">
                                         <%= errors.avatar.msg %>               
@@ -273,6 +294,7 @@
                                 <div class="mb-3">                   
                                     <label for="finished-jobs" class="form-label "><h4 class="font-medium" >Trabajos realizados</h4></label>
                                     <input class="form-control" name= "finished-jobs" type="file" id="finished-jobs" multiple>
+                                    <span class="error"></span>
                                 </div>
                             </div>                            
     

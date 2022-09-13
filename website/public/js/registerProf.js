@@ -56,7 +56,7 @@ const validations = [
       },
       {
         validator: minOcho,
-        errorMsg: "Contrseña debe tener al menos ocho caracteres",
+        errorMsg: "Contraseña debe tener al menos ocho caracteres",
       },
     ],
   },
@@ -82,12 +82,19 @@ const validations = [
     inputName: "rubro",
     validations: [
       {
-        validator: isEmpty,
-        errorMsg: "Dirección no puede estar vacío",
+        errorMsg: "Debe seleccionar al menos un Rubro",
+        validator: (input) => {
+          let isValid = false;
+          input.forEach((element) => {
+            if (element.checked) {
+              isValid = true;
+            }
+          });
+          return isValid;
+        },
       },
     ],
   },
-
   {
     inputName: "address",
     validations: [
@@ -139,6 +146,21 @@ const validations = [
       },
     ],
   },
+  {
+    inputName: "finished-jobs",
+    validations: [
+      {
+        validator: isEmpty,
+        errorMsg: "Debes subir una imagen de algun trabajo realizado",
+      },
+      {
+        validator: (input) =>
+          /.(gif|jpeg|jpg|png|tif)$/i.test(input.value) != "",
+        errorMsg:
+          "Debes ingresar un archivo válido (JPG, JPEG, PNG, GIF, TIF).",
+      },
+    ],
+  },
 ];
 
 window.onload = function () {
@@ -151,20 +173,27 @@ window.onload = function () {
     validations.forEach((inputToValidate) => {
       const input = formulario[inputToValidate.inputName];
 
-      for (const validation of inputToValidate.validations) {
+      for (const validation of inputToValidate.validations) {        
         const isValid = validation.validator(input);
         if (!isValid) {
           errores.push(validation.errorMsg);
-          input.parentElement.classList.add("is-notvalid");
-          input.parentElement.classList.remove("is-valid");
-          input.parentElement.querySelector(".error").innerHTML =
-            validation.errorMsg;
+          if (inputToValidate.inputName == "rubro") {
+            document.querySelector("#errorRubro").innerHTML =
+              validation.errorMsg;
+              console.log(document.querySelector("#errorRubro"));
+          } else {
+            input.parentElement.classList.add("is-notvalid");
+            input.parentElement.classList.remove("is-valid");
+            input.parentElement.querySelector(".error").innerHTML =
+              validation.errorMsg;
+          }
           return;
         }
       }
       input.parentElement.classList.add("is-valid");
       input.parentElement.classList.remove("is-notvalid");
       input.parentElement.querySelector(".error").innerHTML = "";
+      document.querySelector("#errorRubro").innerHTML = "";
     });
 
     if (errores.length == 0) {
