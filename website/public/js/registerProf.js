@@ -45,6 +45,17 @@ const validations = [
         validator: isEmpty,
         errorMsg: "Email no puede estar vacío",
       },
+      {
+        validator: (input) => {
+          let isValid = false;
+          if (/\S+@\S+\.\S+/.test(input.value) === true) {
+            isValid = true;
+          }
+          console.log(/\S+@\S+\.\S+/.test(input.value));
+          return isValid;
+        },
+        errorMsg: "Email debe ser valido fe",
+      },
     ],
   },
   {
@@ -173,14 +184,14 @@ window.onload = function () {
     validations.forEach((inputToValidate) => {
       const input = formulario[inputToValidate.inputName];
 
-      for (const validation of inputToValidate.validations) {        
+      for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
         if (!isValid) {
           errores.push(validation.errorMsg);
           if (inputToValidate.inputName == "rubro") {
             document.querySelector("#errorRubro").innerHTML =
               validation.errorMsg;
-              console.log(document.querySelector("#errorRubro"));
+            console.log(document.querySelector("#errorRubro"));
           } else {
             input.parentElement.classList.add("is-notvalid");
             input.parentElement.classList.remove("is-valid");
