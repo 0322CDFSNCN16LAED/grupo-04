@@ -26,6 +26,7 @@ module.exports = {
             resId: randomResponses.id,
             userId: randomResponses.budget_request.userId,
             dia: dayjs(faker.date.soon(10)).format("YYYY-MM-DD"),
+            horario: 
             metodoPago: randomPago,
             estado: randomEstado,
 
