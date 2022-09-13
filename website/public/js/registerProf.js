@@ -46,14 +46,7 @@ const validations = [
         errorMsg: "Email no puede estar vacío",
       },
       {
-        validator: (input) => {
-          let isValid = false;
-          if (/\S+@\S+\.\S+/.test(input.value) === true) {
-            isValid = true;
-          }
-          console.log(/\S+@\S+\.\S+/.test(input.value));
-          return isValid;
-        },
+        validator: (input) => /\S+@\S+\.\S+/.test(input.value) == true,
         errorMsg: "Email debe ser valido fe",
       },
     ],
