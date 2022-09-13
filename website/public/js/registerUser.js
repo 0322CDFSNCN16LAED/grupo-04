@@ -56,7 +56,7 @@ const validations = [
       },
       {
         validator: minOcho,
-        errorMsg: "Contrseña debe tener al menos ocho caracteres",
+        errorMsg: "Contraseña debe tener al menos ocho caracteres",
       },
     ],
   },
