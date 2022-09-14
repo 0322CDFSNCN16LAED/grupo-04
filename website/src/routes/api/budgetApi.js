@@ -5,6 +5,7 @@ const budgetControllers = require("../../controllers/api/budgetApiControllers");
 
 router.get("/", budgetControllers.budgets);
 router.get("/list", budgetControllers.budgetList);
+router.get("/response/list", budgetControllers.responseList);
 router.get("/response", budgetControllers.budgetResponse);
 router.get("/purchased", budgetControllers.budgetPurchased);
 router.get("/rubros", budgetControllers.rubros);
