@@ -1,8 +1,7 @@
 const db = require("../database/models");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-
-
+const dayjs = require("dayjs");
 
 module.exports = {
   createUser: (req, res) => {
@@ -82,7 +81,19 @@ module.exports = {
     });
     res.render("inboxUser", { budgets });
   },
-  history: (req, res) => {
-    res.render("history");
+  historyUser: async (req, res) => {
+    const cartHistory = await db.ShoppingCart.findAll({
+      where: {
+        userId: req.session.userLogged.id,
+      },
+      order: [["estado", "DESC"]],
+      include: [
+        {
+          association: "budget_response",
+          include: ["users", "budget_request"],
+        },
+      ],
+    });
+    res.render("historyUser", { cartHistory, dayjs });
   },
 };
