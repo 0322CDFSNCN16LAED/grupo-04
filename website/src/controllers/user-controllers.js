@@ -44,7 +44,7 @@ module.exports = {
     }
   },
   userDetail: async (req, res) => {
-    const user = await db.User.findByPk(req.params.id)
+    const user = await db.User.findByPk(req.params.id);
     res.render("userDetail", {
       user: user,
     });
@@ -55,18 +55,18 @@ module.exports = {
     res.render("editUser", { user: userToEdit });
   },
   updateUserProfile: async (req, res) => {
-    let userId = req.session.userLogged.id;     
+    let userId = req.session.userLogged.id;
     let newData = {
       ...req.body,
-      avatar: req.file.filename      
-    };    
-    await db.User.update(newData,{
+      avatar: req.file.filename,
+    };
+    await db.User.update(newData, {
       where: {
         id: userId,
       },
     });
     req.session.userLogged = await db.User.findByPk(userId);
-    res.render("userDetail",{user:req.session.userLogged});
+    res.render("userDetail", { user: req.session.userLogged });
   },
   inboxUser: async (req, res) => {
     const userId = req.session.userLogged.id;
@@ -79,7 +79,10 @@ module.exports = {
         "budget_response",
         { association: "budget_response", include: ["users", "shopping_cart"] },
       ],
-    });    
+    });
     res.render("inboxUser", { budgets });
+  },
+  history: (req, res) => {
+    res.render("history");
   },
 };

@@ -26,7 +26,6 @@ router.get("/funcionamiento", mainControllers.funcionamiento);
 router.get("/login", guestMiddleware, mainControllers.login);
 router.post("/login", loginValidations, mainControllers.loginProcess);
 router.get("/logout", mainControllers.logout);
-router.get("/history", authMiddleware, mainControllers.history);
 router.get("/register", guestMiddleware, mainControllers.register);
 router.get("/newPassword", authMiddleware, mainControllers.newPassword);
 router.post("/newPassword", mainControllers.addNewPassword);

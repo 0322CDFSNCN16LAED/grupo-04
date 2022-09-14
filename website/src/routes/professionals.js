@@ -36,6 +36,7 @@ router.put("/update/:id",
 );
 
 router.get("/inbox", authMiddleware, profControllers.inboxProf);
+router.get("/history", authMiddleware, profControllers.history);
 router.get("/inbox/responses", authMiddleware, profControllers.inboxProfResponses);
 
 module.exports = router;

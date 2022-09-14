@@ -39,10 +39,6 @@ module.exports = {
     }
   },
 
-  history: (req, res) => {
-    res.render("history");
-  },
-
   logout: (req, res) => {
     req.session.destroy();
     return res.redirect("/login");

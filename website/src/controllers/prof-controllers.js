@@ -1,6 +1,7 @@
 const db = require("../database/models");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
+const dayjs = require("dayjs");
 
 module.exports = {
   createProf: async (req, res) => {
@@ -254,5 +255,28 @@ module.exports = {
     console.log(JSON.stringify(responses, null, 4));
 
     res.render("inboxProfResponses", { responses });
+  },
+  history: async (req, res) => {
+    const cartHistory = await db.budgRes.findAll({
+      where: {
+        userId: req.session.userLogged.id,
+      },
+      include: [
+        {
+          association: "shopping_cart",
+          where: {
+            estado: "TRABAJO CONFIRMADO",
+          },
+          include: [
+            "users"        
+          ],
+        },
+        {
+          association:"budget_request",
+          include:["users"]
+        }
+      ],
+    });    
+    res.render("historyProf", { cartHistory, dayjs });
   },
 };
