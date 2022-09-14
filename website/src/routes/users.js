@@ -14,7 +14,7 @@ router.get("/detail/:id", authMiddleware, userControllers.userDetail);
 router.get("/edit/:id", authMiddleware, userControllers.editUserProfile);
 router.put("/update/:id", authMiddleware,upload.single("avatar"), userControllers.updateUserProfile);
 router.get("/inbox", authMiddleware, userControllers.inboxUser);
-router.get("/history", authMiddleware, userControllers.history);
+router.get("/history", authMiddleware, userControllers.historyUser);
 router.get("/register", userControllers.createUser);
 router.post(
   "/register",

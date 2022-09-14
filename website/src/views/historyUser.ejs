@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<body>
+    <%- include('./partials/header') %>
+
+    <main class="imagen-fondo-mobile justify-center">
+
+        <section>   
+            <div class="fx justify-sp-b text-right font-xlarge">
+                <h2 class="m-3 font-xlarge lapt-shop-pago">Mis contrataciones</h2>
+                <h2 class="m-3 font-xlarge lapt-shop-title">Revisá acá el estado de tus contrataciones</h2>
+                <i class="m-3 far fa-question-circle"></i>
+            </div>        
+            <div class="m-3">
+                <label for="date"><h4 class="font-medium">Fecha entre:</h4></label>
+                    <div class="fx justify-center">
+                        <input type="date" class="date-form mr-10">
+                        <input type="date" class="date-form">
+                    </div>
+            <div class="text-center txt-button-container  justify-center mt-3"> 
+                <button type=“submit” class="primary-button">Buscar</button>
+                <button type="reset" class="cancel-button font-medium">Nueva Búsqueda</button>            
+            </div>  
+        </section>
+        <section>
+          <div class="card shadow mb-4">
+            <div className="card-body">
+            <div class="table-responsive">
+                <table
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellSpacing="0"
+                    <thead>
+                        <tr>                         
+                            <th>Rubro Requerido</th>
+                            <th>Fecha</th>
+                            <th>Horario</th>
+                            <th>Profesional</th>
+                            <th>Importe</th>
+                            <th>Estado</th>
+                            <th>Medio de Pago</th>                            
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Rubro Requerido</th>
+                            <th>Fecha</th>
+                            <th>Horario</th>
+                            <th>Profesional</th>
+                            <th>Importe</th>
+                            <th>Estado</th>
+                            <th>Medio de Pago</th>                            
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <% cartHistory.forEach(cart => { %>                         
+                            <tr>
+                                <td><%= cart.budget_response.budget_request.rubroNombre %> </td>
+                                <td><%= dayjs(cart.dia).format("YYYY-MM-DD") %> </td>
+                                <td><%= cart.horario %> </td>
+                                <td><%= cart.budget_response.users.name %> <%= cart.budget_response.users.lastName %></td>
+                                <td><%= cart.budget_response.precioFinal %> </td>
+                                <td><%= cart.estado %> </td>
+                                <td><%= cart.metodoPago %> </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+                      </div>
+                  </div>
+              </div>        
+       </section>
+                
+    </main>
+
+    <%- include('./partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
