@@ -107,7 +107,17 @@ module.exports = {
     res.status(200).json(list);
   },
   responseList: async (req, res) => {
-    const list = await db.budgRes.findAll({include:["users"]});
+    const list = await db.budgRes.findAll({ include: ["users"] });
+    res.status(200).json(list);
+  },
+  cartList: async (req, res) => {
+    const list = await db.ShoppingCart.findAll({
+      order: [["estado", "DESC"]],
+      include: [
+        "users",
+        { association: "budget_response", include: ["users"] },
+      ],
+    });
     res.status(200).json(list);
   },
 };
