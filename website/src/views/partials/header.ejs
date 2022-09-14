@@ -10,13 +10,13 @@
                     <li><a class="dropdown-item" href="/register">Registrate</a></li>                         
                 <% } %>
                 <% if (locals.isLogged && locals.userLogged.isProf) { %>
-                    <li><a class="dropdown-item" href="/prof/inbox">Solicitudes de presupuesto</a></li>
-                    <li><a class="dropdown-item" href="/prof/inbox/responses">Presupuestos respondidos</a></li>
+                    <li><a class="dropdown-item" href="/prof/inbox">Nuevas Solicitudes</a></li>
+                    <li><a class="dropdown-item" href="/prof/inbox/responses">Presupuestos enviados</a></li>
                     <li><a class="dropdown-item" href="/cart/prof">Trabajos agendados</a></li>
                 <% } %>
                 <% if (locals.isLogged && !locals.userLogged.isProf) { %>
-                    <li><a class="dropdown-item" href="/user/inbox">Bandeja de entrada</a></li>
-                    <li><a class="dropdown-item" href="/cart">Mi carrito</a></li>
+                    <li><a class="dropdown-item" href="/user/inbox">Mis Solicitudes</a></li>
+                    <li><a class="dropdown-item" href="/cart">Trabajos agendados</a></li>
                 <% } %>
                 <li><a class="dropdown-item" href="/history">Historial</a></li>
                 <li><a class="dropdown-item" href="#">Categorias</a></li>
@@ -46,13 +46,13 @@
                         <li><a class="dropdown-item" href="/register">Registrate</a></li>                         
                     <% } %>
                     <% if (locals.isLogged && locals.userLogged.isProf) { %>
-                        <li><a class="dropdown-item" href="/prof/inbox">Solicitudes de presupuesto</a></li>
-                        <li><a class="dropdown-item" href="/prof/inbox/responses">Presupuestos respondidos</a></li>
+                        <li><a class="dropdown-item" href="/prof/inbox">Nuevas Solicitudes</a></li>
+                        <li><a class="dropdown-item" href="/prof/inbox/responses">Presupuestos enviados</a></li>
                         <li><a class="dropdown-item" href="/cart/prof">Trabajos agendados</a></li>
                     <% } %>
                     <% if (locals.isLogged && !locals.userLogged.isProf) { %>
-                        <li><a class="dropdown-item" href="/user/inbox">Bandeja de entrada</a></li>
-                        <li><a class="dropdown-item" href="/cart">Mi carrito</a></li>
+                        <li><a class="dropdown-item" href="/user/inbox">Mis Solicitudes</a></li>
+                        <li><a class="dropdown-item" href="/cart">Trabajos agendados</a></li>
                     <% } %>                         
                     <li><a class="dropdown-item" href="/history">Historial</a></li>
                     <li><a class="dropdown-item" href="#">Categorias</a></li>
