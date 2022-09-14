@@ -10,6 +10,9 @@ export default function LastUser({ lastUser, lastBudgetRes }) {
   return (
     <>
       <BigCard title="Ultimo presupuesto creado">
+        <h2 className="text-center">
+          {lastBudgetRes.budget_request.tituloSolicitud}
+        </h2>
         <div className="text-center">
           <img
             className="img-fluid px-3 px-sm-4 mt-3 mb-4"
@@ -19,21 +22,22 @@ export default function LastUser({ lastUser, lastBudgetRes }) {
           />
         </div>
         <div>
-          <div>
-            Titulo de la Solicitud:{" "}
-            {lastBudgetRes.budget_request.tituloSolicitud}
+          <div className="d-flex p-2 justify-content-start">
+            <p className="col-2 font-weight-bold">Detalle: </p>
+            <p>{lastBudgetRes.budget_request.detalleSolicitud}</p>
           </div>
-          <div>
-            Detalle de la Solicitud:{" "}
-            {lastBudgetRes.budget_request.detalleSolicitud}
+          <div className="d-flex p-2 justify-content-start">
+            <p className="col-2 font-weight-bold">Pedido Por:</p>
+            <p>
+              {lastBudgetRes.budget_request.users.name}{" "}
+              {lastBudgetRes.budget_request.users.lastName}
+            </p>
           </div>
-          <div>
-            Pedido Por: {lastBudgetRes.budget_request.users.name}{" "}
-            {lastBudgetRes.budget_request.users.lastName}
-          </div>
-          <div>
-             Respondido Por: {lastBudgetRes.users.name}{" "}
-            {lastBudgetRes.users.lastName}
+          <div className="d-flex p-2 justify-content-start">
+            <p className="col-2 font-weight-bold">Respondido Por:</p>
+            <p>
+              {lastBudgetRes.users.name} {lastBudgetRes.users.lastName}
+            </p>
           </div>
         </div>
         <a
@@ -57,9 +61,18 @@ export default function LastUser({ lastUser, lastBudgetRes }) {
             alt=" User-Avatar"
           />
         </div>
-        <div>Email: {lastUser.email}</div>
-        <div>Provincia: {lastUser.state}</div>
-        <div className="mb-3">Ciudad: {lastUser.city}</div>
+        <div className="d-flex p-2 justify-content-start">
+          <p className="col-2 font-weight-bold">Email:</p>
+          <p>{lastUser.email}</p>
+        </div>
+        <div className="d-flex p-2 justify-content-start">
+          <p className="col-2 font-weight-bold">Provincia:</p>
+          <p>{lastUser.state}</p>
+        </div>
+        <div className="mb-3 d-flex p-2 justify-content-start">
+          <p className="col-2 font-weight-bold">Ciudad:</p>
+          <p>{lastUser.city}</p>
+        </div>
         <a
           className="btn btn-danger"
           target="_blank"
