@@ -35,7 +35,6 @@ module.exports = {
       (url) =>
         (url.dataValues.detail = `http://localhost:3001/budget/detail/${url.budget_response.id}`)
     );
-    console.log(JSON.stringify(budgReqList, null, 4));
     res.status(200).json({
       count: budgReqList.length,
       countByCategory: {
