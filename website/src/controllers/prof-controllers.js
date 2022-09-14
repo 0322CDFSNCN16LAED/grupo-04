@@ -70,7 +70,7 @@ module.exports = {
         userCreated = await db.User.create({ ...newProf, isProf: true });
       } catch (error) {
         console.log("Error al crear usuario: ", error);
-        return;
+        return res.render("", { error });
       }
       try {
         await userCreated.setRubros(rubros);
@@ -149,7 +149,7 @@ module.exports = {
       phone: req.body.phone,
       DNI: req.body.DNI,
       avatar: req.body.avatar ? req.file.filename : oldData.avatar,
-    };   
+    };
     req.files["avatar"]
       ? (profToCreate.avatar = req.files["avatar"][0].filename)
       : "";
@@ -207,53 +207,52 @@ module.exports = {
         },
       },
       attributes: ["id", "tituloSolicitud", "urgenciaTrabajo", "ubicacion"],
-      include: [{
-        association: "req_imgs",
-        attributes: ["img"]
-        }, {
-        association: "users",
-        attributes: ["name", "lastName"]
-      },{
-        association: "budget_response",
-        attributes: ["estado"],
-        /*where: {
-          userId: userId
-        }*/
-      }],
-      order: [["urgenciaTrabajo", "ASC"]]
+      include: [
+        {
+          association: "req_imgs",
+          attributes: ["img"],
+        },
+        {
+          association: "users",
+          attributes: ["name", "lastName"],
+        },
+        {
+          association: "budget_response",
+          attributes: ["estado"],
+          where: {
+            estado: !"PRESUPUESTO RESPONDIDO",
+          },
+        },
+      ],
+      order: [["urgenciaTrabajo", "ASC"]],
     });
-
-    const responsesSent = await db.budgRes.findAll({
-      where: {
-        userId: userId
-      }
-    })
-   
-    res.render("inboxProf", { budgWithImgs, responsesSent });
+    res.render("inboxProf", { budgWithImgs });
   },
 
   inboxProfResponses: async (req, res) => {
     const responses = await db.budgRes.findAll({
       where: { userId: req.session.userLogged.id },
-      include: [{
-        association: "budget_request",
-        attributes: ["tituloSolicitud", "urgenciaTrabajo", "ubicacion"],
-        include: [
-          {
-            association: "req_imgs",
-            attributes: ["img"]
-          },
-          {
-            association: "users",
-            attributes: ["name", "lastName"]
-          }
-        ]}
+      include: [
+        {
+          association: "budget_request",
+          attributes: ["tituloSolicitud", "urgenciaTrabajo", "ubicacion"],
+          include: [
+            {
+              association: "req_imgs",
+              attributes: ["img"],
+            },
+            {
+              association: "users",
+              attributes: ["name", "lastName"],
+            },
+          ],
+        },
       ],
-      order: [["updated_at", "DESC"]]
+      order: [["updated_at", "DESC"]],
     });
 
-    console.log(JSON.stringify(responses,null,4)); 
-   
+    console.log(JSON.stringify(responses, null, 4));
+
     res.render("inboxProfResponses", { responses });
   },
 };
