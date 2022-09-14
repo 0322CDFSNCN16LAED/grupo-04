@@ -15,7 +15,7 @@ const BudgetResponseList = () => {
       setisBudgetResponseLoading(true);
       const result = await fetch(`${EXPRESS_HOST}/budget/response/list`);
       const budgetResult = await result.json();
-      console.log(JSON.stringify(budgetResult, null, 4));
+      // console.log(JSON.stringify(budgetResult, null, 4));
       setresponseL(budgetResult);
     } catch (error) {
       console.log("error", error);

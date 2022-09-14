@@ -2,6 +2,7 @@ import "./App.css";
 import Dashboard from "./components/Dashboard";
 import BudgetsReqList from "./components/lists/fetchRequest";
 import BudgetResponseList from "./components/lists/fetchResponse";
+import CartListFc from "./components/lists/fetchCart";
 import Sidebar from "./components/Sidebar";
 
 import { Route, Switch } from "react-router-dom";
@@ -22,6 +23,7 @@ function App() {
             <div className="container-fluid pt-5">
               <Switch>
                 <Route path="/" component={Dashboard} exact={true} />
+                <Route path="/cart/list" component={CartListFc} />
                 <Route
                   path="/budgets/response"
                   component={BudgetResponseList}
