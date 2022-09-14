@@ -71,15 +71,13 @@
                 <% } %>
               </div>
               <div>
-                  <label for="precioMateriales" class="mr-3 form-label total-title">
-                    $
-                  </label>
+                  <label for="precioMateriales" class="mr-3 form-label total-title"></label>
                   <input
                     type="text"
                     class="form-control total-price <%= locals.errors && errors.precioMateriales ? 'is-invalid' : null%>"
                     name="precioMateriales"
                     id="precioMateriales"
-                    value="<%= locals.oldData ? oldData.precioMateriales : null %>"
+                    value="$<%= locals.oldData ? oldData.precioMateriales : null %>"
                   />
                   <span class="error"></span>
                   <% if (locals.errors && errors.precioMateriales) { %>
@@ -89,9 +87,7 @@
               </div>
 
             <div class="mb-3">
-              <label for="manoDeObra" class="mr-3 form-label font-medium"
-                >Mano de Obra
-              </label>
+              <label for="manoDeObra" class="mr-3 form-label font-medium">Mano de Obra</label>
               <textarea
                 class="form-control <%= locals.errors && errors.manoDeObra ? 'is-invalid' : null%>"
                 name="manoDeObra"
@@ -105,15 +101,13 @@
               <% } %>
 
               <div>
-                  <label for="precioManoObra" class="mr-3 form-label total-title">
-                    $
-                  </label>
+                  <label for="precioManoObra" class="mr-3 form-label total-title"></label>
                   <input
                     type="text"
                     class="form-control total-price <%= locals.errors && errors.precioManoObra ? 'is-invalid' : null%>"
                     name="precioManoDeObra"
                     id="precioManoDeObra"
-                    value="<%= locals.oldData ? oldData.precioManoObra : null %>"
+                    value="$<%= locals.oldData ? oldData.precioManoObra : null %>"
                   />
                   <span class="error"></span>              
                   <% if (locals.errors && errors.precioManoObra) { %>
@@ -122,14 +116,11 @@
                 </div>
               </div>
 
-
             <div class="mb-3">
-              <label for="duracionTrabajo" class="mr-3 form-label font-medium"
-                >Duración estimada (en horas)</label
-              >
+              <label for="duracionTrabajo" class="mr-3 form-label font-medium">Duración estimada (en horas)</label>
               <input
                 type="text"
-                class="form-control <%= locals.errors && errors.duracionTrabajo ? 'is-invalid' : null%>"
+                class="form-control total-price <%= locals.errors && errors.duracionTrabajo ? 'is-invalid' : null%>"
                 name="duracionTrabajo"
                 id="duracionTrabajo"
                 rows="1"
@@ -142,19 +133,14 @@
             </div>
 
             <div class="mb-3">
-              <label
-                for="comentariosTrabajo"
-                class="mr-3 form-label font-medium"
-                >Comentarios adicionales</label
-              >
+              <label for="comentariosTrabajo" class="mr-3 form-label font-medium">Comentarios adicionales</label>
               <textarea
                 class="form-control <%= locals.errors && errors.comentariosTrabajo ? 'is-invalid' : null%>"
                 name="comentariosTrabajo"
                 id="comentariosTrabajo"
                 rows="3"
                 placeholder="Agregar comentarios adicionales"
-              ><%= locals.oldData ? oldData.comentariosTrabajo : null %></textarea
-              >
+              ><%= locals.oldData ? oldData.comentariosTrabajo : null %></textarea>
               <span class="error"></span>
               <% if (locals.errors && errors.comentariosTrabajo){ %>
                 <div class="error-msg"><%= errors.comentariosTrabajo.msg %></div>
@@ -162,16 +148,14 @@
             </div>           
 
             <div class="fx justify-end align-center">
-              <label for="precioFinal" class="mr-3 form-label total-title"
-                >Monto Total</label
-              >
+              <label for="precioFinal" class="mr-3 form-label total-title">Monto Total</label>
               <input
                 type="text"
                 class="form-control total-price <%= locals.errors && errors.precioFinal ? 'is-invalid' : null%>"
                 name="precioFinal"
                 id="precioFinal"
                 rows="1"
-                value="<%= locals.oldData ? oldData.precioFinal : null %>"
+                value="$ <%= locals.oldData ? oldData.precioFinal : null %>"
               />
               <span class="error"></span>
               <% if (locals.errors && errors.precioFinal) { %>

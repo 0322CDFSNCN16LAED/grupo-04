@@ -45,26 +45,18 @@
           <div class="mb-3">
             <p class="mr-3 form-label font-medium">Materiales</p>
             <p class="form-control"><%= budgetDetail.materiales %></p>
-            <p class="mr-3 form-label total-title">$</p>
-            <p class="form-control total-price">
-              <%= budgetDetail.precioMateriales %>
-            </p>
+            <p class="form-control total-price">$ <%= budgetDetail.precioMateriales %></p>
           </div>
 
           <div class="mb-3">
             <p class="mr-3 form-label font-medium">Mano de Obra</p>
             <p class="form-control"><%= budgetDetail.manoDeObra %></p>
-            <p class="mr-3 form-label total-title">$</p>
-            <p class="form-control total-price">
-              <%= budgetDetail.precioManoDeObra %>
-            </p>
+            <p class="form-control total-price">$ <%= budgetDetail.precioManoDeObra %></p>
           </div>
 
           <div class="mb-3">
-            <p class="mr-3 form-label font-medium">
-              Duración estimada (en horas)
-            </p>
-            <p class="form-control"><%= budgetDetail.duracionTrabajo %></p>
+            <p class="mr-3 form-label font-medium">Duración estimada (en horas)</p>
+            <p class="form-control total-price"><%= budgetDetail.duracionTrabajo %></p>
           </div>
 
           <div class="mb-3">
@@ -74,9 +66,7 @@
 
           <div class="fx justify-end align-center">
             <p class="mr-3 form-label total-title">Monto Total</p>
-            <p class="form-control total-price">
-              <%= budgetDetail.precioFinal %>
-            </p>
+            <p class="form-control total-price bolder"> $ <%= budgetDetail.precioFinal %></p>
           </div>
 
           <div class="fx justify-center mt-3">

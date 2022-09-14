@@ -8,6 +8,10 @@ const validations = [
         validator: isEmpty,
         errorMsg: "Debes completar tu email",
       },
+      {
+        validator: (input) => /\S+@\S+\.\S+/.test(input.value) != "",
+        errorMsg: "Email debe tener un formato válido",
+      },
     ],
   },
   {
