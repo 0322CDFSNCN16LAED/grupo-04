@@ -29,7 +29,6 @@ module.exports = {
         rubros: allRubros,
       });
     }
-
     const profInDb = await db.User.findOne({
       where: {
         email: req.body.email,
@@ -251,9 +250,7 @@ module.exports = {
       ],
       order: [["updated_at", "DESC"]],
     });
-
-    console.log(JSON.stringify(responses, null, 4));
-
+    // console.log(JSON.stringify(responses, null, 4));
     res.render("inboxProfResponses", { responses });
   },
   history: async (req, res) => {
