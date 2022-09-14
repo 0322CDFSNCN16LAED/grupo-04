@@ -1,31 +1,34 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
-import MensajeSecreto from "../MensajeSecreto";
-import Movie from "./Movie";
+// import { Route } from "react-router-dom";
+// import MensajeSecreto from "../MensajeSecreto";
+import BudgetsRequestList from "./BudgetsRequestList";
+
 
 const EXPRESS_HOST = "http://localhost:3001/api";
 
-const BudgetList = () => {
+const BudgetsReqtList = () => {
   const [budgetL, setBudgetL] = useState([]);
-  const [isBudgetLoading, setIsBudgetLoading] = useState(false);
 
-  const fetchBudget = async () => {
+  const [isBudgetRequestLoading, setisBudgetRequestLoading] = useState(false);
+
+  const fetchBudgetRequest = async () => {
     try {
-      setIsBudgetLoading(true);
+      setisBudgetRequestLoading(true);
       const result = await fetch(`${EXPRESS_HOST}/budget/list`);
       const budgetResult = await result.json();
-      console.log(JSON.stringify(budgetResult, null, 4));
+      // console.log(JSON.stringify(budgetResult, null, 4));
       setBudgetL(budgetResult);
     } catch (error) {
       console.log("error", error);
     } finally {
-      setIsBudgetLoading(false);
+      setisBudgetRequestLoading(false);
     }
   };
+ 
   useEffect(() => {
     console.log("fetching budget List");
-    fetchBudget();
+    fetchBudgetRequest();    
   }, []);
 
   return (
@@ -65,12 +68,12 @@ const BudgetList = () => {
                   <th>Urgencia</th>
                 </tr>
               </tfoot>
-              {isBudgetLoading ? (
+              {isBudgetRequestLoading ? (
                 <p>Loading...</p>
               ) : (
                 <tbody>
                   {budgetL.map((budget) => {
-                    return <Movie {...budget} key={budget.id} />;
+                    return <BudgetsRequestList {...budget} key={budget.id} />;
                   })}
                 </tbody>
               )}
@@ -79,8 +82,8 @@ const BudgetList = () => {
         </div>
       </div>
 
-      <Route path="/movies/gatitos" component={MensajeSecreto} />
+      {/* <Route path="/movies/gatitos" component={MensajeSecreto} /> */}
     </React.Fragment>
   );
 };
-export default BudgetList;
+export default BudgetsReqtList;

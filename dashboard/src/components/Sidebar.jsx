@@ -43,6 +43,12 @@ function Sidebar() {
           <span>Budgets Request</span>
         </Link>
       </li>  
+      <li className="nav-item">
+        <Link className="nav-link collapsed" to="/budgets/response" exact="true">
+          <i className="fas fa-fw fa-folder"></i>
+          <span>Budgets Response</span>
+        </Link>
+      </li>  
    
 
       {/* <!-- Divider --> */}
