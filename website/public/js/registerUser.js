@@ -45,6 +45,10 @@ const validations = [
         validator: isEmpty,
         errorMsg: "Email no puede estar vacío",
       },
+      {
+        validator: (input) => /\S+@\S+\.\S+/.test(input.value) != "",
+        errorMsg: "Email debe tener un formato válido",
+      },
     ],
   },
   {
