@@ -20,7 +20,7 @@ const validations = [
         errorMsg: "Debes seleccionar un horario entre las 8:00 y las 20:00 horas",
       },
       {
-        validator: (input) => input.value > "8:00" || input.value < "20:00",
+        validator: (input) => { return input.value > "08:00" && input.value < "20:00" },
         errorMsg: "Debes seleccionar un horario entre las 8:00 y las 20:00 horas",
       },
     ],
@@ -45,10 +45,8 @@ window.onload = function () {
 
     validations.forEach((inputToValidate) => {
       const input = formulario[inputToValidate.inputName];
-      console.log(input.value)
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
-        console.log(isValid)
         if (!isValid) {
           errores.push(validation.errorMsg);
           input.parentElement.classList.add("is-notvalid");
