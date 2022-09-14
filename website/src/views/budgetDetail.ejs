@@ -6,23 +6,23 @@
 
     <main class="imagen-fondo-mobile justify-center">
       <div class="fx justify-center align-center budget-direction">
-        <div class="grey-opacity budget-req budg-req-desk">
+        <div class="card budget-req budg-req-desk">
           <h2 class="text-center bolder mb-3">Tu Pedido</h2>
           <section>
             <div class="mb-3 align-center">
-              <p class="mr-3 font-medium">Título del trabajo</p>
+              <p class="mr-3 font-medium bolder">Título del trabajo</p>
               <p class="form-control"><%= budgetDetail.budget_request.tituloSolicitud %></p>
             </div>
             <div class="mb-3">
-              <p class="mr-3 form-label font-medium">Descripción del trabajo</p>
+              <p class="mr-3 form-label font-medium bolder">Descripción del trabajo</p>
               <p class="form-control"><%= budgetDetail.budget_request.detalleSolicitud %></p>
             </div>
             <div class="mb-3 align-center">
-              <p class="mr-3 font-medium">Categoría</p>
+              <p class="mr-3 font-medium bolder">Categoría</p>
               <p class="form-control"><%= budgetDetail.budget_request.rubroNombre %></p>
             </div>
             <div class="mb-3">
-              <p class="form-label font-medium">Imágenes de referencia</p>
+              <p class="form-label font-medium bolder">Imágenes de referencia</p>
               <% budgetDetail.budget_request.req_imgs.map((img) => {  %> 
                 <a target="_blank" href="/images/budgetRequest/<%= img.img %>">
                   <img class="thumbnail" src="/images/budgetRequest/<%= img.img %>" />
@@ -30,56 +30,53 @@
               <% }) %>
             </div>
             <div class="mb-3">
-              <p class="font-medium">Cuándo necesitas realizarlo:</p>
+              <p class="font-medium bolder">Cuándo necesitas realizarlo:</p>
               <p class="form-control"><%= budgetDetail.budget_request.urgenciaTrabajo %></p>
             </div>
-            <div>
-              <p class="mr-3 budg-txt font-medium">Ubicación</p>
+            <div class="mb-3">
+              <p class="mr-3 budg-txt font-medium bolder">Ubicación</p>
               <p class="form-control"><%= budgetDetail.budget_request.ubicacion %></p>
             </div>
           </section>
         </div>
 
-        <div class="grey-opacity budget-req desk-size">
+        <div class="card budget-req budg-req-desk">
           <h2 class="text-center bolder mb-3">Presupuesto Profesional</h2>
-          <div class="mb-3">
-            <p class="mr-3 form-label font-medium">Materiales</p>
-            <p class="form-control"><%= budgetDetail.materiales %></p>
-            <p class="form-control total-price">$ <%= budgetDetail.precioMateriales %></p>
-          </div>
-
-          <div class="mb-3">
-            <p class="mr-3 form-label font-medium">Mano de Obra</p>
-            <p class="form-control"><%= budgetDetail.manoDeObra %></p>
-            <p class="form-control total-price">$ <%= budgetDetail.precioManoDeObra %></p>
-          </div>
-
-          <div class="mb-3">
-            <p class="mr-3 form-label font-medium">Duración estimada (en horas)</p>
-            <p class="form-control total-price"><%= budgetDetail.duracionTrabajo %></p>
-          </div>
-
-          <div class="mb-3">
-            <p class="mr-3 form-label font-medium">Comentarios adicionales</p>
-            <p class="form-control"><%= budgetDetail.comentariosTrabajo %></p>
-          </div>
-
-          <div class="fx justify-end align-center">
-            <p class="mr-3 form-label total-title">Monto Total</p>
-            <p class="form-control total-price bolder"> $ <%= budgetDetail.precioFinal %></p>
-          </div>
-
-          <div class="fx justify-center mt-3">
-            <% if (locals.userLogged.isProf != true && budgetDetail.shopping_cart === null) {%> 
-            <button class="primary-button">
-              <a href="/cart/<%= budgetDetail.id %>">Agregar al Carrito</a>
-            </button>
-            <% } else { %> 
-               <button class="primary-button">
-                    <a href="/cart"> Ir al Carrito </a>
-                </button>
-            <% } %> 
-          </div>
+          <section>
+            <div class="mb-3 align-center">
+              <p class="mr-3 budg-txt font-medium bolder">Materiales</p>
+              <p class="form-control"><%= budgetDetail.materiales %></p>
+              <p class="form-control text-right">$ <%= budgetDetail.precioMateriales %></p>
+            </div>
+            <div class="mb-3 align-center">
+              <p class="mr-3 budg-txt font-medium bolder">Mano de Obra</p>
+              <p class="form-control"><%= budgetDetail.manoDeObra %></p>
+              <p class="form-control text-right">$ <%= budgetDetail.precioManoDeObra %></p>
+            </div>
+            <div class="mb-3">
+              <p class="mr-3 budg-txt font-medium bolder">Duración estimada (en horas)</p>
+              <p class="form-control"><%= budgetDetail.duracionTrabajo %></p>
+            </div>
+            <div class="mb-3">
+              <p class="mr-3 budg-txt font-medium bolder">Comentarios adicionales</p>
+              <p class="form-control"><%= budgetDetail.comentariosTrabajo %></p>
+            </div>
+            <div class="fx justify-end align-center">
+              <p class="mr-3 form-label total-title">Monto Total</p>
+              <p class="form-control total-price bolder text-right">$ <%= budgetDetail.precioFinal %></p>
+            </div>
+            <div class="fx justify-center mt-3">
+              <% if (locals.userLogged.isProf != true && budgetDetail.shopping_cart === null) {%> 
+              <button class="primary-button">
+                <a href="/cart/<%= budgetDetail.id %>">Agregar al Carrito</a>
+              </button>
+              <% } else { %> 
+                 <button class="primary-button">
+                      <a href="/cart"> Ir al Carrito </a>
+                  </button>
+              <% } %> 
+            </div>
+          </section>
         </div>
       </div>
     </main>
