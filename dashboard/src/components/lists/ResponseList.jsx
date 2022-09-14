@@ -21,12 +21,12 @@ export default function ResponseList({
       </td>
       <td>{userId}</td>
       <td>{materiales}</td>
-      <td>{precioMateriales}</td>
+      <td>$ {precioMateriales}</td>
       <td>{manoDeObra}</td>
-      <td>{precioManoDeObra}</td>
+      <td>$ {precioManoDeObra}</td>
       <td>{duracionTrabajo}</td>
       <td>{comentariosTrabajo}</td>
-      <td>{precioFinal}</td>
+      <td>$ {precioFinal}</td>
       <td>{estado}</td>
     </tr>
   );
