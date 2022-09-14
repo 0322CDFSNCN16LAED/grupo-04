@@ -159,7 +159,7 @@ const Dashboard = () => {
           <p>Loading...</p>
         ) : (
           <MiniCard
-            title="Total de clientes y profesionales"
+            title="Total de Usuarios"
             value={usersAmount.toString()}
             icon="fa-user-hard-hat"
           />
