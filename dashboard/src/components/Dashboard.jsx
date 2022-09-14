@@ -113,7 +113,7 @@ const Dashboard = () => {
           <MiniCard
             title="Total de presupuestos pedidos"
             value={budgetAmount.toString()}
-            icon="fa-user-cog"
+            icon="fa-tools"
             color="danger"
           />
         )}
@@ -123,7 +123,7 @@ const Dashboard = () => {
           <MiniCard
             title="Total de presupuestos Respondidos"
             value={responsesAmount.toString()}
-            icon="fa-user-cog"
+            icon="fa-toolbox"
             color="danger"
           />
         )}
@@ -133,7 +133,7 @@ const Dashboard = () => {
           <MiniCard
             title="Total de presupuestos Contratados"
             value={purchasedAmount.toString()}
-            icon="fa-user-cog"
+            icon="fa-hands-helping"
             color="danger"
           />
         )}
@@ -143,7 +143,7 @@ const Dashboard = () => {
           <MiniCard
             title="Total de Profesionales"
             value={profAmount.toString()}
-            icon="fa-user-hard-hat"
+            icon="fa-user-cog"
           />
         )}
         {isUsersLoading ? (
@@ -152,7 +152,7 @@ const Dashboard = () => {
           <MiniCard
             title="Total de Clientes"
             value={clientAmount.toString()}
-            icon="fa-user-hard-hat"
+            icon="fa-user"
           />
         )}
         {isUsersLoading ? (
@@ -161,7 +161,7 @@ const Dashboard = () => {
           <MiniCard
             title="Total de Usuarios"
             value={usersAmount.toString()}
-            icon="fa-user-hard-hat"
+            icon="fa-users"
           />
         )}
         {isRubrosLoading ? (
@@ -170,7 +170,7 @@ const Dashboard = () => {
           <MiniCard
             title="Total de rubros"
             value={rubrosAmount.toString()}
-            icon="fa-user"
+            icon="fa-hard-hat"
             color="secondary"
           />
         )}
