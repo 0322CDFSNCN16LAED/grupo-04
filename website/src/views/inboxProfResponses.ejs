@@ -6,53 +6,43 @@
     <%- include('./partials/header') %>
 
     <main class="imagen-fondo-mobile justify-center">
-      <h2 class="m-3 font-xlarge bolder">Solicitudes de presupuesto</h2>
+      <h2 class="m-3 font-xlarge bolder">Presupuestos respondidos</h2>
       <section class="row row-cols-1 row-cols-md-2 g-4">
-        <% budgWithImgs.forEach(function(budgetToShow){ %>
+        <% responses.forEach(function(response){ %>
         <div class="card" style="width: 18rem">
           <a
             target="_blank"
-            href="/images/budgetRequest/<%= budgetToShow.req_imgs[0].img %>"
+            href="/images/budgetRequest/<%= response.budget_request.req_imgs[0].img %>"
           >
             <img
               class="card-img-top"
-              src="/images/budgetRequest/<%= budgetToShow.req_imgs[0].img %>"
+              src="/images/budgetRequest/<%= response.budget_request.req_imgs[0].img %>"
             />
           </a>
 
           <div class="card-body">
             <h5 class="card-title text-center">
-              <%= budgetToShow.tituloSolicitud %>
+              <%= response.budget_request.tituloSolicitud %>
             </h5>
           </div>
           <ul class="list-group list-group-flush">
             <li class="text-center bolder card-header">Urgencia del Trabajo</li>
             <li class="list-group-item text-center">
-              <%= budgetToShow.urgenciaTrabajo %>
+              <%= response.budget_request.urgenciaTrabajo %>
             </li>
             <li class="text-center bolder card-header">Ubicación</li>
 
             <li class="list-group-item te text-center">
-              <%= budgetToShow.ubicacion %>
+              <%= response.budget_request.ubicacion %>
             </li>
             <li class="text-center bolder card-header">Pedido por:</li>
             <li class="list-group-item text-center">
-              <%= budgetToShow.users.name %> <%= budgetToShow.users.lastName %>
+              <%= response.budget_request.users.name %> <%= response.budget_request.users.lastName %>
             </li>
           </ul>
-          <% let respondido = false %> 
-          <% for( let response of responsesSent ) { %>                      
-            <% if ( budgetToShow.id == response.reqId ) { %>
-              <% respondido= true %> 
-             <div class="text-center btn btn-success">RESPONDIDO</div>          
-          <% } %>
-          <% } %>
-          <% if (!respondido) { %>
-            <button class="primary-button">
-              <a href="/budget/response/<%= budgetToShow.id %>" class="card-link">Armar presupuesto</a>
-            </button>
-            <% } %>
-          </div>
+          <button class="secondary-button">
+            <a href="/budget/detail/<%= response.id %>" class="card-link">Ver detalle</a>
+          </button>
         <% }) %> 
       </section>
     </main>
