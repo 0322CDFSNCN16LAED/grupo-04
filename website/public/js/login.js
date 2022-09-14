@@ -8,6 +8,10 @@ const validations = [
         validator: isEmpty,
         errorMsg: "Debes completar tu email",
       },
+      {
+        validator: (input) => /\S+@\S+\.\S+/.test(input.value) != "",
+        errorMsg: "Email debe tener un formato válido",
+      },
     ],
   },
   {
@@ -30,10 +34,8 @@ window.onload = function () {
 
     validations.forEach((inputToValidate) => {
       const input = formulario[inputToValidate.inputName];
-      console.log(input.value);
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
-        console.log(isValid);
         if (!isValid) {
           errores.push(validation.errorMsg);
           input.parentElement.classList.add("is-notvalid");

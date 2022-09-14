@@ -47,7 +47,7 @@ const validations = [
       },
       {
         validator: (input) => /\S+@\S+\.\S+/.test(input.value) != "",
-        errorMsg: "Email debe ser valido fe",
+        errorMsg: "Email debe tener un formato válido",
       },
     ],
   },

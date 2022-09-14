@@ -1,4 +1,4 @@
-export default function Movie({
+export default function BudgetsRequestList({
   id,
   tituloSolicitud,
   detalleSolicitud,

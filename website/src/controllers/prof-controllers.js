@@ -228,9 +228,32 @@ module.exports = {
         userId: userId
       }
     })
-    console.log(JSON.stringify(responsesSent,null,4)); 
-    console.log(JSON.stringify(budgWithImgs,null,4)); 
    
     res.render("inboxProf", { budgWithImgs, responsesSent });
+  },
+
+  inboxProfResponses: async (req, res) => {
+    const responses = await db.budgRes.findAll({
+      where: { userId: req.session.userLogged.id },
+      include: [{
+        association: "budget_request",
+        attributes: ["tituloSolicitud", "urgenciaTrabajo", "ubicacion"],
+        include: [
+          {
+            association: "req_imgs",
+            attributes: ["img"]
+          },
+          {
+            association: "users",
+            attributes: ["name", "lastName"]
+          }
+        ]}
+      ],
+      order: [["updated_at", "DESC"]]
+    });
+
+    console.log(JSON.stringify(responses,null,4)); 
+   
+    res.render("inboxProfResponses", { responses });
   },
 };

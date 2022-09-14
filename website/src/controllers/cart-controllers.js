@@ -65,7 +65,7 @@ module.exports = {
       ],
       order: [["dia", "ASC"]]
     });
-    console.log(JSON.stringify(items,null,4))
+    //console.log(JSON.stringify(items,null,4))
     res.render("cartMain", { items });
   },
   
