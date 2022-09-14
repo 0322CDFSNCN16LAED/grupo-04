@@ -229,7 +229,7 @@ a { text-decoration: none; color: black; }
 }
 .total-title {
     margin-bottom: 0%!important;
-    font-size: calc(1rem + .9vw)!important;
+    font-size: calc(.5rem + .9vw)!important;
 }
 .budget-direction {
     flex-direction: column;
