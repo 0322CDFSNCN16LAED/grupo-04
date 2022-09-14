@@ -42,20 +42,23 @@ function Sidebar() {
           <i className="fas fa-fw fa-folder"></i>
           <span>Budgets Request</span>
         </Link>
-      </li>  
+      </li>
       <li className="nav-item">
-        <Link className="nav-link collapsed" to="/budgets/response" exact="true">
+        <Link
+          className="nav-link collapsed"
+          to="/budgets/response"
+          exact="true"
+        >
           <i className="fas fa-fw fa-folder"></i>
           <span>Budgets Response</span>
         </Link>
-      </li>  
+      </li>
       <li className="nav-item">
         <Link className="nav-link collapsed" to="/cart/list" exact="true">
           <i className="fas fa-fw fa-folder"></i>
           <span>Cart List</span>
         </Link>
-      </li>  
-   
+      </li>
 
       {/* <!-- Divider --> */}
       <hr className="sidebar-divider d-none d-md-block" />

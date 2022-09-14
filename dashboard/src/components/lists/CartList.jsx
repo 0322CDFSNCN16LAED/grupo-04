@@ -1,4 +1,4 @@
-import dayjs from "dayjs"
+import dayjs from "dayjs";
 export default function CartList({
   id,
   resId,
@@ -13,7 +13,9 @@ export default function CartList({
     <tr>
       <td>{id}</td>
       <td>{resId}</td>
-      <td>{users.name} {users.lastName}</td>
+      <td>
+        {users.name} {users.lastName}
+      </td>
       <td>{userId}</td>
       <td>{dayjs(dia).format("YYYY-MM-DD")}</td>
       <td>{horario}</td>

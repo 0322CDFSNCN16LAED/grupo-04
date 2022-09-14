@@ -8,15 +8,17 @@ export default function ResponseList({
   comentariosTrabajo,
   precioFinal,
   estado,
-  reqId,  
+  reqId,
   users,
-  userId
+  userId,
 }) {
   return (
     <tr>
-      <td>{id}</td>      
+      <td>{id}</td>
       <td>{reqId}</td>
-      <td>{users.name} {users.lastName}</td>
+      <td>
+        {users.name} {users.lastName}
+      </td>
       <td>{userId}</td>
       <td>{materiales}</td>
       <td>{precioMateriales}</td>

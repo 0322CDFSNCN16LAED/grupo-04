@@ -3,10 +3,9 @@ import PropTypes from "prop-types";
 
 const propTypes = {
   lastUser: PropTypes.object.isRequired,
-  lastBudgetRes: PropTypes.object.isRequired
+  lastBudgetRes: PropTypes.object.isRequired,
 };
 export default function LastUser({ lastUser, lastBudgetRes }) {
-  
   return (
     <>
       <BigCard title="Ultimo presupuesto creado">

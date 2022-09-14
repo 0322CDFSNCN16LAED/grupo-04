@@ -1,21 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
-// import { Route } from "react-router-dom";
-// import MensajeSecreto from "../MensajeSecreto";
 import ResponseList from "./ResponseList";
 
 const EXPRESS_HOST = "http://localhost:3001/api";
 
-const BudgetResponseList = () => {  
-  const [responseL, setresponseL] = useState([]);  
+const BudgetResponseList = () => {
+  const [responseL, setresponseL] = useState([]);
   const [isBudgetResponseLoading, setisBudgetResponseLoading] = useState(false);
-  
+
   const fetchBudgetResponse = async () => {
     try {
       setisBudgetResponseLoading(true);
       const result = await fetch(`${EXPRESS_HOST}/budget/response/list`);
       const budgetResult = await result.json();
-      // console.log(JSON.stringify(budgetResult, null, 4));
       setresponseL(budgetResult);
     } catch (error) {
       console.log("error", error);
@@ -24,7 +21,7 @@ const BudgetResponseList = () => {
     }
   };
   useEffect(() => {
-    console.log("fetching budget response List");  
+    console.log("fetching budget response List");
     fetchBudgetResponse();
   }, []);
 
@@ -88,8 +85,6 @@ const BudgetResponseList = () => {
           </div>
         </div>
       </div>
-
-      {/* <Route path="/movies/gatitos" component={MensajeSecreto} /> */}
     </React.Fragment>
   );
 };

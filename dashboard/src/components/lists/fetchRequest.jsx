@@ -1,9 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-// import { Route } from "react-router-dom";
-// import MensajeSecreto from "../MensajeSecreto";
 import BudgetsRequestList from "./BudgetsRequestList";
-
 
 const EXPRESS_HOST = "http://localhost:3001/api";
 
@@ -17,7 +14,6 @@ const BudgetsReqtList = () => {
       setisBudgetRequestLoading(true);
       const result = await fetch(`${EXPRESS_HOST}/budget/list`);
       const budgetResult = await result.json();
-      // console.log(JSON.stringify(budgetResult, null, 4));
       setBudgetL(budgetResult);
     } catch (error) {
       console.log("error", error);
@@ -25,10 +21,10 @@ const BudgetsReqtList = () => {
       setisBudgetRequestLoading(false);
     }
   };
- 
+
   useEffect(() => {
     console.log("fetching budget List");
-    fetchBudgetRequest();    
+    fetchBudgetRequest();
   }, []);
 
   return (
@@ -81,8 +77,6 @@ const BudgetsReqtList = () => {
           </div>
         </div>
       </div>
-
-      {/* <Route path="/movies/gatitos" component={MensajeSecreto} /> */}
     </React.Fragment>
   );
 };
