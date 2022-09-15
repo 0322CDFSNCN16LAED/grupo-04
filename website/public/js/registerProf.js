@@ -10,7 +10,7 @@ const validations = [
         errorMsg: "Nombre no puede estar vacío",
       },
       {
-        validator: (input) => input.value.trim() < 2,
+        validator: (input) => input.value.length >= 2,
         errorMsg: "Nombre debe tener al menos dos caracteres",
       },
     ],
@@ -23,7 +23,7 @@ const validations = [
         errorMsg: "Apellido no puede estar vacío",
       },
       {
-        validator: (input) => input.value >= 2,
+        validator: (input) => input.value.length >= 2,
         errorMsg: "Apellido debe tener al menos dos caracteres",
       },
     ],
@@ -184,7 +184,7 @@ window.onload = function () {
       }
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
-        console.log(validation)
+        
         if (!isValid) {
           errores.push(validation.errorMsg);
           parent.classList.add("is-notvalid");
