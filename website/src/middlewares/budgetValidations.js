@@ -58,9 +58,9 @@ module.exports = {
       .withMessage("Debes detallar este campo"),
     body("precioManoDeObra")
       .notEmpty()
-      .withMessage("Debes colocar un precio")
+      .withMessage("BE Debes colocar un precio")
       .isNumeric()
-      .withMessage("Debes colocar un número para el precio"),
+      .withMessage("BE Debes colocar un número para el precio"),
     body("duracionTrabajo")
       .notEmpty()
       .withMessage("Debes detallar la duración de la tarea"),
@@ -71,6 +71,18 @@ module.exports = {
       .notEmpty()
       .withMessage("Debes incluir el precio final")
       .isNumeric()
-      .withMessage("Debes colocar un número para el precio"),
+      .withMessage("Debes colocar un número para el precio")
+      .custom((value, { req }) => {        
+        if (
+          parseInt(req.body.precioManoDeObra) +
+            parseInt(req.body.precioMateriales) !=
+          parseInt(req.body.precioFinal)
+        ) {
+          throw new Error(
+            "El precio final debe ser igual a la suma de mano de obra y materiales"
+          );
+        }
+        return true
+      }),
   ],
 };

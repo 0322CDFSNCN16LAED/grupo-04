@@ -17,6 +17,11 @@ const validations = [
         validator: isEmpty,
         errorMsg: "Debes colocar el precio de los materiales",
       },
+      {
+        validator: (input) => !/\D/.test(input.value),
+
+        errorMsg: "FE Debes colocar UN NUMERO",
+      },
     ],
   },
   {
@@ -33,7 +38,12 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "Debes colocar un precio de mano de obra",
+        errorMsg: "FE Debes colocar un precio de mano de obra",
+      },
+      {
+        validator: (input) => !/\D/.test(input.value),
+
+        errorMsg: "FE Debes colocar UN NUMERO",
       },
     ],
   },
@@ -77,6 +87,7 @@ window.onload = function () {
       const input = formulario[inputToValidate.inputName];
       for (const validation of inputToValidate.validations) {
         const isValid = validation.validator(input);
+        console.log("valid" + inputToValidate.inputName + isValid);
         if (!isValid) {
           errores.push(validation.errorMsg);
           input.parentElement.classList.add("is-notvalid");

@@ -101,17 +101,17 @@
               <% } %>
 
               <div class="fx mt-3 justify-end">
-                  <label for="precioManoObra" class="mr-3 form-label total-title">$</label>
+                  <label for="precioManoDeObra" class="mr-3 form-label total-title">$</label>
                   <input
                     type="text"
-                    class="form-control bolder total-price <%= locals.errors && errors.precioManoObra ? 'is-invalid' : null%>"
+                    class="form-control bolder total-price <%= locals.errors && errors.precioManoDeObra ? 'is-invalid' : null%>"
                     name="precioManoDeObra"
                     id="precioManoDeObra"
-                    value="<%= locals.oldData ? oldData.precioManoObra : null %>"
+                    value="<%= locals.oldData ? oldData.precioManoDeObra : null %>"
                   />
                   <span class="error"></span>              
-                  <% if (locals.errors && errors.precioManoObra) { %>
-                    <div class="error-msg"><%= errors.precioManoObra.msg %></div>
+                  <% if (locals.errors && errors.precioManoDeObra) { %>
+                    <div class="error-msg"><%= errors.precioManoDeObra.msg %></div>
                   <% } %>
                 </div>
               </div>

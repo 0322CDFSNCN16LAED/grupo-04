@@ -39,12 +39,7 @@ module.exports = {
       .withMessage("Debes introducir una contraseña")
       .bail()
       .isLength({ min: 8 })
-      .withMessage("La contraseña debe tener al menos ocho caracteres")
-      .bail()
-      .isStrongPassword()
-      .withMessage(
-        "Tu contraseña no es lo suficientemente segura, se requiere más dakka"
-      ),
+      .withMessage("La contraseña debe tener al menos ocho caracteres"),
     body("phone")
       .notEmpty()
       .withMessage("Debes completar tu número de teléfono")
@@ -115,9 +110,8 @@ module.exports = {
       .withMessage("Debes introducir una contraseña")
       .bail()
       .isLength({ min: 8 })
-      .withMessage(
-        `La contraseña debe tener un minimo de 8 caracteres, 1 mayuscula, 1 simbolo y 1 numero`
-      ),
+      .withMessage("La contraseña debe tener un minimo de 8 caracteres"),
+
     body("phone")
       .notEmpty()
       .withMessage("Debes completar tu número teléfono")
