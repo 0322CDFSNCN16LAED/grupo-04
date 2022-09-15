@@ -18,8 +18,8 @@
             <div class="fx justify-center lap-w-1">
                 <div class="card" style="width: 30rem;">
                     <div>
-                        <h2 class="font-large m-t-pro bolder mb-3"><%= cartDetail.budget_response[0].budget_request.tituloSolicitud %></h2>
-                        <img src="/images/budgetRequest/<%= cartDetail.budget_response[0].budget_request.req_imgs[0].img %>" class="w-100 mb-3"></img>
+                        <h2 class="font-large m-t-pro bolder mb-3"><%= cartDetail.budget_response.budget_request.tituloSolicitud %></h2>
+                        <img src="/images/budgetRequest/<%= cartDetail.budget_response.budget_request.req_imgs[0].img %>" class="w-100 mb-3"></img>
                     </div>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Profesional elegido</p>
@@ -27,11 +27,11 @@
                     </div>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Costo del servicio</p>
-                        <p class="form-control">$ <%= cartDetail.budget_response[0].precioFinal %></p>
+                        <p class="form-control">$ <%= cartDetail.budget_response.precioFinal %></p>
                     </div>
                     <div class="mb-3 align-center">                    
                         <p class="mr-3 font-medium">Duración del trabajo</p>
-                        <p class="form-control"><%= cartDetail.budget_response[0].duracionTrabajo %> horas</p>
+                        <p class="form-control"><%= cartDetail.budget_response.duracionTrabajo %> horas</p>
                     </div>
                 </div>
                 <div class="card" style="width: 20rem;">
@@ -77,7 +77,7 @@
                         </div>
                         <div class="mb-3 align-center">                    
                             <p class="mr-3 font-medium">Dirección</p>
-                            <p class="form-control"><%= cartDetail.budget_response[0].budget_request.ubicacion %></p>
+                            <p class="form-control"><%= cartDetail.budget_response.budget_request.ubicacion %></p>
                         </div>
                         <div class="mb-3 align-center">                    
                             <p class="mr-3 font-medium">Teléfono de contacto</p>
