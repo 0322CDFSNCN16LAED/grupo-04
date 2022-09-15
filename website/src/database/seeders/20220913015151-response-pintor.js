@@ -10,7 +10,7 @@ module.exports = {
       where: { isProf: 1 },
       include: ["rubros"],
     });
-    Array(200)
+    Array(300)
       .fill(0)
       .forEach((_, i) => {
         const randomUserId = Users[Math.floor(Math.random() * Users.length)];
