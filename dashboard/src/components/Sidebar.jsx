@@ -6,7 +6,7 @@ import logoReparaYa from "../assets/images/logoReparaYa.svg";
 function Sidebar() {
   return (
     <ul
-      className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion"
+      className="navbar-nav sidebar sidebar-dark accordion repara-ya"
       id="accordionSidebar"
     >
       {/* <!-- Sidebar - Brand --> */}
