@@ -20,7 +20,7 @@ const validations = [
       {
         validator: (input) => !/\D/.test(input.value),
 
-        errorMsg: "FE Debes colocar UN NUMERO",
+        errorMsg: "Debes colocar UN NUMERO",
       },
     ],
   },
@@ -38,12 +38,12 @@ const validations = [
     validations: [
       {
         validator: isEmpty,
-        errorMsg: "FE Debes colocar un precio de mano de obra",
+        errorMsg: "Debes colocar un precio de mano de obra",
       },
       {
         validator: (input) => !/\D/.test(input.value),
 
-        errorMsg: "FE Debes colocar UN NUMERO",
+        errorMsg: "Debes colocar UN NUMERO",
       },
     ],
   },
