@@ -200,7 +200,7 @@ module.exports = {
     const user = await db.User.findByPk(userId, {
       include: ["rubros"],
     });
-    const budgWithImgs = await db.budgReq.findAll({
+    const budg = await db.budgReq.findAll({
       where: {
         rubroNombre: {
           [db.Sequelize.Op.in]: user.rubros.map((rubro) => rubro.nombre),
@@ -219,13 +219,15 @@ module.exports = {
         {
           association: "budget_response",
           attributes: ["estado"],
-          where: {
-            estado: !"PRESUPUESTO RESPONDIDO",
-          },
         },
       ],
       order: [["urgenciaTrabajo", "ASC"]],
     });
+    const budgWithImgs = budg.filter((budget) => {
+      if ((budget.dataValues.budget_response[0] == undefined) == true) {
+        return budget;
+      }    
+    });    
     res.render("inboxProf", { budgWithImgs });
   },
 
@@ -264,16 +266,14 @@ module.exports = {
           where: {
             estado: "TRABAJO CONFIRMADO",
           },
-          include: [
-            "users"        
-          ],
+          include: ["users"],
         },
         {
-          association:"budget_request",
-          include:["users"]
-        }
+          association: "budget_request",
+          include: ["users"],
+        },
       ],
-    });    
+    });
     res.render("historyProf", { cartHistory, dayjs });
   },
 };
