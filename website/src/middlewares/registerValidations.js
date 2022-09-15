@@ -51,9 +51,7 @@ module.exports = {
       .bail()
       .isLength({ min: 8 })
       .withMessage("Debes introducir un número telefónico válido"),
-    body("DNI")
-      .notEmpty()
-      .withMessage("Debes completar tu número de DNI"),
+    body("DNI").notEmpty().withMessage("Debes completar tu número de DNI"),
     body("address").notEmpty().withMessage("Debes completar tu dirección"),
     body("city")
       .notEmpty()
@@ -116,21 +114,7 @@ module.exports = {
       .notEmpty()
       .withMessage("Debes introducir una contraseña")
       .bail()
-      .isStrongPassword([
-        {
-          minLength: 8,
-          minUppercase: 1,
-          minNumbers: 1,
-          minSymbols: 1,
-          returnScore: true,
-          pointsPerUnique: 1,
-          pointsPerRepeat: 0.5,
-          pointsForContainingLower: 10,
-          pointsForContainingUpper: 10,
-          pointsForContainingNumber: 10,
-          pointsForContainingSymbol: 10,
-        },
-      ])
+      .isLength({ min: 8 })
       .withMessage(
         `La contraseña debe tener un minimo de 8 caracteres, 1 mayuscula, 1 simbolo y 1 numero`
       ),
@@ -139,7 +123,9 @@ module.exports = {
       .withMessage("Debes completar tu número teléfono")
       .bail()
       .isLength({ min: 8 })
-      .withMessage("Debes introducir un número telefónico válido"),
+      .withMessage(
+        "Debes introducir un número telefónico válido con al menos 8 caracteres"
+      ),
     body("DNI")
       .notEmpty()
       .isNumeric()

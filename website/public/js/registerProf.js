@@ -58,7 +58,7 @@ const validations = [
         errorMsg: "Contraseña no puede estar vacío",
       },
       {
-        validator: minOcho,
+        validator: (input) => input.value.length >= 8,
         errorMsg: "Contraseña debe tener al menos ocho caracteres",
       },
     ],
