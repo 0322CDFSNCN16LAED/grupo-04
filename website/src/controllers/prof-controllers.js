@@ -218,7 +218,8 @@ module.exports = {
         },
         {
           association: "budget_response",
-          attributes: ["estado"],
+          attributes: ["estado", "userId"],
+          include: ["shopping_cart"],
         },
       ],
       order: [["urgenciaTrabajo", "ASC"]],
@@ -226,8 +227,20 @@ module.exports = {
     const budgWithImgs = budg.filter((budget) => {
       if ((budget.dataValues.budget_response[0] == undefined) == true) {
         return budget;
-      }    
-    });    
+      } else {
+        if (
+          (budget.dataValues.budget_response[0].userId !=
+            req.session.userLogged.id &&
+            budget.dataValues.budget_response[0].shopping_cart == null) ||
+          budget.dataValues.budget_response[0].userId !=
+            req.session.userLogged.id ||
+          budget.dataValues.budget_response[0].shopping_cart == null
+        ) {
+          return budget;
+        }
+      }
+    });
+    console.log(JSON.stringify(budg, null, 4));
     res.render("inboxProf", { budgWithImgs });
   },
 

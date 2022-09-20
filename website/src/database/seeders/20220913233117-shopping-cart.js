@@ -16,7 +16,7 @@ module.exports = {
       "TRABAJO CANCELADO",
     ];
     const metodoPago = ["efectivo", "debito", "credito", "mercadoPago"];
-    Array(100)
+    Array(300)
       .fill(0)
       .forEach((_, i) => {
         const randomResponses =
