@@ -182,4 +182,13 @@ module.exports = {
     }
     
   },
+  finalCart: async (req,res) => {
+    const products = await db.ShoppingCart.findAll({
+      where: {
+        userId: req.session.userLogged.id,
+        estado: "TRABAJO CONFIRMADO"
+      }
+    })
+    console.log(products);
+  }
 }

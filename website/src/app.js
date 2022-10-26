@@ -34,6 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(methodOverride("_method"));
+app.use(require("./middlewares/cart"));
 
 const mainRouter = require("./routes/main.js");
 const apiUsersRouter = require("./routes/api/usersApi.js");

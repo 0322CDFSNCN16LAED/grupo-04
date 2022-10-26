@@ -200,13 +200,14 @@ module.exports = {
     const user = await db.User.findByPk(userId, {
       include: ["rubros"],
     });
+    const userRubros = user.rubros.map (rubro => rubro.nombre)    
     const budg = await db.budgReq.findAll({
       where: {
         rubroNombre: {
           [db.Sequelize.Op.in]: user.rubros.map((rubro) => rubro.nombre),
         },
       },
-      attributes: ["id", "tituloSolicitud", "urgenciaTrabajo", "ubicacion"],
+      attributes: ["id", "tituloSolicitud", "urgenciaTrabajo", "ubicacion","rubroNombre"],
       include: [
         {
           association: "req_imgs",
@@ -240,7 +241,21 @@ module.exports = {
         }
       }
     });
-    console.log(JSON.stringify(budg, null, 4));
+    
+    const electricista = budgWithImgs.filter( budget => 
+      budget.rubroNombre == "Electricista")
+    const plomero = budgWithImgs.filter(
+      (budget) => budget.rubroNombre == "Plomero"
+    );
+    const pintor = budgWithImgs.filter(
+      (budget) => budget.rubroNombre == "Pintor"
+    );
+    const gasista = budgWithImgs.filter(
+      (budget) => budget.rubroNombre == "Gasista"
+    );
+    const albañil = budgWithImgs.filter(
+      (budget) => budget.rubroNombre == "Albañil"
+    );    
     res.render("inboxProf", { budgWithImgs });
   },
 
