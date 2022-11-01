@@ -98,6 +98,12 @@ dist
 .env*
 !.env.example*
 
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # DynamoDB Local files
 .dynamodb/
 
