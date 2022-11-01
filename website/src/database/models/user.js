@@ -27,18 +27,18 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     phone: {
-      type:  DataTypes.STRING(500),
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
     DNI: {
-      type:  DataTypes.STRING(500),
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
     isProf: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-      },
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
     address: {
       type: DataTypes.STRING(500),
       allowNull: false,
@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     zipCode: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
     avatar: {
