@@ -78,7 +78,7 @@ module.exports = {
         }
       });
     await queryInterface.bulkInsert("users", users);
-    await queryInterface.bulkInsert("rubrousers", userRubros);
+    await queryInterface.bulkInsert("rubroUsers", userRubros);
     await queryInterface.bulkInsert("jobs_imgs", userJobImgs);
   },
 
@@ -86,7 +86,7 @@ module.exports = {
     await queryInterface.bulkDelete("budget_response", null, {});
     await queryInterface.bulkDelete("req_imgs", null, {});
     await queryInterface.bulkDelete("budget_request", null, {});
-    await queryInterface.bulkDelete("rubrousers", null, {});
+    await queryInterface.bulkDelete("rubroUsers", null, {});
     await queryInterface.bulkDelete("shopping_cart", null, {});
     await queryInterface.bulkDelete("jobs_imgs", null, {});
     await queryInterface.bulkDelete("users", null, {});
