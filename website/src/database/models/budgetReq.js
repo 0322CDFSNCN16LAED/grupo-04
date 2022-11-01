@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     detalleSolicitud: {
-      type: DataTypes.STRING(500),
+      type: DataTypes.STRING(5000),
       allowNull: false,
     },
     rubroNombre: {
