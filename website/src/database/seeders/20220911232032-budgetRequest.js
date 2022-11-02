@@ -56,7 +56,7 @@ module.exports = {
           tituloSolicitud: faker.lorem.words(5),
           userId: randomUserId.id,
           rubroNombre: randomRubro.nombre,
-          detalleSolicitud: faker.lorem.paragraphs(3),
+          detalleSolicitud: faker.lorem.paragraphs(1),
           urgenciaTrabajo: randomUrgTrabajo,
           ubicacion:
             faker.address.streetAddress() +
