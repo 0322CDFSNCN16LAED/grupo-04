@@ -21,7 +21,7 @@ module.exports = {
             id: i + 1,
             reqId: randomRequest.id,
             userId: randomUserId.id,
-            materiales: faker.lorem.paragraphs(3),
+            materiales: faker.lorem.paragraphs(1),
             precioMateriales: faker.datatype.number({ min: 8000, max: 80000 }),
             manoDeObra: faker.lorem.paragraphs(1),
             precioManoDeObra: faker.datatype.number({ min: 8000, max: 80000 }),
