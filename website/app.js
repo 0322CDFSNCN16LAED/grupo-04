@@ -3,8 +3,8 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 const dayjs = require("dayjs");
-
-const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
+require("dotenv").config();
+const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
 
 const cors = require("cors");
 
@@ -12,7 +12,7 @@ app.use(cors(["localhost:3000"]));
 
 app.use(
   session({
-    secret: "es un secreto",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
   })
@@ -26,19 +26,19 @@ app.locals.dateFormat = (date) => {
 app.use(userLoggedMiddleware);
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "/views"));
+app.set("views", path.join(__dirname, "/src/views"));
 
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "./public")));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(methodOverride("_method"));
-app.use(require("./middlewares/cart"));
+app.use(require("./src/middlewares/cart"));
 
-const mainRouter = require("./routes/main.js");
-const apiUsersRouter = require("./routes/api/usersApi.js");
-const apiBudgetsRouter = require("./routes/api/budgetApi.js");
+const mainRouter = require("./src/routes/main.js");
+const apiUsersRouter = require("./src/routes/api/usersApi.js");
+const apiBudgetsRouter = require("./src/routes/api/budgetApi.js");
 
 app.use("/", mainRouter);
 app.use("/api/users", apiUsersRouter);
