@@ -14,7 +14,7 @@ module.exports = {
     const resultValidation = validationResult(req);
     const rubros = await db.Rubro.findAll();
     if (resultValidation.errors.length > 0) {
-      res.render("BudgetRequest", {
+      res.render("budgetRequest", {
         errors: resultValidation.mapped(),
         oldData: req.body,
         rubros: rubros,
