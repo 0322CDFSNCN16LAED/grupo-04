@@ -1,5 +1,4 @@
 const isEmpty = (input) => input.value.trim() != "";
-const minOcho = (input) => input.value.trim() < 8;
 
 const validations = [
   {

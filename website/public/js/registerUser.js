@@ -1,6 +1,5 @@
 const isEmpty = (input) => input.value.trim() != "";
-const minDos = (input) => input.value.trim() < 2;
-const minOcho = (input) => input.value.trim() < 8;
+
 
 const validations = [
   {
@@ -11,7 +10,7 @@ const validations = [
         errorMsg: "Nombre no puede estar vacío",
       },
       {
-        validator: minDos,
+        validator: (input) => input.value.length >= 2,
         errorMsg: "Nombre debe tener al menos dos caracteres",
       },
     ],
@@ -24,7 +23,7 @@ const validations = [
         errorMsg: "Apellido no puede estar vacío",
       },
       {
-        validator: minDos,
+        validator: (input) => input.value.length >= 2,
         errorMsg: "Apellido debe tener al menos dos caracteres",
       },
     ],
@@ -59,7 +58,7 @@ const validations = [
         errorMsg: "Contraseña no puede estar vacío",
       },
       {
-        validator: minOcho,
+        validator: (input) => input.value.length >= 8,
         errorMsg: "Contraseña debe tener al menos ocho caracteres",
       },
     ],
