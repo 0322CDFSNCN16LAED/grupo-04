@@ -8,12 +8,8 @@
     <main class="imagen-fondo-mobile justify-center">
       <h2 class="m-3 font-xlarge bolder">Nuevas Solicitudes (<%= budgWithImgs.length %>)</h2>
       <section class="row row-cols-1 row-cols-md-2 g-4">
-        <% budgWithImgs.forEach(function(budgetToShow){ %>
-          
-        <% if (budgetToShow.rubroNombre == "Electricista") { %>
-        <h3> Electricidad </h3>
-
-        <% } %>
+        <% budgWithImgs.forEach(function(budgetToShow){ %>        
+       
                      
         <div class="card" style="width: 18rem">
           <a
